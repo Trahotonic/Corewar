@@ -3,4 +3,4 @@ project(Corewar C)
 
 set(CMAKE_C_STANDARD 90)
 
-add_executable(Corewar libft vm_champs src/main.c)
+add_executable(Corewar Makefile libft vm_champs src/main.c inc/corewar.h src/readers.c)

@@ -48,10 +48,10 @@ RM = /Applications/CLion.app/Contents/bin/cmake/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/rkyslyy/CLionProjects/Corewar
+CMAKE_SOURCE_DIR = /Users/rkyslyy/corewar
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/rkyslyy/CLionProjects/Corewar/cmake-build-debug
+CMAKE_BINARY_DIR = /Users/rkyslyy/corewar/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/rkyslyy/CLionProjects/Corewar/cmake-build-debug/CMakeFiles /Users/rkyslyy/CLionProjects/Corewar/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/rkyslyy/corewar/cmake-build-debug/CMakeFiles /Users/rkyslyy/corewar/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/rkyslyy/CLionProjects/Corewar/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/rkyslyy/corewar/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -150,6 +150,33 @@ src/main.c.s:
 	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/main.c.s
 .PHONY : src/main.c.s
 
+src/readers.o: src/readers.c.o
+
+.PHONY : src/readers.o
+
+# target to build an object file
+src/readers.c.o:
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/readers.c.o
+.PHONY : src/readers.c.o
+
+src/readers.i: src/readers.c.i
+
+.PHONY : src/readers.i
+
+# target to preprocess a source file
+src/readers.c.i:
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/readers.c.i
+.PHONY : src/readers.c.i
+
+src/readers.s: src/readers.c.s
+
+.PHONY : src/readers.s
+
+# target to generate assembly for a file
+src/readers.c.s:
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/readers.c.s
+.PHONY : src/readers.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -162,6 +189,9 @@ help:
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/readers.o"
+	@echo "... src/readers.i"
+	@echo "... src/readers.s"
 .PHONY : help
 
 

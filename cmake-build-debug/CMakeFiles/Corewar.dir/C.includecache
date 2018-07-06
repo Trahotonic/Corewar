@@ -6,7 +6,13 @@
 
 #IncludeRegexTransform: 
 
-/Users/rkyslyy/CLionProjects/Corewar/libft/./ft_printf/includes/prlib.h
+/Users/rkyslyy/corewar/inc/corewar.h
+stdio.h
+-
+../libft/libft.h
+/Users/rkyslyy/corewar/libft/libft.h
+
+/Users/rkyslyy/corewar/libft/./ft_printf/includes/prlib.h
 stdarg.h
 -
 unistd.h
@@ -14,7 +20,7 @@ unistd.h
 stdlib.h
 -
 
-/Users/rkyslyy/CLionProjects/Corewar/libft/libft.h
+/Users/rkyslyy/corewar/libft/libft.h
 stdlib.h
 -
 unistd.h
@@ -24,11 +30,39 @@ string.h
 fcntl.h
 -
 ./ft_printf/includes/prlib.h
-/Users/rkyslyy/CLionProjects/Corewar/libft/./ft_printf/includes/prlib.h
+/Users/rkyslyy/corewar/libft/./ft_printf/includes/prlib.h
 
-/Users/rkyslyy/CLionProjects/Corewar/src/main.c
+/Users/rkyslyy/corewar/src/./../inc/corewar.h
 stdio.h
 -
 ../libft/libft.h
-/Users/rkyslyy/CLionProjects/Corewar/libft/libft.h
+/Users/rkyslyy/corewar/src/./../libft/libft.h
+
+/Users/rkyslyy/corewar/src/./../libft/./ft_printf/includes/prlib.h
+stdarg.h
+-
+unistd.h
+-
+stdlib.h
+-
+
+/Users/rkyslyy/corewar/src/./../libft/libft.h
+stdlib.h
+-
+unistd.h
+-
+string.h
+-
+fcntl.h
+-
+./ft_printf/includes/prlib.h
+/Users/rkyslyy/corewar/src/./../libft/./ft_printf/includes/prlib.h
+
+/Users/rkyslyy/corewar/src/main.c
+./../inc/corewar.h
+/Users/rkyslyy/corewar/src/./../inc/corewar.h
+
+/Users/rkyslyy/corewar/src/readers.c
+../inc/corewar.h
+/Users/rkyslyy/corewar/inc/corewar.h
 
