@@ -13,6 +13,7 @@ LIBINC = ./libft/
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
+NC = -lncurses
 
 all: $(NAME)
 
@@ -20,7 +21,7 @@ $(BUILDDIR)%.o:$(SRCDIR)%.c
 	$(CC) $(CFLAGS) -I$(LIBINC) -I$(INC) -o $@ -c $<
 
 $(NAME): $(LIBFT) $(BUILDOBJS)
-	$(CC) $(CFLAGS) -o $(NAME) $(BUILDOBJS) $(LIBFT)
+	$(CC) $(CFLAGS) $(NC) -o $(NAME) $(BUILDOBJS) $(LIBFT)
 
 $(LIBFT):
 	make -C $(LIBDIR)

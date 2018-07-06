@@ -34,9 +34,18 @@ int main(int argc, char **argv)
 	header_t	header;
 	char		*total;
 	unsigned char	map[4096];
-	int n = 0;
+    char *x;
+	int n;
+    int m;
+    int q;
+    int c;
+    int i;
+    i = 0;
+    n = 0;
+    x = (char*)malloc(sizeof(char) * 3);
+    x[2] = '\0';
 	while (n < 4096)
-		map[n++] = 0;
+		map[n++] = '0';
 	int fd = open(argv[1], O_RDONLY);
 	read(fd, &header, sizeof(header_t));
     getTotal(fd, &total);
@@ -46,7 +55,43 @@ int main(int argc, char **argv)
         map[n] = total[n];
         n++;
     }
-    printf("%s\n", map);
+//    printf("%s\n", map);
 	close(fd);
+    initscr();
+    curs_set(0);
+    nodelay(stdscr, true);
+    start_color();
+    use_default_colors();
+    init_pair(5, COLOR_GREEN, -1);
+    while (1)
+    {
+//        clear();
+        c = getch();
+        if (c == 113)
+            break ;
+        n = 0;
+        while (n < 64)
+        {
+            m = 0;
+            q = 0;
+            while (m < 64 && i < 4096)
+            {
+                x[0] = map[i];
+                i++;
+                x[1] = map[i];
+                if (i < (int)ft_strlen(total))
+                    attron(COLOR_PAIR(5));
+                mvwprintw(stdscr, n, q, x);
+                if (i < (int)ft_strlen(total))
+                    attroff(COLOR_PAIR(5));
+                m++;
+                q += 3;
+                i++;
+            }
+            n++;
+        }
+        refresh();
+    }
+    endwin();
 	return 0;
 }

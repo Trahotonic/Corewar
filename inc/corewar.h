@@ -6,6 +6,7 @@
 #define COREWAR_COREWAR_H
 
 #include <stdio.h>
+#include <ncurses.h>
 #include "../libft/libft.h"
 #define IND_SIZE				2
 #define REG_SIZE				4
