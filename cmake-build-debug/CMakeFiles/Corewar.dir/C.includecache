@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/rkyslyy/CLionProjects/Corewar/libft/./ft_printf/includes/prlib.h
+stdarg.h
+-
+unistd.h
+-
+stdlib.h
+-
+
+/Users/rkyslyy/CLionProjects/Corewar/libft/libft.h
+stdlib.h
+-
+unistd.h
+-
+string.h
+-
+fcntl.h
+-
+./ft_printf/includes/prlib.h
+/Users/rkyslyy/CLionProjects/Corewar/libft/./ft_printf/includes/prlib.h
+
+/Users/rkyslyy/CLionProjects/Corewar/src/main.c
+stdio.h
+-
+../libft/libft.h
+/Users/rkyslyy/CLionProjects/Corewar/libft/libft.h
+

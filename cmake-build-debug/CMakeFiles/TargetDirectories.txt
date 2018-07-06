@@ -1,0 +1,3 @@
+/Users/rkyslyy/CLionProjects/Corewar/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/rkyslyy/CLionProjects/Corewar/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/rkyslyy/CLionProjects/Corewar/cmake-build-debug/CMakeFiles/Corewar.dir
