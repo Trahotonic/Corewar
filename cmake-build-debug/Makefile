@@ -150,32 +150,59 @@ src/main.c.s:
 	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/main.c.s
 .PHONY : src/main.c.s
 
-src/readers.o: src/readers.c.o
+src/read.o: src/read.c.o
 
-.PHONY : src/readers.o
+.PHONY : src/read.o
 
 # target to build an object file
-src/readers.c.o:
-	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/readers.c.o
-.PHONY : src/readers.c.o
+src/read.c.o:
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/read.c.o
+.PHONY : src/read.c.o
 
-src/readers.i: src/readers.c.i
+src/read.i: src/read.c.i
 
-.PHONY : src/readers.i
+.PHONY : src/read.i
 
 # target to preprocess a source file
-src/readers.c.i:
-	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/readers.c.i
-.PHONY : src/readers.c.i
+src/read.c.i:
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/read.c.i
+.PHONY : src/read.c.i
 
-src/readers.s: src/readers.c.s
+src/read.s: src/read.c.s
 
-.PHONY : src/readers.s
+.PHONY : src/read.s
 
 # target to generate assembly for a file
-src/readers.c.s:
-	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/readers.c.s
-.PHONY : src/readers.c.s
+src/read.c.s:
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/read.c.s
+.PHONY : src/read.c.s
+
+src/vizualize.o: src/vizualize.c.o
+
+.PHONY : src/vizualize.o
+
+# target to build an object file
+src/vizualize.c.o:
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/vizualize.c.o
+.PHONY : src/vizualize.c.o
+
+src/vizualize.i: src/vizualize.c.i
+
+.PHONY : src/vizualize.i
+
+# target to preprocess a source file
+src/vizualize.c.i:
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/vizualize.c.i
+.PHONY : src/vizualize.c.i
+
+src/vizualize.s: src/vizualize.c.s
+
+.PHONY : src/vizualize.s
+
+# target to generate assembly for a file
+src/vizualize.c.s:
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/vizualize.c.s
+.PHONY : src/vizualize.c.s
 
 # Help Target
 help:
@@ -189,9 +216,12 @@ help:
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
-	@echo "... src/readers.o"
-	@echo "... src/readers.i"
-	@echo "... src/readers.s"
+	@echo "... src/read.o"
+	@echo "... src/read.i"
+	@echo "... src/read.s"
+	@echo "... src/vizualize.o"
+	@echo "... src/vizualize.i"
+	@echo "... src/vizualize.s"
 .PHONY : help
 
 

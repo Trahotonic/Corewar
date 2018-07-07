@@ -71,5 +71,7 @@ typedef struct		header_s
 char	*ft_arrg_join(char *s1, char *s2);
 char	*ft_uitoa_base2(unsigned long long value, int base);
 void	convert(char **str);
+void    getTotal(int fd, char **total);
+void    visualize(unsigned char map[], size_t len);
 
 #endif //COREWAR_COREWAR_H

@@ -78,3 +78,39 @@ void	convert(char **str)
     free(*str);
     *str = new;
 }
+
+void    case123(unsigned int buff, char **str, ssize_t n)
+{
+    char    *dump;
+
+    dump = ft_uitoa_base2(buff, 16);
+    if (n == 1)
+        *str = ft_strsub(dump, 0, 2);
+    else if (n == 2)
+        *str = ft_strsub(dump, 0, 4);
+    else if (n == 3)
+        *str = ft_strsub(dump, 0, 6);
+    free(dump);
+}
+
+void    getTotal(int fd, char **total)
+{
+    ssize_t         n;
+    unsigned int    buff;
+    char            *str;
+
+    *total = ft_strnew(0);
+    while ((n = read(fd, &buff, sizeof(int))))
+    {
+        buff = ((buff & 0x000000FF) << 24) | ((buff & 0x0000FF00) <<  8) |
+               ((buff & 0x00FF0000) >>  8) | ((buff & 0xFF000000) >> 24);
+        if (n == 1 || n == 2 || n == 3)
+            case123(buff, &str, n);
+        else
+        {
+            str = ft_uitoa_base2(buff, 16);
+            convert(&str);
+        }
+        *total = ft_arrg_join(*total, str);
+    }
+}

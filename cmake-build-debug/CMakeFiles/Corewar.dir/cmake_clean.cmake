@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/Corewar.dir/src/main.c.o"
-  "CMakeFiles/Corewar.dir/src/readers.c.o"
+  "CMakeFiles/Corewar.dir/src/read.c.o"
+  "CMakeFiles/Corewar.dir/src/vizualize.c.o"
   "Corewar.pdb"
   "Corewar"
 )

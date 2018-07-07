@@ -81,43 +81,69 @@ CMakeFiles/Corewar.dir/src/main.c.o.provides: CMakeFiles/Corewar.dir/src/main.c.
 CMakeFiles/Corewar.dir/src/main.c.o.provides.build: CMakeFiles/Corewar.dir/src/main.c.o
 
 
-CMakeFiles/Corewar.dir/src/readers.c.o: CMakeFiles/Corewar.dir/flags.make
-CMakeFiles/Corewar.dir/src/readers.c.o: ../src/readers.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/rkyslyy/corewar/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/Corewar.dir/src/readers.c.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Corewar.dir/src/readers.c.o   -c /Users/rkyslyy/corewar/src/readers.c
+CMakeFiles/Corewar.dir/src/read.c.o: CMakeFiles/Corewar.dir/flags.make
+CMakeFiles/Corewar.dir/src/read.c.o: ../src/read.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/rkyslyy/corewar/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/Corewar.dir/src/read.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Corewar.dir/src/read.c.o   -c /Users/rkyslyy/corewar/src/read.c
 
-CMakeFiles/Corewar.dir/src/readers.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Corewar.dir/src/readers.c.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/rkyslyy/corewar/src/readers.c > CMakeFiles/Corewar.dir/src/readers.c.i
+CMakeFiles/Corewar.dir/src/read.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Corewar.dir/src/read.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/rkyslyy/corewar/src/read.c > CMakeFiles/Corewar.dir/src/read.c.i
 
-CMakeFiles/Corewar.dir/src/readers.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Corewar.dir/src/readers.c.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/rkyslyy/corewar/src/readers.c -o CMakeFiles/Corewar.dir/src/readers.c.s
+CMakeFiles/Corewar.dir/src/read.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Corewar.dir/src/read.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/rkyslyy/corewar/src/read.c -o CMakeFiles/Corewar.dir/src/read.c.s
 
-CMakeFiles/Corewar.dir/src/readers.c.o.requires:
+CMakeFiles/Corewar.dir/src/read.c.o.requires:
 
-.PHONY : CMakeFiles/Corewar.dir/src/readers.c.o.requires
+.PHONY : CMakeFiles/Corewar.dir/src/read.c.o.requires
 
-CMakeFiles/Corewar.dir/src/readers.c.o.provides: CMakeFiles/Corewar.dir/src/readers.c.o.requires
-	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/readers.c.o.provides.build
-.PHONY : CMakeFiles/Corewar.dir/src/readers.c.o.provides
+CMakeFiles/Corewar.dir/src/read.c.o.provides: CMakeFiles/Corewar.dir/src/read.c.o.requires
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/read.c.o.provides.build
+.PHONY : CMakeFiles/Corewar.dir/src/read.c.o.provides
 
-CMakeFiles/Corewar.dir/src/readers.c.o.provides.build: CMakeFiles/Corewar.dir/src/readers.c.o
+CMakeFiles/Corewar.dir/src/read.c.o.provides.build: CMakeFiles/Corewar.dir/src/read.c.o
+
+
+CMakeFiles/Corewar.dir/src/vizualize.c.o: CMakeFiles/Corewar.dir/flags.make
+CMakeFiles/Corewar.dir/src/vizualize.c.o: ../src/vizualize.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/rkyslyy/corewar/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/Corewar.dir/src/vizualize.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Corewar.dir/src/vizualize.c.o   -c /Users/rkyslyy/corewar/src/vizualize.c
+
+CMakeFiles/Corewar.dir/src/vizualize.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Corewar.dir/src/vizualize.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/rkyslyy/corewar/src/vizualize.c > CMakeFiles/Corewar.dir/src/vizualize.c.i
+
+CMakeFiles/Corewar.dir/src/vizualize.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Corewar.dir/src/vizualize.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/rkyslyy/corewar/src/vizualize.c -o CMakeFiles/Corewar.dir/src/vizualize.c.s
+
+CMakeFiles/Corewar.dir/src/vizualize.c.o.requires:
+
+.PHONY : CMakeFiles/Corewar.dir/src/vizualize.c.o.requires
+
+CMakeFiles/Corewar.dir/src/vizualize.c.o.provides: CMakeFiles/Corewar.dir/src/vizualize.c.o.requires
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/vizualize.c.o.provides.build
+.PHONY : CMakeFiles/Corewar.dir/src/vizualize.c.o.provides
+
+CMakeFiles/Corewar.dir/src/vizualize.c.o.provides.build: CMakeFiles/Corewar.dir/src/vizualize.c.o
 
 
 # Object files for target Corewar
 Corewar_OBJECTS = \
 "CMakeFiles/Corewar.dir/src/main.c.o" \
-"CMakeFiles/Corewar.dir/src/readers.c.o"
+"CMakeFiles/Corewar.dir/src/read.c.o" \
+"CMakeFiles/Corewar.dir/src/vizualize.c.o"
 
 # External object files for target Corewar
 Corewar_EXTERNAL_OBJECTS =
 
 Corewar: CMakeFiles/Corewar.dir/src/main.c.o
-Corewar: CMakeFiles/Corewar.dir/src/readers.c.o
+Corewar: CMakeFiles/Corewar.dir/src/read.c.o
+Corewar: CMakeFiles/Corewar.dir/src/vizualize.c.o
 Corewar: CMakeFiles/Corewar.dir/build.make
 Corewar: CMakeFiles/Corewar.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/rkyslyy/corewar/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C executable Corewar"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/rkyslyy/corewar/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking C executable Corewar"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Corewar.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -126,7 +152,8 @@ CMakeFiles/Corewar.dir/build: Corewar
 .PHONY : CMakeFiles/Corewar.dir/build
 
 CMakeFiles/Corewar.dir/requires: CMakeFiles/Corewar.dir/src/main.c.o.requires
-CMakeFiles/Corewar.dir/requires: CMakeFiles/Corewar.dir/src/readers.c.o.requires
+CMakeFiles/Corewar.dir/requires: CMakeFiles/Corewar.dir/src/read.c.o.requires
+CMakeFiles/Corewar.dir/requires: CMakeFiles/Corewar.dir/src/vizualize.c.o.requires
 
 .PHONY : CMakeFiles/Corewar.dir/requires
 

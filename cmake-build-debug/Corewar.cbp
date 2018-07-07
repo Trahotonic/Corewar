@@ -92,7 +92,10 @@
 		<Unit filename="/Users/rkyslyy/corewar/src/main.c">
 			<Option target="Corewar"/>
 		</Unit>
-		<Unit filename="/Users/rkyslyy/corewar/src/readers.c">
+		<Unit filename="/Users/rkyslyy/corewar/src/read.c">
+			<Option target="Corewar"/>
+		</Unit>
+		<Unit filename="/Users/rkyslyy/corewar/src/vizualize.c">
 			<Option target="Corewar"/>
 		</Unit>
 		<Unit filename="/Users/rkyslyy/corewar/vm_champs">
