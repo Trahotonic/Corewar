@@ -74,7 +74,7 @@ typedef struct  	s_process
 	int    				cur_pos;
 	int    				carry;
 	int    				pl_num;
-	unsigned int		reg[REG_NUMBER][REG_SIZE];
+	unsigned int		reg[REG_NUMBER];
 	int    				alive;
 	char   				command[3];
 	int    				cycle_todo;
@@ -88,6 +88,14 @@ typedef struct		s_player
 	int 		lastAlive;
 	header_t	header;
 }					t_player;
+
+typedef struct  functions_s
+{
+	char   *name;
+	int    codage;
+	int    cycles;
+	void  (*funcptr)(t_process, char*, int, t_player[]);
+}     functions_t;
 
 char	*ft_arrg_join(char *s1, char *s2);
 char	*ft_uitoa_base2(unsigned long long value, int base);

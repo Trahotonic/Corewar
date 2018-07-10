@@ -12,7 +12,7 @@ LIBFT = ./libft/libft.a
 LIBINC = ./libft/
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS =
 NC = -lncurses
 
 all: $(NAME)
