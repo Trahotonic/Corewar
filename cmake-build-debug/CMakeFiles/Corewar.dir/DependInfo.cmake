@@ -4,9 +4,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/Users/rkyslyy/corewar/src/main.c" "/Users/rkyslyy/corewar/cmake-build-debug/CMakeFiles/Corewar.dir/src/main.c.o"
-  "/Users/rkyslyy/corewar/src/read.c" "/Users/rkyslyy/corewar/cmake-build-debug/CMakeFiles/Corewar.dir/src/read.c.o"
-  "/Users/rkyslyy/corewar/src/vizualize.c" "/Users/rkyslyy/corewar/cmake-build-debug/CMakeFiles/Corewar.dir/src/vizualize.c.o"
+  "/Users/rkyslyy/CLionProjects/corewar/src/main.c" "/Users/rkyslyy/CLionProjects/corewar/cmake-build-debug/CMakeFiles/Corewar.dir/src/main.c.o"
+  "/Users/rkyslyy/CLionProjects/corewar/src/read.c" "/Users/rkyslyy/CLionProjects/corewar/cmake-build-debug/CMakeFiles/Corewar.dir/src/read.c.o"
+  "/Users/rkyslyy/CLionProjects/corewar/src/vizualize.c" "/Users/rkyslyy/CLionProjects/corewar/cmake-build-debug/CMakeFiles/Corewar.dir/src/vizualize.c.o"
   )
 set(CMAKE_C_COMPILER_ID "AppleClang")
 

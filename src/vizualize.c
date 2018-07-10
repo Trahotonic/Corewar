@@ -4,10 +4,8 @@
 
 # include "../inc/corewar.h"
 
-void    initVis(size_t *i, unsigned char x[])
+void    initVis(void)
 {
-    *i = 0;
-    x[2] = '\0';
     initscr();
     curs_set(0);
     nodelay(stdscr, true);
@@ -49,13 +47,8 @@ void    visualize(unsigned char map[], size_t len)
     unsigned char   x[3];
     size_t          i;
 
-    initVis(&i, x);
-    while (1)
-    {
-        if (getch() == 113)
-            break ;
-        i = innerCycle(i, map, x, len);
-        refresh();
-    }
-    endwin();
+	x[2] = '\0';
+	i = 0;
+	i = innerCycle(i, map, x, len);
+	refresh();
 }

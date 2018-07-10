@@ -5,6 +5,7 @@
 #ifndef COREWAR_COREWAR_H
 #define COREWAR_COREWAR_H
 
+
 #include <stdio.h>
 #include <ncurses.h>
 #include "../libft/libft.h"
@@ -68,10 +69,31 @@ typedef struct		header_s
     char				comment[COMMENT_LENGTH + 1];
 }					header_t;
 
+typedef struct  	s_process
+{
+	int    				cur_pos;
+	int    				carry;
+	int    				pl_num;
+	unsigned int		reg[REG_NUMBER][REG_SIZE];
+	int    				alive;
+	char   				command[3];
+	int    				cycle_todo;
+	int    				iterator;
+	struct s_process	*next;
+}     				t_process;
+
+typedef struct		s_player
+{
+	int 		playerNumber;
+	int 		lastAlive;
+	header_t	header;
+}					t_player;
+
 char	*ft_arrg_join(char *s1, char *s2);
 char	*ft_uitoa_base2(unsigned long long value, int base);
 void	convert(char **str);
 void    getTotal(int fd, char **total);
+void    initVis(void);
 void    visualize(unsigned char map[], size_t len);
 
 #endif //COREWAR_COREWAR_H
