@@ -94,7 +94,7 @@ typedef struct  functions_s
 	char   *name;
 	int    codage;
 	int    cycles;
-	void  (*funcptr)(t_process, char*, int, t_player[]);
+	void  (*funcptr)(t_process*, unsigned char*, int, t_player*);
 }     functions_t;
 
 char	*ft_arrg_join(char *s1, char *s2);
