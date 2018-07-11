@@ -39,10 +39,9 @@ void	initProcesses(t_process **processes)
 	tmp->cycle_todo = 0;
 	tmp->iterator = 0;
 	n = 0;
-	while (n++ < 16)
-	{
-		tmp->reg[n] = 0;
-	}
+	while (n < 16)
+		tmp->reg[n++] = 0;
+	tmp->reg[0] = -1;
 	tmp->next = NULL;
 }
 
@@ -141,75 +140,139 @@ char *ft_convert_2(int tmp, int base)
 	return (str);
 }
 
+void	doNull(t_process *processor)
+{
+	int n = 0;
+
+	while (n++ < 9)
+	{
+		processor->arg1[n] = '\0';
+		processor->arg2[n] = '\0';
+		processor->arg3[n] = '\0';
+	}
+}
+
+void	readLittleShit(unsigned char map[], char arg1[], char tmp[], t_process *processor)
+{
+	int n;
+
+	n = 0;
+	if (ft_strequ(tmp, "01"))
+	{
+		while (n < 2)
+			arg1[n++] = map[processor->iterator++];
+	}
+	else if (ft_strequ(tmp, "11"))
+	{
+		while (n < 4)
+			arg1[n++] = map[processor->iterator++];
+	}
+	else if (ft_strequ(tmp, "10") && (ft_strequ(processor->command, "lldi") || ft_strequ(processor->command, "ldi")))
+	{
+		while (n < 4)
+			arg1[n++] = map[processor->iterator++];
+	}
+	else if (ft_strequ(tmp, "10") && !ft_strequ(processor->command, "lldi") && !ft_strequ(processor->command, "ldi"))
+	{
+		while (n < 8)
+			arg1[n++] = map[processor->iterator++];
+	}
+}
+
+void	readShit(unsigned char map[], t_process *processor)
+{
+	int		n;
+	char 	tmp[3];
+	char 	*bin;
+
+	tmp[2] = '\0';
+	doNull(processor);
+	if (processor->codage == 0)
+	{
+		processor->iterator += 2;
+	}
+	else
+	{
+		tmp[0] = map[processor->cur_pos + 2];
+		tmp[1] = map[processor->cur_pos + 3];
+		processor->iterator += 4;
+		n = ft_atoi_base(tmp, 16);
+		bin = ft_convert_2(n, 8);
+		tmp[0] = bin[0];
+		tmp[1] = bin[1];
+		readLittleShit(map, processor->arg1, tmp, processor);
+		tmp[0] = bin[2];
+		tmp[1] = bin[3];
+		readLittleShit(map, processor->arg2, tmp, processor);
+		tmp[0] = bin[4];
+		tmp[1] = bin[5];
+		readLittleShit(map, processor->arg3, tmp, processor);
+	}
+}
 
 void  ld(t_process *processor, unsigned char *map, int iz, t_player *pl)
 {
-	char *tmp;
-	int  i;
 	int  n;
-	char *ret;
-	char  *tmp2;
-	char ret2[3];
-	int 	count;
 
-	tmp2 = ft_strnew(2);
-	n = 0;
-	iz = 0;
-//	ft_printf("%d\n", pl->playerNumber);
-	i = processor->cur_pos + 2;
-	tmp = ft_strnew(2);
-	while (n < 2)
-		tmp[n++] = map[i++];
-	count = n;
-	n = ft_atoi_base(tmp, 16);
-	ft_strdel(&tmp);
-	ret = ft_convert_2(n, 8);
-	n = 0;
-	while (n < 2)
+	if (ft_strlen(processor->arg1) == 8)
 	{
-		ret2[n] = ret[n];
-		n++;
+		processor->reg[ft_atoi_base(processor->arg2, 16)] = ft_atoi_base(processor->arg1, 16);
 	}
-	n = 0;
-	if (ft_strequ(ret2, "10"))
+	else if (ft_strlen(processor->arg1) == 4)
 	{
-		tmp = ft_strnew(8);
-		while (n < 8)
-			tmp[n++] = map[i++];
-		count += n;
-		n = 0;
-		while (n < 2)
-			tmp2[n++] = map[i++];
-		count += n;
-		n = ft_atoi_base(tmp2, 16);
-		processor->reg[n] = ft_atoi_base(tmp, 16);
-	}
-	else if (ft_strequ(ret2, "11"))
-	{
-		char *tmp3;
-		tmp3 = ft_strnew(4);
-		while(n < 4)
-			tmp3[n++] = map[i++];
-		count = n;
-		int z = 0;
-		char *tmp4;
-		tmp4 = ft_strnew(2);
-		while (z < 2)
-			tmp4[z++] = map[i++];
-		count += z;
-		int rez = ft_atoi_base(tmp4, 16);
-		n = ft_atoi_base(tmp3, 16);
+		n = ft_atoi_base(processor->arg1, 16);
 		n %= IDX_MOD;
 		int k;
 		k = processor->cur_pos + n * 2;
-		ft_strdel(&tmp3);
-		tmp3 = ft_strnew(8);
 		n = 0;
 		while (n < 8)
-			tmp3[n++] = map[k++];
-		processor->reg[rez] = ft_atoi_base(tmp3, 16);
+			processor->arg1[n++] = map[k++];
+		processor->reg[ft_atoi_base(processor->arg2, 16)] = ft_atoi_base(processor->arg1, 16);
 	}
-	processor->cur_pos += count + 2;
+}
+
+void	conv(char **tmp)
+{
+	char	*work;
+	char	*new;
+	int 	n;
+
+	work = *tmp;
+	if (ft_strlen(work) < 8)
+	{
+		new = ft_strnew(8);
+		n = 0;
+		while (n++ < 8 - ft_strlen(work))
+			new[n] = '0';
+		while (n < 8)
+			new[n] = work[n];
+		free(*tmp);
+		*tmp = new;
+	}
+}
+
+void	st(t_process *processor, unsigned char *map, int iz, t_player *pl)
+{
+	int  n;
+	char *tmp;
+
+	if (ft_strlen(processor->arg2) == 4)
+	{
+		n = ft_atoi_base(processor->arg2, 16);
+		n %= IDX_MOD;
+		int k;
+		k = processor->cur_pos + n * 2;
+		n = 0;
+		tmp = ft_itoa_base(processor->reg[ft_atoi_base(processor->arg1, 16) - 1], 16);
+		convert(&tmp);
+		while (n < 8)
+		map[k++] = tmp[n++];
+	}
+	else if (ft_strlen(processor->arg2) == 2)
+	{
+		processor->reg[ft_atoi_base(processor->arg2, 16)] = processor->reg[ft_atoi_base(processor->arg1, 16)];
+	}
+	processor->cur_pos = processor->iterator;
 }
 
 void initfunc(functions_t func[])
@@ -222,6 +285,10 @@ void initfunc(functions_t func[])
 	func[1].funcptr = &ld;
 	func[1].cycles = 5;
 	func[1].name = "02";
+	func[2].codage = 1;
+	func[2].funcptr = &st;
+	func[2].cycles = 5;
+	func[2].name = "03";
 }
 
 
@@ -241,6 +308,7 @@ void	runProcesses(t_process **processes, unsigned char map[], functions_t array[
 			while (!ft_strequ(go->command, array[n].name))
 				n++;
 			go->cycle_todo = array[n].cycles;
+			go->codage = array[n].codage;
 		}
 		else if (ft_strequ("01", go->command) && !go->cycle_todo)
 		{
@@ -250,7 +318,15 @@ void	runProcesses(t_process **processes, unsigned char map[], functions_t array[
 		}
 		else if (ft_strequ("02", go->command) && !go->cycle_todo)
 		{
+			readShit(map, *processes);
 			array[1].funcptr(go, map, i, player);
+			go->command[0] = '.';
+			go->command[1] = '.';
+		}
+		else if (ft_strequ("03", go->command) && !go->cycle_todo)
+		{
+			readShit(map, *processes);
+			array[2].funcptr(go, map, i, player);
 			go->command[0] = '.';
 			go->command[1] = '.';
 		}
@@ -267,14 +343,15 @@ int     main(int argc, char **argv)
     unsigned char   map[MEM_SIZE];
 	t_process		*processes;
 	int 			i;
-	functions_t		array[2];
+	int 			c;
+	functions_t		array[3];
 	t_player		player;
 
     if (argc != 2)
         return 1;
 	initProcesses(&processes);
     initMap(map, &total, &header, argv);
-//	initVis();
+	initVis();
 	ft_printf("%u\n", header.prog_size);
 	initfunc(array);
 	player.header = header;
@@ -285,10 +362,13 @@ int     main(int argc, char **argv)
 	{
 		runProcesses(&processes, map, array, i, &player);
 		printf("%d\n", player.lastAlive);
-//		visualize(map, ft_strlen(total));
-//		mvwprintw(stdscr, 0, 200, "%d", i);
-//		mvwprintw(stdscr, 0, 230, "%d", player.lastAlive);
-//		usleep(2000);
+		visualize(map, ft_strlen(total));
+		mvwprintw(stdscr, 0, 200, "%d", i);
+		mvwprintw(stdscr, 0, 230, "%d", player.lastAlive);
+//		usleep(500000);
+		c = getch();
+		if (c == 113)
+			break ;
 	}
     free(total);
 	endwin();
