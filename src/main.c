@@ -105,14 +105,6 @@ void  live(t_process *processor, unsigned char *map, int i, t_player *pl)
 	processor->alive = 1;
 	while(n < 8)
 		name[n++] = map[m++];
-//	while(pl)
-//	{
-//		if (ft_strequ(pl->header.prog_name, name))
-//		{
-//			pl->lastAlive = i;
-//			break;
-//		}
-//	}
 	pl->lastAlive = i;
 	processor->cur_pos = m;
 }
@@ -158,6 +150,7 @@ void  ld(t_process *processor, unsigned char *map, int iz, t_player *pl)
 	char *ret;
 	char  *tmp2;
 	char ret2[3];
+	int 	count;
 
 	tmp2 = ft_strnew(2);
 	n = 0;
@@ -167,6 +160,7 @@ void  ld(t_process *processor, unsigned char *map, int iz, t_player *pl)
 	tmp = ft_strnew(2);
 	while (n < 2)
 		tmp[n++] = map[i++];
+	count = n;
 	n = ft_atoi_base(tmp, 16);
 	ft_strdel(&tmp);
 	ret = ft_convert_2(n, 8);
@@ -182,20 +176,30 @@ void  ld(t_process *processor, unsigned char *map, int iz, t_player *pl)
 		tmp = ft_strnew(8);
 		while (n < 8)
 			tmp[n++] = map[i++];
-
+		count += n;
 		n = 0;
 		while (n < 2)
 			tmp2[n++] = map[i++];
+		count += n;
 		n = ft_atoi_base(tmp2, 16);
 		processor->reg[n] = ft_atoi_base(tmp, 16);
 	}
-	else if (ft_strequ(ret, "11"))
+	else if (ft_strequ(ret2, "11"))
 	{
 		char *tmp3;
 		tmp3 = ft_strnew(4);
 		while(n < 4)
 			tmp3[n++] = map[i++];
-		n = ft_atoi_base(tmp3, 10);
+		count = n;
+		int z = 0;
+		char *tmp4;
+		tmp4 = ft_strnew(2);
+		while (z < 2)
+			tmp4[z++] = map[i++];
+		count += z;
+		int rez = ft_atoi_base(tmp4, 16);
+		n = ft_atoi_base(tmp3, 16);
+		n %= IDX_MOD;
 		int k;
 		k = processor->cur_pos + n * 2;
 		ft_strdel(&tmp3);
@@ -203,10 +207,9 @@ void  ld(t_process *processor, unsigned char *map, int iz, t_player *pl)
 		n = 0;
 		while (n < 8)
 			tmp3[n++] = map[k++];
-		processor->reg[1] = ft_atoi_base(tmp3, 16);
+		processor->reg[rez] = ft_atoi_base(tmp3, 16);
 	}
-	processor->cur_pos += 2;
-
+	processor->cur_pos += count + 2;
 }
 
 void initfunc(functions_t func[])
@@ -272,6 +275,7 @@ int     main(int argc, char **argv)
 	initProcesses(&processes);
     initMap(map, &total, &header, argv);
 //	initVis();
+	ft_printf("%u\n", header.prog_size);
 	initfunc(array);
 	player.header = header;
 	player.lastAlive = 0;
