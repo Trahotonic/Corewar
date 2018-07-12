@@ -1,5 +1,42 @@
 # include "./../inc/corewar.h"
 
+void	dump(unsigned char map[])
+{
+	int		n;
+	int 	m;
+	int 	q;
+	int 	row;
+	char 	tmp[3];
+	char 	*r;
+
+	m = 0;
+	q = 0;
+	row = 0;
+	tmp[2] = '\0';
+	ft_printf("Introducing contestants...\n"
+					  "* Player 1, weighing 325 bytes, \"Celebration Funebre v0.99pl42\" (\"Jour J\") !\n");
+	while (q < 64)
+	{
+		n = 2;
+		r = ft_itoa_base(row, 16);
+		ft_printf("0x");
+		while (n++ < 6 - ft_strlen(r))
+			ft_printf("0");
+		ft_printf("%s : ", r);
+		n = 0;
+		while (n < 64)
+		{
+			tmp[0] = map[m++];
+			tmp[1] = map[m++];
+			ft_printf("%s ", tmp);
+			n++;
+		}
+		ft_printf("\n");
+		row += 64;
+		q++;
+	}
+}
+
 void	runProcesses(t_process **processes, unsigned char map[], functions_t array[], int i, t_player *player)
 {
 	t_process	*go;
@@ -39,42 +76,64 @@ void	runProcesses(t_process **processes, unsigned char map[], functions_t array[
 	}
 }
 
+void	checkArguments(int argc, char **argv, int *d, int *iter)
+{
+	int n;
+
+	*d = 0;
+	n = 1;
+	while (n < argc)
+	{
+		if (ft_strequ(argv[n], "-d"))
+		{
+			*d = 1;
+			*iter = ft_atoi(argv[n + 1]);
+		}
+		n++;
+	}
+}
+
 int     main(int argc, char **argv)
 {
     header_t        header;
     char            *total;
-    unsigned char   map[MEM_SIZE];
+    unsigned char   map[MEM_SIZE * 2];
 	t_process		*processes;
 	int 			i;
 	int 			c;
 	functions_t		array[3];
 	t_player		player;
+	int 			d;
+	int 			iter;
 
-    if (argc != 2)
-        return 1;
+	checkArguments(argc, argv, &d, &iter);
 	initProcesses(&processes);
     initMap(map, &total, &header, argv);
-	initVis();
+	if (!d)
+		initVis();
 	initfunc(array);
 	player.header = header;
 	player.lastAlive = 0;
 	player.playerNumber = -1;
 	i = 0;
-//	attron(A_BOLD);
 	while (i++ < 100)
 	{
 		runProcesses(&processes, map, array, i, &player);
-//		printf("%d\n", player.lastAlive);
-		visualize(map, ft_strlen(total));
-		mvwprintw(stdscr, 0, 200, "%d", i);
-		mvwprintw(stdscr, 0, 230, "%d", player.lastAlive);
-//		usleep(500000);
-		c = getch();
-		if (c == 113)
-			break ;
+		if (!d)
+		{
+			visualize(map, ft_strlen(total));
+			mvwprintw(stdscr, 0, 200, "%d", i);
+			mvwprintw(stdscr, 0, 230, "%d", player.lastAlive);
+			c = getch();
+			if (c == 113)
+				break ;
+		}
 	}
 //	attroff(A_BOLD);
     free(total);
-	endwin();
+	if (!d)
+		endwin();
+	else
+		dump(map);
 	return 0;
 }

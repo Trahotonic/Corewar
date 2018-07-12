@@ -7,6 +7,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/Corewar.dir/src/converts.c.o"
   "CMakeFiles/Corewar.dir/src/live_ld_st_add_sub.c.o"
   "CMakeFiles/Corewar.dir/src/read2.c.o"
+  "CMakeFiles/Corewar.dir/src/and_or_xor_zjmp_ldi.c.o"
   "Corewar.pdb"
   "Corewar"
 )

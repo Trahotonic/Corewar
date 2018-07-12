@@ -91,6 +91,9 @@
 		<Unit filename="/Users/rkyslyy/CLionProjects/corewar/libft">
 			<Option target="Corewar"/>
 		</Unit>
+		<Unit filename="/Users/rkyslyy/CLionProjects/corewar/src/and_or_xor_zjmp_ldi.c">
+			<Option target="Corewar"/>
+		</Unit>
 		<Unit filename="/Users/rkyslyy/CLionProjects/corewar/src/converts.c">
 			<Option target="Corewar"/>
 		</Unit>
@@ -107,6 +110,9 @@
 			<Option target="Corewar"/>
 		</Unit>
 		<Unit filename="/Users/rkyslyy/CLionProjects/corewar/src/read2.c">
+			<Option target="Corewar"/>
+		</Unit>
+		<Unit filename="/Users/rkyslyy/CLionProjects/corewar/src/sti_fork_lld_lldi_lfork.cpp">
 			<Option target="Corewar"/>
 		</Unit>
 		<Unit filename="/Users/rkyslyy/CLionProjects/corewar/src/vizualize.c">

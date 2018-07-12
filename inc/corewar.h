@@ -118,6 +118,14 @@ void    visualize(unsigned char map[], size_t len);
 void  	live(t_process *processor, unsigned char *map, int i, t_player *pl);
 void  	ld(t_process *processor, unsigned char *map, int iz, t_player *pl);
 void	st(t_process *processor, unsigned char *map, int iz, t_player *pl);
+void	add(t_process *processor, unsigned char *map, int iz, t_player *pl);
+void	sub(t_process *processor, unsigned char *map, int iz, t_player *pl);
+void	and(t_process *processor, unsigned char *map, int iz, t_player *pl);
+void	or(t_process *processor, unsigned char *map, int iz, t_player *pl);
+void	xor(t_process *processor, unsigned char *map, int iz, t_player *pl);
+void	zjmp(t_process *processor, unsigned char *map, int iz, t_player *pl);
+void	ldi(t_process *processor, unsigned char *map, int iz, t_player *pl);
+void	sti(t_process *processor, unsigned char *map, int iz, t_player *pl);
 void 	initfunc(functions_t func[]);
 
 #endif //COREWAR_COREWAR_H

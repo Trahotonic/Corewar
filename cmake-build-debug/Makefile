@@ -123,6 +123,33 @@ Corewar/fast:
 	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/build
 .PHONY : Corewar/fast
 
+src/and_or_xor_zjmp_ldi.o: src/and_or_xor_zjmp_ldi.c.o
+
+.PHONY : src/and_or_xor_zjmp_ldi.o
+
+# target to build an object file
+src/and_or_xor_zjmp_ldi.c.o:
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/and_or_xor_zjmp_ldi.c.o
+.PHONY : src/and_or_xor_zjmp_ldi.c.o
+
+src/and_or_xor_zjmp_ldi.i: src/and_or_xor_zjmp_ldi.c.i
+
+.PHONY : src/and_or_xor_zjmp_ldi.i
+
+# target to preprocess a source file
+src/and_or_xor_zjmp_ldi.c.i:
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/and_or_xor_zjmp_ldi.c.i
+.PHONY : src/and_or_xor_zjmp_ldi.c.i
+
+src/and_or_xor_zjmp_ldi.s: src/and_or_xor_zjmp_ldi.c.s
+
+.PHONY : src/and_or_xor_zjmp_ldi.s
+
+# target to generate assembly for a file
+src/and_or_xor_zjmp_ldi.c.s:
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/and_or_xor_zjmp_ldi.c.s
+.PHONY : src/and_or_xor_zjmp_ldi.c.s
+
 src/converts.o: src/converts.c.o
 
 .PHONY : src/converts.o
@@ -348,6 +375,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... Corewar"
+	@echo "... src/and_or_xor_zjmp_ldi.o"
+	@echo "... src/and_or_xor_zjmp_ldi.i"
+	@echo "... src/and_or_xor_zjmp_ldi.s"
 	@echo "... src/converts.o"
 	@echo "... src/converts.i"
 	@echo "... src/converts.s"

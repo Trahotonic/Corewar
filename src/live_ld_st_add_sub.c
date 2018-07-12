@@ -64,3 +64,27 @@ void	st(t_process *processor, unsigned char *map, int iz, t_player *pl)
 	}
 	processor->cur_pos = processor->iterator;
 }
+
+void		add(t_process *processor, unsigned char *map, int iz, t_player *pl)
+{
+	processor->reg[ft_atoi_base(processor->arg3, 16) - 1] =
+			processor->reg[ft_atoi_base(processor->arg1, 16) - 1] +
+			processor->reg[ft_atoi_base(processor->arg2, 16) - 1];
+	if (processor->reg[ft_atoi_base(processor->arg1, 16)] +
+		processor->reg[ft_atoi_base(processor->arg2, 16)] == 0)
+		processor->carry = 1;
+	else
+		processor->carry = 0;
+}
+
+void		sub(t_process *processor, unsigned char *map, int iz, t_player *pl)
+{
+	processor->reg[ft_atoi_base(processor->arg3, 16) - 1] =
+			processor->reg[ft_atoi_base(processor->arg1, 16) - 1] -
+			processor->reg[ft_atoi_base(processor->arg2, 16) - 1];
+	if (processor->reg[ft_atoi_base(processor->arg1, 16)] -
+		processor->reg[ft_atoi_base(processor->arg2, 16)] == 0)
+		processor->carry = 1;
+	else
+		processor->carry = 0;
+}

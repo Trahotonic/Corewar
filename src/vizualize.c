@@ -16,10 +16,10 @@ void    initVis(void)
 
 size_t    innerCycle(unsigned char map[], unsigned char x[], size_t len)
 {
-    int n;
-    int m;
-    int q;
-	int i;
+    int 	n;
+    int	 	m;
+    int 	q;
+	size_t 	i;
 
     n = 0;
 	i = 0;
@@ -27,7 +27,7 @@ size_t    innerCycle(unsigned char map[], unsigned char x[], size_t len)
     {
         m = 0;
         q = 0;
-        while (m++ < 64 && i < 4096)
+        while (m++ < 64)
         {
             x[0] = map[i++];
             x[1] = map[i];
@@ -38,6 +38,7 @@ size_t    innerCycle(unsigned char map[], unsigned char x[], size_t len)
                 attroff(COLOR_PAIR(5));
             q += 3;
         }
+		mvwprintw(stdscr, 0, 240, "%d", n);
         n++;
     }
     return i;
