@@ -25,22 +25,23 @@ void	readLittleShit(unsigned char map[], char arg1[], char tmp[], t_process *pro
 	if (ft_strequ(tmp, "01"))
 	{
 		while (n < 2)
-			arg1[n++] = map[processor->iterator++];
+			arg1[n++] = map[processor->cur_pos + processor->iterator++];
 	}
 	else if (ft_strequ(tmp, "11"))
 	{
 		while (n < 4)
-			arg1[n++] = map[processor->iterator++];
+			arg1[n++] = map[processor->cur_pos + processor->iterator++];
 	}
-	else if (ft_strequ(tmp, "10") && (ft_strequ(processor->command, "lldi") || ft_strequ(processor->command, "ldi")))
+	else if (ft_strequ(tmp, "10") && (ft_strequ(processor->command, "0e") || ft_strequ(processor->command, "0a") ||
+			(ft_strequ(processor->command, "0b")) || (ft_strequ(processor->command, "09"))))
 	{
 		while (n < 4)
-			arg1[n++] = map[processor->iterator++];
+			arg1[n++] = map[processor->cur_pos + processor->iterator++];
 	}
-	else if (ft_strequ(tmp, "10") && !ft_strequ(processor->command, "lldi") && !ft_strequ(processor->command, "ldi"))
+	else if (ft_strequ(tmp, "10") && !ft_strequ(processor->command, "0e") && !ft_strequ(processor->command, "0a"))
 	{
 		while (n < 8)
-			arg1[n++] = map[processor->iterator++];
+			arg1[n++] = map[processor->cur_pos + processor->iterator++];
 	}
 }
 

@@ -2,12 +2,12 @@ file(REMOVE_RECURSE
   "CMakeFiles/Corewar.dir/src/main.c.o"
   "CMakeFiles/Corewar.dir/src/read.c.o"
   "CMakeFiles/Corewar.dir/src/vizualize.c.o"
-  "CMakeFiles/Corewar.dir/test.c.o"
   "CMakeFiles/Corewar.dir/src/inits.c.o"
   "CMakeFiles/Corewar.dir/src/converts.c.o"
   "CMakeFiles/Corewar.dir/src/live_ld_st_add_sub.c.o"
   "CMakeFiles/Corewar.dir/src/read2.c.o"
   "CMakeFiles/Corewar.dir/src/and_or_xor_zjmp_ldi.c.o"
+  "CMakeFiles/Corewar.dir/src/sti_fork_lld_lldi_lfork.c.o"
   "Corewar.pdb"
   "Corewar"
 )

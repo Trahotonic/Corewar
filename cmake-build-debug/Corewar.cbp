@@ -112,13 +112,10 @@
 		<Unit filename="/Users/rkyslyy/CLionProjects/corewar/src/read2.c">
 			<Option target="Corewar"/>
 		</Unit>
-		<Unit filename="/Users/rkyslyy/CLionProjects/corewar/src/sti_fork_lld_lldi_lfork.cpp">
+		<Unit filename="/Users/rkyslyy/CLionProjects/corewar/src/sti_fork_lld_lldi_lfork.c">
 			<Option target="Corewar"/>
 		</Unit>
 		<Unit filename="/Users/rkyslyy/CLionProjects/corewar/src/vizualize.c">
-			<Option target="Corewar"/>
-		</Unit>
-		<Unit filename="/Users/rkyslyy/CLionProjects/corewar/test.c">
 			<Option target="Corewar"/>
 		</Unit>
 		<Unit filename="/Users/rkyslyy/CLionProjects/corewar/vm_champs">

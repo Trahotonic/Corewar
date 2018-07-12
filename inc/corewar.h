@@ -114,7 +114,7 @@ char	*ft_uitoa_base2(unsigned long long value, int base);
 void	convert(char **str);
 void    getTotal(int fd, char **total);
 void    initVis(void);
-void    visualize(unsigned char map[], size_t len);
+void    visualize(unsigned char map[], size_t len, t_process *proc);
 void  	live(t_process *processor, unsigned char *map, int i, t_player *pl);
 void  	ld(t_process *processor, unsigned char *map, int iz, t_player *pl);
 void	st(t_process *processor, unsigned char *map, int iz, t_player *pl);

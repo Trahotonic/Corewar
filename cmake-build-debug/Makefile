@@ -312,6 +312,33 @@ src/read2.c.s:
 	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/read2.c.s
 .PHONY : src/read2.c.s
 
+src/sti_fork_lld_lldi_lfork.o: src/sti_fork_lld_lldi_lfork.c.o
+
+.PHONY : src/sti_fork_lld_lldi_lfork.o
+
+# target to build an object file
+src/sti_fork_lld_lldi_lfork.c.o:
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/sti_fork_lld_lldi_lfork.c.o
+.PHONY : src/sti_fork_lld_lldi_lfork.c.o
+
+src/sti_fork_lld_lldi_lfork.i: src/sti_fork_lld_lldi_lfork.c.i
+
+.PHONY : src/sti_fork_lld_lldi_lfork.i
+
+# target to preprocess a source file
+src/sti_fork_lld_lldi_lfork.c.i:
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/sti_fork_lld_lldi_lfork.c.i
+.PHONY : src/sti_fork_lld_lldi_lfork.c.i
+
+src/sti_fork_lld_lldi_lfork.s: src/sti_fork_lld_lldi_lfork.c.s
+
+.PHONY : src/sti_fork_lld_lldi_lfork.s
+
+# target to generate assembly for a file
+src/sti_fork_lld_lldi_lfork.c.s:
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/sti_fork_lld_lldi_lfork.c.s
+.PHONY : src/sti_fork_lld_lldi_lfork.c.s
+
 src/vizualize.o: src/vizualize.c.o
 
 .PHONY : src/vizualize.o
@@ -338,33 +365,6 @@ src/vizualize.s: src/vizualize.c.s
 src/vizualize.c.s:
 	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/vizualize.c.s
 .PHONY : src/vizualize.c.s
-
-test.o: test.c.o
-
-.PHONY : test.o
-
-# target to build an object file
-test.c.o:
-	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/test.c.o
-.PHONY : test.c.o
-
-test.i: test.c.i
-
-.PHONY : test.i
-
-# target to preprocess a source file
-test.c.i:
-	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/test.c.i
-.PHONY : test.c.i
-
-test.s: test.c.s
-
-.PHONY : test.s
-
-# target to generate assembly for a file
-test.c.s:
-	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/test.c.s
-.PHONY : test.c.s
 
 # Help Target
 help:
@@ -396,12 +396,12 @@ help:
 	@echo "... src/read2.o"
 	@echo "... src/read2.i"
 	@echo "... src/read2.s"
+	@echo "... src/sti_fork_lld_lldi_lfork.o"
+	@echo "... src/sti_fork_lld_lldi_lfork.i"
+	@echo "... src/sti_fork_lld_lldi_lfork.s"
 	@echo "... src/vizualize.o"
 	@echo "... src/vizualize.i"
 	@echo "... src/vizualize.s"
-	@echo "... test.o"
-	@echo "... test.i"
-	@echo "... test.s"
 .PHONY : help
 
 

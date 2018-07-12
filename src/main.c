@@ -57,7 +57,15 @@ void	runProcesses(t_process **processes, unsigned char map[], functions_t array[
 		}
 		else if ((ft_strequ("01", go->command) ||
 				ft_strequ("02", go->command) ||
-				ft_strequ("03", go->command))
+				ft_strequ("03", go->command) ||
+				ft_strequ("04", go->command) ||
+				ft_strequ("05", go->command) ||
+				ft_strequ("06", go->command) ||
+				ft_strequ("07", go->command) ||
+				ft_strequ("08", go->command) ||
+				ft_strequ("09", go->command) ||
+				ft_strequ("0a", go->command) ||
+				ft_strequ("0b", go->command))
 				 && !go->cycle_todo)
 		{
 			readShit(map, *processes);
@@ -67,6 +75,22 @@ void	runProcesses(t_process **processes, unsigned char map[], functions_t array[
 				array[1].funcptr(go, map, i, player);
 			else if (ft_strequ("03", go->command))
 				array[2].funcptr(go, map, i, player);
+			else if (ft_strequ("04", go->command))
+				array[3].funcptr(go, map, i, player);
+			else if (ft_strequ("05", go->command))
+				array[4].funcptr(go, map, i, player);
+			else if (ft_strequ("06", go->command))
+				array[5].funcptr(go, map, i, player);
+			else if (ft_strequ("07", go->command))
+				array[6].funcptr(go, map, i, player);
+			else if (ft_strequ("08", go->command))
+				array[7].funcptr(go, map, i, player);
+			else if (ft_strequ("09", go->command))
+				array[8].funcptr(go, map, i, player);
+			else if (ft_strequ("0a", go->command))
+				array[9].funcptr(go, map, i, player);
+			else if (ft_strequ("0b", go->command))
+				array[10].funcptr(go, map, i, player);
 			go->command[0] = '.';
 			go->command[1] = '.';
 		}
@@ -101,7 +125,7 @@ int     main(int argc, char **argv)
 	t_process		*processes;
 	int 			i;
 	int 			c;
-	functions_t		array[3];
+	functions_t		array[11];
 	t_player		player;
 	int 			d;
 	int 			iter;
@@ -116,20 +140,24 @@ int     main(int argc, char **argv)
 	player.lastAlive = 0;
 	player.playerNumber = -1;
 	i = 0;
-	while (i++ < 100)
+	while (i++ < 1000)
 	{
+		if (d && i == iter)
+			break ;
 		runProcesses(&processes, map, array, i, &player);
 		if (!d)
 		{
-			visualize(map, ft_strlen(total));
+			visualize(map, ft_strlen(total), processes);
 			mvwprintw(stdscr, 0, 200, "%d", i);
 			mvwprintw(stdscr, 0, 230, "%d", player.lastAlive);
+			mvwprintw(stdscr, 2, 200, "cur_pos %d", processes->cur_pos);
 			c = getch();
 			if (c == 113)
 				break ;
 		}
+//		if (!d)
+//			usleep(300000);
 	}
-//	attroff(A_BOLD);
     free(total);
 	if (!d)
 		endwin();

@@ -62,11 +62,35 @@ fcntl.h
 ./ft_printf/includes/prlib.h
 /Users/rkyslyy/CLionProjects/corewar/src/./../libft/./ft_printf/includes/prlib.h
 
+/Users/rkyslyy/CLionProjects/corewar/src/and_or_xor_zjmp_ldi.c
+../inc/corewar.h
+/Users/rkyslyy/CLionProjects/corewar/inc/corewar.h
+
+/Users/rkyslyy/CLionProjects/corewar/src/converts.c
+../inc/corewar.h
+/Users/rkyslyy/CLionProjects/corewar/inc/corewar.h
+
+/Users/rkyslyy/CLionProjects/corewar/src/inits.c
+../inc/corewar.h
+/Users/rkyslyy/CLionProjects/corewar/inc/corewar.h
+
+/Users/rkyslyy/CLionProjects/corewar/src/live_ld_st_add_sub.c
+../inc/corewar.h
+/Users/rkyslyy/CLionProjects/corewar/inc/corewar.h
+
 /Users/rkyslyy/CLionProjects/corewar/src/main.c
 ./../inc/corewar.h
 /Users/rkyslyy/CLionProjects/corewar/src/./../inc/corewar.h
 
 /Users/rkyslyy/CLionProjects/corewar/src/read.c
+../inc/corewar.h
+/Users/rkyslyy/CLionProjects/corewar/inc/corewar.h
+
+/Users/rkyslyy/CLionProjects/corewar/src/read2.c
+../inc/corewar.h
+/Users/rkyslyy/CLionProjects/corewar/inc/corewar.h
+
+/Users/rkyslyy/CLionProjects/corewar/src/sti_fork_lld_lldi_lfork.c
 ../inc/corewar.h
 /Users/rkyslyy/CLionProjects/corewar/inc/corewar.h
 

@@ -55,12 +55,54 @@ void initfunc(functions_t func[])
 	func[0].funcptr = &live;
 	func[0].cycles = 10;
 	func[0].name = "01";
+
 	func[1].codage = 1;
 	func[1].funcptr = &ld;
 	func[1].cycles = 5;
 	func[1].name = "02";
+
 	func[2].codage = 1;
 	func[2].funcptr = &st;
 	func[2].cycles = 5;
 	func[2].name = "03";
+
+	func[3].codage = 1;
+	func[3].funcptr = &add;
+	func[3].cycles = 10;
+	func[3].name = "04";
+
+	func[4].codage = 1;
+	func[4].funcptr = &sub;
+	func[4].cycles = 10;
+	func[4].name = "05";
+
+	func[5].codage = 1;
+	func[5].funcptr = &and;
+	func[5].cycles = 6;
+	func[5].name = "06";
+
+	func[6].codage = 1;
+	func[6].funcptr = &or;
+	func[6].cycles = 6;
+	func[6].name = "07";
+
+	func[7].codage = 1;
+	func[7].funcptr = &xor;
+	func[7].cycles = 6;
+	func[7].name = "08";
+
+	func[8].codage = 1;
+	func[8].funcptr = &zjmp;
+	func[8].cycles = 20;
+	func[8].name = "09";
+
+	func[9].codage = 1;
+	func[9].funcptr = &ldi;
+	func[9].cycles = 25;
+	func[9].name = "0a";
+
+	func[10].codage = 1;
+	func[10].funcptr = &sti;
+	func[10].cycles = 25;
+	func[10].name = "0b";
 }
