@@ -101,11 +101,23 @@ typedef struct  functions_s
 	void  (*funcptr)(t_process*, unsigned char*, int, t_player*);
 }     functions_t;
 
+void    initMap(unsigned char map[], char **total, header_t *header, char **argv);
+void	initProcesses(t_process **processes);
+int 	ft_iswhitespace(char const c);
+int 	base(int c, int base);
+int 	ft_atoi_base(const char *str, int str_base);
+int 	ft_bto_i(char *bin);
+void	readShit(unsigned char map[], t_process *processor);
+char 	*ft_convert_2(int tmp, int base);
 char	*ft_arrg_join(char *s1, char *s2);
 char	*ft_uitoa_base2(unsigned long long value, int base);
 void	convert(char **str);
 void    getTotal(int fd, char **total);
 void    initVis(void);
 void    visualize(unsigned char map[], size_t len);
+void  	live(t_process *processor, unsigned char *map, int i, t_player *pl);
+void  	ld(t_process *processor, unsigned char *map, int iz, t_player *pl);
+void	st(t_process *processor, unsigned char *map, int iz, t_player *pl);
+void 	initfunc(functions_t func[]);
 
 #endif //COREWAR_COREWAR_H

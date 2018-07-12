@@ -123,6 +123,87 @@ Corewar/fast:
 	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/build
 .PHONY : Corewar/fast
 
+src/converts.o: src/converts.c.o
+
+.PHONY : src/converts.o
+
+# target to build an object file
+src/converts.c.o:
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/converts.c.o
+.PHONY : src/converts.c.o
+
+src/converts.i: src/converts.c.i
+
+.PHONY : src/converts.i
+
+# target to preprocess a source file
+src/converts.c.i:
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/converts.c.i
+.PHONY : src/converts.c.i
+
+src/converts.s: src/converts.c.s
+
+.PHONY : src/converts.s
+
+# target to generate assembly for a file
+src/converts.c.s:
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/converts.c.s
+.PHONY : src/converts.c.s
+
+src/inits.o: src/inits.c.o
+
+.PHONY : src/inits.o
+
+# target to build an object file
+src/inits.c.o:
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/inits.c.o
+.PHONY : src/inits.c.o
+
+src/inits.i: src/inits.c.i
+
+.PHONY : src/inits.i
+
+# target to preprocess a source file
+src/inits.c.i:
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/inits.c.i
+.PHONY : src/inits.c.i
+
+src/inits.s: src/inits.c.s
+
+.PHONY : src/inits.s
+
+# target to generate assembly for a file
+src/inits.c.s:
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/inits.c.s
+.PHONY : src/inits.c.s
+
+src/live_ld_st_add_sub.o: src/live_ld_st_add_sub.c.o
+
+.PHONY : src/live_ld_st_add_sub.o
+
+# target to build an object file
+src/live_ld_st_add_sub.c.o:
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/live_ld_st_add_sub.c.o
+.PHONY : src/live_ld_st_add_sub.c.o
+
+src/live_ld_st_add_sub.i: src/live_ld_st_add_sub.c.i
+
+.PHONY : src/live_ld_st_add_sub.i
+
+# target to preprocess a source file
+src/live_ld_st_add_sub.c.i:
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/live_ld_st_add_sub.c.i
+.PHONY : src/live_ld_st_add_sub.c.i
+
+src/live_ld_st_add_sub.s: src/live_ld_st_add_sub.c.s
+
+.PHONY : src/live_ld_st_add_sub.s
+
+# target to generate assembly for a file
+src/live_ld_st_add_sub.c.s:
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/live_ld_st_add_sub.c.s
+.PHONY : src/live_ld_st_add_sub.c.s
+
 src/main.o: src/main.c.o
 
 .PHONY : src/main.o
@@ -177,6 +258,33 @@ src/read.c.s:
 	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/read.c.s
 .PHONY : src/read.c.s
 
+src/read2.o: src/read2.c.o
+
+.PHONY : src/read2.o
+
+# target to build an object file
+src/read2.c.o:
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/read2.c.o
+.PHONY : src/read2.c.o
+
+src/read2.i: src/read2.c.i
+
+.PHONY : src/read2.i
+
+# target to preprocess a source file
+src/read2.c.i:
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/read2.c.i
+.PHONY : src/read2.c.i
+
+src/read2.s: src/read2.c.s
+
+.PHONY : src/read2.s
+
+# target to generate assembly for a file
+src/read2.c.s:
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/read2.c.s
+.PHONY : src/read2.c.s
+
 src/vizualize.o: src/vizualize.c.o
 
 .PHONY : src/vizualize.o
@@ -204,6 +312,33 @@ src/vizualize.c.s:
 	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/vizualize.c.s
 .PHONY : src/vizualize.c.s
 
+test.o: test.c.o
+
+.PHONY : test.o
+
+# target to build an object file
+test.c.o:
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/test.c.o
+.PHONY : test.c.o
+
+test.i: test.c.i
+
+.PHONY : test.i
+
+# target to preprocess a source file
+test.c.i:
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/test.c.i
+.PHONY : test.c.i
+
+test.s: test.c.s
+
+.PHONY : test.s
+
+# target to generate assembly for a file
+test.c.s:
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/test.c.s
+.PHONY : test.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -213,15 +348,30 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... Corewar"
+	@echo "... src/converts.o"
+	@echo "... src/converts.i"
+	@echo "... src/converts.s"
+	@echo "... src/inits.o"
+	@echo "... src/inits.i"
+	@echo "... src/inits.s"
+	@echo "... src/live_ld_st_add_sub.o"
+	@echo "... src/live_ld_st_add_sub.i"
+	@echo "... src/live_ld_st_add_sub.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
 	@echo "... src/read.o"
 	@echo "... src/read.i"
 	@echo "... src/read.s"
+	@echo "... src/read2.o"
+	@echo "... src/read2.i"
+	@echo "... src/read2.s"
 	@echo "... src/vizualize.o"
 	@echo "... src/vizualize.i"
 	@echo "... src/vizualize.s"
+	@echo "... test.o"
+	@echo "... test.i"
+	@echo "... test.s"
 .PHONY : help
 
 

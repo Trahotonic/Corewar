@@ -11,21 +11,23 @@ void    initVis(void)
 //    nodelay(stdscr, true);
     start_color();
     use_default_colors();
-    init_pair(5, COLOR_GREEN, -1);
+	init_pair(5, COLOR_GREEN, -1);
 }
 
-size_t    innerCycle(size_t i, unsigned char map[], unsigned char x[], size_t len)
+size_t    innerCycle(unsigned char map[], unsigned char x[], size_t len)
 {
     int n;
     int m;
     int q;
+	int i;
 
     n = 0;
+	i = 0;
     while (n < 64)
     {
         m = 0;
         q = 0;
-        while (m < 64 && i < 4096)
+        while (m++ < 64 && i < 4096)
         {
             x[0] = map[i++];
             x[1] = map[i];
@@ -34,7 +36,6 @@ size_t    innerCycle(size_t i, unsigned char map[], unsigned char x[], size_t le
             mvwprintw(stdscr, n, q, (char*)x);
             if (i++ < len)
                 attroff(COLOR_PAIR(5));
-            m++;
             q += 3;
         }
         n++;
@@ -45,10 +46,8 @@ size_t    innerCycle(size_t i, unsigned char map[], unsigned char x[], size_t le
 void    visualize(unsigned char map[], size_t len)
 {
     unsigned char   x[3];
-    size_t          i;
 
 	x[2] = '\0';
-	i = 0;
-	i = innerCycle(i, map, x, len);
+	innerCycle(map, x, len);
 	refresh();
 }

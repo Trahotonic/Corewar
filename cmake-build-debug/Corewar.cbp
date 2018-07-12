@@ -91,13 +91,28 @@
 		<Unit filename="/Users/rkyslyy/CLionProjects/corewar/libft">
 			<Option target="Corewar"/>
 		</Unit>
+		<Unit filename="/Users/rkyslyy/CLionProjects/corewar/src/converts.c">
+			<Option target="Corewar"/>
+		</Unit>
+		<Unit filename="/Users/rkyslyy/CLionProjects/corewar/src/inits.c">
+			<Option target="Corewar"/>
+		</Unit>
+		<Unit filename="/Users/rkyslyy/CLionProjects/corewar/src/live_ld_st_add_sub.c">
+			<Option target="Corewar"/>
+		</Unit>
 		<Unit filename="/Users/rkyslyy/CLionProjects/corewar/src/main.c">
 			<Option target="Corewar"/>
 		</Unit>
 		<Unit filename="/Users/rkyslyy/CLionProjects/corewar/src/read.c">
 			<Option target="Corewar"/>
 		</Unit>
+		<Unit filename="/Users/rkyslyy/CLionProjects/corewar/src/read2.c">
+			<Option target="Corewar"/>
+		</Unit>
 		<Unit filename="/Users/rkyslyy/CLionProjects/corewar/src/vizualize.c">
+			<Option target="Corewar"/>
+		</Unit>
+		<Unit filename="/Users/rkyslyy/CLionProjects/corewar/test.c">
 			<Option target="Corewar"/>
 		</Unit>
 		<Unit filename="/Users/rkyslyy/CLionProjects/corewar/vm_champs">

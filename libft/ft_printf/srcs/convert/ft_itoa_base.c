@@ -36,7 +36,7 @@ char		*ft_itoa_base(long long value, int base)
 	}
 	else
 		vars.backup = value;
-	vars.array = "0123456789ABCDEF";
+	vars.array = "0123456789abcdef";
 	vars.size = 0;
 	vars.ptr = 59;
 	ft_add(&vars, base);
