@@ -18,7 +18,7 @@ void		sti(t_process *processor, unsigned char *map, int iz, t_player *pl)
 
 	mvwprintw(stdscr, 1, 200, "%d", ft_atoi_base(processor->arg2, 16));
 	mvwprintw(stdscr, 1, 230, "%d", ft_atoi_base(processor->arg3, 16));
-	if (ft_strlen(processor->arg2) == 4)
+	if (ft_strlen(processor->arg2) == 4 && !processor->t_dir)
 	{
 		i = ft_atoi_base(processor->arg2, 16) % IDX_MOD + processor->cur_pos;
 		while (n < 8)

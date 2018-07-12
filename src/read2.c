@@ -22,6 +22,7 @@ void	readLittleShit(unsigned char map[], char arg1[], char tmp[], t_process *pro
 	int n;
 
 	n = 0;
+	processor->t_dir = 0;
 	if (ft_strequ(tmp, "01"))
 	{
 		while (n < 2)
@@ -35,6 +36,7 @@ void	readLittleShit(unsigned char map[], char arg1[], char tmp[], t_process *pro
 	else if (ft_strequ(tmp, "10") && (ft_strequ(processor->command, "0e") || ft_strequ(processor->command, "0a") ||
 			(ft_strequ(processor->command, "0b")) || (ft_strequ(processor->command, "09"))))
 	{
+		processor->t_dir = 1;
 		while (n < 4)
 			arg1[n++] = map[processor->cur_pos + processor->iterator++];
 	}

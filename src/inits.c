@@ -46,6 +46,7 @@ void	initProcesses(t_process **processes)
 	while (n < 16)
 		tmp->reg[n++] = 0;
 	tmp->reg[0] = -1;
+	tmp->t_dir = 0;
 	tmp->next = NULL;
 }
 

@@ -83,6 +83,7 @@ typedef struct  	s_process
 	char 				arg1[9];
 	char 				arg2[9];
 	char 				arg3[9];
+	int 				t_dir;
 	struct s_process	*next;
 }     				t_process;
 
