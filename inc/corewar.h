@@ -85,6 +85,8 @@ typedef struct  	s_process
 	char 				arg3[9];
 	int 				t_dir;
 	struct s_process	*next;
+	struct s_process	*prev;
+
 }     				t_process;
 
 typedef struct		s_player

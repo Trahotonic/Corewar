@@ -48,6 +48,7 @@ void	initProcesses(t_process **processes)
 	tmp->reg[0] = -1;
 	tmp->t_dir = 0;
 	tmp->next = NULL;
+	tmp->prev = NULL;
 }
 
 void initfunc(functions_t func[]) // Обновленно (но чето выебуется впадло разбираться пошел домой) !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!

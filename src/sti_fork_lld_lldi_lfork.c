@@ -98,6 +98,7 @@ void	lldi(t_process *processor, unsigned char *map, int iz, t_player *pl) // О�
 void	fork_c(t_process *processor, unsigned char *map, int iz, t_player *pl) // Обновленно !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! (но это не точно =))))))))))))
 {
 	t_process	*tmp;
+	t_process	*ptr;
 	int 		n;
 
 	tmp = (t_process*)malloc(sizeof(t_process));
@@ -111,16 +112,24 @@ void	fork_c(t_process *processor, unsigned char *map, int iz, t_player *pl) // �
 	tmp->cycle_todo = 0;
 	tmp->iterator = 0;
 	n = 0;
-	while (n++ < 16)
+	while (n < 16)
+	{
 		tmp->reg[n] = processor->reg[n];
+		n++;
+	}
 	tmp->t_dir = 0;
-	tmp->next = processor;
+	ptr = processor;
+	while (ptr->next)
+		ptr = ptr->next;
+	ptr->next = tmp;
+	tmp->prev = ptr;
 	tmp->next = NULL;
 }
 
-void	lfork(t_process *processor, unsigned char *map, int iz, t_player *pl) // Обновленно !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! (но это не точно =))))))))))))
+void	lfork(t_process *processor, unsigned char *map, int iz, t_player *pl) /* Обновленно !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! (но это не точно =)))))))))))) */
 {
 	t_process	*tmp;
+	t_process	*ptr;
 	int 		n;
 
 	tmp = (t_process*)malloc(sizeof(t_process));
@@ -134,9 +143,16 @@ void	lfork(t_process *processor, unsigned char *map, int iz, t_player *pl) // О
 	tmp->cycle_todo = 0;
 	tmp->iterator = 0;
 	n = 0;
-	while (n++ < 16)
+	while (n < 16)
+	{
 		tmp->reg[n] = processor->reg[n];
+		n++;
+	}
 	tmp->t_dir = 0;
-	tmp->next = processor;
+	ptr = processor;
+	while (ptr->next)
+		ptr = ptr->next;
+	ptr->next = tmp;
+	tmp->prev = ptr;
 	tmp->next = NULL;
 }

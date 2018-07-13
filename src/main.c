@@ -43,6 +43,8 @@ void	runProcesses(t_process **processes, unsigned char map[], functions_t array[
 	int 		n;
 
 	go = *processes;
+	while (go->next)
+		go = go->next;
 	n = 0;
 	while (go)
 	{
@@ -98,7 +100,7 @@ void	runProcesses(t_process **processes, unsigned char map[], functions_t array[
 			go->cycle_todo = array[n].cycles;
 			go->codage = array[n].codage;
 		}
-		go = go->next;
+		go = go->prev;
 	}
 }
 

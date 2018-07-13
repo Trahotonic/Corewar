@@ -50,7 +50,12 @@ void		xor(t_process *processor, unsigned char *map, int iz, t_player *pl)
 void	zjmp(t_process *processor, unsigned char *map, int iz, t_player *pl)
 {
 	if (processor->carry == 0)
+	{
+		processor->cur_pos += processor->iterator;
+		processor->iterator = 0;
 		return;
+	}
+
 	processor->cur_pos = (ft_atoi_base(processor->arg1, 16) * 2 + processor->cur_pos) % IDX_MOD;
 	processor->iterator = 0;
 }

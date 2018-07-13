@@ -17,10 +17,12 @@ void    initVis(void)
 
 size_t    innerCycle(unsigned char map[], unsigned char x[], size_t len, t_process *proc)
 {
-    int 	n;
-    int	 	m;
-    int 	q;
-	size_t 	i;
+    int 		n;
+    int	 		m;
+    int 		q;
+	size_t 		i;
+	int 		pair;
+	t_process	*ptr;
 
     n = 0;
 	i = 0;
@@ -32,21 +34,24 @@ size_t    innerCycle(unsigned char map[], unsigned char x[], size_t len, t_proce
         {
 			if (i < len)
 			{
-				if (i != proc->cur_pos)
-					attron(COLOR_PAIR(5));
-				else
-					attron(COLOR_PAIR(4));
+				pair = 5;
+				ptr = proc;
+				while (ptr)
+				{
+					if (i == ptr->cur_pos)
+					{
+						pair = 4;
+						break ;
+					}
+					ptr = ptr->next;
+				}
+				attron(COLOR_PAIR(pair));
 			}
             x[0] = map[i];
             x[1] = map[i + 1];
             mvwprintw(stdscr, n, q, (char*)x);
             if (i - 2 < len)
-			{
-				if (i != proc->cur_pos)
-					attroff(COLOR_PAIR(5));
-				else
-					attroff(COLOR_PAIR(4));
-			}
+				attroff(COLOR_PAIR(pair));
             q += 3;
 			i += 2;
         }
