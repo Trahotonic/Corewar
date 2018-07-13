@@ -47,7 +47,7 @@ void	readLittleShit(unsigned char map[], char arg1[], char tmp[], t_process *pro
 	}
 }
 
-void	readShit(unsigned char map[], t_process *processor)
+void	readShit(unsigned char map[], t_process *processor) // Обновленно !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 {
 	int		n;
 	char 	tmp[3];
@@ -56,9 +56,7 @@ void	readShit(unsigned char map[], t_process *processor)
 	tmp[2] = '\0';
 	doNull(processor);
 	if (processor->codage == 0)
-	{
-		processor->iterator += 2;
-	}
+		readLittleShit(map, processor->arg1, "10", processor);
 	else
 	{
 		tmp[0] = map[processor->cur_pos + 2];

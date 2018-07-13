@@ -37,7 +37,7 @@ void	dump(unsigned char map[])
 	}
 }
 
-void	runProcesses(t_process **processes, unsigned char map[], functions_t array[], int i, t_player *player)
+void	runProcesses(t_process **processes, unsigned char map[], functions_t array[], int i, t_player *player) // Обновленно !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 {
 	t_process	*go;
 	int 		n;
@@ -46,26 +46,13 @@ void	runProcesses(t_process **processes, unsigned char map[], functions_t array[
 	n = 0;
 	while (go)
 	{
-		if (ft_strequ("..", go->command))
-		{
-			go->command[0] = map[go->cur_pos];
-			go->command[1] = map[go->cur_pos + 1];
-			while (!ft_strequ(go->command, array[n].name))
-				n++;
-			go->cycle_todo = array[n].cycles;
-			go->codage = array[n].codage;
-		}
-		else if ((ft_strequ("01", go->command) ||
-				ft_strequ("02", go->command) ||
-				ft_strequ("03", go->command) ||
-				ft_strequ("04", go->command) ||
-				ft_strequ("05", go->command) ||
-				ft_strequ("06", go->command) ||
-				ft_strequ("07", go->command) ||
-				ft_strequ("08", go->command) ||
-				ft_strequ("09", go->command) ||
-				ft_strequ("0a", go->command) ||
-				ft_strequ("0b", go->command))
+		if (go->cycle_todo > 0)
+			go->cycle_todo--;
+		if ((ft_strequ("01", go->command) || ft_strequ("02", go->command) || ft_strequ("03", go->command) ||
+				  ft_strequ("04", go->command) || ft_strequ("05", go->command) || ft_strequ("06", go->command) ||
+				  ft_strequ("07", go->command) || ft_strequ("08", go->command) || ft_strequ("09", go->command) ||
+				  ft_strequ("0a", go->command) || ft_strequ("0b", go->command) || ft_strequ("0c", go->command) ||
+				  ft_strequ("0d", go->command) || ft_strequ("0e", go->command) || ft_strequ("0f", go->command))
 				 && !go->cycle_todo)
 		{
 			readShit(map, *processes);
@@ -91,11 +78,26 @@ void	runProcesses(t_process **processes, unsigned char map[], functions_t array[
 				array[9].funcptr(go, map, i, player);
 			else if (ft_strequ("0b", go->command))
 				array[10].funcptr(go, map, i, player);
+			else if (ft_strequ("0c", go->command))
+				array[10].funcptr(go, map, i, player);
+			else if (ft_strequ("0d", go->command))
+				array[10].funcptr(go, map, i, player);
+			else if (ft_strequ("0e", go->command))
+				array[10].funcptr(go, map, i, player);
+			else if (ft_strequ("0f", go->command))
+				array[10].funcptr(go, map, i, player);
 			go->command[0] = '.';
 			go->command[1] = '.';
 		}
-		if (go->cycle_todo)
-			go->cycle_todo--;
+		if (ft_strequ("..", go->command))
+		{
+			go->command[0] = map[go->cur_pos];
+			go->command[1] = map[go->cur_pos + 1];
+			while (!ft_strequ(go->command, array[n].name))
+				n++;
+			go->cycle_todo = array[n].cycles;
+			go->codage = array[n].codage;
+		}
 		go = go->next;
 	}
 }
@@ -125,7 +127,7 @@ int     main(int argc, char **argv)
 	t_process		*processes;
 	int 			i;
 	int 			c;
-	functions_t		array[11];
+	functions_t		array[15];
 	t_player		player;
 	int 			d;
 	int 			iter;
@@ -140,7 +142,7 @@ int     main(int argc, char **argv)
 	player.lastAlive = 0;
 	player.playerNumber = -1;
 	i = 0;
-	while (i++ < 1000)
+	while (i < 1000)
 	{
 		if (d && i == iter)
 			break ;
@@ -155,6 +157,7 @@ int     main(int argc, char **argv)
 			if (c == 113)
 				break ;
 		}
+		i++;
 //		if (!d)
 //			usleep(300000);
 	}

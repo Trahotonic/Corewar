@@ -126,6 +126,10 @@ void	or(t_process *processor, unsigned char *map, int iz, t_player *pl);
 void	xor(t_process *processor, unsigned char *map, int iz, t_player *pl);
 void	zjmp(t_process *processor, unsigned char *map, int iz, t_player *pl);
 void	ldi(t_process *processor, unsigned char *map, int iz, t_player *pl);
+void	lld(t_process *processor, unsigned char *map, int iz, t_player *pl);
+void	lldi(t_process *processor, unsigned char *map, int iz, t_player *pl);
+void	fork_c(t_process *processor, unsigned char *map, int iz, t_player *pl);
+void	lfork(t_process *processor, unsigned char *map, int iz, t_player *pl);
 void	sti(t_process *processor, unsigned char *map, int iz, t_player *pl);
 void 	initfunc(functions_t func[]);
 

@@ -4,57 +4,49 @@
 
 #include "../inc/corewar.h"
 
-void  live(t_process *processor, unsigned char *map, int i, t_player *pl)
+void  live(t_process *processor, unsigned char *map, int i, t_player *pl)// Обновленно (но надо менять ) !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 {
-	int n;
-	int m;
-	char name[9];
 
-	m = processor->cur_pos + 2;
-	name[8] = 0;
-	n = 0;
 	processor->alive = 1;
-	while(n < 8)
-		name[n++] = map[m++];
 	pl->lastAlive = i;
-	processor->cur_pos += processor->iterator % 8192;
+	processor->cur_pos = (processor->iterator + processor->cur_pos) % 8192;
 	processor->iterator = 0;
 }
 
-void  ld(t_process *processor, unsigned char *map, int iz, t_player *pl)
+void		ld(t_process *processor, unsigned char *map, int iz, t_player *pl) // Обновленно !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 {
-	int  n;
+	int		n;
+	char	*arg1;
+	int		k;
 
 	if (ft_strlen(processor->arg1) == 8)
 	{
-		processor->reg[ft_atoi_base(processor->arg2, 16) - 1] = ft_atoi_base(processor->arg1, 16);
+		processor->reg[ft_atoi_base(processor->arg2, 16) - 1] =
+				(unsigned int)ft_atoi_base(processor->arg1, 16);
 	}
 	else if (ft_strlen(processor->arg1) == 4)
 	{
-		n = ft_atoi_base(processor->arg1, 16);
-		n %= IDX_MOD;
-		int k;
-		k = processor->cur_pos + n * 2;
+		k = (ft_atoi_base(processor->arg1, 16) % IDX_MOD) * 2 + processor->cur_pos;
 		n = 0;
+		arg1 = ft_strnew(8);
 		while (n < 8)
-			processor->arg1[n++] = map[k++];
-		processor->reg[ft_atoi_base(processor->arg2, 16) - 1] = ft_atoi_base(processor->arg1, 16);
+			arg1[n++] = map[k++];
+		processor->reg[ft_atoi_base(processor->arg2, 16) - 1] =
+				(unsigned int)ft_atoi_base(arg1, 16);
 	}
 	processor->cur_pos += processor->iterator % 8192;
 	processor->iterator = 0;
 }
 
-void	st(t_process *processor, unsigned char *map, int iz, t_player *pl)
+void	st(t_process *processor, unsigned char *map, int iz, t_player *pl) // Обновленно !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 {
-	int  n;
-	char *tmp;
+	int		n;
+	char	*tmp;
+	int		k;
 
 	if (ft_strlen(processor->arg2) == 4)
 	{
-		n = ft_atoi_base(processor->arg2, 16);
-		n %= IDX_MOD;
-		int k;
-		k = processor->cur_pos + n * 2;
+		k = ft_atoi_base(processor->arg2, 16) % IDX_MOD * 2 + processor->cur_pos;
 		n = 0;
 		tmp = ft_itoa_base(processor->reg[ft_atoi_base(processor->arg1, 16) - 1], 16);
 		convert(&tmp);
@@ -62,7 +54,8 @@ void	st(t_process *processor, unsigned char *map, int iz, t_player *pl)
 			map[k++] = tmp[n++];
 	}
 	else if (ft_strlen(processor->arg2) == 2)
-		processor->reg[ft_atoi_base(processor->arg2, 16) - 1] = processor->reg[ft_atoi_base(processor->arg1, 16) - 1];
+		processor->reg[ft_atoi_base(processor->arg2, 16) - 1] =
+				processor->reg[ft_atoi_base(processor->arg1, 16) - 1];
 	processor->cur_pos += processor->iterator % 8192;
 	processor->iterator = 0;
 }

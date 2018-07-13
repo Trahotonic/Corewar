@@ -50,7 +50,7 @@ void	initProcesses(t_process **processes)
 	tmp->next = NULL;
 }
 
-void initfunc(functions_t func[])
+void initfunc(functions_t func[]) // Обновленно (но чето выебуется впадло разбираться пошел домой) !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 {
 	func[0].codage = 0;
 	func[0].funcptr = &live;
@@ -97,7 +97,7 @@ void initfunc(functions_t func[])
 	func[8].cycles = 20;
 	func[8].name = "09";
 
-	func[9].codage = 1;
+	func[9].codage = 0;
 	func[9].funcptr = &ldi;
 	func[9].cycles = 25;
 	func[9].name = "0a";
@@ -106,4 +106,26 @@ void initfunc(functions_t func[])
 	func[10].funcptr = &sti;
 	func[10].cycles = 25;
 	func[10].name = "0b";
+
+	func[11].codage = 0;
+	func[11].funcptr = &fork_c;
+	func[11].cycles = 800;
+	func[11].name = "0c";
+
+	func[12].codage = 1;
+	func[12].funcptr = &lld;
+	func[12].cycles = 10;
+	func[12].name = "0d";
+
+	func[13].codage = 1;
+	func[13].funcptr = &lldi;
+	func[13].cycles = 50;
+	func[13].name = "0e";
+
+	func[14].codage = 0;
+	func[14].funcptr = &lfork;
+	func[14].cycles = 1000;
+	func[14].name = "0f";
+
+
 }
