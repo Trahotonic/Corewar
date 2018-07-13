@@ -94,6 +94,7 @@ typedef struct		s_player
 	int 		playerNumber;
 	int 		lastAlive;
 	header_t	header;
+	size_t 		len;
 }					t_player;
 
 typedef struct  functions_s
@@ -104,6 +105,7 @@ typedef struct  functions_s
 	void  (*funcptr)(t_process*, unsigned char*, int, t_player*);
 }     functions_t;
 
+void	doNull(t_process *processor);
 void    initMap(unsigned char map[], char **total, header_t *header, char **argv);
 void	initProcesses(t_process **processes);
 int 	ft_iswhitespace(char const c);

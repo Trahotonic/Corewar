@@ -16,8 +16,8 @@ void		sti(t_process *processor, unsigned char *map, int iz, t_player *pl)
 	n = 0;
 	arg2 = ft_strnew(8);
 
-	mvwprintw(stdscr, 1, 200, "%d", ft_atoi_base(processor->arg2, 16));
-	mvwprintw(stdscr, 1, 230, "%d", ft_atoi_base(processor->arg3, 16));
+//	mvwprintw(stdscr, 1, 200, "%d", ft_atoi_base(processor->arg2, 16));
+//	mvwprintw(stdscr, 1, 230, "%d", ft_atoi_base(processor->arg3, 16));
 	if (ft_strlen(processor->arg2) == 4 && !processor->t_dir)
 	{
 		i = ft_atoi_base(processor->arg2, 16) % IDX_MOD + processor->cur_pos;
@@ -102,7 +102,8 @@ void	fork_c(t_process *processor, unsigned char *map, int iz, t_player *pl) // �
 	int 		n;
 
 	tmp = (t_process*)malloc(sizeof(t_process));
-	tmp->cur_pos = ft_atoi_base(processor->arg1, 16) % IDX_MOD * 2 + processor->cur_pos;
+	tmp->cur_pos = ((ft_atoi_base(processor->arg1, 16) + processor->cur_pos / 2) * 2 % IDX_MOD) ;
+//	mvwprintw(stdscr, 0, 210, "%d", tmp->cur_pos);
 	tmp->carry = processor->carry;
 	tmp->pl_num = processor->pl_num;
 	tmp->alive = processor->alive;
@@ -111,6 +112,7 @@ void	fork_c(t_process *processor, unsigned char *map, int iz, t_player *pl) // �
 	tmp->command[2] = '\0';
 	tmp->cycle_todo = 0;
 	tmp->iterator = 0;
+	tmp->codage = 1;
 	n = 0;
 	while (n < 16)
 	{
@@ -121,9 +123,12 @@ void	fork_c(t_process *processor, unsigned char *map, int iz, t_player *pl) // �
 	ptr = processor;
 	while (ptr->next)
 		ptr = ptr->next;
+	doNull(tmp);
 	ptr->next = tmp;
 	tmp->prev = ptr;
 	tmp->next = NULL;
+	processor->cur_pos += processor->iterator;
+	processor->iterator = 0;
 }
 
 void	lfork(t_process *processor, unsigned char *map, int iz, t_player *pl) /* Обновленно !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! (но это не точно =)))))))))))) */
@@ -155,4 +160,6 @@ void	lfork(t_process *processor, unsigned char *map, int iz, t_player *pl) /* О
 	ptr->next = tmp;
 	tmp->prev = ptr;
 	tmp->next = NULL;
+	processor->cur_pos += processor->iterator;
+	processor->iterator = 0;
 }

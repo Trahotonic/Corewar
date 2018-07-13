@@ -9,11 +9,12 @@ void	doNull(t_process *processor)
 {
 	int n = 0;
 
-	while (n++ < 9)
+	while (n < 9)
 	{
 		processor->arg1[n] = '\0';
 		processor->arg2[n] = '\0';
 		processor->arg3[n] = '\0';
+		n++;
 	}
 }
 
@@ -34,7 +35,8 @@ void	readLittleShit(unsigned char map[], char arg1[], char tmp[], t_process *pro
 			arg1[n++] = map[processor->cur_pos + processor->iterator++];
 	}
 	else if (ft_strequ(tmp, "10") && (ft_strequ(processor->command, "0e") || ft_strequ(processor->command, "0a") ||
-			(ft_strequ(processor->command, "0b")) || (ft_strequ(processor->command, "09"))))
+			(ft_strequ(processor->command, "0b")) || (ft_strequ(processor->command, "09")) || (ft_strequ(processor->command, "0c"))
+									 || (ft_strequ(processor->command, "0f"))))
 	{
 		processor->t_dir = 1;
 		while (n < 4)

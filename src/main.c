@@ -57,7 +57,7 @@ void	runProcesses(t_process **processes, unsigned char map[], functions_t array[
 				  ft_strequ("0d", go->command) || ft_strequ("0e", go->command) || ft_strequ("0f", go->command))
 				 && !go->cycle_todo)
 		{
-			readShit(map, *processes);
+			readShit(map, go);
 			if (ft_strequ("01", go->command))
 				array[0].funcptr(go, map, i, player);
 			else if (ft_strequ("02", go->command))
@@ -81,13 +81,13 @@ void	runProcesses(t_process **processes, unsigned char map[], functions_t array[
 			else if (ft_strequ("0b", go->command))
 				array[10].funcptr(go, map, i, player);
 			else if (ft_strequ("0c", go->command))
-				array[10].funcptr(go, map, i, player);
+				array[11].funcptr(go, map, i, player);
 			else if (ft_strequ("0d", go->command))
-				array[10].funcptr(go, map, i, player);
+				array[12].funcptr(go, map, i, player);
 			else if (ft_strequ("0e", go->command))
-				array[10].funcptr(go, map, i, player);
+				array[13].funcptr(go, map, i, player);
 			else if (ft_strequ("0f", go->command))
-				array[10].funcptr(go, map, i, player);
+				array[14].funcptr(go, map, i, player);
 			go->command[0] = '.';
 			go->command[1] = '.';
 		}
@@ -143,6 +143,7 @@ int     main(int argc, char **argv)
 	player.header = header;
 	player.lastAlive = 0;
 	player.playerNumber = -1;
+	player.len = ft_strlen(total);
 	i = 0;
 	while (1)
 	{
@@ -155,14 +156,14 @@ int     main(int argc, char **argv)
 			mvwprintw(stdscr, 0, 200, "%d", i);
 			mvwprintw(stdscr, 0, 230, "%d", player.lastAlive);
 			mvwprintw(stdscr, 2, 200, "cur_pos %d", processes->cur_pos);
-//			if (i >= 600)
-//				c = getch();
+			if (i >= 900)
+				c = getch();
 			if (c == 113)
 				break ;
 		}
 		i++;
 //		if (!d)
-//			usleep(300000);
+//			usleep(30000);
 	}
     free(total);
 	if (!d)
