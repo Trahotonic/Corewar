@@ -34,6 +34,10 @@ void		ld(t_process *processor, unsigned char *map, int iz, t_player *pl) // Об
 		processor->reg[ft_atoi_base(processor->arg2, 16) - 1] =
 				(unsigned int)ft_atoi_base(arg1, 16);
 	}
+	if (processor->reg[ft_atoi_base(processor->arg2, 16) - 1] == 0)
+		processor->carry = 1;
+	else
+		processor->carry = 0;
 	processor->cur_pos += processor->iterator % 8192;
 	processor->iterator = 0;
 }

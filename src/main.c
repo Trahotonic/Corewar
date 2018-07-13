@@ -95,8 +95,16 @@ void	runProcesses(t_process **processes, unsigned char map[], functions_t array[
 		{
 			go->command[0] = map[go->cur_pos];
 			go->command[1] = map[go->cur_pos + 1];
-			while (!ft_strequ(go->command, array[n].name))
+			while (n < 16 && !ft_strequ(go->command, array[n].name))
 				n++;
+			if (n == 16)
+			{
+				go->cur_pos += 2;
+				go->command[0] = '.';
+				go->command[1] = '.';
+				go = go->prev;
+				continue ;
+			}
 			go->cycle_todo = array[n].cycles;
 			go->codage = array[n].codage;
 		}
@@ -156,8 +164,8 @@ int     main(int argc, char **argv)
 			mvwprintw(stdscr, 0, 200, "%d", i);
 			mvwprintw(stdscr, 0, 230, "%d", player.lastAlive);
 			mvwprintw(stdscr, 2, 200, "cur_pos %d", processes->cur_pos);
-			if (i >= 900)
-				c = getch();
+//			if (i >= 900)
+//				c = getch();
 			if (c == 113)
 				break ;
 		}
