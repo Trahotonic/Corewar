@@ -34,7 +34,7 @@ void	initProcesses(t_process **processes)
 	*processes = (t_process*)malloc(sizeof(t_process));
 	tmp = *processes;
 	tmp->cur_pos = 0;
-	tmp->carry = 0;
+	tmp->carry = 1;
 	tmp->pl_num = 0;
 	tmp->alive = 0;
 	tmp->command[0] = '.';
@@ -92,12 +92,12 @@ void initfunc(functions_t func[]) // Обновленно (но чето вые�
 	func[7].cycles = 6;
 	func[7].name = "08";
 
-	func[8].codage = 1;
+	func[8].codage = 0;
 	func[8].funcptr = &zjmp;
 	func[8].cycles = 20;
 	func[8].name = "09";
 
-	func[9].codage = 0;
+	func[9].codage = 1;
 	func[9].funcptr = &ldi;
 	func[9].cycles = 25;
 	func[9].name = "0a";

@@ -56,7 +56,10 @@ void	readShit(unsigned char map[], t_process *processor) // Обновленно
 	tmp[2] = '\0';
 	doNull(processor);
 	if (processor->codage == 0)
+	{
+		processor->iterator += 2;
 		readLittleShit(map, processor->arg1, "10", processor);
+	}
 	else
 	{
 		tmp[0] = map[processor->cur_pos + 2];

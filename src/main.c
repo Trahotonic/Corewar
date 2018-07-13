@@ -142,7 +142,7 @@ int     main(int argc, char **argv)
 	player.lastAlive = 0;
 	player.playerNumber = -1;
 	i = 0;
-	while (i < 1000)
+	while (1)
 	{
 		if (d && i == iter)
 			break ;
@@ -153,7 +153,8 @@ int     main(int argc, char **argv)
 			mvwprintw(stdscr, 0, 200, "%d", i);
 			mvwprintw(stdscr, 0, 230, "%d", player.lastAlive);
 			mvwprintw(stdscr, 2, 200, "cur_pos %d", processes->cur_pos);
-			c = getch();
+//			if (i >= 600)
+//				c = getch();
 			if (c == 113)
 				break ;
 		}
