@@ -37,7 +37,7 @@ void	dump(unsigned char map[])
 	}
 }
 
-void	runProcesses(t_process **processes, unsigned char map[], functions_t array[], int i, t_player *player) // Обновленно !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+void	runProcesses(t_process **processes, unsigned char map[], functions_t array[], int i, t_player *player, t_vizData *vizData) // Обновленно !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 {
 	t_process	*go;
 	int 		n;
@@ -59,35 +59,35 @@ void	runProcesses(t_process **processes, unsigned char map[], functions_t array[
 		{
 			readShit(map, go);
 			if (ft_strequ("01", go->command))
-				array[0].funcptr(go, map, i, player);
+				array[0].funcptr(go, map, i, player, vizData);
 			else if (ft_strequ("02", go->command))
-				array[1].funcptr(go, map, i, player);
+				array[1].funcptr(go, map, i, player, vizData);
 			else if (ft_strequ("03", go->command))
-				array[2].funcptr(go, map, i, player);
+				array[2].funcptr(go, map, i, player, vizData);
 			else if (ft_strequ("04", go->command))
-				array[3].funcptr(go, map, i, player);
+				array[3].funcptr(go, map, i, player, vizData);
 			else if (ft_strequ("05", go->command))
-				array[4].funcptr(go, map, i, player);
+				array[4].funcptr(go, map, i, player, vizData);
 			else if (ft_strequ("06", go->command))
-				array[5].funcptr(go, map, i, player);
+				array[5].funcptr(go, map, i, player, vizData);
 			else if (ft_strequ("07", go->command))
-				array[6].funcptr(go, map, i, player);
+				array[6].funcptr(go, map, i, player, vizData);
 			else if (ft_strequ("08", go->command))
-				array[7].funcptr(go, map, i, player);
+				array[7].funcptr(go, map, i, player, vizData);
 			else if (ft_strequ("09", go->command))
-				array[8].funcptr(go, map, i, player);
+				array[8].funcptr(go, map, i, player, vizData);
 			else if (ft_strequ("0a", go->command))
-				array[9].funcptr(go, map, i, player);
+				array[9].funcptr(go, map, i, player, vizData);
 			else if (ft_strequ("0b", go->command))
-				array[10].funcptr(go, map, i, player);
+				array[10].funcptr(go, map, i, player, vizData);
 			else if (ft_strequ("0c", go->command))
-				array[11].funcptr(go, map, i, player);
+				array[11].funcptr(go, map, i, player, vizData);
 			else if (ft_strequ("0d", go->command))
-				array[12].funcptr(go, map, i, player);
+				array[12].funcptr(go, map, i, player, vizData);
 			else if (ft_strequ("0e", go->command))
-				array[13].funcptr(go, map, i, player);
+				array[13].funcptr(go, map, i, player, vizData);
 			else if (ft_strequ("0f", go->command))
-				array[14].funcptr(go, map, i, player);
+				array[14].funcptr(go, map, i, player, vizData);
 			go->command[0] = '.';
 			go->command[1] = '.';
 		}
@@ -141,10 +141,11 @@ int     main(int argc, char **argv)
 	t_player		player;
 	int 			d;
 	int 			iter;
+    t_vizData       vizData;
 
 	checkArguments(argc, argv, &d, &iter);
 	initProcesses(&processes);
-    initMap(map, &total, &header, argv);
+    initMap(map, &total, &header, argv, &vizData);
 	if (!d)
 		initVis();
 	initfunc(array);
@@ -157,21 +158,21 @@ int     main(int argc, char **argv)
 	{
 		if (d && i == iter)
 			break ;
-		runProcesses(&processes, map, array, i, &player);
+		runProcesses(&processes, map, array, i, &player, &vizData);
 		if (!d)
 		{
-			visualize(map, ft_strlen(total), processes);
+			visualize(map, ft_strlen(total), processes, &vizData);
 			mvwprintw(stdscr, 0, 200, "%d", i);
 			mvwprintw(stdscr, 0, 230, "%d", player.lastAlive);
 			mvwprintw(stdscr, 2, 200, "cur_pos %d", processes->cur_pos);
 //			if (i >= 900)
-//				c = getch();
+				c = getch();
 			if (c == 113)
 				break ;
 		}
 		i++;
 //		if (!d)
-//			usleep(30000);
+			usleep(30000);
 	}
     free(total);
 	if (!d)

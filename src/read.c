@@ -93,7 +93,7 @@ void    case123(unsigned int buff, char **str, ssize_t n)
     free(dump);
 }
 
-void    getTotal(int fd, char **total)
+void    getTotal(int fd, char **total, t_vizData *vizData)
 {
     ssize_t         n;
     unsigned int    buff;
@@ -112,5 +112,19 @@ void    getTotal(int fd, char **total)
             convert(&str);
         }
         *total = ft_arrg_join(*total, str);
+    }
+    n = 0;
+    while (n < ft_strlen(*total))
+    {
+        vizData->vizData[n] = 1;
+        vizData->markTimeout[n] = 0;
+        n++;
+    }
+//    printf("here\n");
+    while (n < MEM_SIZE * 2)
+    {
+        vizData->vizData[n] = 0;
+        vizData->markTimeout[n] = 0;
+        n++;
     }
 }

@@ -4,7 +4,7 @@
 
 #include "../inc/corewar.h"
 
-void		sti(t_process *processor, unsigned char *map, int iz, t_player *pl)
+void		sti(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizData *vizData)
 {
 	int		i;
 	char	*arg2;
@@ -29,14 +29,17 @@ void		sti(t_process *processor, unsigned char *map, int iz, t_player *pl)
 	else
 		i = ((ft_atoi_base(processor->arg2, 16) + ft_atoi_base(processor->arg3, 16)) % IDX_MOD) * 2 + processor->cur_pos;
 	while (n < 8)
+	{
+		vizData->markTimeout[i] = 100;
 		map[i++] = arg1[n++];
+	}
 	ft_strdel(&arg1);
 	ft_strdel(&arg2);
 	processor->cur_pos += processor->iterator % 8192;
 	processor->iterator = 0;
 }
 
-void	lld(t_process *processor, unsigned char *map, int iz, t_player *pl) // Обновленно !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+void	lld(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizData *vizData) // Обновленно !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 {
 	int	n;
 	int k;
@@ -62,7 +65,7 @@ void	lld(t_process *processor, unsigned char *map, int iz, t_player *pl) // Об
 	processor->iterator = 0;
 }
 
-void	lldi(t_process *processor, unsigned char *map, int iz, t_player *pl) // Обновленно !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+void	lldi(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizData *vizData) // Обновленно !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 {
 	int		i;
 	char	*arg1;
@@ -95,7 +98,7 @@ void	lldi(t_process *processor, unsigned char *map, int iz, t_player *pl) // О�
 	ft_strdel(&arg1);
 }
 
-void	fork_c(t_process *processor, unsigned char *map, int iz, t_player *pl) // Обновленно !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! (но это не точно =))))))))))))
+void	fork_c(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizData *vizData) // Обновленно !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! (но это не точно =))))))))))))
 {
 	t_process	*tmp;
 	t_process	*ptr;
@@ -131,7 +134,7 @@ void	fork_c(t_process *processor, unsigned char *map, int iz, t_player *pl) // �
 	processor->iterator = 0;
 }
 
-void	lfork(t_process *processor, unsigned char *map, int iz, t_player *pl) /* Обновленно !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! (но это не точно =)))))))))))) */
+void	lfork(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizData *vizData) /* Обновленно !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! (но это не точно =)))))))))))) */
 {
 	t_process	*tmp;
 	t_process	*ptr;

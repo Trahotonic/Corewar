@@ -4,7 +4,7 @@
 
 #include "../inc/corewar.h"
 
-void		and(t_process *processor, unsigned char *map, int iz, t_player *pl)
+void		and(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizData *vizData)
 {
 	processor->reg[ft_atoi_base(processor->arg3, 16) - 1] =
 			processor->reg[ft_atoi_base(processor->arg1, 16) - 1] &
@@ -18,7 +18,7 @@ void		and(t_process *processor, unsigned char *map, int iz, t_player *pl)
 	processor->iterator = 0;
 }
 
-void		or(t_process *processor, unsigned char *map, int iz, t_player *pl)
+void		or(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizData *vizData)
 {
 	processor->reg[ft_atoi_base(processor->arg3, 16) - 1] =
 			processor->reg[ft_atoi_base(processor->arg1, 16) - 1] |
@@ -32,7 +32,7 @@ void		or(t_process *processor, unsigned char *map, int iz, t_player *pl)
 	processor->iterator = 0;
 }
 
-void		xor(t_process *processor, unsigned char *map, int iz, t_player *pl)
+void		xor(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizData *vizData)
 {
 	processor->reg[ft_atoi_base(processor->arg3, 16) - 1] =
 			processor->reg[ft_atoi_base(processor->arg1, 16) - 1] ^
@@ -47,7 +47,7 @@ void		xor(t_process *processor, unsigned char *map, int iz, t_player *pl)
 }
 
 
-void	zjmp(t_process *processor, unsigned char *map, int iz, t_player *pl)
+void	zjmp(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizData *vizData)
 {
 	if (processor->carry == 0)
 	{
@@ -60,7 +60,7 @@ void	zjmp(t_process *processor, unsigned char *map, int iz, t_player *pl)
 	processor->iterator = 0;
 }
 
-void	ldi(t_process *processor, unsigned char *map, int iz, t_player *pl) // Обновленно !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+void	ldi(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizData *vizData) // Обновленно !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 {
 	int		i;
 	char	*arg1;

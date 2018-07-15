@@ -4,7 +4,7 @@
 
 #include "../inc/corewar.h"
 
-void    initMap(unsigned char map[], char **total, header_t *header, char **argv)
+void    initMap(unsigned char map[], char **total, header_t *header, char **argv, t_vizData *vizData)
 {
 	int     n;
 	int     fd;
@@ -15,7 +15,7 @@ void    initMap(unsigned char map[], char **total, header_t *header, char **argv
 		map[n++] = '0';
 	fd = open(argv[1], O_RDONLY);
 	read(fd, header, sizeof(header_t));
-	getTotal(fd, total);
+	getTotal(fd, total, vizData);
 	n = 0;
 	work = *total;
 	while (work[n] != '\0')
@@ -127,6 +127,4 @@ void initfunc(functions_t func[]) // Обновленно (но чето вые�
 	func[14].funcptr = &lfork;
 	func[14].cycles = 1000;
 	func[14].name = "0f";
-
-
 }

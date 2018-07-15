@@ -4,7 +4,7 @@
 
 #include "../inc/corewar.h"
 
-void  live(t_process *processor, unsigned char *map, int i, t_player *pl)// Обновленно (но надо менять ) !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+void  live(t_process *processor, unsigned char *map, int i, t_player *pl, t_vizData *vizData)// Обновленно (но надо менять ) !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 {
 
 	processor->alive = 1;
@@ -13,7 +13,7 @@ void  live(t_process *processor, unsigned char *map, int i, t_player *pl)// Об
 	processor->iterator = 0;
 }
 
-void		ld(t_process *processor, unsigned char *map, int iz, t_player *pl) // Обновленно !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+void		ld(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizData *vizData) // Обновленно !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 {
 	int		n;
 	char	*arg1;
@@ -42,7 +42,7 @@ void		ld(t_process *processor, unsigned char *map, int iz, t_player *pl) // Об
 	processor->iterator = 0;
 }
 
-void	st(t_process *processor, unsigned char *map, int iz, t_player *pl) // Обновленно !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+void	st(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizData *vizData) // Обновленно !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 {
 	int		n;
 	char	*tmp;
@@ -55,7 +55,10 @@ void	st(t_process *processor, unsigned char *map, int iz, t_player *pl) // Об�
 		tmp = ft_itoa_base(processor->reg[ft_atoi_base(processor->arg1, 16) - 1], 16);
 		convert(&tmp);
 		while (n < 8)
+		{
+			vizData->markTimeout[k] = 100;
 			map[k++] = tmp[n++];
+		}
 	}
 	else if (ft_strlen(processor->arg2) == 2)
 		processor->reg[ft_atoi_base(processor->arg2, 16) - 1] =
@@ -64,7 +67,7 @@ void	st(t_process *processor, unsigned char *map, int iz, t_player *pl) // Об�
 	processor->iterator = 0;
 }
 
-void		add(t_process *processor, unsigned char *map, int iz, t_player *pl)
+void		add(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizData *vizData)
 {
 	processor->reg[ft_atoi_base(processor->arg3, 16) - 1] =
 			processor->reg[ft_atoi_base(processor->arg1, 16) - 1] +
@@ -78,7 +81,7 @@ void		add(t_process *processor, unsigned char *map, int iz, t_player *pl)
 	processor->iterator = 0;
 }
 
-void		sub(t_process *processor, unsigned char *map, int iz, t_player *pl)
+void		sub(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizData *vizData)
 {
 	processor->reg[ft_atoi_base(processor->arg3, 16) - 1] =
 			processor->reg[ft_atoi_base(processor->arg1, 16) - 1] -
