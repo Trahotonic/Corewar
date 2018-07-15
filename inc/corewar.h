@@ -61,6 +61,21 @@ typedef char	t_arg_type;
 # define COMMENT_LENGTH			(2048)
 # define COREWAR_EXEC_MAGIC		0xea83f3
 
+# define DEFAULT_COLOR_PAIR 1
+# define MARK_PROCESS_PAIR 2
+# define DEFAULT_PLAYER1_PAIR 3
+# define DEFAULT_PLAYER2_PAIR 4
+# define DEFAULT_PLAYER3_PAIR 5
+# define DEFAULT_PLAYER4_PAIR 6
+# define NEW_PLAYER1_CODE_PAIR 7
+# define NEW_PLAYER2_CODE_PAIR 8
+# define NEW_PLAYER3_CODE_PAIR 9
+# define NEW_PLAYER4_CODE_PAIR 10
+
+# define LIGHT_GREEN 1
+# define GREY 2
+# define DARK_GREEN 3
+
 typedef struct		header_s
 {
     unsigned int		magic;

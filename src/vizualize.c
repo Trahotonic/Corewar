@@ -10,13 +10,13 @@ void    initVis(void)
     curs_set(0);
     nodelay(stdscr, true);
     start_color();
-    init_color(COLOR_WHITE, 1000, 1000, 1000);
-	init_pair(1, COLOR_GREEN, COLOR_BLACK);
-	init_pair(2, COLOR_BLACK, COLOR_WHITE);
-//    init_color(COLOR_GREEN, 0, 600, 0);
-	init_color(13, 500, 1500, 500);
-	init_pair(3, 13, COLOR_BLACK);
-	init_pair(9, COLOR_WHITE, COLOR_BLACK);
+    init_color(LIGHT_GREEN, 500, 1000, 500);
+    init_color(GREY, 300, 300, 300);
+    init_color(DARK_GREEN, 0, 500, 0);
+    init_pair(DEFAULT_COLOR_PAIR, GREY, COLOR_BLACK);
+    init_pair(MARK_PROCESS_PAIR, COLOR_BLACK, COLOR_WHITE);
+    init_pair(DEFAULT_PLAYER1_PAIR, DARK_GREEN, COLOR_BLACK);
+    init_pair(NEW_PLAYER1_CODE_PAIR, LIGHT_GREEN, COLOR_BLACK);
 }
 
 size_t    innerCycle(unsigned char map[], unsigned char x[], size_t len, t_process *proc, t_vizData *vizData)
@@ -36,23 +36,23 @@ size_t    innerCycle(unsigned char map[], unsigned char x[], size_t len, t_proce
         q = 0;
         while (m < 64)
         {
-			pair = 9;
+			pair = DEFAULT_COLOR_PAIR;
 			if (vizData->vizData[i] == 1)
 			{
 				if (vizData->markTimeout[i] > 0)
 				{
-					pair = 3;
+					pair = NEW_PLAYER1_CODE_PAIR;
 					vizData->markTimeout[i]--;
 				}
 				else
-					pair = 1;
+					pair = DEFAULT_PLAYER1_PAIR;
 			}
 			ptr = proc;
 			while (ptr)
 			{
 				if (i == ptr->cur_pos)
 				{
-					pair = 2;
+					pair = MARK_PROCESS_PAIR;
 					break ;
 				}
 				ptr = ptr->next;
