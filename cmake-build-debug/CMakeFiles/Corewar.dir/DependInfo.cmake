@@ -4,15 +4,15 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/Users/rkyslyy/corewar/src/and_or_xor_zjmp_ldi.c" "/Users/rkyslyy/corewar/cmake-build-debug/CMakeFiles/Corewar.dir/src/and_or_xor_zjmp_ldi.c.o"
-  "/Users/rkyslyy/corewar/src/converts.c" "/Users/rkyslyy/corewar/cmake-build-debug/CMakeFiles/Corewar.dir/src/converts.c.o"
-  "/Users/rkyslyy/corewar/src/inits.c" "/Users/rkyslyy/corewar/cmake-build-debug/CMakeFiles/Corewar.dir/src/inits.c.o"
-  "/Users/rkyslyy/corewar/src/live_ld_st_add_sub.c" "/Users/rkyslyy/corewar/cmake-build-debug/CMakeFiles/Corewar.dir/src/live_ld_st_add_sub.c.o"
-  "/Users/rkyslyy/corewar/src/main.c" "/Users/rkyslyy/corewar/cmake-build-debug/CMakeFiles/Corewar.dir/src/main.c.o"
-  "/Users/rkyslyy/corewar/src/read.c" "/Users/rkyslyy/corewar/cmake-build-debug/CMakeFiles/Corewar.dir/src/read.c.o"
-  "/Users/rkyslyy/corewar/src/read2.c" "/Users/rkyslyy/corewar/cmake-build-debug/CMakeFiles/Corewar.dir/src/read2.c.o"
-  "/Users/rkyslyy/corewar/src/sti_fork_lld_lldi_lfork.c" "/Users/rkyslyy/corewar/cmake-build-debug/CMakeFiles/Corewar.dir/src/sti_fork_lld_lldi_lfork.c.o"
-  "/Users/rkyslyy/corewar/src/vizualize.c" "/Users/rkyslyy/corewar/cmake-build-debug/CMakeFiles/Corewar.dir/src/vizualize.c.o"
+  "/Users/rkyslyy/CLionProjects/corewar/src/and_or_xor_zjmp_ldi.c" "/Users/rkyslyy/CLionProjects/corewar/cmake-build-debug/CMakeFiles/Corewar.dir/src/and_or_xor_zjmp_ldi.c.o"
+  "/Users/rkyslyy/CLionProjects/corewar/src/converts.c" "/Users/rkyslyy/CLionProjects/corewar/cmake-build-debug/CMakeFiles/Corewar.dir/src/converts.c.o"
+  "/Users/rkyslyy/CLionProjects/corewar/src/inits.c" "/Users/rkyslyy/CLionProjects/corewar/cmake-build-debug/CMakeFiles/Corewar.dir/src/inits.c.o"
+  "/Users/rkyslyy/CLionProjects/corewar/src/live_ld_st_add_sub.c" "/Users/rkyslyy/CLionProjects/corewar/cmake-build-debug/CMakeFiles/Corewar.dir/src/live_ld_st_add_sub.c.o"
+  "/Users/rkyslyy/CLionProjects/corewar/src/main.c" "/Users/rkyslyy/CLionProjects/corewar/cmake-build-debug/CMakeFiles/Corewar.dir/src/main.c.o"
+  "/Users/rkyslyy/CLionProjects/corewar/src/read.c" "/Users/rkyslyy/CLionProjects/corewar/cmake-build-debug/CMakeFiles/Corewar.dir/src/read.c.o"
+  "/Users/rkyslyy/CLionProjects/corewar/src/read2.c" "/Users/rkyslyy/CLionProjects/corewar/cmake-build-debug/CMakeFiles/Corewar.dir/src/read2.c.o"
+  "/Users/rkyslyy/CLionProjects/corewar/src/sti_fork_lld_lldi_lfork.c" "/Users/rkyslyy/CLionProjects/corewar/cmake-build-debug/CMakeFiles/Corewar.dir/src/sti_fork_lld_lldi_lfork.c.o"
+  "/Users/rkyslyy/CLionProjects/corewar/src/vizualize.c" "/Users/rkyslyy/CLionProjects/corewar/cmake-build-debug/CMakeFiles/Corewar.dir/src/vizualize.c.o"
   )
 set(CMAKE_C_COMPILER_ID "AppleClang")
 

@@ -76,8 +76,8 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/Applications/CLion.app/Contents/bin/cmake/share/cmake-3.9/Modules/Platform/UnixPaths.cmake"
   "/Applications/CLion.app/Contents/bin/cmake/share/cmake-3.9/Modules/ProcessorCount.cmake"
   "../CMakeLists.txt"
-  "CMakeFiles/3.9.6/CMakeCCompiler.cmake"
-  "CMakeFiles/3.9.6/CMakeSystem.cmake"
+  "CMakeFiles/3.9.4/CMakeCCompiler.cmake"
+  "CMakeFiles/3.9.4/CMakeSystem.cmake"
   "CMakeFiles/feature_tests.c"
   )
 
@@ -89,9 +89,9 @@ set(CMAKE_MAKEFILE_OUTPUTS
 
 # Byproducts of CMake generate step:
 set(CMAKE_MAKEFILE_PRODUCTS
-  "CMakeFiles/3.9.6/CMakeSystem.cmake"
-  "CMakeFiles/3.9.6/CMakeCCompiler.cmake"
-  "CMakeFiles/3.9.6/CMakeCCompiler.cmake"
+  "CMakeFiles/3.9.4/CMakeSystem.cmake"
+  "CMakeFiles/3.9.4/CMakeCCompiler.cmake"
+  "CMakeFiles/3.9.4/CMakeCCompiler.cmake"
   "CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 

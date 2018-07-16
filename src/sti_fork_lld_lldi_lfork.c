@@ -105,7 +105,7 @@ void	fork_c(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vi
 	int 		n;
 
 	tmp = (t_process*)malloc(sizeof(t_process));
-	tmp->cur_pos = ((ft_atoi_base(processor->arg1, 16) + processor->cur_pos / 2) * 2 % IDX_MOD) ;
+	tmp->cur_pos = ((ft_atoi_base(processor->arg1, 16) + processor->cur_pos / 2) % IDX_MOD) * 2 ;
 //	mvwprintw(stdscr, 0, 210, "%d", tmp->cur_pos);
 	tmp->carry = processor->carry;
 	tmp->pl_num = processor->pl_num;

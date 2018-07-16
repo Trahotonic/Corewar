@@ -1,5 +1,7 @@
 # include "./../inc/corewar.h"
 
+# define VIZ 1
+
 void	dump(unsigned char map[])
 {
 	int		n;
@@ -90,6 +92,9 @@ void	runProcesses(t_process **processes, unsigned char map[], functions_t array[
 				array[14].funcptr(go, map, i, player, vizData);
 			go->command[0] = '.';
 			go->command[1] = '.';
+			go = *processes;
+			while (go->next)
+				go = go->next;
 		}
 		if (ft_strequ("..", go->command))
 		{
@@ -107,6 +112,7 @@ void	runProcesses(t_process **processes, unsigned char map[], functions_t array[
 			}
 			go->cycle_todo = array[n].cycles;
 			go->codage = array[n].codage;
+			n = 0;
 		}
 		go = go->prev;
 	}
@@ -146,7 +152,7 @@ int     main(int argc, char **argv)
 	checkArguments(argc, argv, &d, &iter);
 	initProcesses(&processes);
     initMap(map, &total, &header, argv, &vizData);
-	if (!d)
+	if (!d && VIZ)
 		initVis();
 	initfunc(array);
 	player.header = header;
@@ -159,25 +165,25 @@ int     main(int argc, char **argv)
 		if (d && i == iter)
 			break ;
 		runProcesses(&processes, map, array, i, &player, &vizData);
-		if (!d)
+		if (!d && VIZ)
 		{
 			visualize(map, ft_strlen(total), processes, &vizData);
 			mvwprintw(stdscr, 0, 200, "%d", i);
 			mvwprintw(stdscr, 0, 230, "%d", player.lastAlive);
 			mvwprintw(stdscr, 2, 200, "cur_pos %d", processes->cur_pos);
-//			if (i >= 900)
+			if (i >= 1600)
 				c = getch();
 			if (c == 113)
 				break ;
 		}
 		i++;
 //		if (!d)
-			usleep(30000);
+//			usleep(30000);
 	}
     free(total);
-	if (!d)
+	if (!d && VIZ)
 		endwin();
-	else
-		dump(map);
+//	else
+//		dump(map);
 	return 0;
 }
