@@ -47,6 +47,7 @@ void	initProcesses(t_process **processes)
 		tmp->reg[n++] = 0;
 	tmp->reg[0] = -1;
 	tmp->t_dir = 0;
+	tmp->done = 0;
 	tmp->next = NULL;
 	tmp->prev = NULL;
 }

@@ -9,6 +9,7 @@ void	doNull(t_process *processor)
 {
 	int n = 0;
 
+	processor->t_dir = 0;
 	while (n < 9)
 	{
 		processor->arg1[n] = '\0';
@@ -23,7 +24,6 @@ void	readLittleShit(unsigned char map[], char arg1[], char tmp[], t_process *pro
 	int n;
 
 	n = 0;
-	processor->t_dir = 0;
 	if (ft_strequ(tmp, "01"))
 	{
 		while (n < 2)

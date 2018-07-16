@@ -92,10 +92,12 @@ void	runProcesses(t_process **processes, unsigned char map[], functions_t array[
 				array[14].funcptr(go, map, i, player, vizData);
 			go->command[0] = '.';
 			go->command[1] = '.';
-			go = *processes;
-			while (go->next)
-				go = go->next;
 		}
+		go = go->prev;
+	}
+	go = *processes;
+	while (go)
+	{
 		if (ft_strequ("..", go->command))
 		{
 			go->command[0] = map[go->cur_pos];
@@ -107,14 +109,14 @@ void	runProcesses(t_process **processes, unsigned char map[], functions_t array[
 				go->cur_pos += 2;
 				go->command[0] = '.';
 				go->command[1] = '.';
-				go = go->prev;
+				go = go->next;
 				continue ;
 			}
 			go->cycle_todo = array[n].cycles;
 			go->codage = array[n].codage;
 			n = 0;
 		}
-		go = go->prev;
+		go = go->next;
 	}
 }
 
@@ -162,6 +164,10 @@ int     main(int argc, char **argv)
 	i = 0;
 	while (1)
 	{
+		if (i == 800)
+		{
+
+		}
 		if (d && i == iter)
 			break ;
 		runProcesses(&processes, map, array, i, &player, &vizData);
@@ -171,7 +177,7 @@ int     main(int argc, char **argv)
 			mvwprintw(stdscr, 0, 200, "%d", i);
 			mvwprintw(stdscr, 0, 230, "%d", player.lastAlive);
 			mvwprintw(stdscr, 2, 200, "cur_pos %d", processes->cur_pos);
-			if (i >= 1600)
+			if (i >= 2500)
 				c = getch();
 			if (c == 113)
 				break ;
@@ -183,7 +189,7 @@ int     main(int argc, char **argv)
     free(total);
 	if (!d && VIZ)
 		endwin();
-//	else
-//		dump(map);
+	else
+		dump(map);
 	return 0;
 }

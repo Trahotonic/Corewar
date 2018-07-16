@@ -75,6 +75,7 @@ typedef char	t_arg_type;
 # define LIGHT_GREEN 1
 # define GREY 2
 # define DARK_GREEN 3
+# define GOOD_GREEN 4
 
 typedef struct		header_s
 {
@@ -99,6 +100,7 @@ typedef struct  	s_process
 	char 				arg2[9];
 	char 				arg3[9];
 	int 				t_dir;
+	int 				done;
 	struct s_process	*next;
 	struct s_process	*prev;
 

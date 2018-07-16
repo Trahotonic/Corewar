@@ -16,21 +16,37 @@ void		sti(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizD
 	n = 0;
 	arg2 = ft_strnew(8);
 
+//	if (processor->cur_pos > 800)
+//	{
+//		i = ((ft_atoi_base(processor->arg2, 16) + processor->reg[ft_atoi_base(processor->arg3, 16) - 1]) % IDX_MOD) * 2 + processor->cur_pos;
+//		while (n < 8)
+//		{
+//			vizData->markTimeout[i] = 100;
+//			vizData->vizData[i] = 1;
+//			map[i++] = arg1[n++];
+//		}
+//		ft_strdel(&arg1);
+//		ft_strdel(&arg2);
+//		processor->cur_pos += processor->iterator % 8192;
+//		processor->iterator = 0;
+//		return;
+//	}
 //	mvwprintw(stdscr, 1, 200, "%d", ft_atoi_base(processor->arg2, 16));
 //	mvwprintw(stdscr, 1, 230, "%d", ft_atoi_base(processor->arg3, 16));
 	if (ft_strlen(processor->arg2) == 4 && !processor->t_dir)
 	{
-		i = ft_atoi_base(processor->arg2, 16) % IDX_MOD + processor->cur_pos;
+		i = ft_atoi_base(processor->arg2, 16 + processor->cur_pos / 2) % IDX_MOD * 2;
 		while (n < 8)
 			arg2[n++] = map[i++];
 		i = ft_atoi_base(arg2, 16) + ft_atoi_base(processor->arg3, 16);
 		n = 0;
 	}
 	else
-		i = ((ft_atoi_base(processor->arg2, 16) + ft_atoi_base(processor->arg3, 16)) % IDX_MOD) * 2 + processor->cur_pos;
+		i = ((ft_atoi_base(processor->arg2, 16) + processor->reg[ft_atoi_base(processor->arg3, 16) - 1]) % IDX_MOD) * 2 + processor->cur_pos;
 	while (n < 8)
 	{
 		vizData->markTimeout[i] = 100;
+		vizData->vizData[i] = 1;
 		map[i++] = arg1[n++];
 	}
 	ft_strdel(&arg1);
@@ -75,8 +91,7 @@ void	lldi(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizD
 	arg1 = ft_strnew(8);
 	if (ft_strlen(processor->arg1) == 4 && !processor->t_dir)
 	{
-		i = (ft_atoi_base(processor->arg1, 16) % IDX_MOD)
-			* 2 + processor->cur_pos;
+		i = (ft_atoi_base(processor->arg1, 16) + processor->cur_pos) % IDX_MOD * 2;
 		while (n < 8)
 			arg1[n++] = map[i++];
 		i = (ft_atoi_base(arg1, 16) + ft_atoi_base(processor->arg2, 16)) * 2
@@ -116,6 +131,7 @@ void	fork_c(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vi
 	tmp->cycle_todo = 0;
 	tmp->iterator = 0;
 	tmp->codage = 1;
+	tmp->done = 0;
 	n = 0;
 	while (n < 16)
 	{
@@ -150,6 +166,7 @@ void	lfork(t_process *processor, unsigned char *map, int iz, t_player *pl, t_viz
 	tmp->command[2] = '\0';
 	tmp->cycle_todo = 0;
 	tmp->iterator = 0;
+	tmp->done = 0;
 	n = 0;
 	while (n < 16)
 	{

@@ -26,7 +26,7 @@ void		ld(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizDa
 	}
 	else if (ft_strlen(processor->arg1) == 4)
 	{
-		k = (ft_atoi_base(processor->arg1, 16) % IDX_MOD) * 2 + processor->cur_pos;
+		k = (ft_atoi_base(processor->arg1, 16) + processor->cur_pos / 2) % IDX_MOD * 2;
 		n = 0;
 		arg1 = ft_strnew(8);
 		while (n < 8)
@@ -50,7 +50,7 @@ void	st(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizDat
 
 	if (ft_strlen(processor->arg2) == 4)
 	{
-		k = ft_atoi_base(processor->arg2, 16) % IDX_MOD * 2 + processor->cur_pos;
+		k = (ft_atoi_base(processor->arg2, 16) + processor->cur_pos / 2) % IDX_MOD * 2;
 		n = 0;
 		tmp = ft_itoa_base(processor->reg[ft_atoi_base(processor->arg1, 16) - 1], 16);
 		convert(&tmp);
