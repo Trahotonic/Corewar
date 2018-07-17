@@ -4,35 +4,18 @@
 
 #include "../inc/corewar.h"
 
-void		sti(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizData *vizData)
+void  sti(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizData *vizData) /* FIXED !!!!!!!!!!! */
 {
-	int		i;
-	char	*arg2;
-	int		n;
-	char	*arg1;
+	int  i;
+	char *arg2;
+	int  n;
+	char *arg1;
 
 	arg1 = ft_itoa_base(processor->reg[ft_atoi_base(processor->arg1, 16) - 1], 16);
 	convert(&arg1);
 	n = 0;
 	arg2 = ft_strnew(8);
 
-//	if (processor->cur_pos > 800)
-//	{
-//		i = ((ft_atoi_base(processor->arg2, 16) + processor->reg[ft_atoi_base(processor->arg3, 16) - 1]) % IDX_MOD) * 2 + processor->cur_pos;
-//		while (n < 8)
-//		{
-//			vizData->markTimeout[i] = 100;
-//			vizData->vizData[i] = 1;
-//			map[i++] = arg1[n++];
-//		}
-//		ft_strdel(&arg1);
-//		ft_strdel(&arg2);
-//		processor->cur_pos += processor->iterator % 8192;
-//		processor->iterator = 0;
-//		return;
-//	}
-//	mvwprintw(stdscr, 1, 200, "%d", ft_atoi_base(processor->arg2, 16));
-//	mvwprintw(stdscr, 1, 230, "%d", ft_atoi_base(processor->arg3, 16));
 	if (ft_strlen(processor->arg2) == 4 && !processor->t_dir)
 	{
 		i = ft_atoi_base(processor->arg2, 16 + processor->cur_pos / 2) % IDX_MOD * 2;
@@ -41,8 +24,31 @@ void		sti(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizD
 		i = ft_atoi_base(arg2, 16) + ft_atoi_base(processor->arg3, 16);
 		n = 0;
 	}
+	else if (ft_strlen(processor->arg3) == 2)
+	{
+		if ((ft_atoi_base(processor->arg2, 16) > 512))
+		{
+			i = ((ft_atoi_base(processor->arg2, 16) + processor->reg[ft_atoi_base(processor->arg3, 16) - 1]) + processor->cur_pos / 2) % IDX_MOD * 2;
+		}
+		else
+		{
+			i = ((ft_atoi_base(processor->arg2, 16) + processor->reg[ft_atoi_base(processor->arg3, 16) - 1]) % IDX_MOD) * 2 + processor->cur_pos;
+		}
+
+	}
+		//i = ((ft_atoi_base(processor->arg2, 16) + processor->reg[ft_atoi_base(processor->arg3, 16) - 1]) % IDX_MOD) * 2 + processor->cur_pos;
 	else
-		i = ((ft_atoi_base(processor->arg2, 16) + processor->reg[ft_atoi_base(processor->arg3, 16) - 1]) % IDX_MOD) * 2 + processor->cur_pos;
+	{
+		if ((ft_atoi_base(processor->arg2, 16) > 512))
+		{
+			i = ((ft_atoi_base(processor->arg2, 16) + ft_atoi_base(processor->arg3, 16) + processor->cur_pos / 2) % IDX_MOD) * 2;
+		}
+		else
+		{
+			i = ((ft_atoi_base(processor->arg2, 16) + ft_atoi_base(processor->arg3, 16)) % IDX_MOD) * 2 + processor->cur_pos;
+		}
+	}
+	//i = ((ft_atoi_base(processor->arg2, 16) + ft_atoi_base(processor->arg3, 16)) % IDX_MOD) * 2 + processor->cur_pos;
 	while (n < 8)
 	{
 		vizData->markTimeout[i] = 100;
