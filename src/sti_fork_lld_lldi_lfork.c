@@ -16,41 +16,69 @@ void  sti(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizD
 	n = 0;
 	arg2 = ft_strnew(8);
 
-	if (ft_strlen(processor->arg2) == 4 && !processor->t_dir)
-	{
-		i = ft_atoi_base(processor->arg2, 16 + processor->cur_pos / 2) % IDX_MOD * 2;
-		while (n < 8)
-			arg2[n++] = map[i++];
-		i = ft_atoi_base(arg2, 16) + ft_atoi_base(processor->arg3, 16);
-		n = 0;
-	}
-	else if (ft_strlen(processor->arg3) == 2)
-	{
-		if ((ft_atoi_base(processor->arg2, 16) > 512))
-		{
-			i = ((ft_atoi_base(processor->arg2, 16) + processor->reg[ft_atoi_base(processor->arg3, 16) - 1]) + processor->cur_pos / 2) % IDX_MOD * 2;
-		}
-		else
-		{
-			i = ((ft_atoi_base(processor->arg2, 16) + processor->reg[ft_atoi_base(processor->arg3, 16) - 1]) % IDX_MOD) * 2 + processor->cur_pos;
-		}
 
-	}
-		//i = ((ft_atoi_base(processor->arg2, 16) + processor->reg[ft_atoi_base(processor->arg3, 16) - 1]) % IDX_MOD) * 2 + processor->cur_pos;
-	else
+	if (ft_strlen(processor->arg2) == 2)
 	{
-		if ((ft_atoi_base(processor->arg2, 16) > 512))
+		if (ft_strlen(processor->arg3) == 2)
 		{
-			i = ((ft_atoi_base(processor->arg2, 16) + ft_atoi_base(processor->arg3, 16) + processor->cur_pos / 2) % IDX_MOD) * 2;
+			i = ((processor->reg[ft_atoi_base(processor->arg2, 16) - 1] + processor->reg[ft_atoi_base(processor->arg3, 16) - 1])% IDX_MOD) * 2 + processor->cur_pos;
 		}
 		else
 		{
-			i = ((ft_atoi_base(processor->arg2, 16) + ft_atoi_base(processor->arg3, 16)) % IDX_MOD) * 2 + processor->cur_pos;
+			i = ((short)(processor->reg[ft_atoi_base(processor->arg2, 16) - 1] + (short)(ft_atoi_base(processor->arg3, 16)))% IDX_MOD) * 2 + processor->cur_pos;
 		}
 	}
-	//i = ((ft_atoi_base(processor->arg2, 16) + ft_atoi_base(processor->arg3, 16)) % IDX_MOD) * 2 + processor->cur_pos;
+	else if (ft_strlen(processor->arg2) == 4) /* исправить добавить t_ind */
+	{
+		if (ft_strlen(processor->arg3) == 4)
+		{
+			i = ((short)(((short)ft_atoi_base(processor->arg2, 16) + (short)ft_atoi_base(processor->arg3, 16)))% IDX_MOD) * 2 + processor->cur_pos;
+		}
+		else
+		{
+			i = ((short)(((short)ft_atoi_base(processor->arg2, 16) + processor->reg[ft_atoi_base(processor->arg3, 16) - 1] ))% IDX_MOD) * 2 + processor->cur_pos;
+		}
+	}
+
+//	if (ft_strlen(processor->arg2) == 4 && !processor->t_dir)
+//	{
+//		i = ft_atoi_base(processor->arg2, 16 + processor->cur_pos / 2) % IDX_MOD * 2;
+//		while (n < 8)
+//			arg2[n++] = map[i++];
+//		i = ft_atoi_base(arg2, 16) + ft_atoi_base(processor->arg3, 16);
+//		n = 0;
+//	}
+//	else if (ft_strlen(processor->arg3) == 2)
+//	{
+//		if ((ft_atoi_base(processor->arg2, 16) > 512))
+//		{
+//			i = ((ft_atoi_base(processor->arg2, 16) + processor->reg[ft_atoi_base(processor->arg3, 16) - 1]) + processor->cur_pos / 2) % IDX_MOD * 2;
+//		}
+//		else
+//		{
+//			i = ((ft_atoi_base(processor->arg2, 16) + processor->reg[ft_atoi_base(processor->arg3, 16) - 1]) % IDX_MOD) * 2 + processor->cur_pos;
+//		}
+//
+//	}
+//		//i = ((ft_atoi_base(processor->arg2, 16) + processor->reg[ft_atoi_base(processor->arg3, 16) - 1]) % IDX_MOD) * 2 + processor->cur_pos;
+//	else
+//	{
+//		i = ((short)(ft_atoi_base(processor->arg2, 16) + ft_atoi_base(processor->arg3, 16)) % IDX_MOD) * 2 + processor->cur_pos;
+////		if ((ft_atoi_base(processor->arg2, 16) > 512))
+////		{
+////			i = ((ft_atoi_base(processor->arg2, 16) + ft_atoi_base(processor->arg3, 16) + processor->cur_pos / 2) % IDX_MOD) * 2;
+////		}
+////		else
+////		{
+////			i = ((ft_atoi_base(processor->arg2, 16) + ft_atoi_base(processor->arg3, 16)) % IDX_MOD) * 2 + processor->cur_pos;
+////		}
+//	}
+//	i = ((ft_atoi_base(processor->arg2, 16) + ft_atoi_base(processor->arg3, 16)) % IDX_MOD) * 2 + processor->cur_pos;
+	if (i < 0)
+		i = MEM_SIZE * 2 + i;
 	while (n < 8)
 	{
+		i %= MEM_SIZE * 2;
 		vizData->markTimeout[i] = 100;
 		vizData->vizData[i] = 1;
 		map[i++] = arg1[n++];
@@ -80,7 +108,7 @@ void	lld(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizDa
 		while (n < 4)
 			arg1[n++] = map[k++];
 		processor->reg[ft_atoi_base(processor->arg2, 16) - 1] =
-				(unsigned int)ft_atoi_base(arg1, 16);
+				(short)ft_atoi_base(arg1, 16);
 	}
 	ft_strdel(&arg1);
 	processor->cur_pos += processor->iterator % 8192;
@@ -126,7 +154,7 @@ void	fork_c(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vi
 	int 		n;
 
 	tmp = (t_process*)malloc(sizeof(t_process));
-	tmp->cur_pos = ((ft_atoi_base(processor->arg1, 16) + processor->cur_pos / 2) % IDX_MOD) * 2 ;
+	tmp->cur_pos = ((short)(ft_atoi_base(processor->arg1, 16)) % IDX_MOD) * 2 + processor->cur_pos;
 //	mvwprintw(stdscr, 0, 210, "%d", tmp->cur_pos);
 	tmp->carry = processor->carry;
 	tmp->pl_num = processor->pl_num;

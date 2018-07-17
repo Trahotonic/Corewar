@@ -164,27 +164,23 @@ int     main(int argc, char **argv)
 	i = 0;
 	while (1)
 	{
-		if (i == 800)
-		{
-
-		}
+		runProcesses(&processes, map, array, i, &player, &vizData);
 		if (d && i == iter)
 			break ;
-		runProcesses(&processes, map, array, i, &player, &vizData);
 		if (!d && VIZ)
 		{
 			visualize(map, ft_strlen(total), processes, &vizData);
 			mvwprintw(stdscr, 0, 200, "%d", i);
 			mvwprintw(stdscr, 0, 230, "%d", player.lastAlive);
 			mvwprintw(stdscr, 2, 200, "cur_pos %d", processes->cur_pos);
-			if (i >= 2500)
-				c = getch();
+//			if (i >= 3625)
+//				c = getch();
 			if (c == 113)
 				break ;
 		}
 		i++;
 //		if (!d)
-//			usleep(30000);
+//			usleep(3000);
 	}
     free(total);
 	if (!d && VIZ)
