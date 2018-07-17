@@ -44,6 +44,10 @@ void	runProcesses(t_process **processes, unsigned char map[], functions_t array[
 	t_process	*go;
 	int 		n;
 
+	if (i == 1400)
+	{
+
+	}
 	go = *processes;
 	while (go->next)
 		go = go->next;
@@ -174,13 +178,13 @@ int     main(int argc, char **argv)
 			mvwprintw(stdscr, 0, 230, "%d", player.lastAlive);
 			mvwprintw(stdscr, 2, 200, "cur_pos %d", processes->cur_pos);
 //			if (i >= 3625)
-//				c = getch();
+				c = getch();
 			if (c == 113)
 				break ;
 		}
 		i++;
-//		if (!d)
-//			usleep(3000);
+		if (!d && VIZ)
+			usleep(3000);
 	}
     free(total);
 	if (!d && VIZ)

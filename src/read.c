@@ -102,6 +102,7 @@ void    getTotal(int fd, char **total, t_vizData *vizData)
     *total = ft_strnew(0);
     while ((n = read(fd, &buff, sizeof(int))))
     {
+
         buff = ((buff & 0x000000FF) << 24) | ((buff & 0x0000FF00) << 8) |
                ((buff & 0x00FF0000) >>  8) | ((buff & 0xFF000000) >> 24);
         if (n == 1 || n == 2 || n == 3)
@@ -112,6 +113,7 @@ void    getTotal(int fd, char **total, t_vizData *vizData)
             convert(&str);
         }
         *total = ft_arrg_join(*total, str);
+        buff = 0;
     }
     n = 0;
     while (n < ft_strlen(*total))

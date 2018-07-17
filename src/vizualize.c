@@ -8,7 +8,7 @@ void    initVis(void)
 {
     initscr();
     curs_set(0);
-//    nodelay(stdscr, true);
+    nodelay(stdscr, true);
     start_color();
     init_color(LIGHT_GREEN, 500, 1000, 500);
     init_color(GREY, 300, 300, 300);

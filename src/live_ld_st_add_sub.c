@@ -54,9 +54,15 @@ void	st(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizDat
 		n = 0;
 		tmp = ft_itoa_base(processor->reg[ft_atoi_base(processor->arg1, 16) - 1], 16);
 		convert(&tmp);
+		if (k < 0)
+		{
+			k = MEM_SIZE * 2 + k;
+		}
 		while (n < 8)
 		{
+			k %= MEM_SIZE * 2;
 			vizData->markTimeout[k] = 100;
+			vizData->vizData[k] = 1;
 			map[k++] = tmp[n++];
 		}
 	}
