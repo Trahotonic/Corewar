@@ -141,6 +141,28 @@ void	checkArguments(int argc, char **argv, int *d, int *iter)
 	}
 }
 
+int 	check21(t_player *players)
+{
+	t_player *ptr;
+
+	ptr = players;
+	while (players)
+	{
+		if (players->liveCount >= NBR_LIVE)
+		{
+			players->liveCount = 0;
+			while (ptr)
+			{
+				ptr->liveCount = 0;
+				ptr = ptr->next;
+			}
+			return (1);
+		}
+		players = players->next;
+	}
+	return (0);
+}
+
 int     main(int argc, char **argv)
 {
     header_t        header;
@@ -150,38 +172,62 @@ int     main(int argc, char **argv)
 	int 			i;
 	int 			c;
 	functions_t		array[15];
-	t_player		player;
+	t_player		*players;
 	int 			d;
 	int 			iter;
     t_vizData       vizData;
+	int 			cycleToDie;
+	int 			maxchecks;
 
+	maxchecks = 0;
 	checkArguments(argc, argv, &d, &iter);
 	initProcesses(&processes);
     initMap(map, &total, &header, argv, &vizData);
 	if (!d && VIZ)
 		initVis();
 	initfunc(array);
-	player.header = header;
-	player.lastAlive = 0;
-	player.playerNumber = -1;
-	player.len = ft_strlen(total);
+	players = (t_player*)malloc(sizeof(t_player));
+	players->header = header;
+	players->lastAlive = 0;
+	players->liveCount = 0;
+	players->playerNumber = -1;
+	players->len = ft_strlen(total);
+	players->next = NULL;
+	cycleToDie = CYCLE_TO_DIE;
 	i = 0;
 	while (1)
 	{
-		runProcesses(&processes, map, array, i, &player, &vizData);
+		runProcesses(&processes, map, array, i, players, &vizData);
 		if (d && i == iter)
 			break ;
 		if (!d && VIZ)
 		{
 			visualize(map, ft_strlen(total), processes, &vizData);
 			mvwprintw(stdscr, 0, 200, "%d", i);
-			mvwprintw(stdscr, 0, 230, "%d", player.lastAlive);
+			mvwprintw(stdscr, 0, 230, "%d", players->lastAlive);
 			mvwprintw(stdscr, 2, 200, "cur_pos %d", processes->cur_pos);
 //			if (i >= 3625)
 				c = getch();
 			if (c == 113)
 				break ;
 		}
+		if (i == cycleToDie && check21(players))
+		{
+			cycleToDie -= CYCLE_DELTA + i;
+			maxchecks = 0;
+		}
+		else if (i == cycleToDie)
+		{
+			cycleToDie += i;
+			maxchecks++;
+			if (maxchecks == MAX_CHECKS)
+			{
+				cycleToDie -= CYCLE_DELTA;
+				maxchecks = 0;
+			}
+
+		}
+
 		i++;
 		if (!d && VIZ)
 			usleep(3000);

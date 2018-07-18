@@ -6,9 +6,20 @@
 
 void  live(t_process *processor, unsigned char *map, int i, t_player *pl, t_vizData *vizData)// Обновленно (но надо менять ) !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 {
+	char *tmp;
 
+	while(pl && !ft_strequ(tmp = ft_uitoa_base2(pl->playerNumber, 16), processor->arg1))
+	{
+		ft_strdel(&tmp);
+		pl = pl->next;
+	}
+	ft_strdel(&tmp);
 	processor->alive = 1;
-	pl->lastAlive = i;
+	if (pl)
+	{
+		pl->lastAlive = i;
+		pl->liveCount++;
+	}
 	processor->cur_pos = (processor->iterator + processor->cur_pos) % 8192;
 	processor->iterator = 0;
 }

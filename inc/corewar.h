@@ -108,10 +108,12 @@ typedef struct  	s_process
 
 typedef struct		s_player
 {
-	int 		playerNumber;
-	int 		lastAlive;
-	header_t	header;
-	size_t 		len;
+	int 			playerNumber;
+	int 			lastAlive;
+	int 			liveCount;
+	header_t		header;
+	size_t 			len;
+	struct s_player	*next;
 }					t_player;
 
 
