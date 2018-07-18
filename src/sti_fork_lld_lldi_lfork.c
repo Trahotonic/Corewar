@@ -2,6 +2,8 @@
 // Created by Roman KYSLYY on 7/12/18.
 //
 
+int g_global = 1;
+
 #include "../inc/corewar.h"
 
 void  sti(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizData *vizData) /* FIXED !!!!!!!!!!! */
@@ -32,7 +34,7 @@ void  sti(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizD
 	{
 		if (ft_strlen(processor->arg3) == 4)
 		{
-			i = ((short)(((short)ft_atoi_base(processor->arg2, 16) + (short)ft_atoi_base(processor->arg3, 16)))% IDX_MOD) * 2 + processor->cur_pos;
+			i = ((short)(((short)ft_atoi_base(processor->arg2, 16) + (short)(ft_atoi_base(processor->arg3, 16))))% IDX_MOD) * 2 + processor->cur_pos;
 		}
 		else
 		{
@@ -40,40 +42,6 @@ void  sti(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizD
 		}
 	}
 
-//	if (ft_strlen(processor->arg2) == 4 && !processor->t_dir)
-//	{
-//		i = ft_atoi_base(processor->arg2, 16 + processor->cur_pos / 2) % IDX_MOD * 2;
-//		while (n < 8)
-//			arg2[n++] = map[i++];
-//		i = ft_atoi_base(arg2, 16) + ft_atoi_base(processor->arg3, 16);
-//		n = 0;
-//	}
-//	else if (ft_strlen(processor->arg3) == 2)
-//	{
-//		if ((ft_atoi_base(processor->arg2, 16) > 512))
-//		{
-//			i = ((ft_atoi_base(processor->arg2, 16) + processor->reg[ft_atoi_base(processor->arg3, 16) - 1]) + processor->cur_pos / 2) % IDX_MOD * 2;
-//		}
-//		else
-//		{
-//			i = ((ft_atoi_base(processor->arg2, 16) + processor->reg[ft_atoi_base(processor->arg3, 16) - 1]) % IDX_MOD) * 2 + processor->cur_pos;
-//		}
-//
-//	}
-//		//i = ((ft_atoi_base(processor->arg2, 16) + processor->reg[ft_atoi_base(processor->arg3, 16) - 1]) % IDX_MOD) * 2 + processor->cur_pos;
-//	else
-//	{
-//		i = ((short)(ft_atoi_base(processor->arg2, 16) + ft_atoi_base(processor->arg3, 16)) % IDX_MOD) * 2 + processor->cur_pos;
-////		if ((ft_atoi_base(processor->arg2, 16) > 512))
-////		{
-////			i = ((ft_atoi_base(processor->arg2, 16) + ft_atoi_base(processor->arg3, 16) + processor->cur_pos / 2) % IDX_MOD) * 2;
-////		}
-////		else
-////		{
-////			i = ((ft_atoi_base(processor->arg2, 16) + ft_atoi_base(processor->arg3, 16)) % IDX_MOD) * 2 + processor->cur_pos;
-////		}
-//	}
-//	i = ((ft_atoi_base(processor->arg2, 16) + ft_atoi_base(processor->arg3, 16)) % IDX_MOD) * 2 + processor->cur_pos;
 	if (i < 0)
 		i = MEM_SIZE * 2 + i;
 	while (n < 8)
@@ -102,7 +70,7 @@ void	lld(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizDa
 	}
 	else if (ft_strlen(processor->arg1) == 4)
 	{
-		k = ft_atoi_base(processor->arg1, 16) * 2 + processor->cur_pos;
+		k = (short)ft_atoi_base(processor->arg1, 16) * 2 + processor->cur_pos;
 		n = 0;
 		arg1 = ft_strnew(4);
 		while (n < 4)
@@ -111,6 +79,10 @@ void	lld(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizDa
 				(short)ft_atoi_base(arg1, 16);
 	}
 	ft_strdel(&arg1);
+	if (processor->reg[ft_atoi_base(processor->arg2, 16) - 1] == 0)
+		processor->carry = 1;
+	else
+		processor->carry = 0;
 	processor->cur_pos += processor->iterator % 8192;
 	processor->iterator = 0;
 }
@@ -155,10 +127,13 @@ void	fork_c(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vi
 
 	tmp = (t_process*)malloc(sizeof(t_process));
 	tmp->cur_pos = ((short)(ft_atoi_base(processor->arg1, 16)) % IDX_MOD) * 2 + processor->cur_pos;
+	if (tmp->cur_pos < 0)
+		tmp->cur_pos = MEM_SIZE * 2 + tmp->cur_pos;
 //	mvwprintw(stdscr, 0, 210, "%d", tmp->cur_pos);
 	tmp->carry = processor->carry;
 	tmp->pl_num = processor->pl_num;
 	tmp->alive = processor->alive;
+	tmp->proc_num = ++g_global;
 	tmp->command[0] = '.';
 	tmp->command[1] = '.';
 	tmp->command[2] = '\0';
@@ -191,10 +166,13 @@ void	lfork(t_process *processor, unsigned char *map, int iz, t_player *pl, t_viz
 	int 		n;
 
 	tmp = (t_process*)malloc(sizeof(t_process));
-	tmp->cur_pos = ft_atoi_base(processor->arg1, 16) * 2 + processor->cur_pos;
+	tmp->cur_pos = (short)ft_atoi_base(processor->arg1, 16) * 2 + processor->cur_pos;
+	if (tmp->cur_pos < 0)
+		tmp->cur_pos = MEM_SIZE * 2 + tmp->cur_pos;
 	tmp->carry = processor->carry;
 	tmp->pl_num = processor->pl_num;
 	tmp->alive = processor->alive;
+	tmp->proc_num = ++g_global;
 	tmp->command[0] = '.';
 	tmp->command[1] = '.';
 	tmp->command[2] = '\0';

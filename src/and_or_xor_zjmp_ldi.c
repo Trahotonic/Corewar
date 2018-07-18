@@ -49,6 +49,8 @@ void		xor(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizD
 
 void	zjmp(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizData *vizData)
 {
+	int i;
+
 	if (processor->carry == 0)
 	{
 		processor->cur_pos += processor->iterator;
@@ -56,7 +58,10 @@ void	zjmp(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizD
 		return;
 	}
 
-	processor->cur_pos = (((short)ft_atoi_base(processor->arg1, 16)) % IDX_MOD) * 2 + processor->cur_pos;
+	i = (((short)ft_atoi_base(processor->arg1, 16)) % IDX_MOD) * 2 + processor->cur_pos;
+	if (i < 0)
+		i = MEM_SIZE * 2 + i;
+	processor->cur_pos = i;
 	processor->iterator = 0;
 }
 

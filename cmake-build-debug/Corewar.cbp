@@ -88,6 +88,9 @@
 		<Unit filename="/Users/rkyslyy/CLionProjects/corewar/inc/corewar.h">
 			<Option target="Corewar"/>
 		</Unit>
+		<Unit filename="/Users/rkyslyy/CLionProjects/corewar/inc/glob.h">
+			<Option target="Corewar"/>
+		</Unit>
 		<Unit filename="/Users/rkyslyy/CLionProjects/corewar/libft">
 			<Option target="Corewar"/>
 		</Unit>

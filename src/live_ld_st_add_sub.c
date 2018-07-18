@@ -29,7 +29,9 @@ void		ld(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizDa
 	int		n;
 	char	*arg1;
 	int		k;
+	char *check;
 
+	check = ft_strdup(&map[processor->cur_pos]);
 	if (ft_strlen(processor->arg1) == 8)
 	{
 		processor->reg[ft_atoi_base(processor->arg2, 16) - 1] =
@@ -89,8 +91,7 @@ void		add(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizD
 	processor->reg[ft_atoi_base(processor->arg3, 16) - 1] =
 			processor->reg[ft_atoi_base(processor->arg1, 16) - 1] +
 			processor->reg[ft_atoi_base(processor->arg2, 16) - 1];
-	if (processor->reg[ft_atoi_base(processor->arg1, 16) - 1] +
-		processor->reg[ft_atoi_base(processor->arg2, 16) - 1] == 0)
+	if (processor->reg[ft_atoi_base(processor->arg3, 16) - 1] == 0)
 		processor->carry = 1;
 	else
 		processor->carry = 0;
@@ -103,8 +104,7 @@ void		sub(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizD
 	processor->reg[ft_atoi_base(processor->arg3, 16) - 1] =
 			processor->reg[ft_atoi_base(processor->arg1, 16) - 1] -
 			processor->reg[ft_atoi_base(processor->arg2, 16) - 1];
-	if (processor->reg[ft_atoi_base(processor->arg1, 16) - 1] -
-		processor->reg[ft_atoi_base(processor->arg2, 16) - 1] == 0)
+	if (processor->reg[ft_atoi_base(processor->arg3, 16) - 1] == 0)
 		processor->carry = 1;
 	else
 		processor->carry = 0;

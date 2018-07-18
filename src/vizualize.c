@@ -8,7 +8,7 @@ void    initVis(void)
 {
     initscr();
     curs_set(0);
-    nodelay(stdscr, true);
+//    nodelay(stdscr, true);
     start_color();
     init_color(LIGHT_GREEN, 500, 1000, 500);
     init_color(GREY, 300, 300, 300);
@@ -18,6 +18,18 @@ void    initVis(void)
     init_pair(MARK_PROCESS_PAIR, COLOR_BLACK, GOOD_GREEN);
     init_pair(DEFAULT_PLAYER1_PAIR, DARK_GREEN, COLOR_BLACK);
     init_pair(NEW_PLAYER1_CODE_PAIR, LIGHT_GREEN, COLOR_BLACK);
+}
+
+int 	getProcesses(t_process *proc)
+{
+	int n = 0;
+	while (proc)
+	{
+		n++;
+		proc = proc->next;
+	}
+	return n;
+
 }
 
 size_t    innerCycle(unsigned char map[], unsigned char x[], size_t len, t_process *proc, t_vizData *vizData)
@@ -75,5 +87,6 @@ void    visualize(unsigned char map[], size_t len, t_process *proc, t_vizData *v
 
 	x[2] = '\0';
 	innerCycle(map, x, len, proc, vizData);
+	mvwprintw(stdscr, 2, 193, "processes: %d", getProcesses(proc));
 	refresh();
 }

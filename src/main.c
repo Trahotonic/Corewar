@@ -44,7 +44,7 @@ void	runProcesses(t_process **processes, unsigned char map[], functions_t array[
 	t_process	*go;
 	int 		n;
 
-	if (i == 1400)
+	if (i == 235)
 	{
 
 	}
@@ -197,16 +197,19 @@ int     main(int argc, char **argv)
 	i = 0;
 	while (1)
 	{
+		if (i == 3769)
+		{
+
+		}
 		runProcesses(&processes, map, array, i, players, &vizData);
 		if (d && i == iter)
 			break ;
 		if (!d && VIZ)
 		{
 			visualize(map, ft_strlen(total), processes, &vizData);
-			mvwprintw(stdscr, 0, 200, "%d", i);
-			mvwprintw(stdscr, 0, 230, "%d", players->lastAlive);
-			mvwprintw(stdscr, 2, 200, "cur_pos %d", processes->cur_pos);
-//			if (i >= 3625)
+			mvwprintw(stdscr, 0, 193, "%d", i);
+//			mvwprintw(stdscr, 0, 230, "%d", players->lastAlive);
+			if (i >= 3750)
 				c = getch();
 			if (c == 113)
 				break ;
@@ -225,12 +228,11 @@ int     main(int argc, char **argv)
 				cycleToDie -= CYCLE_DELTA;
 				maxchecks = 0;
 			}
-
 		}
 
 		i++;
-		if (!d && VIZ)
-			usleep(3000);
+//		if (!d && VIZ)
+//			usleep(3000);
 	}
     free(total);
 	if (!d && VIZ)

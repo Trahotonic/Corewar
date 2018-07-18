@@ -9,6 +9,7 @@
 #include <stdio.h>
 #include <ncurses.h>
 #include "../libft/libft.h"
+
 #define IND_SIZE				2
 #define REG_SIZE				4
 #define DIR_SIZE				REG_SIZE
@@ -87,6 +88,7 @@ typedef struct		header_s
 
 typedef struct  	s_process
 {
+	int 				proc_num;
 	int    				cur_pos;
 	int 				codage;
 	int    				carry;
