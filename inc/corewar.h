@@ -103,6 +103,7 @@ typedef struct  	s_process
 	char 				arg3[9];
 	int 				t_dir;
 	int 				done;
+	int					invalidAgr;
 	struct s_process	*next;
 	struct s_process	*prev;
 

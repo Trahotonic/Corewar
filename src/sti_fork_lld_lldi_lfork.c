@@ -141,6 +141,7 @@ void	fork_c(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vi
 	tmp->iterator = 0;
 	tmp->codage = 1;
 	tmp->done = 0;
+	tmp->invalidAgr = 0;
 	n = 0;
 	while (n < 16)
 	{
@@ -179,6 +180,7 @@ void	lfork(t_process *processor, unsigned char *map, int iz, t_player *pl, t_viz
 	tmp->cycle_todo = 0;
 	tmp->iterator = 0;
 	tmp->done = 0;
+	tmp->invalidAgr = 0;
 	n = 0;
 	while (n < 16)
 	{

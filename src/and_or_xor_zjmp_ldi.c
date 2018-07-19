@@ -9,8 +9,7 @@ void		and(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizD
 	processor->reg[ft_atoi_base(processor->arg3, 16) - 1] =
 			processor->reg[ft_atoi_base(processor->arg1, 16) - 1] &
 			processor->reg[ft_atoi_base(processor->arg2, 16) - 1];
-	if (processor->reg[ft_atoi_base(processor->arg1, 16)] -
-		processor->reg[ft_atoi_base(processor->arg2, 16)] == 0)
+	if (processor->reg[ft_atoi_base(processor->arg3, 16) - 1] == 0)
 		processor->carry = 1;
 	else
 		processor->carry = 0;
@@ -23,8 +22,7 @@ void		or(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizDa
 	processor->reg[ft_atoi_base(processor->arg3, 16) - 1] =
 			processor->reg[ft_atoi_base(processor->arg1, 16) - 1] |
 			processor->reg[ft_atoi_base(processor->arg2, 16) - 1];
-	if (processor->reg[ft_atoi_base(processor->arg1, 16) - 1] -
-		processor->reg[ft_atoi_base(processor->arg2, 16) - 1] == 0)
+	if (processor->reg[ft_atoi_base(processor->arg3, 16) - 1] == 0)
 		processor->carry = 1;
 	else
 		processor->carry = 0;
@@ -37,8 +35,7 @@ void		xor(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizD
 	processor->reg[ft_atoi_base(processor->arg3, 16) - 1] =
 			processor->reg[ft_atoi_base(processor->arg1, 16) - 1] ^
 			processor->reg[ft_atoi_base(processor->arg2, 16) - 1];
-	if (processor->reg[ft_atoi_base(processor->arg1, 16) - 1] -
-		processor->reg[ft_atoi_base(processor->arg2, 16) - 1] == 0)
+	if (processor->reg[ft_atoi_base(processor->arg3, 16) - 1] == 0)
 		processor->carry = 1;
 	else
 		processor->carry = 0;
