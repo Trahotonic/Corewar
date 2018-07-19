@@ -122,6 +122,7 @@ void	runProcesses(t_process **processes, unsigned char map[], functions_t array[
 				go->command[0] = '.';
 				go->command[1] = '.';
 				go = go->next;
+				n = 0;
 				continue ;
 			}
 			go->cycle_todo = array[n].cycles;
@@ -205,7 +206,7 @@ int     main(int argc, char **argv)
 	i = 0;
 	while (1)
 	{
-		if (i == 3769)
+		if (i == 4570)
 		{
 
 		}
@@ -217,7 +218,7 @@ int     main(int argc, char **argv)
 			visualize(map, ft_strlen(total), processes, &vizData);
 			mvwprintw(stdscr, 0, 193, "%d", i);
 //			mvwprintw(stdscr, 0, 230, "%d", players->lastAlive);
-			if (i >= 4549)
+			if (i >= 4567)
 				c = getch();
 			if (c == 113)
 				break ;
@@ -240,7 +241,7 @@ int     main(int argc, char **argv)
 
 		i++;
 //		if (!d && VIZ)
-//			usleep(3000);
+//			usleep(10000);
 	}
     free(total);
 	if (!d && VIZ)

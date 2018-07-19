@@ -6,6 +6,12 @@
 
 void		and(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizData *vizData)
 {
+	if (ft_strlen(processor->arg3) != 2)
+	{
+		processor->cur_pos += processor->iterator % (MEM_SIZE * 2);
+		processor->iterator = 0;
+		return ;
+	}
 	processor->reg[ft_atoi_base(processor->arg3, 16) - 1] =
 			processor->reg[ft_atoi_base(processor->arg1, 16) - 1] &
 			processor->reg[ft_atoi_base(processor->arg2, 16) - 1];
@@ -19,6 +25,12 @@ void		and(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizD
 
 void		or(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizData *vizData)
 {
+	if (ft_strlen(processor->arg3) != 2)
+	{
+		processor->cur_pos += processor->iterator % (MEM_SIZE * 2);
+		processor->iterator = 0;
+		return ;
+	}
 	processor->reg[ft_atoi_base(processor->arg3, 16) - 1] =
 			processor->reg[ft_atoi_base(processor->arg1, 16) - 1] |
 			processor->reg[ft_atoi_base(processor->arg2, 16) - 1];
@@ -32,6 +44,12 @@ void		or(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizDa
 
 void		xor(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizData *vizData)
 {
+	if (ft_strlen(processor->arg3) != 2)
+	{
+		processor->cur_pos += processor->iterator % (MEM_SIZE * 2);
+		processor->iterator = 0;
+		return ;
+	}
 	processor->reg[ft_atoi_base(processor->arg3, 16) - 1] =
 			processor->reg[ft_atoi_base(processor->arg1, 16) - 1] ^
 			processor->reg[ft_atoi_base(processor->arg2, 16) - 1];
@@ -48,6 +66,12 @@ void	zjmp(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizD
 {
 	int i;
 
+	if (ft_strlen(processor->arg1) != 4)
+	{
+		processor->cur_pos += processor->iterator % (MEM_SIZE * 2);
+		processor->iterator = 0;
+		return ;
+	}
 	if (processor->carry == 0)
 	{
 		processor->cur_pos += processor->iterator;
@@ -69,6 +93,12 @@ void	ldi(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizDa
 	int		n;
 
 	n = 0;
+	if (ft_strlen(processor->arg2) == 8 || ft_strlen(processor->arg3) != 2)
+	{
+		processor->cur_pos += processor->iterator % (MEM_SIZE * 2);
+		processor->iterator = 0;
+		return ;
+	}
 	arg1 = ft_strnew(8);
 	if (ft_strlen(processor->arg1) == 2)
 	{

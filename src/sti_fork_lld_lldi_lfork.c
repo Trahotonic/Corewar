@@ -2,7 +2,7 @@
 // Created by Roman KYSLYY on 7/12/18.
 //
 
-int g_global = 1;
+int g_global = 0;
 
 #include "../inc/corewar.h"
 
@@ -13,6 +13,12 @@ void  sti(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizD
 	int  n;
 	char *arg1;
 
+	if (ft_strlen(processor->arg1) != 2 || ft_strlen(processor->arg3) == 8)
+	{
+		processor->cur_pos += processor->iterator % (MEM_SIZE * 2);
+		processor->iterator = 0;
+		return ;
+	}
 	arg1 = ft_itoa_base(processor->reg[ft_atoi_base(processor->arg1, 16) - 1], 16);
 	convert(&arg1);
 	n = 0;
@@ -63,6 +69,12 @@ void	lld(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizDa
 	int k;
 	char *arg1;
 
+	if (ft_strlen(processor->arg1) == 2 || ft_strlen(processor->arg3) != 2)
+	{
+		processor->cur_pos += processor->iterator % (MEM_SIZE * 2);
+		processor->iterator = 0;
+		return ;
+	}
 	if (ft_strlen(processor->arg1) == 8)
 	{
 		processor->reg[ft_atoi_base(processor->arg2, 16) - 1] =
@@ -95,6 +107,12 @@ void	lldi(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizD
 
 	n = 0;
 	arg1 = ft_strnew(8);
+	if (ft_strlen(processor->arg2) == 8 || ft_strlen(processor->arg3) != 2)
+	{
+		processor->cur_pos += processor->iterator % (MEM_SIZE * 2);
+		processor->iterator = 0;
+		return ;
+	}
 	if (ft_strlen(processor->arg1) == 4 && !processor->t_dir)
 	{
 		i = (ft_atoi_base(processor->arg1, 16) + processor->cur_pos) % IDX_MOD * 2;
@@ -125,6 +143,12 @@ void	fork_c(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vi
 	t_process	*ptr;
 	int 		n;
 
+	if (ft_strlen(processor->arg1) != 4)
+	{
+		processor->cur_pos += processor->iterator % (MEM_SIZE * 2);
+		processor->iterator = 0;
+		return ;
+	}
 	tmp = (t_process*)malloc(sizeof(t_process));
 	tmp->cur_pos = ((short)(ft_atoi_base(processor->arg1, 16)) % IDX_MOD) * 2 + processor->cur_pos;
 	if (tmp->cur_pos < 0)
@@ -166,6 +190,12 @@ void	lfork(t_process *processor, unsigned char *map, int iz, t_player *pl, t_viz
 	t_process	*ptr;
 	int 		n;
 
+	if (ft_strlen(processor->arg1) != 4)
+	{
+		processor->cur_pos += processor->iterator % (MEM_SIZE * 2);
+		processor->iterator = 0;
+		return ;
+	}
 	tmp = (t_process*)malloc(sizeof(t_process));
 	tmp->cur_pos = (short)ft_atoi_base(processor->arg1, 16) * 2 + processor->cur_pos;
 	if (tmp->cur_pos < 0)

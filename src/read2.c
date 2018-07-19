@@ -27,7 +27,7 @@ void	readLittleShit(unsigned char map[], char arg1[], char tmp[], t_process *pro
 	if (ft_strequ(tmp, "01"))
 	{
 		while (n < 2)
-			arg1[n++] = map[processor->cur_pos + processor->iterator++];
+			arg1[n++] = map[(processor->cur_pos + processor->iterator++) % (MEM_SIZE * 2)];
 	}
 	else if (ft_strequ(tmp, "11"))
 	{
@@ -40,12 +40,12 @@ void	readLittleShit(unsigned char map[], char arg1[], char tmp[], t_process *pro
 	{
 		processor->t_dir = 1;
 		while (n < 4)
-			arg1[n++] = map[processor->cur_pos + processor->iterator++];
+			arg1[n++] = map[(processor->cur_pos + processor->iterator++) % (MEM_SIZE * 2)];
 	}
 	else if (ft_strequ(tmp, "10") && !ft_strequ(processor->command, "0e") && !ft_strequ(processor->command, "0a"))
 	{
 		while (n < 8)
-			arg1[n++] = map[processor->cur_pos + processor->iterator++];
+			arg1[n++] = map[(processor->cur_pos + processor->iterator++) % (MEM_SIZE * 2)];
 	}
 }
 

@@ -8,6 +8,12 @@ void  live(t_process *processor, unsigned char *map, int i, t_player *pl, t_vizD
 {
 	char *tmp;
 
+	if (ft_strlen(processor->arg1) != 8)
+	{
+		processor->cur_pos += processor->iterator % (MEM_SIZE * 2);
+		processor->iterator = 0;
+		return ;
+	}
 	while(pl && !ft_strequ(tmp = ft_uitoa_base2(pl->playerNumber, 16), processor->arg1))
 	{
 		ft_strdel(&tmp);
@@ -29,9 +35,13 @@ void		ld(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizDa
 	int		n;
 	char	*arg1;
 	int		k;
-	char *check;
 
-	check = ft_strdup(&map[processor->cur_pos]);
+	if (ft_strlen(processor->arg1) == 2 || ft_strlen(processor->arg2) != 2)
+	{
+		processor->cur_pos += processor->iterator % (MEM_SIZE * 2);
+		processor->iterator = 0;
+		return ;
+	}
 	if (ft_strlen(processor->arg1) == 8)
 	{
 		processor->reg[ft_atoi_base(processor->arg2, 16) - 1] =
@@ -61,6 +71,12 @@ void	st(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizDat
 	char	*tmp;
 	int		k;
 
+	if (ft_strlen(processor->arg1) != 2 || ft_strlen(processor->arg2) == 8)
+	{
+		processor->cur_pos += processor->iterator  % (MEM_SIZE * 2);
+		processor->iterator = 0;
+		return ;
+	}
 	if (ft_strlen(processor->arg2) == 4)
 	{
 		k = (((short)ft_atoi_base(processor->arg2, 16) ) % IDX_MOD) * 2 + processor->cur_pos;
@@ -88,6 +104,12 @@ void	st(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizDat
 
 void		add(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizData *vizData)
 {
+	if (ft_strlen(processor->arg1) != 2 || ft_strlen(processor->arg2) != 2 || ft_strlen(processor->arg3) != 2)
+	{
+		processor->cur_pos += processor->iterator  % (MEM_SIZE * 2);
+		processor->iterator = 0;
+		return ;
+	}
 	processor->reg[ft_atoi_base(processor->arg3, 16) - 1] =
 			processor->reg[ft_atoi_base(processor->arg1, 16) - 1] +
 			processor->reg[ft_atoi_base(processor->arg2, 16) - 1];
@@ -101,6 +123,12 @@ void		add(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizD
 
 void		sub(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizData *vizData)
 {
+	if (ft_strlen(processor->arg1) != 2 || ft_strlen(processor->arg2) != 2 || ft_strlen(processor->arg3) != 2)
+	{
+		processor->cur_pos += processor->iterator  % (MEM_SIZE * 2);
+		processor->iterator = 0;
+		return ;
+	}
 	processor->reg[ft_atoi_base(processor->arg3, 16) - 1] =
 			processor->reg[ft_atoi_base(processor->arg1, 16) - 1] -
 			processor->reg[ft_atoi_base(processor->arg2, 16) - 1];
