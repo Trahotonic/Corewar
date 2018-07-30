@@ -150,6 +150,46 @@ void	checkArguments(int argc, char **argv, int *d, int *iter)
 	}
 }
 
+void    kill(t_process * processes)
+{
+	while (processes)
+	{
+		processes->alive = 0;
+		processes = processes->next;
+	}
+}
+
+void    superkill(t_process ** processes)
+{
+	t_process *ptr;
+	t_process *tmp;
+
+	ptr = *processes;
+	while (ptr)
+	{
+		if (!ptr->alive)
+		{
+			if (ptr == *processes)
+			{
+				tmp = ptr;
+				*processes = ptr->next;
+				(*processes)->prev = NULL;
+				free(tmp);
+			}
+			else
+			{
+				tmp = ptr;
+				ptr->prev->next = ptr->next;
+				if (ptr->next)
+					ptr->next->prev = ptr->prev;
+				ptr = ptr->next;
+				free(tmp);
+			}
+		}
+		ptr = ptr->next;
+	}
+}
+
 int 	check21(t_player *players)
 {
 	t_player *ptr;
@@ -171,6 +211,8 @@ int 	check21(t_player *players)
 	}
 	return (0);
 }
+
+
 
 int     main(int argc, char **argv)
 {
@@ -218,8 +260,8 @@ int     main(int argc, char **argv)
 			visualize(map, ft_strlen(total), processes, &vizData);
 			mvwprintw(stdscr, 0, 193, "%d", i);
 //			mvwprintw(stdscr, 0, 230, "%d", players->lastAlive);
-			if (i >= 4567)
-				c = getch();
+			//if (i >= 4567)
+			//	c = getch();
 			if (c == 113)
 				break ;
 		}
@@ -227,9 +269,13 @@ int     main(int argc, char **argv)
 		{
 			cycleToDie -= CYCLE_DELTA + i;
 			maxchecks = 0;
+			superkill(&processes);
+			kill(processes);
 		}
 		else if (i == cycleToDie)
 		{
+			superkill(&processes);
+			kill(processes);
 			cycleToDie += i;
 			maxchecks++;
 			if (maxchecks == MAX_CHECKS)

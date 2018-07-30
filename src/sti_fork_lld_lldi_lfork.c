@@ -132,7 +132,7 @@ void	lldi(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizD
 		processor->carry = 1;
 	else
 		processor->carry = 0;
-	processor->cur_pos += processor->iterator % 8192;
+	processor->cur_pos = (processor->iterator + processor->cur_pos) % 8192;
 	processor->iterator = 0;
 	ft_strdel(&arg1);
 }
@@ -180,7 +180,7 @@ void	fork_c(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vi
 	ptr->next = tmp;
 	tmp->prev = ptr;
 	tmp->next = NULL;
-	processor->cur_pos += processor->iterator;
+	processor->cur_pos = (processor->iterator + processor->cur_pos) % 8192;
 	processor->iterator = 0;
 }
 
@@ -224,6 +224,6 @@ void	lfork(t_process *processor, unsigned char *map, int iz, t_player *pl, t_viz
 	ptr->next = tmp;
 	tmp->prev = ptr;
 	tmp->next = NULL;
-	processor->cur_pos += processor->iterator;
+	processor->cur_pos = (processor->iterator + processor->cur_pos) % 8192;
 	processor->iterator = 0;
 }

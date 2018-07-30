@@ -61,7 +61,7 @@ void		ld(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizDa
 		processor->carry = 1;
 	else
 		processor->carry = 0;
-	processor->cur_pos += processor->iterator % 8192;
+	processor->cur_pos = (processor->iterator + processor->cur_pos) % 8192;
 	processor->iterator = 0;
 }
 
@@ -98,7 +98,7 @@ void	st(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizDat
 	else if (ft_strlen(processor->arg2) == 2)
 		processor->reg[ft_atoi_base(processor->arg2, 16) - 1] =
 				processor->reg[ft_atoi_base(processor->arg1, 16) - 1];
-	processor->cur_pos += processor->iterator % 8192;
+	processor->cur_pos = (processor->iterator + processor->cur_pos) % 8192;
 	processor->iterator = 0;
 }
 
@@ -117,7 +117,7 @@ void		add(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizD
 		processor->carry = 1;
 	else
 		processor->carry = 0;
-	processor->cur_pos += processor->iterator % 8192;
+	processor->cur_pos = (processor->iterator + processor->cur_pos) % 8192;
 	processor->iterator = 0;
 }
 
@@ -136,6 +136,6 @@ void		sub(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizD
 		processor->carry = 1;
 	else
 		processor->carry = 0;
-	processor->cur_pos += processor->iterator % 8192;
+	processor->cur_pos = (processor->iterator + processor->cur_pos) % 8192;
 	processor->iterator = 0;
 }
