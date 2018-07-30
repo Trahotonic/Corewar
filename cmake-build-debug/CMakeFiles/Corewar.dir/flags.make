@@ -6,5 +6,5 @@ C_FLAGS = -lncurses -g -isysroot /Applications/Xcode.app/Contents/Developer/Plat
 
 C_DEFINES = 
 
-C_INCLUDES = -I/Users/rkyslyy/CLionProjects/corewar/libft/ft_printf/includes -I/Users/rkyslyy/CLionProjects/corewar/libft 
+C_INCLUDES = -I/Users/rkyslyy/corewar/libft/ft_printf/includes -I/Users/rkyslyy/corewar/libft 
 

@@ -2,7 +2,7 @@
 // Created by Roman KYSLYY on 7/12/18.
 //
 
-int g_global = 0;
+int g_global = 1;
 
 #include "../inc/corewar.h"
 
@@ -59,7 +59,7 @@ void  sti(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizD
 	}
 	ft_strdel(&arg1);
 	ft_strdel(&arg2);
-	processor->cur_pos += processor->iterator % 8192;
+	processor->cur_pos = (processor->iterator + processor->cur_pos) % 8192;
 	processor->iterator = 0;
 }
 
@@ -95,7 +95,7 @@ void	lld(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizDa
 		processor->carry = 1;
 	else
 		processor->carry = 0;
-	processor->cur_pos += processor->iterator % 8192;
+	processor->cur_pos = (processor->iterator + processor->cur_pos) % 8192;
 	processor->iterator = 0;
 }
 

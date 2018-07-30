@@ -10,14 +10,17 @@ void  live(t_process *processor, unsigned char *map, int i, t_player *pl, t_vizD
 
 	if (ft_strlen(processor->arg1) != 8)
 	{
-		processor->cur_pos += processor->iterator % (MEM_SIZE * 2);
+		processor->cur_pos = (processor->cur_pos + processor->iterator) % (MEM_SIZE * 2);
 		processor->iterator = 0;
 		return ;
 	}
-	while(pl && !ft_strequ(tmp = ft_uitoa_base2(pl->playerNumber, 16), processor->arg1))
+	tmp = ft_uitoa_base2(pl->playerNumber, 16);
+	while(pl && !ft_strequ(tmp, processor->arg1))
 	{
 		ft_strdel(&tmp);
 		pl = pl->next;
+		if (pl)
+			tmp = ft_uitoa_base2(pl->playerNumber, 16);
 	}
 	ft_strdel(&tmp);
 	processor->alive = 1;

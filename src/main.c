@@ -150,6 +150,20 @@ void	checkArguments(int argc, char **argv, int *d, int *iter)
 	}
 }
 
+
+int     counter(t_process * process)
+{
+	int i;
+
+	i = 0;
+	while (process)
+	{
+		i++;
+		process = process->next;
+	}
+	return i;
+}
+
 void    kill(t_process * processes)
 {
 	while (processes)
@@ -159,7 +173,7 @@ void    kill(t_process * processes)
 	}
 }
 
-void    superkill(t_process ** processes)
+void    superkill(t_process ** processes, int i)
 {
 	t_process *ptr;
 	t_process *tmp;
@@ -169,11 +183,14 @@ void    superkill(t_process ** processes)
 	{
 		if (!ptr->alive)
 		{
+//			ft_printf("%d killed on %d\n", ptr->proc_num, i);
 			if (ptr == *processes)
 			{
 				tmp = ptr;
+				if (ptr->next)
+					ptr->next->prev = NULL;
 				*processes = ptr->next;
-				(*processes)->prev = NULL;
+				ptr = *processes;
 				free(tmp);
 			}
 			else
@@ -186,13 +203,15 @@ void    superkill(t_process ** processes)
 				free(tmp);
 			}
 		}
+		if (!ptr)
+			break ;
 		ptr = ptr->next;
 	}
 }
 
 int 	check21(t_player *players)
 {
-	t_player *ptr;
+	t_player    *ptr;
 
 	ptr = players;
 	while (players)
@@ -212,8 +231,6 @@ int 	check21(t_player *players)
 	return (0);
 }
 
-
-
 int     main(int argc, char **argv)
 {
     header_t        header;
@@ -229,7 +246,9 @@ int     main(int argc, char **argv)
     t_vizData       vizData;
 	int 			cycleToDie;
 	int 			maxchecks;
+	int             n;
 
+	n = 0;
 	maxchecks = 0;
 	checkArguments(argc, argv, &d, &iter);
 	initProcesses(&processes);
@@ -248,44 +267,49 @@ int     main(int argc, char **argv)
 	i = 0;
 	while (1)
 	{
-		if (i == 4570)
-		{
-
-		}
 		runProcesses(&processes, map, array, i, players, &vizData);
+		if (counter(processes) == 14)
+		{
+			;
+		}
 		if (d && i == iter)
 			break ;
-		if (!d && VIZ)
+		if (n == cycleToDie && check21(players))
 		{
-			visualize(map, ft_strlen(total), processes, &vizData);
-			mvwprintw(stdscr, 0, 193, "%d", i);
-//			mvwprintw(stdscr, 0, 230, "%d", players->lastAlive);
-			//if (i >= 4567)
-			//	c = getch();
-			if (c == 113)
-				break ;
-		}
-		if (i == cycleToDie && check21(players))
-		{
-			cycleToDie -= CYCLE_DELTA + i;
+			cycleToDie -= CYCLE_DELTA;
 			maxchecks = 0;
-			superkill(&processes);
+			superkill(&processes, i);
 			kill(processes);
+			n = 0;
 		}
-		else if (i == cycleToDie)
+		else if (n == cycleToDie)
 		{
-			superkill(&processes);
+			superkill(&processes, i);
 			kill(processes);
-			cycleToDie += i;
 			maxchecks++;
 			if (maxchecks == MAX_CHECKS)
 			{
 				cycleToDie -= CYCLE_DELTA;
 				maxchecks = 0;
 			}
+			n = 0;
 		}
-
+		if (!d && VIZ)
+		{
+			visualize(map, ft_strlen(total), processes, &vizData);
+			mvwprintw(stdscr, 0, 193, "%d", i);
+//			mvwprintw(stdscr, 0, 230, "%d", players->lastAlive);
+			if (i >= 7380)
+				c = getch();
+			if (c == 113)
+				break ;
+		}
+//		if (i == 7380)
+//			ft_printf("count proc = %d\ncycle to die = %d\n", counter(processes), cycleToDie);
+		if (!processes || cycleToDie <= 0)
+			return ft_printf("GAME OVER on cycle %d\ncycle to die = %d\n", i, cycleToDie);
 		i++;
+		n++;
 //		if (!d && VIZ)
 //			usleep(10000);
 	}
