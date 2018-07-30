@@ -197,7 +197,7 @@ void	lfork(t_process *processor, unsigned char *map, int iz, t_player *pl, t_viz
 		return ;
 	}
 	tmp = (t_process*)malloc(sizeof(t_process));
-	tmp->cur_pos = (short)ft_atoi_base(processor->arg1, 16) * 2 + processor->cur_pos;
+	tmp->cur_pos = ((short)ft_atoi_base(processor->arg1, 16) * 2 + processor->cur_pos) % 8192;
 	if (tmp->cur_pos < 0)
 		tmp->cur_pos = MEM_SIZE * 2 + tmp->cur_pos;
 	tmp->carry = processor->carry;

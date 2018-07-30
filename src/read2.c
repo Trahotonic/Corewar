@@ -71,9 +71,16 @@ void	readShit(unsigned char map[], t_process *processor) // Обновленно
 		bin = ft_convert_2(n, 8);
 		tmp[0] = bin[0];
 		tmp[1] = bin[1];
+		if (bin[0] == '0' && bin[1] == '0')
+			return ;
 		readLittleShit(map, processor->arg1, tmp, processor);
 		tmp[0] = bin[2];
 		tmp[1] = bin[3];
+		if (bin[0] == '0' && bin[1] == '0')
+		{
+			processor->iterator = 4;
+			return ;
+		}
 		readLittleShit(map, processor->arg2, tmp, processor);
 		tmp[0] = bin[4];
 		tmp[1] = bin[5];

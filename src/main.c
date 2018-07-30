@@ -299,7 +299,7 @@ int     main(int argc, char **argv)
 			visualize(map, ft_strlen(total), processes, &vizData);
 			mvwprintw(stdscr, 0, 193, "%d", i);
 //			mvwprintw(stdscr, 0, 230, "%d", players->lastAlive);
-			if (i >= 7380)
+			if (i >= 5300)
 				c = getch();
 			if (c == 113)
 				break ;
