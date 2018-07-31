@@ -72,11 +72,13 @@ typedef char	t_arg_type;
 # define NEW_PLAYER2_CODE_PAIR 8
 # define NEW_PLAYER3_CODE_PAIR 9
 # define NEW_PLAYER4_CODE_PAIR 10
+# define SEEK_BITCH 11
 
 # define LIGHT_GREEN 1
 # define GREY 2
 # define DARK_GREEN 3
 # define GOOD_GREEN 4
+# define RED_FALCON 5
 
 typedef struct		header_s
 {

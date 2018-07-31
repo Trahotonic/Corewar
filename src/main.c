@@ -294,17 +294,23 @@ int     main(int argc, char **argv)
 			}
 			n = 0;
 		}
+		if (i == 5685)
+		{
+
+		}
+		int br = 4820;
 		if (!d && VIZ)
 		{
 			visualize(map, ft_strlen(total), processes, &vizData);
 			mvwprintw(stdscr, 0, 193, "%d", i);
+			mvwprintw(stdscr, 10, 200, "     ");
+			mvwprintw(stdscr, 10, 200, "%d", cycleToDie);
 //			mvwprintw(stdscr, 0, 230, "%d", players->lastAlive);
-			if (i >= 5300)
+			if (i >= br)
 				c = getch();
 			if (c == 113)
 				break ;
 		}
-//		if (i == 7380)
 //			ft_printf("count proc = %d\ncycle to die = %d\n", counter(processes), cycleToDie);
 		if (!processes || cycleToDie <= 0)
 			return ft_printf("GAME OVER on cycle %d\ncycle to die = %d\n", i, cycleToDie);
