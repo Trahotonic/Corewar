@@ -144,7 +144,7 @@ int 	ft_bto_i(char *bin);
 void	readShit(unsigned char map[], t_process *processor);
 char 	*ft_convert_2(int tmp, int base);
 char	*ft_arrg_join(char *s1, char *s2);
-char	*ft_uitoa_base2(unsigned long long value, int base);
+char	*ft_uitoa_base2(unsigned int value, int base);
 void	convert(char **str);
 void    getTotal(int fd, char **total, t_vizData *vizData);
 void    initVis(void);

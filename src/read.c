@@ -32,7 +32,7 @@ char	*ft_arrg_join(char *s1, char *s2)
     return (NULL);
 }
 
-char		*ft_uitoa_base2(unsigned long long value, int base)
+char		*ft_uitoa_base2(unsigned int value, int base)
 {
     char	*array;
     char	tmp[60];
