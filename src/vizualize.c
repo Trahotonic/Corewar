@@ -15,11 +15,13 @@ void    initVis(void)
     init_color(DARK_GREEN, 0, 650, 0);
 	init_color(GOOD_GREEN, 0, 1000, 0);
 	init_color(RED_FALCON, 1000, 0, 0);
+	init_color(PISS, 0, 1000, 1000);
     init_pair(DEFAULT_COLOR_PAIR, GREY, COLOR_BLACK);
     init_pair(MARK_PROCESS_PAIR, COLOR_BLACK, GOOD_GREEN);
     init_pair(DEFAULT_PLAYER1_PAIR, DARK_GREEN, COLOR_BLACK);
     init_pair(NEW_PLAYER1_CODE_PAIR, LIGHT_GREEN, COLOR_BLACK);
-	init_pair(SEEK_BITCH, COLOR_BLACK, COLOR_WHITE);
+	init_pair(SEEK_BITCH, COLOR_BLACK, RED_FALCON);
+	init_pair(SEEK_YELLOW_BITCH, COLOR_BLACK, PISS);
 }
 
 int 	getProcesses(t_process *proc)
@@ -72,9 +74,19 @@ size_t    innerCycle(unsigned char map[], unsigned char x[], size_t len, t_proce
 	        ptr = proc;
 	        while (ptr)
 	        {
-		        if (i == ptr->cur_pos && ptr->proc_num == 4)
+		        if (i == ptr->cur_pos && ptr->proc_num == 20)
 		        {
 			        pair = SEEK_BITCH;
+			        break ;
+		        }
+		        ptr = ptr->next;
+	        }
+	        ptr = proc;
+	        while (ptr)
+	        {
+		        if (i == ptr->cur_pos && ptr->proc_num == 17)
+		        {
+			        pair = SEEK_YELLOW_BITCH;
 			        break ;
 		        }
 		        ptr = ptr->next;

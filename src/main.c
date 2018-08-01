@@ -71,6 +71,10 @@ void	runProcesses(t_process **processes, unsigned char map[], functions_t array[
 				 && !go->cycle_todo)
 		{
 			readShit(map, go);
+			if (go->iC == 1)
+			{
+
+			}
 			if (ft_strequ("01", go->command))
 				array[0].funcptr(go, map, i, player, vizData);
 			else if (ft_strequ("02", go->command))
@@ -103,6 +107,7 @@ void	runProcesses(t_process **processes, unsigned char map[], functions_t array[
 				array[14].funcptr(go, map, i, player, vizData);
 			go->command[0] = '.';
 			go->command[1] = '.';
+			go->iC = 0;
 		}
 		go = go->prev;
 	}
@@ -294,18 +299,20 @@ int     main(int argc, char **argv)
 			}
 			n = 0;
 		}
-		if (i == 5685)
+		if (i == 15303)
 		{
 
 		}
-		int br = 4820;
-		if (!d && VIZ)
+		int br = 21013;
+		if (!d && VIZ && (i >= br - 100))
 		{
 			visualize(map, ft_strlen(total), processes, &vizData);
 			mvwprintw(stdscr, 0, 193, "%d", i);
 			mvwprintw(stdscr, 10, 200, "     ");
 			mvwprintw(stdscr, 10, 200, "%d", cycleToDie);
-//			mvwprintw(stdscr, 0, 230, "%d", players->lastAlive);
+			mvwprintw(stdscr, 3, 193, "live count: %d", players->liveCount);
+			mvwprintw(stdscr, 4, 193, "last alive: %d", players->lastAlive);
+			mvwprintw(stdscr, 5, 193, "max checks: %d", maxchecks);
 			if (i >= br)
 				c = getch();
 			if (c == 113)

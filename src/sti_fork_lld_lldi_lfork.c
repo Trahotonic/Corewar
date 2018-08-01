@@ -13,9 +13,9 @@ void  sti(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizD
 	int  n;
 	char *arg1;
 
-	if (ft_strlen(processor->arg1) != 2 || ft_strlen(processor->arg3) == 8)
+	if (ft_strlen(processor->arg1) != 2 || ft_strlen(processor->arg2) == 0 || ft_strlen(processor->arg3) == 0)
 	{
-		processor->cur_pos += processor->iterator % (MEM_SIZE * 2);
+		processor->cur_pos = (processor->cur_pos + processor->iterator) % (MEM_SIZE * 2);
 		processor->iterator = 0;
 		return ;
 	}
@@ -69,9 +69,15 @@ void	lld(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizDa
 	int k;
 	char *arg1;
 
-	if (ft_strlen(processor->arg1) == 2 || ft_strlen(processor->arg3) != 2)
+	if (ft_strlen(processor->arg3) == 2)
+		processor->iterator -= 1;
+	if (ft_strlen(processor->arg3) == 4)
+		processor->iterator -= 4;
+	if (ft_strlen(processor->arg3) == 8)
+		processor->iterator -= 8;
+	if (ft_strlen(processor->arg1) == 2 || ft_strlen(processor->arg1) == 0 || ft_strlen(processor->arg2) != 2)
 	{
-		processor->cur_pos += processor->iterator % (MEM_SIZE * 2);
+		processor->cur_pos = (processor->cur_pos + processor->iterator) % (MEM_SIZE * 2);
 		processor->iterator = 0;
 		return ;
 	}
@@ -107,9 +113,9 @@ void	lldi(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizD
 
 	n = 0;
 	arg1 = ft_strnew(8);
-	if (ft_strlen(processor->arg2) == 8 || ft_strlen(processor->arg3) != 2)
+	if (ft_strlen(arg1) == 0 || ft_strlen(processor->arg2) == 0 || ft_strlen(processor->arg3) != 2)
 	{
-		processor->cur_pos += processor->iterator % (MEM_SIZE * 2);
+		processor->cur_pos = (processor->cur_pos + processor->iterator) % (MEM_SIZE * 2);
 		processor->iterator = 0;
 		return ;
 	}
@@ -164,7 +170,7 @@ void	fork_c(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vi
 	tmp->cycle_todo = 0;
 	tmp->iterator = 0;
 	tmp->codage = 1;
-	tmp->done = 0;
+	tmp->iC = 0;
 	tmp->invalidAgr = 0;
 	n = 0;
 	while (n < 16)
@@ -209,7 +215,7 @@ void	lfork(t_process *processor, unsigned char *map, int iz, t_player *pl, t_viz
 	tmp->command[2] = '\0';
 	tmp->cycle_todo = 0;
 	tmp->iterator = 0;
-	tmp->done = 0;
+	tmp->iC = 0;
 	tmp->invalidAgr = 0;
 	n = 0;
 	while (n < 16)

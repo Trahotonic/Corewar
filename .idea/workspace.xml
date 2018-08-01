@@ -13,15 +13,23 @@
   <component name="ChangeListManager">
     <list default="true" id="a69af0ba-4ee2-469f-ba16-c19649af79bd" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Corewar.dir/src/and_or_xor_zjmp_ldi.c.o" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Corewar.dir/src/and_or_xor_zjmp_ldi.c.o" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Corewar.dir/src/inits.c.o" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Corewar.dir/src/inits.c.o" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Corewar.dir/src/live_ld_st_add_sub.c.o" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Corewar.dir/src/live_ld_st_add_sub.c.o" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Corewar.dir/src/main.c.o" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Corewar.dir/src/main.c.o" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Corewar.dir/src/read.c.o" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Corewar.dir/src/read.c.o" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Corewar.dir/src/read2.c.o" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Corewar.dir/src/read2.c.o" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Corewar.dir/src/sti_fork_lld_lldi_lfork.c.o" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Corewar.dir/src/sti_fork_lld_lldi_lfork.c.o" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Corewar.dir/src/vizualize.c.o" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Corewar.dir/src/vizualize.c.o" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Corewar" afterPath="$PROJECT_DIR$/cmake-build-debug/Corewar" />
       <change beforePath="$PROJECT_DIR$/file1" afterPath="$PROJECT_DIR$/file1" />
       <change beforePath="$PROJECT_DIR$/file2" afterPath="$PROJECT_DIR$/file2" />
       <change beforePath="$PROJECT_DIR$/inc/corewar.h" afterPath="$PROJECT_DIR$/inc/corewar.h" />
       <change beforePath="$PROJECT_DIR$/src/and_or_xor_zjmp_ldi.c" afterPath="$PROJECT_DIR$/src/and_or_xor_zjmp_ldi.c" />
+      <change beforePath="$PROJECT_DIR$/src/inits.c" afterPath="$PROJECT_DIR$/src/inits.c" />
+      <change beforePath="$PROJECT_DIR$/src/live_ld_st_add_sub.c" afterPath="$PROJECT_DIR$/src/live_ld_st_add_sub.c" />
       <change beforePath="$PROJECT_DIR$/src/main.c" afterPath="$PROJECT_DIR$/src/main.c" />
+      <change beforePath="$PROJECT_DIR$/src/read2.c" afterPath="$PROJECT_DIR$/src/read2.c" />
+      <change beforePath="$PROJECT_DIR$/src/sti_fork_lld_lldi_lfork.c" afterPath="$PROJECT_DIR$/src/sti_fork_lld_lldi_lfork.c" />
       <change beforePath="$PROJECT_DIR$/src/vizualize.c" afterPath="$PROJECT_DIR$/src/vizualize.c" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
@@ -41,8 +49,8 @@
       <file leaf-file-name="main.c" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="300" column="21" lean-forward="false" selection-start-line="300" selection-start-column="21" selection-end-line="300" selection-end-column="21" />
+            <state relative-caret-position="502">
+              <caret line="305" column="22" lean-forward="false" selection-start-line="305" selection-start-column="22" selection-end-line="305" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -51,8 +59,8 @@
       <file leaf-file-name="vizualize.c" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/vizualize.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="334">
-              <caret line="74" column="59" lean-forward="false" selection-start-line="74" selection-start-column="59" selection-end-line="74" selection-end-column="59" />
+            <state relative-caret-position="783">
+              <caret line="113" column="67" lean-forward="false" selection-start-line="113" selection-start-column="67" selection-end-line="113" selection-end-column="67" />
               <folding />
             </state>
           </provider>
@@ -61,8 +69,8 @@
       <file leaf-file-name="live_ld_st_add_sub.c" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/live_ld_st_add_sub.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="448">
-              <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+            <state relative-caret-position="1134">
+              <caret line="87" column="33" lean-forward="false" selection-start-line="87" selection-start-column="33" selection-end-line="87" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -71,8 +79,18 @@
       <file leaf-file-name="read2.c" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/read2.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2296">
-              <caret line="82" column="9" lean-forward="false" selection-start-line="82" selection-start-column="9" selection-end-line="82" selection-end-column="9" />
+            <state relative-caret-position="36">
+              <caret line="11" column="19" lean-forward="false" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="converts.c" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/converts.c">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="744">
+              <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -81,8 +99,8 @@
       <file leaf-file-name="and_or_xor_zjmp_ldi.c" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/and_or_xor_zjmp_ldi.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-926">
-              <caret line="78" column="5" lean-forward="false" selection-start-line="78" selection-start-column="5" selection-end-line="78" selection-end-column="5" />
+            <state relative-caret-position="-280">
+              <caret line="92" column="0" lean-forward="false" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -91,8 +109,8 @@
       <file leaf-file-name="sti_fork_lld_lldi_lfork.c" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sti_fork_lld_lldi_lfork.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1286">
-              <caret line="209" column="18" lean-forward="false" selection-start-line="209" selection-start-column="18" selection-end-line="209" selection-end-column="18" />
+            <state relative-caret-position="2352">
+              <caret line="98" column="21" lean-forward="false" selection-start-line="98" selection-start-column="21" selection-end-line="98" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -101,8 +119,8 @@
       <file leaf-file-name="inits.c" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/inits.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1260">
-              <caret line="45" column="10" lean-forward="false" selection-start-line="45" selection-start-column="10" selection-end-line="45" selection-end-column="10" />
+            <state relative-caret-position="1198">
+              <caret line="50" column="19" lean-forward="false" selection-start-line="50" selection-start-column="19" selection-end-line="50" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -111,7 +129,7 @@
       <file leaf-file-name="read.c" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/read.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1680">
+            <state relative-caret-position="0">
               <caret line="60" column="0" lean-forward="false" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
               <folding />
             </state>
@@ -121,8 +139,8 @@
       <file leaf-file-name="corewar.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/inc/corewar.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="867">
-              <caret line="80" column="21" lean-forward="false" selection-start-line="80" selection-start-column="21" selection-end-line="80" selection-end-column="21" />
+            <state relative-caret-position="-839">
+              <caret line="75" column="29" lean-forward="false" selection-start-line="75" selection-start-column="29" selection-end-line="75" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -136,12 +154,13 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/src/read.c" />
+        <option value="$PROJECT_DIR$/src/inits.c" />
+        <option value="$PROJECT_DIR$/src/and_or_xor_zjmp_ldi.c" />
+        <option value="$PROJECT_DIR$/src/read2.c" />
+        <option value="$PROJECT_DIR$/inc/corewar.h" />
         <option value="$PROJECT_DIR$/src/live_ld_st_add_sub.c" />
         <option value="$PROJECT_DIR$/src/sti_fork_lld_lldi_lfork.c" />
-        <option value="$PROJECT_DIR$/src/read2.c" />
-        <option value="$PROJECT_DIR$/src/read.c" />
-        <option value="$PROJECT_DIR$/src/and_or_xor_zjmp_ldi.c" />
-        <option value="$PROJECT_DIR$/inc/corewar.h" />
         <option value="$PROJECT_DIR$/src/vizualize.c" />
         <option value="$PROJECT_DIR$/src/main.c" />
       </list>
@@ -154,8 +173,9 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
-  <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="width" value="2560" />
+  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
+    <option name="x" value="1121" />
+    <option name="width" value="1439" />
     <option name="height" value="1440" />
   </component>
   <component name="ProjectView">
@@ -192,7 +212,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Color Scheme Font" />
     <property name="WebServerToolWindowFactoryState" value="false" />
   </component>
   <component name="RunDashboard">
@@ -236,7 +256,8 @@
       <workItem from="1531823240687" duration="5000" />
       <workItem from="1532955581422" duration="10189000" />
       <workItem from="1533029014360" duration="1301000" />
-      <workItem from="1533035769381" duration="6636000" />
+      <workItem from="1533035769381" duration="6662000" />
+      <workItem from="1533111247741" duration="14545000" />
     </task>
     <task id="LOCAL-00001" summary="maybe good">
       <created>1532968262721</created>
@@ -259,33 +280,40 @@
       <option name="project" value="LOCAL" />
       <updated>1533029201259</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="update">
+      <created>1533048491265</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1533048491265</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18158000" />
+    <option name="totallyTimeSpent" value="32729000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="2560" height="1440" extended-state="0" />
+    <frame x="404" y="0" width="2156" height="1440" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24970461" sideWeight="0.49743965" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.10960187" sideWeight="0.49451354" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3269934" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329188" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32991952" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3269934" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3269934" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24970461" sideWeight="0.5025604" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="1.0" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.253109" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.55010974" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.10960187" sideWeight="0.5054865" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -299,15 +327,155 @@
     <MESSAGE value="maybe good" />
     <MESSAGE value="fixes" />
     <MESSAGE value="uint itoa" />
-    <option name="LAST_COMMIT_MESSAGE" value="uint itoa" />
+    <MESSAGE value="update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="28" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/main.c</url>
+          <line>303</line>
+          <option name="timeStamp" value="29" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/main.c</url>
+          <line>75</line>
+          <option name="timeStamp" value="35" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/read2.c</url>
+          <line>74</line>
+          <option name="timeStamp" value="36" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/read2.c</url>
+          <line>96</line>
+          <option name="timeStamp" value="37" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/read2.c</url>
+          <line>118</line>
+          <option name="timeStamp" value="38" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/read2.c</url>
+          <line>146</line>
+          <option name="timeStamp" value="39" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/read2.c</url>
+          <line>174</line>
+          <option name="timeStamp" value="40" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/read2.c</url>
+          <line>202</line>
+          <option name="timeStamp" value="41" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/read2.c</url>
+          <line>230</line>
+          <option name="timeStamp" value="42" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/read2.c</url>
+          <line>258</line>
+          <option name="timeStamp" value="43" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/read2.c</url>
+          <line>286</line>
+          <option name="timeStamp" value="44" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/read2.c</url>
+          <line>314</line>
+          <option name="timeStamp" value="45" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/read2.c</url>
+          <line>336</line>
+          <option name="timeStamp" value="46" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="47" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vizualize.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2072">
+          <caret line="74" column="19" lean-forward="true" selection-start-line="74" selection-start-column="19" selection-end-line="74" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/live_ld_st_add_sub.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="448">
+          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/read2.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2296">
+          <caret line="82" column="9" lean-forward="false" selection-start-line="82" selection-start-column="9" selection-end-line="82" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/and_or_xor_zjmp_ldi.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2184">
+          <caret line="78" column="5" lean-forward="false" selection-start-line="78" selection-start-column="5" selection-end-line="78" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sti_fork_lld_lldi_lfork.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5852">
+          <caret line="209" column="18" lean-forward="false" selection-start-line="209" selection-start-column="18" selection-end-line="209" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/inits.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1260">
+          <caret line="45" column="10" lean-forward="false" selection-start-line="45" selection-start-column="10" selection-end-line="45" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/read.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1680">
+          <caret line="60" column="0" lean-forward="false" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inc/corewar.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2240">
+          <caret line="80" column="21" lean-forward="false" selection-start-line="80" selection-start-column="21" selection-end-line="80" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/read2.c">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2296">
@@ -436,74 +604,82 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/read2.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2296">
-          <caret line="82" column="9" lean-forward="false" selection-start-line="82" selection-start-column="9" selection-end-line="82" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/read.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1680">
+        <state relative-caret-position="0">
           <caret line="60" column="0" lean-forward="false" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sti_fork_lld_lldi_lfork.c">
+    <entry file="file://$PROJECT_DIR$/src/converts.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1286">
-          <caret line="209" column="18" lean-forward="false" selection-start-line="209" selection-start-column="18" selection-end-line="209" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/and_or_xor_zjmp_ldi.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-926">
-          <caret line="78" column="5" lean-forward="false" selection-start-line="78" selection-start-column="5" selection-end-line="78" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/inc/corewar.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="867">
-          <caret line="80" column="21" lean-forward="false" selection-start-line="80" selection-start-column="21" selection-end-line="80" selection-end-column="21" />
+        <state relative-caret-position="744">
+          <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/inits.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1260">
-          <caret line="45" column="10" lean-forward="false" selection-start-line="45" selection-start-column="10" selection-end-line="45" selection-end-column="10" />
+        <state relative-caret-position="1198">
+          <caret line="50" column="19" lean-forward="false" selection-start-line="50" selection-start-column="19" selection-end-line="50" selection-end-column="19" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/vizualize.c">
+    <entry file="file://$PROJECT_DIR$/src/and_or_xor_zjmp_ldi.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="334">
-          <caret line="74" column="59" lean-forward="false" selection-start-line="74" selection-start-column="59" selection-end-line="74" selection-end-column="59" />
+        <state relative-caret-position="-280">
+          <caret line="92" column="0" lean-forward="false" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/read2.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="11" column="19" lean-forward="false" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/live_ld_st_add_sub.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="448">
-          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+        <state relative-caret-position="1134">
+          <caret line="87" column="33" lean-forward="false" selection-start-line="87" selection-start-column="33" selection-end-line="87" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sti_fork_lld_lldi_lfork.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2352">
+          <caret line="98" column="21" lean-forward="false" selection-start-line="98" selection-start-column="21" selection-end-line="98" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inc/corewar.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-839">
+          <caret line="75" column="29" lean-forward="false" selection-start-line="75" selection-start-column="29" selection-end-line="75" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vizualize.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="783">
+          <caret line="113" column="67" lean-forward="false" selection-start-line="113" selection-start-column="67" selection-end-line="113" selection-end-column="67" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="300" column="21" lean-forward="false" selection-start-line="300" selection-start-column="21" selection-end-line="300" selection-end-column="21" />
+        <state relative-caret-position="502">
+          <caret line="305" column="22" lean-forward="false" selection-start-line="305" selection-start-column="22" selection-end-line="305" selection-end-column="22" />
           <folding />
         </state>
       </provider>

@@ -38,6 +38,7 @@ void	initProcesses(t_process **processes)
 	tmp->proc_num = 1;
 	tmp->pl_num = 0;
 	tmp->alive = 0;
+	tmp->iC = 0;
 	tmp->command[0] = '.';
 	tmp->command[1] = '.';
 	tmp->command[2] = '\0';
@@ -48,7 +49,6 @@ void	initProcesses(t_process **processes)
 		tmp->reg[n++] = 0;
 	tmp->reg[0] = -1;
 	tmp->t_dir = 0;
-	tmp->done = 0;
 	tmp->invalidAgr = 0;
 	tmp->next = NULL;
 	tmp->prev = NULL;

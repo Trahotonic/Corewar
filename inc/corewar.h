@@ -73,12 +73,14 @@ typedef char	t_arg_type;
 # define NEW_PLAYER3_CODE_PAIR 9
 # define NEW_PLAYER4_CODE_PAIR 10
 # define SEEK_BITCH 11
+# define SEEK_YELLOW_BITCH 12
 
 # define LIGHT_GREEN 1
 # define GREY 2
 # define DARK_GREEN 3
 # define GOOD_GREEN 4
 # define RED_FALCON 5
+# define PISS 6
 
 typedef struct		header_s
 {
@@ -104,7 +106,7 @@ typedef struct  	s_process
 	char 				arg2[9];
 	char 				arg3[9];
 	int 				t_dir;
-	int 				done;
+	int 				iC;
 	int					invalidAgr;
 	struct s_process	*next;
 	struct s_process	*prev;

@@ -6,9 +6,9 @@
 
 void		and(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizData *vizData)
 {
-	if (ft_strlen(processor->arg3) != 2)
+	if (ft_strlen(processor->arg3) != 2 || ft_strlen(processor->arg1) == 0 || ft_strlen(processor->arg2) == 0)
 	{
-		processor->cur_pos += processor->iterator % (MEM_SIZE * 2);
+		processor->cur_pos = (processor->iterator  + processor->cur_pos) % (MEM_SIZE * 2);
 		processor->iterator = 0;
 		return ;
 	}
@@ -25,9 +25,9 @@ void		and(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizD
 
 void		or(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizData *vizData)
 {
-	if (ft_strlen(processor->arg3) != 2)
+	if (ft_strlen(processor->arg3) != 2 || ft_strlen(processor->arg1) == 0 || ft_strlen(processor->arg2) == 0)
 	{
-		processor->cur_pos += processor->iterator % (MEM_SIZE * 2);
+		processor->cur_pos = (processor->iterator + processor->cur_pos) % (MEM_SIZE * 2);
 		processor->iterator = 0;
 		return ;
 	}
@@ -44,9 +44,9 @@ void		or(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizDa
 
 void		xor(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizData *vizData)
 {
-	if (ft_strlen(processor->arg3) != 2)
+	if (ft_strlen(processor->arg3) != 2 || ft_strlen(processor->arg1) == 0 || ft_strlen(processor->arg2) == 0)
 	{
-		processor->cur_pos += processor->iterator % (MEM_SIZE * 2);
+		processor->cur_pos = (processor->iterator + processor->cur_pos) % (MEM_SIZE * 2);
 		processor->iterator = 0;
 		return ;
 	}
@@ -92,9 +92,9 @@ void	ldi(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizDa
 	int		n;
 
 	n = 0;
-	if (ft_strlen(processor->arg2) == 8 || ft_strlen(processor->arg3) != 2)
+	if (ft_strlen(processor->arg3) != 2 || ft_strlen(processor->arg1) == 0 || ft_strlen(processor->arg2) == 0)
 	{
-		processor->cur_pos += processor->iterator % (MEM_SIZE * 2);
+		processor->cur_pos = (processor->cur_pos +processor->iterator) % (MEM_SIZE * 2);
 		processor->iterator = 0;
 		return ;
 	}
@@ -107,7 +107,7 @@ void	ldi(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizDa
 		}
 		else
 		{
-			i = ((processor->reg[ft_atoi_base(processor->arg1, 16) - 1] + (short)ft_atoi_base(processor->arg2, 16))% IDX_MOD) * 2 + processor->cur_pos;
+			i = ((processor->reg[ft_atoi_base(processor->arg1, 16) - 1] + (short)ft_atoi_base(processor->arg2, 16)) % IDX_MOD) * 2 + processor->cur_pos;
 		}
 	}
 	else if (ft_strlen(processor->arg1) == 4 && processor->t_dir != 1)

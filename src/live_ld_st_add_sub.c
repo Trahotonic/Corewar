@@ -39,9 +39,15 @@ void		ld(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizDa
 	char	*arg1;
 	int		k;
 
-	if (ft_strlen(processor->arg1) == 2 || ft_strlen(processor->arg2) != 2)
+	if (ft_strlen(processor->arg3) == 2)
+		processor->iterator -= 1;
+	if (ft_strlen(processor->arg3) == 4)
+		processor->iterator -= 4;
+	if (ft_strlen(processor->arg3) == 8)
+		processor->iterator -= 8;
+	if (ft_strlen(processor->arg1) == 2 || ft_strlen(processor->arg1) == 0 || ft_strlen(processor->arg2) != 2)
 	{
-		processor->cur_pos += processor->iterator % (MEM_SIZE * 2);
+		processor->cur_pos = (processor->iterator + processor->cur_pos) % (MEM_SIZE * 2);
 		processor->iterator = 0;
 		return ;
 	}
@@ -74,9 +80,15 @@ void	st(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizDat
 	char	*tmp;
 	int		k;
 
-	if (ft_strlen(processor->arg1) != 2 || ft_strlen(processor->arg2) == 8)
+	if (ft_strlen(processor->arg3) == 2)
+		processor->iterator -= 1;
+	if (ft_strlen(processor->arg3) == 4)
+		processor->iterator -= 4;
+	if (ft_strlen(processor->arg3) == 8)
+		processor->iterator -= 8;
+	if (ft_strlen(processor->arg1) != 2 || ft_strlen(processor->arg2) == 8 || ft_strlen(processor->arg2) == 0)
 	{
-		processor->cur_pos += processor->iterator  % (MEM_SIZE * 2);
+		processor->cur_pos = (processor->iterator + processor->cur_pos)  % (MEM_SIZE * 2);
 		processor->iterator = 0;
 		return ;
 	}
@@ -109,7 +121,7 @@ void		add(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizD
 {
 	if (ft_strlen(processor->arg1) != 2 || ft_strlen(processor->arg2) != 2 || ft_strlen(processor->arg3) != 2)
 	{
-		processor->cur_pos += processor->iterator  % (MEM_SIZE * 2);
+		processor->cur_pos = (processor->iterator + processor->cur_pos)  % (MEM_SIZE * 2);
 		processor->iterator = 0;
 		return ;
 	}
@@ -128,7 +140,7 @@ void		sub(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizD
 {
 	if (ft_strlen(processor->arg1) != 2 || ft_strlen(processor->arg2) != 2 || ft_strlen(processor->arg3) != 2)
 	{
-		processor->cur_pos += processor->iterator  % (MEM_SIZE * 2);
+		processor->cur_pos = (processor->iterator + processor->cur_pos)  % (MEM_SIZE * 2);
 		processor->iterator = 0;
 		return ;
 	}
