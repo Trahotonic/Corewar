@@ -27,7 +27,7 @@ void  sti(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizD
 	{
 		if (ft_strlen(processor->arg3) == 2)
 		{
-			i = ((processor->reg[ft_atoi_base(processor->arg2, 16) - 1] + processor->reg[ft_atoi_base(processor->arg3, 16) - 1])% IDX_MOD) * 2 + processor->cur_pos;
+			i = ((int)(processor->reg[ft_atoi_base(processor->arg2, 16) - 1] + (int)processor->reg[ft_atoi_base(processor->arg3, 16) - 1])% IDX_MOD) * 2 + processor->cur_pos;
 		}
 		else
 		{
@@ -42,7 +42,7 @@ void  sti(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizD
 		}
 		else
 		{
-			i = ((short)(((short)ft_atoi_base(processor->arg2, 16) + processor->reg[ft_atoi_base(processor->arg3, 16) - 1] ))% IDX_MOD) * 2 + processor->cur_pos;
+			i = ((short)(((short)ft_atoi_base(processor->arg2, 16) + (int)processor->reg[ft_atoi_base(processor->arg3, 16) - 1] ))% IDX_MOD) * 2 + processor->cur_pos;
 		}
 	}
 	if (i < 0)

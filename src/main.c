@@ -312,12 +312,12 @@ int     main(int argc, char **argv)
 //		}
 		if (d && i == iter)
 			break ;
-		if (i == 25987)
+		if (i == 2935)
 		{
 
 		}
-		int br = 2491;
-		if (!d && VIZ && i >= br - 100)
+		int br = 20000;
+		if (!d && VIZ)
 		{
 			visualize(map, ft_strlen(total), processes, &vizData);
 			mvwprintw(stdscr, 0, 193, "%d", i);
@@ -327,8 +327,8 @@ int     main(int argc, char **argv)
 			mvwprintw(stdscr, 3, 193, "live count: %d", players->liveCount);
 			mvwprintw(stdscr, 4, 193, "last alive: %d", players->lastAlive);
 			mvwprintw(stdscr, 5, 193, "max checks: %d", maxchecks);
-			if (i >= br)
-				c = getch();
+//			if (i >= br)
+//				c = getch();
 			if (c == 113)
 				break ;
 		}
