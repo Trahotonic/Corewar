@@ -44,9 +44,21 @@ size_t    innerCycle(unsigned char map[], unsigned char x[], size_t len, t_proce
 	size_t 		i;
 	int 		pair;
 	t_process	*ptr;
+	int         check = 0;
+	unsigned char   markProc[MEM_SIZE * 2];
 
     n = 0;
 	i = 0;
+	while (n < MEM_SIZE * 2)
+		markProc[n++] = 0;
+	n = 0;
+	ptr = proc;
+	while (ptr)
+	{
+		markProc[ptr->cur_pos] = 1;
+		ptr = ptr->next;
+	}
+	n = 0;
     while (n < 64)
     {
         m = 0;
@@ -64,33 +76,26 @@ size_t    innerCycle(unsigned char map[], unsigned char x[], size_t len, t_proce
 				else
 					pair = DEFAULT_PLAYER1_PAIR;
 			}
-			ptr = proc;
-			while (ptr)
-			{
-				if (i == ptr->cur_pos)
-					pair = MARK_PROCESS_PAIR;
-				ptr = ptr->next;
-			}
-	        ptr = proc;
-	        while (ptr)
-	        {
-		        if (i == ptr->cur_pos && ptr->proc_num == 20)
-		        {
-			        pair = SEEK_BITCH;
-			        break ;
-		        }
-		        ptr = ptr->next;
-	        }
-	        ptr = proc;
-	        while (ptr)
-	        {
-		        if (i == ptr->cur_pos && ptr->proc_num == 17)
-		        {
-			        pair = SEEK_YELLOW_BITCH;
-			        break ;
-		        }
-		        ptr = ptr->next;
-	        }
+//	        ptr = proc;
+//	        while (ptr)
+//	        {
+//		        if (i == ptr->cur_pos && ptr->proc_num == 20)
+//		        {
+//			        pair = SEEK_BITCH;
+//			        break ;
+//		        }
+//		        ptr = ptr->next;
+//	        }
+//	        ptr = proc;
+//	        while (ptr)
+//	        {
+//		        if (i == ptr->cur_pos && ptr->proc_num == 17)
+//		        {
+//			        pair = SEEK_YELLOW_BITCH;
+//			        break ;
+//		        }
+//		        ptr = ptr->next;
+//	        }
             x[0] = map[i];
             x[1] = map[i + 1];
 			attron(COLOR_PAIR(pair));
@@ -102,6 +107,29 @@ size_t    innerCycle(unsigned char map[], unsigned char x[], size_t len, t_proce
         }
         n++;
     }
+	n = 0;
+	i = 0;
+	while (n < 64)
+	{
+		m = 0;
+		q = 0;
+		while (m < 64)
+		{
+			x[0] = map[i];
+			x[1] = map[i + 1];
+			if (markProc[i] == 1)
+			{
+				attron(COLOR_PAIR(MARK_PROCESS_PAIR));
+				mvwprintw(stdscr, n, q, (char*)x);
+				attroff(COLOR_PAIR(MARK_PROCESS_PAIR));
+			}
+			q += 3;
+			i += 2;
+			m++;
+		}
+		n++;
+	}
+
     return i;
 }
 

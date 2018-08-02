@@ -1,6 +1,6 @@
 # include "./../inc/corewar.h"
 
-# define VIZ 1
+# define VIZ 0
 
 void	dump(unsigned char map[])
 {
@@ -272,11 +272,16 @@ int     main(int argc, char **argv)
 	i = 0;
 	while (1)
 	{
-		runProcesses(&processes, map, array, i, players, &vizData);
-		if (counter(processes) == 14)
-		{
-			;
+		if (!processes || cycleToDie <= 0) {
+			if (VIZ)
+				endwin();
+			return ft_printf("GAME OVER on cycle %d\ncycle to die = %d\nprocesses: %d\n", i, cycleToDie, counter(processes));
 		}
+		runProcesses(&processes, map, array, i, players, &vizData);
+//		if (counter(processes) == 14)
+//		{
+//			;
+//		}
 		if (d && i == iter)
 			break ;
 		if (n == cycleToDie && check21(players))
@@ -303,13 +308,14 @@ int     main(int argc, char **argv)
 		{
 
 		}
-		int br = 21013;
-		if (!d && VIZ && (i >= br - 100))
+		int br = 12251;
+		if (!d && VIZ && i >= br - 100)
 		{
 			visualize(map, ft_strlen(total), processes, &vizData);
 			mvwprintw(stdscr, 0, 193, "%d", i);
 			mvwprintw(stdscr, 10, 200, "     ");
 			mvwprintw(stdscr, 10, 200, "%d", cycleToDie);
+			mvwprintw(stdscr, 3, 193, "                       ");
 			mvwprintw(stdscr, 3, 193, "live count: %d", players->liveCount);
 			mvwprintw(stdscr, 4, 193, "last alive: %d", players->lastAlive);
 			mvwprintw(stdscr, 5, 193, "max checks: %d", maxchecks);
@@ -319,8 +325,6 @@ int     main(int argc, char **argv)
 				break ;
 		}
 //			ft_printf("count proc = %d\ncycle to die = %d\n", counter(processes), cycleToDie);
-		if (!processes || cycleToDie <= 0)
-			return ft_printf("GAME OVER on cycle %d\ncycle to die = %d\n", i, cycleToDie);
 		i++;
 		n++;
 //		if (!d && VIZ)

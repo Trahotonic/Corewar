@@ -8,7 +8,7 @@ void		and(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizD
 {
 	if (ft_strlen(processor->arg3) != 2 || ft_strlen(processor->arg1) == 0 || ft_strlen(processor->arg2) == 0)
 	{
-		processor->cur_pos = (processor->iterator  + processor->cur_pos) % (MEM_SIZE * 2);
+		processor->cur_pos = (processor->iterator + processor->cur_pos) % (MEM_SIZE * 2);
 		processor->iterator = 0;
 		return ;
 	}

@@ -127,7 +127,7 @@ typedef struct		s_player
 typedef struct  s_vizData
 {
     unsigned char   vizData[MEM_SIZE * 2];
-    unsigned char    markTimeout[MEM_SIZE * 2];
+	unsigned char   markTimeout[MEM_SIZE * 2];
 }               t_vizData;
 
 typedef struct  functions_s
