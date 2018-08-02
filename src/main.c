@@ -290,14 +290,14 @@ int     main(int argc, char **argv)
 		}
 		else if (n == cycleToDie)
 		{
-			superkill(&processes, i, players);
-			kill(processes);
-			maxchecks++;
 			if (maxchecks == MAX_CHECKS)
 			{
 				cycleToDie -= CYCLE_DELTA;
 				maxchecks = 0;
 			}
+			superkill(&processes, i, players);
+			kill(processes);
+			maxchecks++;
 			n = 0;
 		}
 		if (!processes || cycleToDie <= 0) {
@@ -316,7 +316,7 @@ int     main(int argc, char **argv)
 		{
 
 		}
-		int br = 20000;
+		int br = 4556;
 		if (!d && VIZ)
 		{
 			visualize(map, ft_strlen(total), processes, &vizData);
@@ -327,8 +327,8 @@ int     main(int argc, char **argv)
 			mvwprintw(stdscr, 3, 193, "live count: %d", players->liveCount);
 			mvwprintw(stdscr, 4, 193, "last alive: %d", players->lastAlive);
 			mvwprintw(stdscr, 5, 193, "max checks: %d", maxchecks);
-//			if (i >= br)
-//				c = getch();
+			if (i >= br)
+				c = getch();
 			if (c == 113)
 				break ;
 		}
