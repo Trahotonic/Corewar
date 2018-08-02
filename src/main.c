@@ -1,6 +1,6 @@
 # include "./../inc/corewar.h"
 
-# define VIZ 0
+# define VIZ 1
 
 void	dump(unsigned char map[])
 {
@@ -178,10 +178,11 @@ void    kill(t_process * processes)
 	}
 }
 
-void    superkill(t_process ** processes, int i)
+void    superkill(t_process ** processes, int i, t_player *player)
 {
-	t_process *ptr;
-	t_process *tmp;
+	t_process   *ptr;
+	t_process   *tmp;
+	t_player    *plptr;
 
 	ptr = *processes;
 	while (ptr)
@@ -207,6 +208,13 @@ void    superkill(t_process ** processes, int i)
 				ptr = ptr->next;
 				free(tmp);
 			}
+			plptr = player;
+			while (plptr)
+			{
+				plptr->liveCount = 0;
+				plptr = plptr->next;
+			}
+			continue ;
 		}
 		if (!ptr)
 			break ;
@@ -272,6 +280,26 @@ int     main(int argc, char **argv)
 	i = 0;
 	while (1)
 	{
+		if (n == cycleToDie && check21(players))
+		{
+			cycleToDie -= CYCLE_DELTA;
+			maxchecks = 0;
+			superkill(&processes, i, players);
+			kill(processes);
+			n = 0;
+		}
+		else if (n == cycleToDie)
+		{
+			superkill(&processes, i, players);
+			kill(processes);
+			maxchecks++;
+			if (maxchecks == MAX_CHECKS)
+			{
+				cycleToDie -= CYCLE_DELTA;
+				maxchecks = 0;
+			}
+			n = 0;
+		}
 		if (!processes || cycleToDie <= 0) {
 			if (VIZ)
 				endwin();
@@ -284,31 +312,11 @@ int     main(int argc, char **argv)
 //		}
 		if (d && i == iter)
 			break ;
-		if (n == cycleToDie && check21(players))
-		{
-			cycleToDie -= CYCLE_DELTA;
-			maxchecks = 0;
-			superkill(&processes, i);
-			kill(processes);
-			n = 0;
-		}
-		else if (n == cycleToDie)
-		{
-			superkill(&processes, i);
-			kill(processes);
-			maxchecks++;
-			if (maxchecks == MAX_CHECKS)
-			{
-				cycleToDie -= CYCLE_DELTA;
-				maxchecks = 0;
-			}
-			n = 0;
-		}
-		if (i == 15303)
+		if (i == 25987)
 		{
 
 		}
-		int br = 12251;
+		int br = 2491;
 		if (!d && VIZ && i >= br - 100)
 		{
 			visualize(map, ft_strlen(total), processes, &vizData);

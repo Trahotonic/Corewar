@@ -8,12 +8,12 @@ void  live(t_process *processor, unsigned char *map, int i, t_player *pl, t_vizD
 {
 	char *tmp;
 
-	if (ft_strlen(processor->arg1) != 8)
-	{
-		processor->cur_pos = (processor->cur_pos + processor->iterator) % (MEM_SIZE * 2);
-		processor->iterator = 0;
-		return ;
-	}
+//	if (ft_strlen(processor->arg1) != 8)
+//	{
+//		processor->cur_pos = (processor->cur_pos + processor->iterator) % (MEM_SIZE * 2);
+//		processor->iterator = 0;
+//		return ;
+//	}
 	tmp = ft_uitoa_base2(pl->playerNumber, 16);
 	while(pl && !ft_strequ(tmp, processor->arg1))
 	{

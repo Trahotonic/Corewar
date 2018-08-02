@@ -58,6 +58,13 @@ size_t    innerCycle(unsigned char map[], unsigned char x[], size_t len, t_proce
 		markProc[ptr->cur_pos] = 1;
 		ptr = ptr->next;
 	}
+	ptr = proc;
+	while (ptr)
+	{
+		if (ptr->proc_num == 9)
+			markProc[ptr->cur_pos] = 2;
+		ptr = ptr->next;
+	}
 	n = 0;
     while (n < 64)
     {
@@ -123,6 +130,12 @@ size_t    innerCycle(unsigned char map[], unsigned char x[], size_t len, t_proce
 				mvwprintw(stdscr, n, q, (char*)x);
 				attroff(COLOR_PAIR(MARK_PROCESS_PAIR));
 			}
+			else if (markProc[i] == 2)
+			{
+				attron(COLOR_PAIR(SEEK_BITCH));
+				mvwprintw(stdscr, n, q, (char*)x);
+				attroff(COLOR_PAIR(SEEK_BITCH));
+			}
 			q += 3;
 			i += 2;
 			m++;
@@ -139,6 +152,7 @@ void    visualize(unsigned char map[], size_t len, t_process *proc, t_vizData *v
 
 	x[2] = '\0';
 	innerCycle(map, x, len, proc, vizData);
+	mvwprintw(stdscr, 2, 193, "                  ");
 	mvwprintw(stdscr, 2, 193, "processes: %d", getProcesses(proc));
 	refresh();
 }

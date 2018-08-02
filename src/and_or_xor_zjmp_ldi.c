@@ -116,7 +116,7 @@ void	ldi(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizDa
 			* 2 + processor->cur_pos;
 		while (n < 8)
 			arg1[n++] = map[i++];
-		if (ft_strlen(processor->arg2 ) == 4)
+		if (ft_strlen(processor->arg2) == 4)
 		{
 			i = ((ft_atoi_base(arg1, 16) + (short)ft_atoi_base(processor->arg2, 16)) % IDX_MOD) * 2
 				+ processor->cur_pos;
@@ -126,15 +126,15 @@ void	ldi(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizDa
 			i = ((ft_atoi_base(arg1, 16) + processor->reg[ft_atoi_base(processor->arg2, 16) - 1]) % IDX_MOD) * 2
 				+ processor->cur_pos;
 		}
-		i = ft_atoi_base(arg1, 16) + ft_atoi_base(processor->arg2, 16) * 2
-			+ processor->cur_pos;
+//		i = ft_atoi_base(arg1, 16) + ft_atoi_base(processor->arg2, 16) * 2
+//			+ processor->cur_pos;
 		n = 0;
 	}
 	else if (ft_strlen(processor->arg1) == 4 && processor->t_dir == 1) /* исправить добавить t_ind */
 	{
 		if (ft_strlen(processor->arg2) == 4)
 		{
-			i = (((short)ft_atoi_base(processor->arg1, 16) + (short)ft_atoi_base(processor->arg2, 16))% IDX_MOD) * 2 + processor->cur_pos;
+			i = (((short)ft_atoi_base(processor->arg1, 16) + (short)ft_atoi_base(processor->arg2, 16)) % IDX_MOD) * 2 + processor->cur_pos;
 		}
 		else
 		{
