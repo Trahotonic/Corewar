@@ -13,21 +13,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a69af0ba-4ee2-469f-ba16-c19649af79bd" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Corewar.dir/src/live_ld_st_add_sub.c.o" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Corewar.dir/src/live_ld_st_add_sub.c.o" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Corewar.dir/src/main.c.o" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Corewar.dir/src/main.c.o" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Corewar.dir/src/read.c.o" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Corewar.dir/src/read.c.o" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Corewar.dir/src/read2.c.o" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Corewar.dir/src/read2.c.o" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Corewar.dir/src/sti_fork_lld_lldi_lfork.c.o" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Corewar.dir/src/sti_fork_lld_lldi_lfork.c.o" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Corewar.dir/src/vizualize.c.o" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Corewar.dir/src/vizualize.c.o" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Corewar" afterPath="$PROJECT_DIR$/cmake-build-debug/Corewar" />
-      <change beforePath="$PROJECT_DIR$/file1" afterPath="$PROJECT_DIR$/file1" />
-      <change beforePath="$PROJECT_DIR$/file2" afterPath="$PROJECT_DIR$/file2" />
-      <change beforePath="$PROJECT_DIR$/src/live_ld_st_add_sub.c" afterPath="$PROJECT_DIR$/src/live_ld_st_add_sub.c" />
       <change beforePath="$PROJECT_DIR$/src/main.c" afterPath="$PROJECT_DIR$/src/main.c" />
-      <change beforePath="$PROJECT_DIR$/src/read.c" afterPath="$PROJECT_DIR$/src/read.c" />
-      <change beforePath="$PROJECT_DIR$/src/read2.c" afterPath="$PROJECT_DIR$/src/read2.c" />
-      <change beforePath="$PROJECT_DIR$/src/sti_fork_lld_lldi_lfork.c" afterPath="$PROJECT_DIR$/src/sti_fork_lld_lldi_lfork.c" />
-      <change beforePath="$PROJECT_DIR$/src/vizualize.c" afterPath="$PROJECT_DIR$/src/vizualize.c" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -46,8 +32,8 @@
       <file leaf-file-name="main.c" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="792">
-              <caret line="297" column="13" lean-forward="true" selection-start-line="292" selection-start-column="19" selection-end-line="297" selection-end-column="13" />
+            <state relative-caret-position="-482">
+              <caret line="299" column="25" lean-forward="false" selection-start-line="299" selection-start-column="25" selection-end-line="299" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -57,7 +43,7 @@
         <entry file="file://$PROJECT_DIR$/src/vizualize.c">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="694">
-              <caret line="148" column="13" lean-forward="true" selection-start-line="143" selection-start-column="19" selection-end-line="148" selection-end-column="13" />
+              <caret line="148" column="13" lean-forward="false" selection-start-line="143" selection-start-column="19" selection-end-line="148" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -127,7 +113,7 @@
         <entry file="file://$PROJECT_DIR$/src/inits.c">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="408">
-              <caret line="17" column="9" lean-forward="true" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
+              <caret line="17" column="9" lean-forward="false" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -262,7 +248,7 @@
       <workItem from="1533198900260" duration="6688000" />
       <workItem from="1533212254984" duration="1000" />
       <workItem from="1533213221557" duration="8739000" />
-      <workItem from="1533284009881" duration="15001000" />
+      <workItem from="1533284009881" duration="15391000" />
     </task>
     <task id="LOCAL-00001" summary="maybe good">
       <created>1532968262721</created>
@@ -334,11 +320,18 @@
       <option name="project" value="LOCAL" />
       <updated>1533301055878</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="update">
+      <created>1533315365191</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1533315365191</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="63185000" />
+    <option name="totallyTimeSpent" value="63575000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="2560" height="1440" extended-state="0" />
@@ -837,7 +830,7 @@
     <entry file="file://$PROJECT_DIR$/src/inits.c">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
-          <caret line="17" column="9" lean-forward="true" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
+          <caret line="17" column="9" lean-forward="false" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
           <folding />
         </state>
       </provider>
@@ -845,7 +838,7 @@
     <entry file="file://$PROJECT_DIR$/src/vizualize.c">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="694">
-          <caret line="148" column="13" lean-forward="true" selection-start-line="143" selection-start-column="19" selection-end-line="148" selection-end-column="13" />
+          <caret line="148" column="13" lean-forward="false" selection-start-line="143" selection-start-column="19" selection-end-line="148" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -860,8 +853,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="792">
-          <caret line="297" column="13" lean-forward="true" selection-start-line="292" selection-start-column="19" selection-end-line="297" selection-end-column="13" />
+        <state relative-caret-position="-482">
+          <caret line="299" column="25" lean-forward="false" selection-start-line="299" selection-start-column="25" selection-end-line="299" selection-end-column="25" />
           <folding />
         </state>
       </provider>

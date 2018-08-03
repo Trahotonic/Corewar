@@ -1,6 +1,6 @@
 # include "./../inc/corewar.h"
 
-# define VIZ 0
+# define VIZ 1
 
 void	dump(unsigned char map[])
 {
@@ -336,8 +336,8 @@ int     main(int argc, char **argv)
 		{
 
 		}
-		int br = 24107;
-		if (!d && VIZ)
+		int br = 25967;
+		if (!d && VIZ && i >= br)
 		{
 			visualize(map, ft_strlen(total), processes, &vizData);
 			mvwprintw(stdscr, 0, 193, "%d", i);
@@ -349,8 +349,8 @@ int     main(int argc, char **argv)
 			mvwprintw(stdscr, 5, 193, "max checks: %d", maxchecks);
 			mvwprintw(stdscr, 6, 193, "                   ");
 			mvwprintw(stdscr, 6, 193, "cycle to die: %d", cycleToDie);
-//			if (i >= br)
-//				c = getch();
+			if (i >= br)
+				c = getch();
 			if (c == 113)
 				break ;
 		}
