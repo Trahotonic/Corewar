@@ -62,7 +62,12 @@ size_t    innerCycle(unsigned char map[], unsigned char x[], size_t len, t_proce
 	while (ptr)
 	{
 		if (ft_strequ(ptr->command, "0b"))
-			markProc[ptr->cur_pos] = 2;
+		{
+			if (markProc[ptr->cur_pos] == 2)
+				markProc[ptr->cur_pos] = 3;
+			else
+				markProc[ptr->cur_pos] = 2;
+		}
 		ptr = ptr->next;
 	}
 	n = 0;
@@ -135,6 +140,12 @@ size_t    innerCycle(unsigned char map[], unsigned char x[], size_t len, t_proce
 				attron(COLOR_PAIR(SEEK_BITCH));
 				mvwprintw(stdscr, n, q, (char*)x);
 				attroff(COLOR_PAIR(SEEK_BITCH));
+			}
+			else if (markProc[i] == 3)
+			{
+				attron(COLOR_PAIR(SEEK_YELLOW_BITCH));
+				mvwprintw(stdscr, n, q, (char*)x);
+				attroff(COLOR_PAIR(SEEK_YELLOW_BITCH));
 			}
 			q += 3;
 			i += 2;

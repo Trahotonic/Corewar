@@ -39,7 +39,7 @@ void		ld(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizDa
 	int		k;
 
 	if (ft_strlen(processor->arg3) == 2)
-		processor->iterator -= 1;
+		processor->iterator -= 2;
 	if (ft_strlen(processor->arg3) == 4)
 		processor->iterator -= 4;
 	if (ft_strlen(processor->arg3) == 8)
@@ -80,7 +80,7 @@ void	st(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizDat
 	int		k;
 
 	if (ft_strlen(processor->arg3) == 2)
-		processor->iterator -= 1;
+		processor->iterator -= 2;
 	if (ft_strlen(processor->arg3) == 4)
 		processor->iterator -= 4;
 	if (ft_strlen(processor->arg3) == 8)

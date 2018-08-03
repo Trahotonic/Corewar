@@ -1,6 +1,6 @@
 # include "./../inc/corewar.h"
 
-# define VIZ 1
+# define VIZ 0
 
 void	dump(unsigned char map[])
 {
@@ -276,6 +276,7 @@ int     main(int argc, char **argv)
 	players->playerNumber = -1;
 	players->len = ft_strlen(total);
 	players->next = NULL;
+	t_player    *p;
 	cycleToDie = CYCLE_TO_DIE;
 	i = 0;
 	while (1)
@@ -289,6 +290,12 @@ int     main(int argc, char **argv)
 //		printf("%d\n", i);
 		if (n == cycleToDie && check21(players))
 		{
+			p = players;
+			while (p)
+			{
+				p->liveCount = 0;
+				p = p->next;
+			}
 			cycleToDie -= CYCLE_DELTA;
 			maxchecks = 0;
 			superkill(&processes, i, players);
@@ -297,6 +304,12 @@ int     main(int argc, char **argv)
 		}
 		else if (n == cycleToDie)
 		{
+			p = players;
+			while (p)
+			{
+				p->liveCount = 0;
+				p = p->next;
+			}
 			if (maxchecks == MAX_CHECKS)
 			{
 				cycleToDie -= CYCLE_DELTA;
@@ -319,23 +332,25 @@ int     main(int argc, char **argv)
 //		{
 //			;
 //		}
-		if (i == 14500)
+		if (i == 13313)
 		{
 
 		}
-		int br = 14504;
-		if (!d && VIZ && i >= br - 100)
+		int br = 24107;
+		if (!d && VIZ)
 		{
 			visualize(map, ft_strlen(total), processes, &vizData);
 			mvwprintw(stdscr, 0, 193, "%d", i);
-			mvwprintw(stdscr, 10, 200, "     ");
-			mvwprintw(stdscr, 10, 200, "%d", cycleToDie);
 			mvwprintw(stdscr, 3, 193, "                       ");
 			mvwprintw(stdscr, 3, 193, "live count: %d", players->liveCount);
+			mvwprintw(stdscr, 4, 193, "                       ");
 			mvwprintw(stdscr, 4, 193, "last alive: %d", players->lastAlive);
+			mvwprintw(stdscr, 5, 193, "                       ");
 			mvwprintw(stdscr, 5, 193, "max checks: %d", maxchecks);
-			if (i >= br)
-				c = getch();
+			mvwprintw(stdscr, 6, 193, "                   ");
+			mvwprintw(stdscr, 6, 193, "cycle to die: %d", cycleToDie);
+//			if (i >= br)
+//				c = getch();
 			if (c == 113)
 				break ;
 		}
