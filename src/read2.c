@@ -28,6 +28,8 @@ void	readLittleShit(unsigned char map[], char arg1[], char tmp[], t_process *pro
 	{
 		while (n < 2)
 			arg1[n++] = map[(processor->cur_pos + processor->iterator++) % (MEM_SIZE * 2)];
+		if ((unsigned char)ft_atoi_base(arg1, 16) > 15)
+			processor->iC = 1;
 	}
 	else if (ft_strequ(tmp, "11"))
 	{

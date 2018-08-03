@@ -13,7 +13,7 @@ void  sti(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizD
 	int  n;
 	char *arg1;
 
-	if (ft_strlen(processor->arg1) != 2 || ft_strlen(processor->arg2) == 0 || ft_strlen(processor->arg3) == 0)
+	if (ft_strlen(processor->arg1) != 2 || ft_strlen(processor->arg2) == 0 || ft_strlen(processor->arg3) == 0 || processor->iC)
 	{
 		processor->cur_pos = (processor->cur_pos + processor->iterator) % (MEM_SIZE * 2);
 		processor->iterator = 0;
@@ -27,7 +27,7 @@ void  sti(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizD
 	{
 		if (ft_strlen(processor->arg3) == 2)
 		{
-			i = ((int)(processor->reg[ft_atoi_base(processor->arg2, 16) - 1] + (int)processor->reg[ft_atoi_base(processor->arg3, 16) - 1])% IDX_MOD) * 2 + processor->cur_pos;
+			i = ((int)(processor->reg[ft_atoi_base(processor->arg2, 16) - 1] + (int)processor->reg[ft_atoi_base(processor->arg3, 16) - 1]) % IDX_MOD) * 2 + processor->cur_pos;
 		}
 		else
 		{

@@ -7,13 +7,15 @@
 void  live(t_process *processor, unsigned char *map, int i, t_player *pl, t_vizData *vizData)// Обновленно (но надо менять ) !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 {
 	char *tmp;
+	t_player *tmppl;
 
-//	if (ft_strlen(processor->arg1) != 8)
-//	{
-//		processor->cur_pos = (processor->cur_pos + processor->iterator) % (MEM_SIZE * 2);
-//		processor->iterator = 0;
-//		return ;
-//	}
+	tmppl = pl;
+	while (tmppl)
+	{
+		if (tmppl->playerNumber == processor->pl_num)
+			tmppl->liveCount++;
+		tmppl = tmppl->next;
+	}
 	tmp = ft_uitoa_base2(pl->playerNumber, 16);
 	while(pl && !ft_strequ(tmp, processor->arg1))
 	{
@@ -25,10 +27,7 @@ void  live(t_process *processor, unsigned char *map, int i, t_player *pl, t_vizD
 	ft_strdel(&tmp);
 	processor->alive = 1;
 	if (pl)
-	{
 		pl->lastAlive = i;
-		pl->liveCount++;
-	}
 	processor->cur_pos = (processor->iterator + processor->cur_pos) % 8192;
 	processor->iterator = 0;
 }

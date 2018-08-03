@@ -280,6 +280,13 @@ int     main(int argc, char **argv)
 	i = 0;
 	while (1)
 	{
+		if (cycleToDie <= 0)
+		{
+			if (VIZ)
+				endwin();
+			return ft_printf("GAME OVER on cycle %d\ncycle to die = %d\nprocesses: %d\n", i, cycleToDie, counter(processes));
+		}
+//		printf("%d\n", i);
 		if (n == cycleToDie && check21(players))
 		{
 			cycleToDie -= CYCLE_DELTA;
@@ -300,24 +307,24 @@ int     main(int argc, char **argv)
 			maxchecks++;
 			n = 0;
 		}
-		if (!processes || cycleToDie <= 0) {
+		if (!processes) {
 			if (VIZ)
 				endwin();
 			return ft_printf("GAME OVER on cycle %d\ncycle to die = %d\nprocesses: %d\n", i, cycleToDie, counter(processes));
 		}
 		runProcesses(&processes, map, array, i, players, &vizData);
+		if (d && i == iter)
+			break ;
 //		if (counter(processes) == 14)
 //		{
 //			;
 //		}
-		if (d && i == iter)
-			break ;
-		if (i == 2935)
+		if (i == 14500)
 		{
 
 		}
-		int br = 4556;
-		if (!d && VIZ)
+		int br = 14504;
+		if (!d && VIZ && i >= br - 100)
 		{
 			visualize(map, ft_strlen(total), processes, &vizData);
 			mvwprintw(stdscr, 0, 193, "%d", i);
