@@ -44,7 +44,7 @@ void		ld(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizDa
 		processor->iterator -= 4;
 	if (ft_strlen(processor->arg3) == 8)
 		processor->iterator -= 8;
-	if (ft_strlen(processor->arg1) == 2 || ft_strlen(processor->arg1) == 0 || ft_strlen(processor->arg2) != 2)
+	if (ft_strlen(processor->arg1) == 2 || ft_strlen(processor->arg1) == 0 || ft_strlen(processor->arg2) != 2 || processor->iC == 1)
 	{
 		processor->cur_pos = (processor->iterator + processor->cur_pos) % (MEM_SIZE * 2);
 		processor->iterator = 0;
@@ -85,15 +85,15 @@ void	st(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizDat
 		processor->iterator -= 4;
 	if (ft_strlen(processor->arg3) == 8)
 		processor->iterator -= 8;
-	if (ft_strlen(processor->arg1) != 2 || ft_strlen(processor->arg2) == 8 || ft_strlen(processor->arg2) == 0)
+	if (ft_strlen(processor->arg1) != 2 || ft_strlen(processor->arg2) == 8 || ft_strlen(processor->arg2) == 0 || processor->iC == 1)
 	{
-		processor->cur_pos = (processor->iterator + processor->cur_pos)  % (MEM_SIZE * 2);
+		processor->cur_pos = (processor->iterator + processor->cur_pos) % (MEM_SIZE * 2);
 		processor->iterator = 0;
 		return ;
 	}
 	if (ft_strlen(processor->arg2) == 4)
 	{
-		k = (((short)ft_atoi_base(processor->arg2, 16) ) % IDX_MOD) * 2 + processor->cur_pos;
+		k = ((((short)ft_atoi_base(processor->arg2, 16) ) % IDX_MOD) * 2 + processor->cur_pos) % (MEM_SIZE * 2);
 		n = 0;
 		tmp = ft_itoa_base(processor->reg[ft_atoi_base(processor->arg1, 16) - 1], 16);
 		convert(&tmp);
@@ -103,7 +103,7 @@ void	st(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizDat
 		}
 		while (n < 8)
 		{
-			k %= MEM_SIZE * 2;
+			k %= (MEM_SIZE * 2);
 			vizData->markTimeout[k] = 100;
 			vizData->vizData[k] = 1;
 			map[k++] = tmp[n++];
@@ -118,7 +118,7 @@ void	st(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizDat
 
 void		add(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizData *vizData)
 {
-	if (ft_strlen(processor->arg1) != 2 || ft_strlen(processor->arg2) != 2 || ft_strlen(processor->arg3) != 2)
+	if (ft_strlen(processor->arg1) != 2 || ft_strlen(processor->arg2) != 2 || ft_strlen(processor->arg3) != 2 || processor->iC == 1)
 	{
 		processor->cur_pos = (processor->iterator + processor->cur_pos)  % (MEM_SIZE * 2);
 		processor->iterator = 0;
@@ -137,7 +137,7 @@ void		add(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizD
 
 void		sub(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizData *vizData)
 {
-	if (ft_strlen(processor->arg1) != 2 || ft_strlen(processor->arg2) != 2 || ft_strlen(processor->arg3) != 2)
+	if (ft_strlen(processor->arg1) != 2 || ft_strlen(processor->arg2) != 2 || ft_strlen(processor->arg3) != 2 || processor->iC == 1)
 	{
 		processor->cur_pos = (processor->iterator + processor->cur_pos)  % (MEM_SIZE * 2);
 		processor->iterator = 0;

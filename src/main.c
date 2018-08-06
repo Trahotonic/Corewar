@@ -57,7 +57,7 @@ void	runProcesses(t_process **processes, unsigned char map[], functions_t array[
 		if (go->invalidAgr)
 		{
 			go->invalidAgr = 0;
-			go->cur_pos += 2;
+			go->cur_pos = (go->cur_pos + 2) % (MEM_SIZE * 2);
 			go = go->prev;
 			continue ;
 		}
@@ -262,7 +262,7 @@ int     main(int argc, char **argv)
 	int             n;
 
 	n = 0;
-	maxchecks = 0;
+	maxchecks = 1;
 	checkArguments(argc, argv, &d, &iter);
 	initProcesses(&processes);
     initMap(map, &total, &header, argv, &vizData);
@@ -297,7 +297,7 @@ int     main(int argc, char **argv)
 				p = p->next;
 			}
 			cycleToDie -= CYCLE_DELTA;
-			maxchecks = 0;
+			maxchecks = 1;
 			superkill(&processes, i, players);
 			kill(processes);
 			n = 0;
@@ -313,11 +313,12 @@ int     main(int argc, char **argv)
 			if (maxchecks == MAX_CHECKS)
 			{
 				cycleToDie -= CYCLE_DELTA;
-				maxchecks = 0;
+				maxchecks = 1;
 			}
+			else
+				maxchecks++;
 			superkill(&processes, i, players);
 			kill(processes);
-			maxchecks++;
 			n = 0;
 		}
 		if (!processes) {
@@ -336,8 +337,8 @@ int     main(int argc, char **argv)
 		{
 
 		}
-		int br = 25967;
-		if (!d && VIZ && i >= br)
+		int br = 23000;
+		if (!d && VIZ && i >= br - 100)
 		{
 			visualize(map, ft_strlen(total), processes, &vizData);
 			mvwprintw(stdscr, 0, 193, "%d", i);
