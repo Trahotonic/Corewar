@@ -54,6 +54,10 @@ void	runProcesses(t_process **processes, unsigned char map[], functions_t array[
 	n = 0;
 	while (go)
 	{
+		if (go->proc_num == 1835)
+		{
+
+		}
 		if (go->invalidAgr)
 		{
 			go->invalidAgr = 0;
@@ -64,11 +68,11 @@ void	runProcesses(t_process **processes, unsigned char map[], functions_t array[
 		if (go->cycle_todo > 0)
 			go->cycle_todo--;
 		if ((ft_strequ("01", go->command) || ft_strequ("02", go->command) || ft_strequ("03", go->command) ||
-				  ft_strequ("04", go->command) || ft_strequ("05", go->command) || ft_strequ("06", go->command) ||
-				  ft_strequ("07", go->command) || ft_strequ("08", go->command) || ft_strequ("09", go->command) ||
-				  ft_strequ("0a", go->command) || ft_strequ("0b", go->command) || ft_strequ("0c", go->command) ||
-				  ft_strequ("0d", go->command) || ft_strequ("0e", go->command) || ft_strequ("0f", go->command))
-				 && !go->cycle_todo)
+		     ft_strequ("04", go->command) || ft_strequ("05", go->command) || ft_strequ("06", go->command) ||
+		     ft_strequ("07", go->command) || ft_strequ("08", go->command) || ft_strequ("09", go->command) ||
+		     ft_strequ("0a", go->command) || ft_strequ("0b", go->command) || ft_strequ("0c", go->command) ||
+		     ft_strequ("0d", go->command) || ft_strequ("0e", go->command) || ft_strequ("0f", go->command))
+		    && !go->cycle_todo)
 		{
 			readShit(map, go);
 			if (go->iC == 1)
@@ -326,6 +330,10 @@ int     main(int argc, char **argv)
 				endwin();
 			return ft_printf("GAME OVER on cycle %d\ncycle to die = %d\nprocesses: %d\n", i, cycleToDie, counter(processes));
 		}
+		if (i == 23066)
+		{
+
+		}
 		runProcesses(&processes, map, array, i, players, &vizData);
 		if (d && i == iter)
 			break ;
@@ -333,11 +341,7 @@ int     main(int argc, char **argv)
 //		{
 //			;
 //		}
-		if (i == 13313)
-		{
-
-		}
-		int br = 23000;
+		int br = 22200;
 		if (!d && VIZ && i >= br - 100)
 		{
 			visualize(map, ft_strlen(total), processes, &vizData);

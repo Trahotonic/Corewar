@@ -61,15 +61,16 @@ size_t    innerCycle(unsigned char map[], unsigned char x[], size_t len, t_proce
 	ptr = proc;
 	while (ptr)
 	{
-		if (ft_strequ(ptr->command, "0b"))
+		if (ptr->proc_num == 1835)
 		{
-			if (markProc[ptr->cur_pos] == 2)
-				markProc[ptr->cur_pos] = 3;
-			else
+//			if (markProc[ptr->cur_pos] == 2)
+//				markProc[ptr->cur_pos] = 3;
+//			else
 				markProc[ptr->cur_pos] = 2;
 		}
 		ptr = ptr->next;
 	}
+//	markProc[1224] = 2;
 	n = 0;
     while (n < 64)
     {
