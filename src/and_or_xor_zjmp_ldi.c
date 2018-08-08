@@ -81,6 +81,7 @@ void	zjmp(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizD
 	i = ((((short)ft_atoi_base(processor->arg1, 16)) % IDX_MOD) * 2 + processor->cur_pos) % (MEM_SIZE * 2);
 	if (i < 0)
 		i = MEM_SIZE * 2 + i;
+	i %= (MEM_SIZE * 2);
 	processor->cur_pos = i;
 	processor->iterator = 0;
 }
@@ -103,28 +104,28 @@ void	ldi(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizDa
 	{
 		if (ft_strlen(processor->arg2) == 2)
 		{
-			i = ((processor->reg[ft_atoi_base(processor->arg1, 16) - 1] + processor->reg[ft_atoi_base(processor->arg2, 16) - 1])% IDX_MOD) * 2 + processor->cur_pos;
+			i = (((processor->reg[ft_atoi_base(processor->arg1, 16) - 1] + processor->reg[ft_atoi_base(processor->arg2, 16) - 1])% IDX_MOD) * 2 + processor->cur_pos) % (MEM_SIZE * 2);
 		}
 		else
 		{
-			i = ((processor->reg[ft_atoi_base(processor->arg1, 16) - 1] + (short)ft_atoi_base(processor->arg2, 16)) % IDX_MOD) * 2 + processor->cur_pos;
+			i = (((processor->reg[ft_atoi_base(processor->arg1, 16) - 1] + (short)ft_atoi_base(processor->arg2, 16)) % IDX_MOD) * 2 + processor->cur_pos) % (MEM_SIZE * 2);
 		}
 	}
 	else if (ft_strlen(processor->arg1) == 4 && processor->t_dir != 1)
 	{
-		i = ((short)ft_atoi_base(processor->arg1, 16) % IDX_MOD)
-			* 2 + processor->cur_pos;
+		i = (((short)ft_atoi_base(processor->arg1, 16) % IDX_MOD) * 2 + processor->cur_pos) % (MEM_SIZE * 2);
 		while (n < 8)
+		{
+			i %= (MEM_SIZE * 2);
 			arg1[n++] = map[i++];
+		}
 		if (ft_strlen(processor->arg2) == 4)
 		{
-			i = ((ft_atoi_base(arg1, 16) + (short)ft_atoi_base(processor->arg2, 16)) % IDX_MOD) * 2
-				+ processor->cur_pos;
+			i = (((ft_atoi_base(arg1, 16) + (short)ft_atoi_base(processor->arg2, 16)) % IDX_MOD) * 2 + processor->cur_pos) % (MEM_SIZE * 2);
 		}
 		else
 		{
-			i = ((ft_atoi_base(arg1, 16) + processor->reg[ft_atoi_base(processor->arg2, 16) - 1]) % IDX_MOD) * 2
-				+ processor->cur_pos;
+			i = (((ft_atoi_base(arg1, 16) + processor->reg[ft_atoi_base(processor->arg2, 16) - 1]) % IDX_MOD) * 2 + processor->cur_pos) % (MEM_SIZE * 2);
 		}
 //		i = ft_atoi_base(arg1, 16) + ft_atoi_base(processor->arg2, 16) * 2
 //			+ processor->cur_pos;
@@ -134,15 +135,18 @@ void	ldi(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizDa
 	{
 		if (ft_strlen(processor->arg2) == 4)
 		{
-			i = (((short)ft_atoi_base(processor->arg1, 16) + (short)ft_atoi_base(processor->arg2, 16)) % IDX_MOD) * 2 + processor->cur_pos;
+			i = ((((short)ft_atoi_base(processor->arg1, 16) + (short)ft_atoi_base(processor->arg2, 16)) % IDX_MOD) * 2 + processor->cur_pos) % (MEM_SIZE * 2);
 		}
 		else
 		{
-			i = (short)((short)ft_atoi_base(processor->arg1, 16) + processor->reg[ft_atoi_base(processor->arg2, 16) - 1]) % IDX_MOD * 2 + processor->cur_pos;
+			i = ((short)((short)ft_atoi_base(processor->arg1, 16) + processor->reg[ft_atoi_base(processor->arg2, 16) - 1]) % IDX_MOD * 2 + processor->cur_pos) % (MEM_SIZE * 2);
 		}
 	}
 	while (n < 8)
+	{
+		i %= (MEM_SIZE * 2);
 		arg1[n++] = map[i++];
+	}
 	processor->reg[ft_atoi_base(processor->arg3, 16) - 1] =
 			(unsigned int)ft_atoi_base(arg1, 16);
 	processor->cur_pos = (processor->iterator + processor->cur_pos) % 8192;

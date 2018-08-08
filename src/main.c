@@ -1,6 +1,6 @@
 # include "./../inc/corewar.h"
 
-# define VIZ 1
+# define VIZ 0
 
 void	dump(unsigned char map[])
 {
@@ -54,7 +54,7 @@ void	runProcesses(t_process **processes, unsigned char map[], functions_t array[
 	n = 0;
 	while (go)
 	{
-		if (go->proc_num == 1835)
+		if (go->proc_num == 1436)
 		{
 
 		}
@@ -292,6 +292,11 @@ int     main(int argc, char **argv)
 			return ft_printf("GAME OVER on cycle %d\ncycle to die = %d\nprocesses: %d\n", i, cycleToDie, counter(processes));
 		}
 //		printf("%d\n", i);
+		if (i == 9409)
+		{
+
+		}
+		runProcesses(&processes, map, array, i, players, &vizData);
 		if (n == cycleToDie && check21(players))
 		{
 			p = players;
@@ -330,18 +335,14 @@ int     main(int argc, char **argv)
 				endwin();
 			return ft_printf("GAME OVER on cycle %d\ncycle to die = %d\nprocesses: %d\n", i, cycleToDie, counter(processes));
 		}
-		if (i == 23066)
-		{
 
-		}
-		runProcesses(&processes, map, array, i, players, &vizData);
 		if (d && i == iter)
 			break ;
 //		if (counter(processes) == 14)
 //		{
 //			;
 //		}
-		int br = 22200;
+		int br = 9400;
 		if (!d && VIZ && i >= br - 100)
 		{
 			visualize(map, ft_strlen(total), processes, &vizData);

@@ -57,13 +57,15 @@ void		ld(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizDa
 	}
 	else if (ft_strlen(processor->arg1) == 4)
 	{
-		k = (((short)ft_atoi_base(processor->arg1, 16)) % IDX_MOD) * 2 + processor->cur_pos;
+		k = ((((short)ft_atoi_base(processor->arg1, 16)) % IDX_MOD) * 2 + processor->cur_pos) % (MEM_SIZE * 2);
 		n = 0;
 		arg1 = ft_strnew(8);
 		while (n < 8)
+		{
+			k %= (MEM_SIZE * 2);
 			arg1[n++] = map[k++];
-		processor->reg[ft_atoi_base(processor->arg2, 16) - 1] =
-				(unsigned int)ft_atoi_base(arg1, 16);
+		}
+		processor->reg[ft_atoi_base(processor->arg2, 16) - 1] = ft_atoi_base(arg1, 16);
 	}
 	if (processor->reg[ft_atoi_base(processor->arg2, 16) - 1] == 0)
 		processor->carry = 1;
@@ -99,12 +101,12 @@ void	st(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizDat
 		convert(&tmp);
 		if (k < 0)
 		{
-			k = MEM_SIZE * 2 + k;
+			k = (MEM_SIZE * 2 + k) % (MEM_SIZE * 2);
 		}
 		while (n < 8)
 		{
 			k %= (MEM_SIZE * 2);
-			vizData->markTimeout[k] = 100;
+			vizData->markTimeout[k] = 1;
 			vizData->vizData[k] = 1;
 			map[k++] = tmp[n++];
 		}
@@ -120,7 +122,7 @@ void		add(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizD
 {
 	if (ft_strlen(processor->arg1) != 2 || ft_strlen(processor->arg2) != 2 || ft_strlen(processor->arg3) != 2 || processor->iC == 1)
 	{
-		processor->cur_pos = (processor->iterator + processor->cur_pos)  % (MEM_SIZE * 2);
+		processor->cur_pos = (processor->iterator + processor->cur_pos) % (MEM_SIZE * 2);
 		processor->iterator = 0;
 		return ;
 	}
