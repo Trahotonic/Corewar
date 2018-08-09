@@ -169,6 +169,10 @@ void	fork_c(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vi
 	tmp->pl_num = processor->pl_num;
 	tmp->alive = processor->alive;
 	tmp->proc_num = ++g_global;
+	if (g_global == 49)
+	{
+
+	}
 	tmp->command[0] = '.';
 	tmp->command[1] = '.';
 	tmp->command[2] = '\0';
@@ -216,6 +220,10 @@ void	lfork(t_process *processor, unsigned char *map, int iz, t_player *pl, t_viz
 	tmp->pl_num = processor->pl_num;
 	tmp->alive = processor->alive;
 	tmp->proc_num = ++g_global;
+	if (g_global == 49 || g_global == 57)
+	{
+
+	}
 	tmp->command[0] = '.';
 	tmp->command[1] = '.';
 	tmp->command[2] = '\0';

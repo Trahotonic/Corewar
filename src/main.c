@@ -1,6 +1,6 @@
 # include "./../inc/corewar.h"
 
-# define VIZ 0
+# define VIZ 1
 
 void	dump(unsigned char map[])
 {
@@ -342,7 +342,7 @@ int     main(int argc, char **argv)
 //		{
 //			;
 //		}
-		int br = 9400;
+		int br = 6814;
 		if (!d && VIZ && i >= br - 100)
 		{
 			visualize(map, ft_strlen(total), processes, &vizData);
