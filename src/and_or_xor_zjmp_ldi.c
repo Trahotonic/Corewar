@@ -4,7 +4,7 @@
 
 #include "../inc/corewar.h"
 
-void		and(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizData *vizData)
+void  and(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizData *vizData)
 {
 	if (ft_strlen(processor->arg3) != 2 || ft_strlen(processor->arg1) == 0 || ft_strlen(processor->arg2) == 0)
 	{
@@ -12,9 +12,27 @@ void		and(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizD
 		processor->iterator = 0;
 		return ;
 	}
-	processor->reg[ft_atoi_base(processor->arg3, 16) - 1] =
-			processor->reg[ft_atoi_base(processor->arg1, 16) - 1] &
-			processor->reg[ft_atoi_base(processor->arg2, 16) - 1];
+	if (ft_strlen(processor->arg1) != 2 && ft_strlen(processor->arg2) == 2)
+	{
+		processor->reg[ft_atoi_base(processor->arg3, 16) - 1] =
+				ft_atoi_base(processor->arg1, 16) & processor->reg[ft_atoi_base(processor->arg2, 16) - 1];
+	}
+	else if (ft_strlen(processor->arg1) == 2 && ft_strlen(processor->arg2) != 2)
+	{
+		processor->reg[ft_atoi_base(processor->arg3, 16) - 1] =
+				processor->reg[ft_atoi_base(processor->arg1, 16) - 1] & ft_atoi_base(processor->arg2, 16);
+
+	}
+	else if (ft_strlen(processor->arg1) == 2 && ft_strlen(processor->arg2) == 2)
+	{
+		processor->reg[ft_atoi_base(processor->arg3, 16) - 1] =
+				processor->reg[ft_atoi_base(processor->arg1, 16) - 1] & processor->reg[ft_atoi_base(processor->arg2, 16) - 1];
+	}
+	else
+	{
+		processor->reg[ft_atoi_base(processor->arg3, 16) - 1] =
+				ft_atoi_base(processor->arg1, 16) & ft_atoi_base(processor->arg2, 16);
+	}
 	if (processor->reg[ft_atoi_base(processor->arg3, 16) - 1] == 0)
 		processor->carry = 1;
 	else
@@ -23,7 +41,7 @@ void		and(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizD
 	processor->iterator = 0;
 }
 
-void		or(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizData *vizData)
+void  or(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizData *vizData)
 {
 	if (ft_strlen(processor->arg3) != 2 || ft_strlen(processor->arg1) == 0 || ft_strlen(processor->arg2) == 0)
 	{
@@ -31,9 +49,27 @@ void		or(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizDa
 		processor->iterator = 0;
 		return ;
 	}
-	processor->reg[ft_atoi_base(processor->arg3, 16) - 1] =
-			processor->reg[ft_atoi_base(processor->arg1, 16) - 1] |
-			processor->reg[ft_atoi_base(processor->arg2, 16) - 1];
+	if (ft_strlen(processor->arg1) != 2 && ft_strlen(processor->arg2) == 2)
+	{
+		processor->reg[ft_atoi_base(processor->arg3, 16) - 1] =
+				ft_atoi_base(processor->arg1, 16) | processor->reg[ft_atoi_base(processor->arg2, 16) - 1];
+	}
+	else if (ft_strlen(processor->arg1) == 2 && ft_strlen(processor->arg2) != 2)
+	{
+		processor->reg[ft_atoi_base(processor->arg3, 16) - 1] =
+				processor->reg[ft_atoi_base(processor->arg1, 16) - 1] | ft_atoi_base(processor->arg2, 16);
+
+	}
+	else if (ft_strlen(processor->arg1) == 2 && ft_strlen(processor->arg2) == 2)
+	{
+		processor->reg[ft_atoi_base(processor->arg3, 16) - 1] =
+				processor->reg[ft_atoi_base(processor->arg1, 16) - 1] | processor->reg[ft_atoi_base(processor->arg2, 16) - 1];
+	}
+	else
+	{
+		processor->reg[ft_atoi_base(processor->arg3, 16) - 1] =
+				ft_atoi_base(processor->arg1, 16) | ft_atoi_base(processor->arg2, 16);
+	}
 	if (processor->reg[ft_atoi_base(processor->arg3, 16) - 1] == 0)
 		processor->carry = 1;
 	else
@@ -42,7 +78,7 @@ void		or(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizDa
 	processor->iterator = 0;
 }
 
-void		xor(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizData *vizData)
+void  xor(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizData *vizData)
 {
 	if (ft_strlen(processor->arg3) != 2 || ft_strlen(processor->arg1) == 0 || ft_strlen(processor->arg2) == 0)
 	{
@@ -50,9 +86,27 @@ void		xor(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizD
 		processor->iterator = 0;
 		return ;
 	}
-	processor->reg[ft_atoi_base(processor->arg3, 16) - 1] =
-			processor->reg[ft_atoi_base(processor->arg1, 16) - 1] ^
-			processor->reg[ft_atoi_base(processor->arg2, 16) - 1];
+	if (ft_strlen(processor->arg1) != 2 && ft_strlen(processor->arg2) == 2)
+	{
+		processor->reg[ft_atoi_base(processor->arg3, 16) - 1] =
+				ft_atoi_base(processor->arg1, 16) ^ processor->reg[ft_atoi_base(processor->arg2, 16) - 1];
+	}
+	else if (ft_strlen(processor->arg1) == 2 && ft_strlen(processor->arg2) != 2)
+	{
+		processor->reg[ft_atoi_base(processor->arg3, 16) - 1] =
+				processor->reg[ft_atoi_base(processor->arg1, 16) - 1] ^ ft_atoi_base(processor->arg2, 16);
+
+	}
+	else if (ft_strlen(processor->arg1) == 2 && ft_strlen(processor->arg2) == 2)
+	{
+		processor->reg[ft_atoi_base(processor->arg3, 16) - 1] =
+				processor->reg[ft_atoi_base(processor->arg1, 16) - 1] ^ processor->reg[ft_atoi_base(processor->arg2, 16) - 1];
+	}
+	else
+	{
+		processor->reg[ft_atoi_base(processor->arg3, 16) - 1] =
+				ft_atoi_base(processor->arg1, 16) ^ ft_atoi_base(processor->arg2, 16);
+	}
 	if (processor->reg[ft_atoi_base(processor->arg3, 16) - 1] == 0)
 		processor->carry = 1;
 	else
