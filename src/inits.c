@@ -131,4 +131,9 @@ void initfunc(functions_t func[]) // Обновленно (но чето вые�
 	func[14].funcptr = &lfork;
 	func[14].cycles = 1000;
 	func[14].name = "0f";
+
+	func[15].codage = 1;
+	func[15].funcptr = &aff;
+	func[15].cycles = 2;
+	func[15].name = "10";
 }

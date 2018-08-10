@@ -1,6 +1,6 @@
 # include "./../inc/corewar.h"
 
-# define VIZ 1
+# define VIZ 0
 
 void	dump(unsigned char map[])
 {
@@ -54,7 +54,7 @@ void	runProcesses(t_process **processes, unsigned char map[], functions_t array[
 	n = 0;
 	while (go)
 	{
-		if (go->proc_num == 1436)
+		if (go->proc_num == 8)
 		{
 
 		}
@@ -71,7 +71,8 @@ void	runProcesses(t_process **processes, unsigned char map[], functions_t array[
 		     ft_strequ("04", go->command) || ft_strequ("05", go->command) || ft_strequ("06", go->command) ||
 		     ft_strequ("07", go->command) || ft_strequ("08", go->command) || ft_strequ("09", go->command) ||
 		     ft_strequ("0a", go->command) || ft_strequ("0b", go->command) || ft_strequ("0c", go->command) ||
-		     ft_strequ("0d", go->command) || ft_strequ("0e", go->command) || ft_strequ("0f", go->command))
+		     ft_strequ("0d", go->command) || ft_strequ("0e", go->command) || ft_strequ("0f", go->command) ||
+		     ft_strequ("10", go->command))
 		    && !go->cycle_todo)
 		{
 			readShit(map, go);
@@ -109,6 +110,8 @@ void	runProcesses(t_process **processes, unsigned char map[], functions_t array[
 				array[13].funcptr(go, map, i, player, vizData);
 			else if (ft_strequ("0f", go->command))
 				array[14].funcptr(go, map, i, player, vizData);
+			else if (ft_strequ("10", go->command))
+				array[15].funcptr(go, map, i, player, vizData);
 			go->command[0] = '.';
 			go->command[1] = '.';
 			go->iC = 0;
@@ -256,7 +259,7 @@ int     main(int argc, char **argv)
 	t_process		*processes;
 	int 			i;
 	int 			c;
-	functions_t		array[15];
+	functions_t		array[16];
 	t_player		*players;
 	int 			d;
 	int 			iter;
@@ -292,7 +295,7 @@ int     main(int argc, char **argv)
 			return ft_printf("GAME OVER on cycle %d\ncycle to die = %d\nprocesses: %d\n", i, cycleToDie, counter(processes));
 		}
 //		printf("%d\n", i);
-		if (i == 9409)
+		if (i == 11367)
 		{
 
 		}
@@ -342,7 +345,7 @@ int     main(int argc, char **argv)
 //		{
 //			;
 //		}
-		int br = 6814;
+		int br = 11350;
 		if (!d && VIZ && i >= br - 100)
 		{
 			visualize(map, ft_strlen(total), processes, &vizData);

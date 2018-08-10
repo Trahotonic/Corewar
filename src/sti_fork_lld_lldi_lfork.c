@@ -248,3 +248,26 @@ void	lfork(t_process *processor, unsigned char *map, int iz, t_player *pl, t_viz
 	processor->cur_pos = (processor->iterator + processor->cur_pos) % 8192;
 	processor->iterator = 0;
 }
+
+void aff(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizData *vizData)
+{
+
+	if (ft_strlen(processor->arg3) == 2)
+		processor->iterator -= 2;
+	if (ft_strlen(processor->arg3) == 4)
+		processor->iterator -= 4;
+	if (ft_strlen(processor->arg3) == 8)
+		processor->iterator -= 8;
+	if (ft_strlen(processor->arg2) == 2)
+		processor->iterator -= 2;
+	if (ft_strlen(processor->arg2) == 4)
+		processor->iterator -= 4;
+	if (ft_strlen(processor->arg2) == 8)
+		processor->iterator -= 8;
+	if (ft_strlen(processor->arg1) != 2 || processor->iC == 1)
+	{
+		processor->cur_pos = (processor->iterator + processor->cur_pos) % (MEM_SIZE * 2);
+		processor->iterator = 0;
+		return ;
+	}
+}

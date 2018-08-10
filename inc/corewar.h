@@ -169,6 +169,7 @@ void	lldi(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizD
 void	fork_c(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizData *vizData);
 void	lfork(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizData *vizData);
 void	sti(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizData *vizData);
+void	aff(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizData *vizData);
 void 	initfunc(functions_t func[]);
 
 #endif //COREWAR_COREWAR_H
