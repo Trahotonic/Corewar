@@ -44,7 +44,7 @@ void	initProcesses(t_process **processes)
 	tmp->command[2] = '\0';
 	tmp->cycle_todo = 0;
 	tmp->iterator = 0;
-	tmp->stop = 0;
+	tmp->fresh = 0;
 	n = 0;
 	while (n < 16)
 		tmp->reg[n++] = 0;

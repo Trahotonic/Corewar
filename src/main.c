@@ -1,6 +1,6 @@
 # include "./../inc/corewar.h"
 
-# define VIZ 0
+# define VIZ 1
 
 void	dump(unsigned char map[])
 {
@@ -58,6 +58,15 @@ void	runProcesses(t_process **processes, unsigned char map[], functions_t array[
 		{
 
 		}
+		if ((ft_strequ(go->command, "03") || ft_strequ(go->command, "02") || ft_strequ(go->command, "01") || ft_strequ(go->command, "04") ||
+				ft_strequ(go->command, "05") || ft_strequ(go->command, "06") || ft_strequ(go->command, "07") || ft_strequ(go->command, "08") ||
+				ft_strequ(go->command, "09") || ft_strequ(go->command, "10") || ft_strequ(go->command, "0a") || ft_strequ(go->command, "0b") ||
+				ft_strequ(go->command, "0c") || ft_strequ(go->command, "0d") || ft_strequ(go->command, "0e") || ft_strequ(go->command, "0f")) && (map[go->cur_pos] == '0' && map[go->cur_pos + 1] == '0') && go->fresh == 1)
+		{
+			go->command[0] = '.';
+			go->command[1] = '.';
+			go->cur_pos = (go->cur_pos + 2) % (MEM_SIZE * 2);
+		}
 		if (go->invalidAgr)
 		{
 			go->invalidAgr = 0;
@@ -66,7 +75,11 @@ void	runProcesses(t_process **processes, unsigned char map[], functions_t array[
 			continue ;
 		}
 		if (go->cycle_todo > 0)
+		{
 			go->cycle_todo--;
+			if (go->fresh)
+				go->fresh = 0;
+		}
 		if ((ft_strequ("01", go->command) || ft_strequ("02", go->command) || ft_strequ("03", go->command) ||
 		     ft_strequ("04", go->command) || ft_strequ("05", go->command) || ft_strequ("06", go->command) ||
 		     ft_strequ("07", go->command) || ft_strequ("08", go->command) || ft_strequ("09", go->command) ||
@@ -76,9 +89,18 @@ void	runProcesses(t_process **processes, unsigned char map[], functions_t array[
 		    && !go->cycle_todo)
 		{
 			readShit(map, go);
-			if (go->iC == 1)
+			int z;
+			z = 0;
+			if (i > 15344)
 			{
+				while(z < 16)
+				{
+					if (go->reg[z] == -1)
+					{
 
+					}
+					z++;
+				}
 			}
 			if (ft_strequ("01", go->command))
 				array[0].funcptr(go, map, i, player, vizData);
@@ -139,6 +161,7 @@ void	runProcesses(t_process **processes, unsigned char map[], functions_t array[
 			}
 			go->cycle_todo = array[n].cycles;
 			go->codage = array[n].codage;
+			go->fresh = 1;
 			n = 0;
 		}
 		go = go->next;
@@ -345,7 +368,7 @@ int     main(int argc, char **argv)
 //		{
 //			;
 //		}
-		int br = 11350;
+		int br = 15340;
 		if (!d && VIZ && i >= br - 100)
 		{
 			visualize(map, ft_strlen(total), processes, &vizData);

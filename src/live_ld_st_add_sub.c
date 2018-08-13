@@ -81,6 +81,11 @@ void	st(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizDat
 	char	*tmp;
 	int		k;
 
+	if (iz == 15345)
+	{
+
+	}
+
 	if (ft_strlen(processor->arg3) == 2)
 		processor->iterator -= 2;
 	if (ft_strlen(processor->arg3) == 4)
