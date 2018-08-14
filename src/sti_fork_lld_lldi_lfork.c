@@ -56,6 +56,7 @@ void  sti(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizD
 	}
 	ft_strdel(&arg1);
 	ft_strdel(&arg2);
+	processor->prev_pos = processor->cur_pos;
 	processor->cur_pos = (processor->iterator + processor->cur_pos) % 8192;
 	processor->iterator = 0;
 }
@@ -101,6 +102,7 @@ void	lld(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizDa
 		processor->carry = 1;
 	else
 		processor->carry = 0;
+	processor->prev_pos = processor->cur_pos;
 	processor->cur_pos = (processor->iterator + processor->cur_pos) % 8192;
 	processor->iterator = 0;
 }
@@ -143,6 +145,7 @@ void	lldi(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizD
 		processor->carry = 1;
 	else
 		processor->carry = 0;
+	processor->prev_pos = processor->cur_pos;
 	processor->cur_pos = (processor->iterator + processor->cur_pos) % 8192;
 	processor->iterator = 0;
 	ft_strdel(&arg1);
@@ -181,7 +184,7 @@ void	fork_c(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vi
 	tmp->codage = 1;
 	tmp->iC = 0;
 	tmp->invalidAgr = 0;
-	tmp->fresh = 1;
+	tmp->fresh = 0;
 	n = 0;
 	while (n < 16)
 	{
@@ -196,6 +199,7 @@ void	fork_c(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vi
 	ptr->next = tmp;
 	tmp->prev = ptr;
 	tmp->next = NULL;
+	processor->prev_pos = processor->cur_pos;
 	processor->cur_pos = (processor->iterator + processor->cur_pos) % 8192;
 	processor->iterator = 0;
 }
@@ -231,7 +235,7 @@ void	lfork(t_process *processor, unsigned char *map, int iz, t_player *pl, t_viz
 	tmp->iterator = 0;
 	tmp->iC = 0;
 	tmp->invalidAgr = 0;
-	tmp->fresh = 1;
+	tmp->fresh = 0;
 	n = 0;
 	while (n < 16)
 	{
@@ -245,6 +249,7 @@ void	lfork(t_process *processor, unsigned char *map, int iz, t_player *pl, t_viz
 	ptr->next = tmp;
 	tmp->prev = ptr;
 	tmp->next = NULL;
+	processor->prev_pos = processor->cur_pos;
 	processor->cur_pos = (processor->iterator + processor->cur_pos) % 8192;
 	processor->iterator = 0;
 }
@@ -266,6 +271,7 @@ void aff(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizDa
 		processor->iterator -= 8;
 	if (ft_strlen(processor->arg1) != 2 || processor->iC == 1)
 	{
+		processor->prev_pos = processor->cur_pos;
 		processor->cur_pos = (processor->iterator + processor->cur_pos) % (MEM_SIZE * 2);
 		processor->iterator = 0;
 		return ;

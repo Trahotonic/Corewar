@@ -1,6 +1,6 @@
 # include "./../inc/corewar.h"
 
-# define VIZ 1
+# define VIZ 0
 
 void	dump(unsigned char map[])
 {
@@ -49,24 +49,17 @@ void	runProcesses(t_process **processes, unsigned char map[], functions_t array[
 
 	}
 	go = *processes;
+	while (go)
+	{
+
+		go = go->next;
+	}
+	go = *processes;
 	while (go->next)
 		go = go->next;
 	n = 0;
 	while (go)
 	{
-		if (go->proc_num == 8)
-		{
-
-		}
-		if ((ft_strequ(go->command, "03") || ft_strequ(go->command, "02") || ft_strequ(go->command, "01") || ft_strequ(go->command, "04") ||
-				ft_strequ(go->command, "05") || ft_strequ(go->command, "06") || ft_strequ(go->command, "07") || ft_strequ(go->command, "08") ||
-				ft_strequ(go->command, "09") || ft_strequ(go->command, "10") || ft_strequ(go->command, "0a") || ft_strequ(go->command, "0b") ||
-				ft_strequ(go->command, "0c") || ft_strequ(go->command, "0d") || ft_strequ(go->command, "0e") || ft_strequ(go->command, "0f")) && (map[go->cur_pos] == '0' && map[go->cur_pos + 1] == '0') && go->fresh == 1)
-		{
-			go->command[0] = '.';
-			go->command[1] = '.';
-			go->cur_pos = (go->cur_pos + 2) % (MEM_SIZE * 2);
-		}
 		if (go->invalidAgr)
 		{
 			go->invalidAgr = 0;
@@ -74,11 +67,53 @@ void	runProcesses(t_process **processes, unsigned char map[], functions_t array[
 			go = go->prev;
 			continue ;
 		}
+
+//		if (go->invalidAgr)
+//		{
+//			go->invalidAgr = 0;
+//			if ( ((map[go->prev_pos + 1] - 'f') < 0 && map[go->prev_pos] == '0') && map[go->prev_pos] != 0 && (map[go->prev_pos] != '1' && map[go->prev_pos + 1] != '0'))
+//			{
+//				go->command[0] = '.';
+//				go->command[1] = '.';
+//				go->cur_pos = go->prev_pos;
+//			}
+//		}
+		if (ft_strequ("..", go->command))
+		{
+			go->command[0] = map[go->cur_pos];
+			go->command[1] = map[go->cur_pos + 1];
+			while (n < 16 && !ft_strequ(go->command, array[n].name))
+				n++;
+			if (n == 16)
+			{
+				go->invalidAgr = 1;
+				go->command[0] = '.';
+				go->command[1] = '.';
+				n = 0;
+				continue ;
+			}
+			go->cycle_todo = array[n].cycles;
+			go->codage = array[n].codage;
+			n = 0;
+		}
+		if (go->proc_num == 8)
+		{
+
+		}
+//		if ((ft_strequ(go->command, "03") || ft_strequ(go->command, "02") || ft_strequ(go->command, "01") || ft_strequ(go->command, "04") ||
+//				ft_strequ(go->command, "05") || ft_strequ(go->command, "06") || ft_strequ(go->command, "07") || ft_strequ(go->command, "08") ||
+//				ft_strequ(go->command, "09") || ft_strequ(go->command, "10") || ft_strequ(go->command, "0a") || ft_strequ(go->command, "0b") ||
+//				ft_strequ(go->command, "0c") || ft_strequ(go->command, "0d") || ft_strequ(go->command, "0e") || ft_strequ(go->command, "0f")) &&
+//				((map[go->cur_pos] == '0' && (map[go->cur_pos + 1] - 'f') > 0) || (map[go->cur_pos] == '1' && map[go->cur_pos + 1] != '0')
+//				 || (map[go->cur_pos] != '0' && map[go->cur_pos] != '1') || (map[go->cur_pos] == '0' && map[go->cur_pos + 1] == '0')) && go->fresh == 1)
+//		{
+//			go->command[0] = '.';
+//			go->command[1] = '.';
+//			go->cur_pos = (go->cur_pos + 2) % (MEM_SIZE * 2);
+//		}
 		if (go->cycle_todo > 0)
 		{
 			go->cycle_todo--;
-			if (go->fresh)
-				go->fresh = 0;
 		}
 		if ((ft_strequ("01", go->command) || ft_strequ("02", go->command) || ft_strequ("03", go->command) ||
 		     ft_strequ("04", go->command) || ft_strequ("05", go->command) || ft_strequ("06", go->command) ||
@@ -91,8 +126,12 @@ void	runProcesses(t_process **processes, unsigned char map[], functions_t array[
 			readShit(map, go);
 			int z;
 			z = 0;
-			if (i > 15344)
+			if (i == 12983)
 			{
+				if (go->proc_num == 14)
+				{
+
+				}
 				while(z < 16)
 				{
 					if (go->reg[z] == -1)
@@ -141,31 +180,7 @@ void	runProcesses(t_process **processes, unsigned char map[], functions_t array[
 		go = go->prev;
 	}
 	n = 0;
-	go = *processes;
-	while (go)
-	{
-		if (ft_strequ("..", go->command))
-		{
-			go->command[0] = map[go->cur_pos];
-			go->command[1] = map[go->cur_pos + 1];
-			while (n < 16 && !ft_strequ(go->command, array[n].name))
-				n++;
-			if (n == 16)
-			{
-				go->invalidAgr = 1;
-				go->command[0] = '.';
-				go->command[1] = '.';
-				go = go->next;
-				n = 0;
-				continue ;
-			}
-			go->cycle_todo = array[n].cycles;
-			go->codage = array[n].codage;
-			go->fresh = 1;
-			n = 0;
-		}
-		go = go->next;
-	}
+
 }
 
 void	checkArguments(int argc, char **argv, int *d, int *iter)
@@ -311,18 +326,6 @@ int     main(int argc, char **argv)
 	i = 0;
 	while (1)
 	{
-		if (cycleToDie <= 0)
-		{
-			if (VIZ)
-				endwin();
-			return ft_printf("GAME OVER on cycle %d\ncycle to die = %d\nprocesses: %d\n", i, cycleToDie, counter(processes));
-		}
-//		printf("%d\n", i);
-		if (i == 11367)
-		{
-
-		}
-		runProcesses(&processes, map, array, i, players, &vizData);
 		if (n == cycleToDie && check21(players))
 		{
 			p = players;
@@ -356,31 +359,43 @@ int     main(int argc, char **argv)
 			kill(processes);
 			n = 0;
 		}
-		if (!processes) {
+		if (cycleToDie <= 0 || !processes)
+		{
 			if (VIZ)
 				endwin();
-			return ft_printf("GAME OVER on cycle %d\ncycle to die = %d\nprocesses: %d\n", i, cycleToDie, counter(processes));
+			ft_printf("GAME OVER on cycle %d\ncycle to die = %d\nprocesses: %d\n", i, cycleToDie, counter(processes));
+			return 0;
 		}
-
 		if (d && i == iter)
 			break ;
+//		printf("%d\n", i);
+		if (i == 11367)
+		{
+
+		}
+		runProcesses(&processes, map, array, i, players, &vizData);
+//		if (!processes) {
+//			if (VIZ)
+//				endwin();
+//			return ft_printf("GAME OVER on cycle %d\ncycle to die = %d\nprocesses: %d\n", i, cycleToDie, counter(processes));
+//		}
 //		if (counter(processes) == 14)
 //		{
 //			;
 //		}
-		int br = 15340;
+		int br = 11158;
 		if (!d && VIZ && i >= br - 100)
 		{
 			visualize(map, ft_strlen(total), processes, &vizData);
-			mvwprintw(stdscr, 0, 193, "%d", i);
-			mvwprintw(stdscr, 3, 193, "                       ");
-			mvwprintw(stdscr, 3, 193, "live count: %d", players->liveCount);
-			mvwprintw(stdscr, 4, 193, "                       ");
-			mvwprintw(stdscr, 4, 193, "last alive: %d", players->lastAlive);
-			mvwprintw(stdscr, 5, 193, "                       ");
-			mvwprintw(stdscr, 5, 193, "max checks: %d", maxchecks);
-			mvwprintw(stdscr, 6, 193, "                   ");
-			mvwprintw(stdscr, 6, 193, "cycle to die: %d", cycleToDie);
+			mvwprintw(stdscr, 0, 196, "%d", i);
+			mvwprintw(stdscr, 3, 196, "                       ");
+			mvwprintw(stdscr, 3, 196, "live count: %d", players->liveCount);
+			mvwprintw(stdscr, 4, 196, "                       ");
+			mvwprintw(stdscr, 4, 196, "last alive: %d", players->lastAlive);
+			mvwprintw(stdscr, 5, 196, "                       ");
+			mvwprintw(stdscr, 5, 196, "max checks: %d", maxchecks);
+			mvwprintw(stdscr, 6, 196, "                   ");
+			mvwprintw(stdscr, 6, 196, "cycle to die: %d", cycleToDie);
 			if (i >= br)
 				c = getch();
 			if (c == 113)

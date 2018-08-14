@@ -34,6 +34,7 @@ void	initProcesses(t_process **processes)
 	*processes = (t_process*)malloc(sizeof(t_process));
 	tmp = *processes;
 	tmp->cur_pos = 0;
+	tmp->prev_pos = 0;
 	tmp->carry = 0;
 	tmp->proc_num = 1;
 	tmp->pl_num = -1;

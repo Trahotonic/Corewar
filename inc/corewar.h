@@ -93,6 +93,7 @@ typedef struct		header_s
 typedef struct  	s_process
 {
 	int 				proc_num;
+	int                 prev_pos;
 	int    				cur_pos;
 	int 				codage;
 	int    				carry;

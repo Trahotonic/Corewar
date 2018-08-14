@@ -68,6 +68,8 @@ size_t    innerCycle(unsigned char map[], unsigned char x[], size_t len, t_proce
 //			else
 				markProc[ptr->cur_pos] = 2;
 		}
+		if (ptr->proc_num == 25)
+			markProc[ptr->cur_pos] = 3;
 		ptr = ptr->next;
 	}
 //	markProc[1224] = 2;
@@ -112,7 +114,7 @@ size_t    innerCycle(unsigned char map[], unsigned char x[], size_t len, t_proce
             x[0] = map[i];
             x[1] = map[i + 1];
 			attron(COLOR_PAIR(pair));
-            mvwprintw(stdscr, n, q, (char*)x);
+            mvwprintw(stdscr, n + 2, q + 3, (char*)x);
 			attroff(COLOR_PAIR(pair));
             q += 3;
 			i += 2;
@@ -133,19 +135,19 @@ size_t    innerCycle(unsigned char map[], unsigned char x[], size_t len, t_proce
 			if (markProc[i] == 1)
 			{
 				attron(COLOR_PAIR(MARK_PROCESS_PAIR));
-				mvwprintw(stdscr, n, q, (char*)x);
+				mvwprintw(stdscr, n + 2, q + 3, (char*)x);
 				attroff(COLOR_PAIR(MARK_PROCESS_PAIR));
 			}
 			else if (markProc[i] == 2)
 			{
 				attron(COLOR_PAIR(SEEK_BITCH));
-				mvwprintw(stdscr, n, q, (char*)x);
+				mvwprintw(stdscr, n + 2, q + 3, (char*)x);
 				attroff(COLOR_PAIR(SEEK_BITCH));
 			}
 			else if (markProc[i] == 3)
 			{
 				attron(COLOR_PAIR(SEEK_YELLOW_BITCH));
-				mvwprintw(stdscr, n, q, (char*)x);
+				mvwprintw(stdscr, n + 2, q + 3, (char*)x);
 				attroff(COLOR_PAIR(SEEK_YELLOW_BITCH));
 			}
 			q += 3;
@@ -164,7 +166,7 @@ void    visualize(unsigned char map[], size_t len, t_process *proc, t_vizData *v
 
 	x[2] = '\0';
 	innerCycle(map, x, len, proc, vizData);
-	mvwprintw(stdscr, 2, 193, "                  ");
-	mvwprintw(stdscr, 2, 193, "processes: %d", getProcesses(proc));
+	mvwprintw(stdscr, 2, 196, "                  ");
+	mvwprintw(stdscr, 2, 196, "processes: %d", getProcesses(proc));
 	refresh();
 }
