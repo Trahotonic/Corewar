@@ -291,26 +291,26 @@ int 	check21(t_player *players)
 
 int     main(int argc, char **argv)
 {
-    header_t        header;
-    char            *total;
-    unsigned char   map[MEM_SIZE * 2];
-	t_process		*processes;
-	int 			i;
-	int 			c;
-	functions_t		array[16];
-	t_player		*players;
-	int 			d;
-	int 			iter;
-    t_vizData       vizData;
-	int 			cycleToDie;
-	int 			maxchecks;
+	header_t        header;
+	char            *total;
+	unsigned char   map[MEM_SIZE * 2];
+	t_process  *processes;
+	int    i;
+	int    c;
+	functions_t  array[16];
+	t_player  *players;
+	int    d;
+	int    iter;
+	t_vizData       vizData;
+	int    cycleToDie;
+	int    maxchecks;
 	int             n;
 
 	n = 0;
 	maxchecks = 1;
 	checkArguments(argc, argv, &d, &iter);
 	initProcesses(&processes);
-    initMap(map, &total, &header, argv, &vizData);
+	initMap(map, &total, &header, argv, &vizData);
 	if (!d && VIZ)
 		initVis();
 	initfunc(array);
@@ -375,22 +375,12 @@ int     main(int argc, char **argv)
 			ft_printf("GAME OVER on cycle %d\ncycle to die = %d\nprocesses: %d\n", i, cycleToDie, counter(processes));
 			return 0;
 		}
-//		printf("%d\n", i);
+//  printf("%d\n", i);
 		if (i == 11367)
 		{
 
 		}
-		runProcesses(&processes, map, array, i, players, &vizData);
-//		if (!processes) {
-//			if (VIZ)
-//				endwin();
-//			return ft_printf("GAME OVER on cycle %d\ncycle to die = %d\nprocesses: %d\n", i, cycleToDie, counter(processes));
-//		}
-//		if (counter(processes) == 14)
-//		{
-//			;
-//		}
-		int br = 1;
+		int br = 1100;
 		if (!d && VIZ && i >= br - 100)
 		{
 			visualize(map, ft_strlen(total), processes, &vizData);
@@ -408,13 +398,24 @@ int     main(int argc, char **argv)
 			if (c == 113)
 				break ;
 		}
-//			ft_printf("count proc = %d\ncycle to die = %d\n", counter(processes), cycleToDie);
+		runProcesses(&processes, map, array, i, players, &vizData);
+//  if (!processes) {
+//   if (VIZ)
+//    endwin();
+//   return ft_printf("GAME OVER on cycle %d\ncycle to die = %d\nprocesses: %d\n", i, cycleToDie, counter(processes));
+//  }
+//  if (counter(processes) == 14)
+//  {
+//   ;
+//  }
+
+//   ft_printf("count proc = %d\ncycle to die = %d\n", counter(processes), cycleToDie);
 		i++;
 		n++;
-//		if (!d && VIZ)
-//			usleep(10000);
+//  if (!d && VIZ)
+//   usleep(10000);
 	}
-    free(total);
+	free(total);
 	if (!d && VIZ)
 		endwin();
 	else

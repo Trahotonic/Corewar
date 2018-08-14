@@ -11,11 +11,61 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a69af0ba-4ee2-469f-ba16-c19649af79bd" name="Default" comment="">
+    <list default="true" id="a69af0ba-4ee2-469f-ba16-c19649af79bd" name="Default" comment="fixed visualization">
+      <change beforePath="" afterPath="$PROJECT_DIR$/2corewar" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/Car.cor" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/Gagnant.cor" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/Octobre_Rouge_V4.2.cor" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/a.out" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/barriere.cor" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/ex.cor" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jumper.cor" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/log" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/logs" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/maxidef.cor" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/mortel.cor" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/slider2.cor" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/test.cpp" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/toto.cor" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vm_champs/champs/championships/2014/bguy/sam_2.0.cor" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vm_champs/champs/championships/2014/bjacob/doge.cor" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vm_champs/champs/championships/2014/brandazz/Rainbow_dash.cor" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vm_champs/champs/championships/2014/cdivry/youforkmytralala.cor" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vm_champs/champs/championships/2014/clafleur/big_feet.cor" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vm_champs/champs/championships/2014/dcohen/loose.cor" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vm_champs/champs/championships/2014/ekocevar/mandragore.cor" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vm_champs/champs/championships/2014/esusseli/gedeon.cor" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vm_champs/champs/championships/2014/evlasova/terminator.cor" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vm_champs/champs/championships/2014/fcorre/ultimate-surrender.cor" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vm_champs/champs/championships/2014/gbir/_.cor" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vm_champs/champs/championships/2014/gjestin/salamahenagalabadoun.cor" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vm_champs/champs/championships/2014/gleger/Machine-gun.cor" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vm_champs/champs/championships/2014/gmange/corelol.cor" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vm_champs/champs/championships/2014/gpetrov/MarineKing.cor" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vm_champs/champs/championships/2014/gudepard/Kappa.cor" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vm_champs/champs/championships/2014/hmichals/Wall.cor" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vm_champs/champs/championships/2014/hmoutaou/Misaka_Mikoto.cor" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vm_champs/champs/championships/2014/kelickel/Varimathras.cor" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vm_champs/champs/championships/2014/kmonrose/justin_bee.cor" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vm_champs/champs/championships/2014/ldesgoui/_honeybadger.cor" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vm_champs/champs/championships/2014/lseguin/skynet.cor" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vm_champs/champs/championships/2014/lsirigna/live.cor" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vm_champs/champs/championships/2014/mbacoux/meowluigi.cor" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vm_champs/champs/championships/2014/mconraux/dubo.cor" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vm_champs/champs/championships/2014/rabid-on/jinx.cor" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vm_champs/champs/championships/2014/rmasse/THUNDER.cor" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vm_champs/champs/championships/2014/sbuono/Asombra.cor" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vm_champs/champs/championships/2014/srabah-m/littlepuppy.cor" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vm_champs/champs/championships/2014/tdemay/champ.cor" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vm_champs/champs/championships/2014/vrey/darksasuke.cor" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vm_champs/champs/championships/2014/ybouvet/casimir.cor" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Corewar.dir/src/main.c.o" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Corewar.dir/src/main.c.o" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Corewar" afterPath="$PROJECT_DIR$/cmake-build-debug/Corewar" />
       <change beforePath="$PROJECT_DIR$/file1" afterPath="$PROJECT_DIR$/file1" />
       <change beforePath="$PROJECT_DIR$/file2" afterPath="$PROJECT_DIR$/file2" />
       <change beforePath="$PROJECT_DIR$/src/main.c" afterPath="$PROJECT_DIR$/src/main.c" />
+      <change beforePath="$PROJECT_DIR$/src/sti_fork_lld_lldi_lfork.c" afterPath="$PROJECT_DIR$/src/sti_fork_lld_lldi_lfork.c" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -34,8 +84,8 @@
       <file leaf-file-name="main.c" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="723">
-              <caret line="361" column="8" lean-forward="false" selection-start-line="361" selection-start-column="8" selection-end-line="361" selection-end-column="8" />
+            <state relative-caret-position="796">
+              <caret line="404" column="103" lean-forward="false" selection-start-line="404" selection-start-column="103" selection-end-line="404" selection-end-column="103" />
               <folding />
             </state>
           </provider>
@@ -54,7 +104,7 @@
       <file leaf-file-name="live_ld_st_add_sub.c" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/live_ld_st_add_sub.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
+            <state relative-caret-position="340">
               <caret line="88" column="0" lean-forward="false" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
               <folding />
             </state>
@@ -74,8 +124,8 @@
       <file leaf-file-name="sti_fork_lld_lldi_lfork.c" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sti_fork_lld_lldi_lfork.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="237" column="18" lean-forward="false" selection-start-line="237" selection-start-column="18" selection-end-line="237" selection-end-column="18" />
+            <state relative-caret-position="1785">
+              <caret line="85" column="1" lean-forward="false" selection-start-line="85" selection-start-column="1" selection-end-line="85" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -262,7 +312,7 @@
       <workItem from="1533894985631" duration="3026000" />
       <workItem from="1534147142334" duration="94000" />
       <workItem from="1534151582909" duration="13287000" />
-      <workItem from="1534235304954" duration="5204000" />
+      <workItem from="1534235304954" duration="5876000" />
     </task>
     <task id="LOCAL-00001" summary="maybe good">
       <created>1532968262721</created>
@@ -411,11 +461,18 @@
       <option name="project" value="LOCAL" />
       <updated>1534238626458</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="fixed end">
+      <created>1534241467956</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1534241467956</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="117098000" />
+    <option name="totallyTimeSpent" value="117770000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="2560" height="1440" extended-state="0" />
@@ -462,7 +519,9 @@
     <MESSAGE value="10" />
     <MESSAGE value="kostyl" />
     <MESSAGE value="razjoban" />
-    <option name="LAST_COMMIT_MESSAGE" value="razjoban" />
+    <MESSAGE value="fixed end" />
+    <MESSAGE value="fixed visualization" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed visualization" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -474,13 +533,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/src/sti_fork_lld_lldi_lfork.c</url>
-          <line>228</line>
+          <line>252</line>
           <option name="timeStamp" value="119" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/main.c</url>
-          <line>382</line>
-          <option name="timeStamp" value="132" />
         </line-breakpoint>
       </breakpoints>
       <option name="time" value="133" />
@@ -862,14 +916,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/live_ld_st_add_sub.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="88" column="0" lean-forward="false" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/inits.c">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -886,18 +932,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/live_ld_st_add_sub.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="88" column="0" lean-forward="false" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/sti_fork_lld_lldi_lfork.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="237" column="18" lean-forward="false" selection-start-line="237" selection-start-column="18" selection-end-line="237" selection-end-column="18" />
+        <state relative-caret-position="1785">
+          <caret line="85" column="1" lean-forward="false" selection-start-line="85" selection-start-column="1" selection-end-line="85" selection-end-column="1" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="723">
-          <caret line="361" column="8" lean-forward="false" selection-start-line="361" selection-start-column="8" selection-end-line="361" selection-end-column="8" />
+        <state relative-caret-position="796">
+          <caret line="404" column="103" lean-forward="false" selection-start-line="404" selection-start-column="103" selection-end-line="404" selection-end-column="103" />
           <folding />
         </state>
       </provider>
