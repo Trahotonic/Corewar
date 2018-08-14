@@ -359,7 +359,7 @@ int     main(int argc, char **argv)
 			kill(processes);
 			n = 0;
 		}
-		if (cycleToDie <= 0 || !processes)
+		if (!processes)
 		{
 			if (VIZ)
 				endwin();
@@ -368,6 +368,13 @@ int     main(int argc, char **argv)
 		}
 		if (d && i == iter)
 			break ;
+		if (cycleToDie <= 0)
+		{
+			if (VIZ)
+				endwin();
+			ft_printf("GAME OVER on cycle %d\ncycle to die = %d\nprocesses: %d\n", i, cycleToDie, counter(processes));
+			return 0;
+		}
 //		printf("%d\n", i);
 		if (i == 11367)
 		{
@@ -383,7 +390,7 @@ int     main(int argc, char **argv)
 //		{
 //			;
 //		}
-		int br = 11158;
+		int br = 1;
 		if (!d && VIZ && i >= br - 100)
 		{
 			visualize(map, ft_strlen(total), processes, &vizData);
