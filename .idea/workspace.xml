@@ -13,15 +13,10 @@
   <component name="ChangeListManager">
     <list default="true" id="a69af0ba-4ee2-469f-ba16-c19649af79bd" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Corewar.dir/src/and_or_xor_zjmp_ldi.c.o" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Corewar.dir/src/and_or_xor_zjmp_ldi.c.o" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Corewar.dir/src/main.c.o" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Corewar.dir/src/main.c.o" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Corewar.dir/src/read2.c.o" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Corewar.dir/src/read2.c.o" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Corewar.dir/src/sti_fork_lld_lldi_lfork.c.o" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Corewar.dir/src/sti_fork_lld_lldi_lfork.c.o" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Corewar" afterPath="$PROJECT_DIR$/cmake-build-debug/Corewar" />
       <change beforePath="$PROJECT_DIR$/file1" afterPath="$PROJECT_DIR$/file1" />
       <change beforePath="$PROJECT_DIR$/file2" afterPath="$PROJECT_DIR$/file2" />
-      <change beforePath="$PROJECT_DIR$/src/and_or_xor_zjmp_ldi.c" afterPath="$PROJECT_DIR$/src/and_or_xor_zjmp_ldi.c" />
       <change beforePath="$PROJECT_DIR$/src/main.c" afterPath="$PROJECT_DIR$/src/main.c" />
+      <change beforePath="$PROJECT_DIR$/src/read2.c" afterPath="$PROJECT_DIR$/src/read2.c" />
       <change beforePath="$PROJECT_DIR$/src/sti_fork_lld_lldi_lfork.c" afterPath="$PROJECT_DIR$/src/sti_fork_lld_lldi_lfork.c" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
@@ -38,11 +33,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="main.c" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main.c" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="42">
-              <caret line="2" column="14" lean-forward="false" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
+            <state relative-caret-position="-967">
+              <caret line="175" column="0" lean-forward="false" selection-start-line="175" selection-start-column="0" selection-end-line="175" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -61,7 +56,7 @@
       <file leaf-file-name="live_ld_st_add_sub.c" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/live_ld_st_add_sub.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
+            <state relative-caret-position="-443">
               <caret line="88" column="0" lean-forward="false" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
               <folding />
             </state>
@@ -78,11 +73,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sti_fork_lld_lldi_lfork.c" pinned="false" current-in-tab="false">
+      <file leaf-file-name="sti_fork_lld_lldi_lfork.c" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/sti_fork_lld_lldi_lfork.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="488">
-              <caret line="38" column="96" lean-forward="false" selection-start-line="38" selection-start-column="96" selection-end-line="38" selection-end-column="96" />
+            <state relative-caret-position="1174">
+              <caret line="329" column="32" lean-forward="false" selection-start-line="329" selection-start-column="32" selection-end-line="329" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -91,8 +86,8 @@
       <file leaf-file-name="read2.c" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/read2.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="538">
-              <caret line="42" column="32" lean-forward="false" selection-start-line="42" selection-start-column="32" selection-end-line="42" selection-end-column="32" />
+            <state relative-caret-position="523">
+              <caret line="94" column="0" lean-forward="false" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -121,8 +116,8 @@
       <file leaf-file-name="inits.c" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/inits.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="987">
-              <caret line="47" column="19" lean-forward="false" selection-start-line="47" selection-start-column="19" selection-end-line="47" selection-end-column="19" />
+            <state relative-caret-position="1174">
+              <caret line="137" column="24" lean-forward="false" selection-start-line="137" selection-start-column="24" selection-end-line="137" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -157,10 +152,10 @@
         <option value="$PROJECT_DIR$/inc/corewar.h" />
         <option value="$PROJECT_DIR$/src/inits.c" />
         <option value="$PROJECT_DIR$/src/live_ld_st_add_sub.c" />
-        <option value="$PROJECT_DIR$/src/read2.c" />
         <option value="$PROJECT_DIR$/src/and_or_xor_zjmp_ldi.c" />
-        <option value="$PROJECT_DIR$/src/sti_fork_lld_lldi_lfork.c" />
         <option value="$PROJECT_DIR$/src/main.c" />
+        <option value="$PROJECT_DIR$/src/read2.c" />
+        <option value="$PROJECT_DIR$/src/sti_fork_lld_lldi_lfork.c" />
       </list>
     </option>
   </component>
@@ -228,7 +223,7 @@
     <configuration name="Build All" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Corewar" RUN_TARGET_NAME="Corewar" EXPLICIT_BUILD_TARGET_NAME="all">
       <envs />
     </configuration>
-    <configuration name="Corewar" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="doge.cor" WORKING_DIR="file://$PROJECT_DIR$/vm_champs/champs/championships/2014/bjacob" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Corewar" TARGET_NAME="Corewar" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Corewar" RUN_TARGET_NAME="Corewar">
+    <configuration name="Corewar" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="Kappa.cor" WORKING_DIR="file://$PROJECT_DIR$/vm_champs/champs/championships/2014/gudepard" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Corewar" TARGET_NAME="Corewar" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Corewar" RUN_TARGET_NAME="Corewar">
       <envs />
     </configuration>
     <list size="2">
@@ -270,7 +265,7 @@
       <workItem from="1534147142334" duration="94000" />
       <workItem from="1534151582909" duration="13287000" />
       <workItem from="1534235304954" duration="5975000" />
-      <workItem from="1534331909297" duration="3968000" />
+      <workItem from="1534331909297" duration="6127000" />
     </task>
     <task id="LOCAL-00001" summary="maybe good">
       <created>1532968262721</created>
@@ -440,11 +435,18 @@
       <option name="project" value="LOCAL" />
       <updated>1534336649986</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="fixed sti ldi">
+      <created>1534339622599</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1534339622599</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="121837000" />
+    <option name="totallyTimeSpent" value="123996000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="2560" height="1440" extended-state="0" />
@@ -493,7 +495,8 @@
     <MESSAGE value="fixed end" />
     <MESSAGE value="fixed visualization" />
     <MESSAGE value="update" />
-    <option name="LAST_COMMIT_MESSAGE" value="update" />
+    <MESSAGE value="fixed sti ldi" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed sti ldi" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -505,16 +508,16 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/src/main.c</url>
-          <line>164</line>
-          <option name="timeStamp" value="134" />
+          <line>380</line>
+          <option name="timeStamp" value="140" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/src/sti_fork_lld_lldi_lfork.c</url>
-          <line>27</line>
-          <option name="timeStamp" value="138" />
+          <line>315</line>
+          <option name="timeStamp" value="146" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="139" />
+      <option name="time" value="148" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -877,30 +880,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/inits.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="987">
-          <caret line="47" column="19" lean-forward="false" selection-start-line="47" selection-start-column="19" selection-end-line="47" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/live_ld_st_add_sub.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="88" column="0" lean-forward="false" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/read2.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="538">
-          <caret line="42" column="32" lean-forward="false" selection-start-line="42" selection-start-column="32" selection-end-line="42" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/converts.c">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="21">
@@ -917,18 +896,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sti_fork_lld_lldi_lfork.c">
+    <entry file="file://$PROJECT_DIR$/src/inits.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="488">
-          <caret line="38" column="96" lean-forward="false" selection-start-line="38" selection-start-column="96" selection-end-line="38" selection-end-column="96" />
+        <state relative-caret-position="1174">
+          <caret line="137" column="24" lean-forward="false" selection-start-line="137" selection-start-column="24" selection-end-line="137" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/live_ld_st_add_sub.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-443">
+          <caret line="88" column="0" lean-forward="false" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/read2.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="523">
+          <caret line="94" column="0" lean-forward="false" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="2" column="14" lean-forward="false" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
+        <state relative-caret-position="-967">
+          <caret line="175" column="0" lean-forward="false" selection-start-line="175" selection-start-column="0" selection-end-line="175" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sti_fork_lld_lldi_lfork.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1174">
+          <caret line="329" column="32" lean-forward="false" selection-start-line="329" selection-start-column="32" selection-end-line="329" selection-end-column="32" />
           <folding />
         </state>
       </provider>

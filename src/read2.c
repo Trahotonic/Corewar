@@ -71,6 +71,8 @@ void	readShit(unsigned char map[], t_process *processor) // Обновленно
 		tmp[0] = map[(processor->cur_pos + 2) % (MEM_SIZE * 2)];
 		tmp[1] = map[(processor->cur_pos + 3) % (MEM_SIZE * 2)];
 		processor->iterator += 4;
+
+
 		n = ft_atoi_base(tmp, 16);
 		bin = ft_convert_2(n, 8);
 		tmp[0] = bin[0];

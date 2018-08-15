@@ -376,11 +376,11 @@ int     main(int argc, char **argv)
 			return 0;
 		}
 //  printf("%d\n", i);
-		if (i == 11367)
+		if (i == 30)
 		{
 
 		}
-		int br = 50;
+		int br = 0;
 		if (!d && VIZ && i >= br - 100)
 		{
 			visualize(map, ft_strlen(total), processes, &vizData);
