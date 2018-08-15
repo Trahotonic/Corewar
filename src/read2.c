@@ -19,7 +19,7 @@ void	doNull(t_process *processor)
 	}
 }
 
-void	readLittleShit(unsigned char map[], char arg1[], char tmp[], t_process *processor)
+void	readLittleShit(unsigned char map[], char arg1[], char tmp[], t_process *processor, int arg)
 {
 	int n;
 
@@ -40,7 +40,7 @@ void	readLittleShit(unsigned char map[], char arg1[], char tmp[], t_process *pro
 			(ft_strequ(processor->command, "0b")) || (ft_strequ(processor->command, "09")) ||
 			(ft_strequ(processor->command, "0c")) || (ft_strequ(processor->command, "0f"))))
 	{
-		processor->t_dir = 1;
+		processor->t_dir += arg;
 		while (n < 4)
 			arg1[n++] = map[(processor->cur_pos + processor->iterator++) % (MEM_SIZE * 2)];
 	}
@@ -62,7 +62,7 @@ void	readShit(unsigned char map[], t_process *processor) // Обновленно
 	if (processor->codage == 0)
 	{
 		processor->iterator += 2;
-		readLittleShit(map, processor->arg1, "10", processor);
+		readLittleShit(map, processor->arg1, "10", processor, 1);
 	}
 	else
 	{
@@ -77,7 +77,7 @@ void	readShit(unsigned char map[], t_process *processor) // Обновленно
 		tmp[1] = bin[1];
 //		if (bin[0] == '0' && bin[1] == '0')
 //			return ;
-		readLittleShit(map, processor->arg1, tmp, processor);
+		readLittleShit(map, processor->arg1, tmp, processor, 1);
 		tmp[0] = bin[2];
 		tmp[1] = bin[3];
 //		if (bin[0] == '0' && bin[1] == '0')
@@ -85,9 +85,9 @@ void	readShit(unsigned char map[], t_process *processor) // Обновленно
 //			processor->iterator = 4;
 //			return ;
 //		}
-		readLittleShit(map, processor->arg2, tmp, processor);
+		readLittleShit(map, processor->arg2, tmp, processor, 2);
 		tmp[0] = bin[4];
 		tmp[1] = bin[5];
-		readLittleShit(map, processor->arg3, tmp, processor);
+		readLittleShit(map, processor->arg3, tmp, processor, 3);
 	}
 }

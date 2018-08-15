@@ -36,9 +36,11 @@ void  sti(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizD
 			i = (((short)(processor->reg[ft_atoi_base(processor->arg2, 16) - 1] + (short)(ft_atoi_base(processor->arg3, 16)))% IDX_MOD) * 2 + processor->cur_pos) % (MEM_SIZE * 2);
 		}
 	}
-	else if (ft_strlen(processor->arg2) == 4 && !processor->t_dir) /* исправить добавить t_ind */
+	else if (ft_strlen(processor->arg2) == 4 && processor->t_dir != 2) /* исправить добавить t_ind */
 	{
-		i = ((short)ft_atoi_base(processor->arg1, 16)) % IDX_MOD * 2;
+		i = ((((short)ft_atoi_base(processor->arg2, 16)) % IDX_MOD) * 2) + processor->cur_pos % (MEM_SIZE * 2);
+		if (i < 0)
+			i = (MEM_SIZE * 2) + i;
 		while (n < 8)
 		{
 			i %= (MEM_SIZE * 2);
@@ -46,13 +48,13 @@ void  sti(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizD
 		}
 		if (ft_strlen(processor->arg3) == 4)
 		{
-			i = (((((short)(ft_atoi_base(arg2, 16) + (short)(ft_atoi_base(processor->arg3, 16)))))% IDX_MOD) * 2 + processor->cur_pos) % (MEM_SIZE * 2);
+			i = (((((ft_atoi_base(arg2, 16) + (short)(ft_atoi_base(processor->arg3, 16)))))% IDX_MOD) * 2 + processor->cur_pos) % (MEM_SIZE * 2);
 		}
 		else
 		{
-			//tmp = (short)ft_atoi_base(processor->arg2, 16);
-			tmp2 = (int)processor->reg[ft_atoi_base(processor->arg3, 16)- 1];
-			i = (((ft_atoi_base(arg2, 16) + tmp2 ) % IDX_MOD) * 2 + processor->cur_pos) % (MEM_SIZE * 2);
+			tmp = (ft_atoi_base(arg2, 16));
+			tmp2 = (short)processor->reg[ft_atoi_base(processor->arg3, 16)- 1];
+			i = (((tmp + tmp2 ) % IDX_MOD) * 2 + processor->cur_pos) % (MEM_SIZE * 2);
 		}
 	}
 	else if (ft_strlen(processor->arg2) == 4)
