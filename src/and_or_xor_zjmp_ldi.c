@@ -172,6 +172,8 @@ void	ldi(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizDa
 	else if (ft_strlen(processor->arg1) == 4 && processor->t_dir != 1)
 	{
 		i = (((short)ft_atoi_base(processor->arg1, 16) % IDX_MOD) * 2 + processor->cur_pos) % (MEM_SIZE * 2);
+		if (i < 0)
+			i = (MEM_SIZE * 2) + i;
 		while (n < 8)
 		{
 			i %= (MEM_SIZE * 2);
@@ -189,7 +191,7 @@ void	ldi(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizDa
 //			+ processor->cur_pos;
 		n = 0;
 	}
-	else if (ft_strlen(processor->arg1) == 4 && processor->t_dir == 1) /* исправить добавить t_ind */
+	else if (ft_strlen(processor->arg1) == 4 && (processor->t_dir == 1 || processor->t_dir == 3)) /* исправить добавить t_ind */
 	{
 		if (ft_strlen(processor->arg2) == 4)
 		{
@@ -200,6 +202,8 @@ void	ldi(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizDa
 			i = ((short)((short)ft_atoi_base(processor->arg1, 16) + processor->reg[ft_atoi_base(processor->arg2, 16) - 1]) % IDX_MOD * 2 + processor->cur_pos) % (MEM_SIZE * 2);
 		}
 	}
+	if (i < 0)
+		i = (MEM_SIZE * 2) + i;
 	while (n < 8)
 	{
 		i %= (MEM_SIZE * 2);

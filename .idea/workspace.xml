@@ -11,44 +11,17 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a69af0ba-4ee2-469f-ba16-c19649af79bd" name="Default" comment="fixed visualization">
-      <change beforePath="" afterPath="$PROJECT_DIR$/vm_champs/champs/championships/2014/bguy/sam_2.0.cor" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/vm_champs/champs/championships/2014/bjacob/doge.cor" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/vm_champs/champs/championships/2014/brandazz/Rainbow_dash.cor" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/vm_champs/champs/championships/2014/cdivry/youforkmytralala.cor" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/vm_champs/champs/championships/2014/clafleur/big_feet.cor" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/vm_champs/champs/championships/2014/dcohen/loose.cor" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/vm_champs/champs/championships/2014/ekocevar/mandragore.cor" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/vm_champs/champs/championships/2014/esusseli/gedeon.cor" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/vm_champs/champs/championships/2014/evlasova/terminator.cor" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/vm_champs/champs/championships/2014/fcorre/ultimate-surrender.cor" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/vm_champs/champs/championships/2014/gbir/_.cor" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/vm_champs/champs/championships/2014/gjestin/salamahenagalabadoun.cor" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/vm_champs/champs/championships/2014/gleger/Machine-gun.cor" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/vm_champs/champs/championships/2014/gmange/corelol.cor" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/vm_champs/champs/championships/2014/gpetrov/MarineKing.cor" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/vm_champs/champs/championships/2014/gudepard/Kappa.cor" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/vm_champs/champs/championships/2014/hmichals/Wall.cor" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/vm_champs/champs/championships/2014/hmoutaou/Misaka_Mikoto.cor" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/vm_champs/champs/championships/2014/kelickel/Varimathras.cor" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/vm_champs/champs/championships/2014/kmonrose/justin_bee.cor" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/vm_champs/champs/championships/2014/ldesgoui/_honeybadger.cor" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/vm_champs/champs/championships/2014/lseguin/skynet.cor" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/vm_champs/champs/championships/2014/lsirigna/live.cor" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/vm_champs/champs/championships/2014/mbacoux/meowluigi.cor" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/vm_champs/champs/championships/2014/mconraux/dubo.cor" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/vm_champs/champs/championships/2014/rabid-on/jinx.cor" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/vm_champs/champs/championships/2014/rmasse/THUNDER.cor" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/vm_champs/champs/championships/2014/sbuono/Asombra.cor" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/vm_champs/champs/championships/2014/srabah-m/littlepuppy.cor" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/vm_champs/champs/championships/2014/tdemay/champ.cor" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/vm_champs/champs/championships/2014/vrey/darksasuke.cor" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/vm_champs/champs/championships/2014/ybouvet/casimir.cor" />
+    <list default="true" id="a69af0ba-4ee2-469f-ba16-c19649af79bd" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Corewar.dir/src/and_or_xor_zjmp_ldi.c.o" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Corewar.dir/src/and_or_xor_zjmp_ldi.c.o" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Corewar.dir/src/main.c.o" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Corewar.dir/src/main.c.o" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Corewar.dir/src/read2.c.o" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Corewar.dir/src/read2.c.o" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Corewar.dir/src/sti_fork_lld_lldi_lfork.c.o" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Corewar.dir/src/sti_fork_lld_lldi_lfork.c.o" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Corewar" afterPath="$PROJECT_DIR$/cmake-build-debug/Corewar" />
       <change beforePath="$PROJECT_DIR$/file1" afterPath="$PROJECT_DIR$/file1" />
       <change beforePath="$PROJECT_DIR$/file2" afterPath="$PROJECT_DIR$/file2" />
+      <change beforePath="$PROJECT_DIR$/src/and_or_xor_zjmp_ldi.c" afterPath="$PROJECT_DIR$/src/and_or_xor_zjmp_ldi.c" />
       <change beforePath="$PROJECT_DIR$/src/main.c" afterPath="$PROJECT_DIR$/src/main.c" />
-      <change beforePath="$PROJECT_DIR$/src/read2.c" afterPath="$PROJECT_DIR$/src/read2.c" />
       <change beforePath="$PROJECT_DIR$/src/sti_fork_lld_lldi_lfork.c" afterPath="$PROJECT_DIR$/src/sti_fork_lld_lldi_lfork.c" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
@@ -98,8 +71,8 @@
       <file leaf-file-name="and_or_xor_zjmp_ldi.c" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/and_or_xor_zjmp_ldi.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4389">
-              <caret line="209" column="45" lean-forward="false" selection-start-line="209" selection-start-column="45" selection-end-line="209" selection-end-column="45" />
+            <state relative-caret-position="481">
+              <caret line="175" column="35" lean-forward="false" selection-start-line="175" selection-start-column="35" selection-end-line="175" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -108,8 +81,8 @@
       <file leaf-file-name="sti_fork_lld_lldi_lfork.c" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sti_fork_lld_lldi_lfork.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="307">
-              <caret line="42" column="35" lean-forward="false" selection-start-line="42" selection-start-column="35" selection-end-line="42" selection-end-column="35" />
+            <state relative-caret-position="488">
+              <caret line="38" column="96" lean-forward="false" selection-start-line="38" selection-start-column="96" selection-end-line="38" selection-end-column="96" />
               <folding />
             </state>
           </provider>
@@ -184,8 +157,8 @@
         <option value="$PROJECT_DIR$/inc/corewar.h" />
         <option value="$PROJECT_DIR$/src/inits.c" />
         <option value="$PROJECT_DIR$/src/live_ld_st_add_sub.c" />
-        <option value="$PROJECT_DIR$/src/and_or_xor_zjmp_ldi.c" />
         <option value="$PROJECT_DIR$/src/read2.c" />
+        <option value="$PROJECT_DIR$/src/and_or_xor_zjmp_ldi.c" />
         <option value="$PROJECT_DIR$/src/sti_fork_lld_lldi_lfork.c" />
         <option value="$PROJECT_DIR$/src/main.c" />
       </list>
@@ -255,7 +228,7 @@
     <configuration name="Build All" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Corewar" RUN_TARGET_NAME="Corewar" EXPLICIT_BUILD_TARGET_NAME="all">
       <envs />
     </configuration>
-    <configuration name="Corewar" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="live.cor" WORKING_DIR="file://$PROJECT_DIR$/vm_champs/champs/championships/2014/lsirigna" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Corewar" TARGET_NAME="Corewar" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Corewar" RUN_TARGET_NAME="Corewar">
+    <configuration name="Corewar" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="doge.cor" WORKING_DIR="file://$PROJECT_DIR$/vm_champs/champs/championships/2014/bjacob" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Corewar" TARGET_NAME="Corewar" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Corewar" RUN_TARGET_NAME="Corewar">
       <envs />
     </configuration>
     <list size="2">
@@ -297,7 +270,7 @@
       <workItem from="1534147142334" duration="94000" />
       <workItem from="1534151582909" duration="13287000" />
       <workItem from="1534235304954" duration="5975000" />
-      <workItem from="1534331909297" duration="1786000" />
+      <workItem from="1534331909297" duration="3968000" />
     </task>
     <task id="LOCAL-00001" summary="maybe good">
       <created>1532968262721</created>
@@ -460,11 +433,18 @@
       <option name="project" value="LOCAL" />
       <updated>1534258602273</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="update">
+      <created>1534336649986</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1534336649986</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="119655000" />
+    <option name="totallyTimeSpent" value="121837000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="2560" height="1440" extended-state="0" />
@@ -507,13 +487,13 @@
     <MESSAGE value="tomorrow&#10;problem with maxchecks" />
     <MESSAGE value="sran" />
     <MESSAGE value="fix and or xor" />
-    <MESSAGE value="update" />
     <MESSAGE value="10" />
     <MESSAGE value="kostyl" />
     <MESSAGE value="razjoban" />
     <MESSAGE value="fixed end" />
     <MESSAGE value="fixed visualization" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed visualization" />
+    <MESSAGE value="update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -531,20 +511,10 @@
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/src/sti_fork_lld_lldi_lfork.c</url>
           <line>27</line>
-          <option name="timeStamp" value="135" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/sti_fork_lld_lldi_lfork.c</url>
-          <line>48</line>
-          <option name="timeStamp" value="136" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/sti_fork_lld_lldi_lfork.c</url>
-          <line>43</line>
-          <option name="timeStamp" value="137" />
+          <option name="timeStamp" value="138" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="138" />
+      <option name="time" value="139" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -907,14 +877,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/and_or_xor_zjmp_ldi.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4389">
-          <caret line="209" column="45" lean-forward="false" selection-start-line="209" selection-start-column="45" selection-end-line="209" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/inits.c">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="987">
@@ -947,10 +909,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/and_or_xor_zjmp_ldi.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="481">
+          <caret line="175" column="35" lean-forward="false" selection-start-line="175" selection-start-column="35" selection-end-line="175" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/sti_fork_lld_lldi_lfork.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="42" column="35" lean-forward="false" selection-start-line="42" selection-start-column="35" selection-end-line="42" selection-end-column="35" />
+        <state relative-caret-position="488">
+          <caret line="38" column="96" lean-forward="false" selection-start-line="38" selection-start-column="96" selection-end-line="38" selection-end-column="96" />
           <folding />
         </state>
       </provider>
