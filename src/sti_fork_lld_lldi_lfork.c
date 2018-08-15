@@ -67,7 +67,7 @@ void  sti(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizD
 		{
 			//tmp = (short)ft_atoi_base(processor->arg2, 16);
 			tmp2 = (int)processor->reg[ft_atoi_base(processor->arg3, 16)- 1];
-			i = (((ft_atoi_base(processor->arg2, 16) + tmp2 ) % IDX_MOD) * 2 + processor->cur_pos) % (MEM_SIZE * 2);
+			i = (((short)(ft_atoi_base(processor->arg2, 16) + tmp2 ) % IDX_MOD) * 2 + processor->cur_pos) % (MEM_SIZE * 2);
 		}
 	}
 	n = 0;
