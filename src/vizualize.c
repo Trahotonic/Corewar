@@ -86,11 +86,11 @@ size_t    innerCycle(unsigned char map[], unsigned char x[], size_t len, t_proce
 			{
 				if (vizData->markTimeout[i] > 0)
 				{
-					pair = NEW_PLAYER4_CODE_PAIR;
+					pair = NEW_PLAYER1_CODE_PAIR;
 					vizData->markTimeout[i]--;
 				}
 				else
-					pair = DEFAULT_PLAYER4_PAIR;
+					pair = DEFAULT_PLAYER1_PAIR;
 			}
 //	        else if (vizData->vizData[i] == 2)
 //			{
@@ -125,9 +125,9 @@ size_t    innerCycle(unsigned char map[], unsigned char x[], size_t len, t_proce
 			x[1] = map[i + 1];
 			if (markProc[i] == 1)
 			{
-				attron(COLOR_PAIR(MARK_PROCESS4_PAIR));
+				attron(COLOR_PAIR(MARK_PROCESS1_PAIR));
 				mvwprintw(stdscr, n + 2, q + 3, (char*)x);
-				attroff(COLOR_PAIR(MARK_PROCESS4_PAIR));
+				attroff(COLOR_PAIR(MARK_PROCESS1_PAIR));
 			}
 			else if (markProc[i] == 2)
 			{

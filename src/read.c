@@ -95,7 +95,7 @@ void    case123(unsigned int buff, char **str, ssize_t n)
     free(dump);
 }
 
-int     getCount(t_player *players)
+static int     getCount(t_player *players)
 {
     int count;
 
@@ -127,7 +127,7 @@ int     setStart(int count, int idx)
 			return ((MEM_SIZE * 2) / 4);
 		else if (idx == 3)
 			return (((MEM_SIZE * 2) / 4) * 2);
-		else if (idx == 4)
+		else
 			return (((MEM_SIZE * 2) / 4) * 3);
 	}
 }
@@ -140,14 +140,7 @@ void    getTotal(t_player *players, char **total, t_vizData *vizData, int c)
     int             count;
 
     count = getCount(players);
-    n = 0;
-    while (n < c)
-    {
-        players = players->next;
-        ++n;
-    }
     *total = ft_strnew(0);
-    n = 0;
     while ((n = read(players->fd, &buff, sizeof(int))))
     {
         buff = ((buff & 0x000000FF) << 24) | ((buff & 0x0000FF00) << 8) |

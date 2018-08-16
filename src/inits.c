@@ -4,6 +4,69 @@
 
 #include "../inc/corewar.h"
 
+static int     getCount(t_player *players)
+{
+	int count;
+
+	count = 0;
+	while (players)
+	{
+		++count;
+		players = players->next;
+	}
+	return (count);
+}
+
+void 	fillMap(char *total, int count, int idx, unsigned char map[])
+{
+	int n;
+
+	if (count == 1 || idx == 1)
+	{
+		n = 0;
+		while (total[n] != '\0')
+		{
+			map[n] = total[n];
+			n++;
+		}
+	}
+	else if (count == 2)
+	{
+		n = MEM_SIZE;
+		while (total[n] != '\0')
+		{
+			map[n] = total[n];
+			n++;
+		}
+	}
+	else if (count == 3)
+	{
+		if (idx == 2)
+			n = (MEM_SIZE * 2) / 3;
+		else
+			n = ((MEM_SIZE * 2) / 3) * 2;
+		while (total[n] != '\0')
+		{
+			map[n] = total[n];
+			n++;
+		}
+	}
+	else
+	{
+		if (idx == 2)
+			n =  (MEM_SIZE * 2) / 4;
+		else if (idx == 3)
+			n = ((MEM_SIZE * 2) / 4) * 2;
+		else
+			n = ((MEM_SIZE * 2) / 4) * 3;
+		while (total[n] != '\0')
+		{
+			map[n] = total[n];
+			n++;
+		}
+	}
+}
+
 void    initMap(unsigned char map[], t_vizData *vizData, t_player *players)
 {
 	int         n;
@@ -20,11 +83,13 @@ void    initMap(unsigned char map[], t_vizData *vizData, t_player *players)
 		vizData->vizData[n] = 0;
 		map[n++] = '0';
 	}
+	count = getCount(players);
 	n = 1;
 	while (players)
 	{
 		read(players->fd, &players->header, sizeof(header_t));
 		getTotal(players, &total, vizData, n);
+		fillMap(total, count, n, map);
 		players = players->next;
 		++n;
 	}

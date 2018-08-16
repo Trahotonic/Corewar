@@ -1,6 +1,6 @@
 # include "./../inc/corewar.h"
 
-# define VIZ 1
+# define VIZ 0
 
 void	dump(unsigned char map[])
 {
@@ -508,17 +508,10 @@ int     main(int argc, char **argv)
 	n = 0;
 	maxchecks = 1;
 	initProcesses(&processes);
-	initMap(map, &total, &header, argv, &vizData);
+	initMap(map, &vizData, players);
 	if (!flags->d && VIZ)
 		initVis();
 	initfunc(array);
-	players = (t_player*)malloc(sizeof(t_player));
-	players->header = header;
-	players->lastAlive = 0;
-	players->liveCount = 0;
-	players->playerNumber = -1;
-	players->len = ft_strlen(total);
-	players->next = NULL;
 	t_player    *p;
 	cycleToDie = CYCLE_TO_DIE;
 	i = 0;
@@ -564,7 +557,7 @@ int     main(int argc, char **argv)
 			ft_printf("GAME OVER on cycle %d\ncycle to die = %d\nprocesses: %d\n", i, cycleToDie, counter(processes));
 			return 0;
 		}
-		if (flags->d && i == flags->vi)
+		if (flags->d && i == flags->d)
 			break ;
 		if (cycleToDie <= 0)
 		{
@@ -577,10 +570,10 @@ int     main(int argc, char **argv)
 		{
 
 		}
-		int br = 2100;
+		int br = 10000;
 		if (!flags->d && VIZ && i >= br - 100)
 		{
-			visualize(map, ft_strlen(total), processes, &vizData);
+			visualize(map, 1, processes, &vizData);
 			mvwprintw(stdscr, 0, 196, "%d", i);
 			mvwprintw(stdscr, 3, 196, "                       ");
 			mvwprintw(stdscr, 3, 196, "live count: %d", players->liveCount);
@@ -599,7 +592,6 @@ int     main(int argc, char **argv)
 		i++;
 		n++;
 	}
-	free(total);
 	if (!flags->d && VIZ)
 		endwin();
 	else
