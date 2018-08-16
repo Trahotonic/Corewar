@@ -113,7 +113,7 @@ void	st(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizDat
 		while (n < 8)
 		{
 			k %= (MEM_SIZE * 2);
-			vizData->markTimeout[k] = 1;
+			vizData->markTimeout[k] = 100;
 			vizData->vizData[k] = 1;
 			map[k++] = tmp[n++];
 		}

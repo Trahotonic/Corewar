@@ -13,13 +13,30 @@ void    initVis(void)
     init_color(LIGHT_GREEN, 500, 1000, 500);
     init_color(GREY, 300, 300, 300);
     init_color(DARK_GREEN, 0, 650, 0);
+    init_color(DARK_YELLOW, 500, 500, 0);
+    init_color(DARK_BLUE, 0, 0, 700);
 	init_color(GOOD_GREEN, 0, 1000, 0);
-	init_color(RED_FALCON, 1000, 0, 0);
+	init_color(GOOD_RED, 1000, 0, 0);
+	init_color(GOOD_YELLOW, 1000, 1000, 0);
+	init_color(GOOD_BLUE, 200, 200, 1000);
+	init_color(RED_FALCON, 700, 0, 0);
+	init_color(LIGHT_RED, 1000, 300, 300);
 	init_color(PISS, 0, 1000, 1000);
+	init_color(LIGHT_YELLOW, 1000, 1000, 400);
+	init_color(LIGHT_BLUE, 400, 400, 1000);
     init_pair(DEFAULT_COLOR_PAIR, GREY, COLOR_BLACK);
-    init_pair(MARK_PROCESS_PAIR, COLOR_BLACK, GOOD_GREEN);
+    init_pair(MARK_PROCESS1_PAIR, COLOR_BLACK, GOOD_GREEN);
+    init_pair(MARK_PROCESS2_PAIR, COLOR_BLACK, GOOD_RED);
+    init_pair(MARK_PROCESS3_PAIR, COLOR_BLACK, GOOD_YELLOW);
+    init_pair(MARK_PROCESS4_PAIR, COLOR_BLACK, GOOD_BLUE);
     init_pair(DEFAULT_PLAYER1_PAIR, DARK_GREEN, COLOR_BLACK);
+	init_pair(DEFAULT_PLAYER2_PAIR, RED_FALCON, COLOR_BLACK);
+	init_pair(DEFAULT_PLAYER3_PAIR, DARK_YELLOW, COLOR_BLACK);
+	init_pair(DEFAULT_PLAYER4_PAIR, DARK_BLUE, COLOR_BLACK);
     init_pair(NEW_PLAYER1_CODE_PAIR, LIGHT_GREEN, COLOR_BLACK);
+    init_pair(NEW_PLAYER2_CODE_PAIR, LIGHT_RED, COLOR_BLACK);
+    init_pair(NEW_PLAYER3_CODE_PAIR, LIGHT_YELLOW, COLOR_BLACK);
+    init_pair(NEW_PLAYER4_CODE_PAIR, LIGHT_BLUE, COLOR_BLACK);
 	init_pair(SEEK_BITCH, COLOR_BLACK, RED_FALCON);
 	init_pair(SEEK_YELLOW_BITCH, COLOR_BLACK, PISS);
 }
@@ -44,7 +61,6 @@ size_t    innerCycle(unsigned char map[], unsigned char x[], size_t len, t_proce
 	size_t 		i;
 	int 		pair;
 	t_process	*ptr;
-	int         check = 0;
 	unsigned char   markProc[MEM_SIZE * 2];
 
     n = 0;
@@ -58,21 +74,6 @@ size_t    innerCycle(unsigned char map[], unsigned char x[], size_t len, t_proce
 		markProc[ptr->cur_pos] = 1;
 		ptr = ptr->next;
 	}
-	ptr = proc;
-	while (ptr)
-	{
-		if (ptr->proc_num == 14)
-		{
-//			if (markProc[ptr->cur_pos] == 2)
-//				markProc[ptr->cur_pos] = 3;
-//			else
-				markProc[ptr->cur_pos] = 2;
-		}
-		if (ptr->proc_num == 25)
-			markProc[ptr->cur_pos] = 3;
-		ptr = ptr->next;
-	}
-//	markProc[1224] = 2;
 	n = 0;
     while (n < 64)
     {
@@ -85,32 +86,22 @@ size_t    innerCycle(unsigned char map[], unsigned char x[], size_t len, t_proce
 			{
 				if (vizData->markTimeout[i] > 0)
 				{
-					pair = NEW_PLAYER1_CODE_PAIR;
+					pair = NEW_PLAYER4_CODE_PAIR;
 					vizData->markTimeout[i]--;
 				}
 				else
-					pair = DEFAULT_PLAYER1_PAIR;
+					pair = DEFAULT_PLAYER4_PAIR;
 			}
-//	        ptr = proc;
-//	        while (ptr)
-//	        {
-//		        if (i == ptr->cur_pos && ptr->proc_num == 20)
-//		        {
-//			        pair = SEEK_BITCH;
-//			        break ;
-//		        }
-//		        ptr = ptr->next;
-//	        }
-//	        ptr = proc;
-//	        while (ptr)
-//	        {
-//		        if (i == ptr->cur_pos && ptr->proc_num == 17)
-//		        {
-//			        pair = SEEK_YELLOW_BITCH;
-//			        break ;
-//		        }
-//		        ptr = ptr->next;
-//	        }
+//	        else if (vizData->vizData[i] == 2)
+//			{
+//				if (vizData->markTimeout[i] > 0)
+//				{
+//					pair = NEW_PLAYER1_CODE_PAIR;
+//					vizData->markTimeout[i]--;
+//				}
+//				else
+//					pair = DEFAULT_PLAYER1_PAIR;
+//			}
             x[0] = map[i];
             x[1] = map[i + 1];
 			attron(COLOR_PAIR(pair));
@@ -134,21 +125,21 @@ size_t    innerCycle(unsigned char map[], unsigned char x[], size_t len, t_proce
 			x[1] = map[i + 1];
 			if (markProc[i] == 1)
 			{
-				attron(COLOR_PAIR(MARK_PROCESS_PAIR));
+				attron(COLOR_PAIR(MARK_PROCESS4_PAIR));
 				mvwprintw(stdscr, n + 2, q + 3, (char*)x);
-				attroff(COLOR_PAIR(MARK_PROCESS_PAIR));
+				attroff(COLOR_PAIR(MARK_PROCESS4_PAIR));
 			}
 			else if (markProc[i] == 2)
 			{
-				attron(COLOR_PAIR(SEEK_BITCH));
+				attron(COLOR_PAIR(MARK_PROCESS2_PAIR));
 				mvwprintw(stdscr, n + 2, q + 3, (char*)x);
-				attroff(COLOR_PAIR(SEEK_BITCH));
+				attroff(COLOR_PAIR(MARK_PROCESS2_PAIR));
 			}
 			else if (markProc[i] == 3)
 			{
-				attron(COLOR_PAIR(SEEK_YELLOW_BITCH));
+				attron(COLOR_PAIR(MARK_PROCESS3_PAIR));
 				mvwprintw(stdscr, n + 2, q + 3, (char*)x);
-				attroff(COLOR_PAIR(SEEK_YELLOW_BITCH));
+				attroff(COLOR_PAIR(MARK_PROCESS3_PAIR));
 			}
 			q += 3;
 			i += 2;
