@@ -95,14 +95,60 @@ void    case123(unsigned int buff, char **str, ssize_t n)
     free(dump);
 }
 
-void    getTotal(int fd, char **total, t_vizData *vizData)
+int     getCount(t_player *players)
+{
+    int count;
+
+    count = 0;
+    while (players)
+    {
+        ++count;
+        players = players->next;
+    }
+    return (count);
+}
+
+int     setStart(int count, int idx)
+{
+    if (count == 1 || idx == 1)
+		return (0);
+	if (count == 2)
+		return (MEM_SIZE);
+	else if (count == 3)
+	{
+		if (idx == 2)
+			return ((MEM_SIZE * 2) / 3);
+		else
+			return (((MEM_SIZE * 2) / 3) * 2);
+	}
+	else
+	{
+		if (idx == 2)
+			return ((MEM_SIZE * 2) / 4);
+		else if (idx == 3)
+			return (((MEM_SIZE * 2) / 4) * 2);
+		else if (idx == 4)
+			return (((MEM_SIZE * 2) / 4) * 3);
+	}
+}
+
+void    getTotal(t_player *players, char **total, t_vizData *vizData, int c)
 {
     ssize_t         n;
     unsigned int    buff;
     char            *str;
+    int             count;
 
+    count = getCount(players);
+    n = 0;
+    while (n < c)
+    {
+        players = players->next;
+        ++n;
+    }
     *total = ft_strnew(0);
-    while ((n = read(fd, &buff, sizeof(int))))
+    n = 0;
+    while ((n = read(players->fd, &buff, sizeof(int))))
     {
         buff = ((buff & 0x000000FF) << 24) | ((buff & 0x0000FF00) << 8) |
                ((buff & 0x00FF0000) >>  8) | ((buff & 0xFF000000) >> 24);
@@ -116,18 +162,12 @@ void    getTotal(int fd, char **total, t_vizData *vizData)
         *total = ft_arrg_join(*total, str);
         buff = 0;
     }
-    n = 0;
+    n = setStart(count, c);
     while (n < ft_strlen(*total))
     {
-        vizData->vizData[n] = 1;
+        vizData->vizData[n] = c;
         vizData->markTimeout[n] = 0;
         n++;
     }
 //    printf("here\n");
-    while (n < MEM_SIZE * 2)
-    {
-        vizData->vizData[n] = 0;
-        vizData->markTimeout[n] = 0;
-        n++;
-    }
 }

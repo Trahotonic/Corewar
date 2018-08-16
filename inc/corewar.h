@@ -126,15 +126,24 @@ typedef struct  	s_process
 
 }     				t_process;
 
-typedef struct		s_player
+typedef struct  s_argFlags
 {
-	int 			playerNumber;
-	int 			lastAlive;
-	int 			liveCount;
-	header_t		header;
-	size_t 			len;
-	struct s_player	*next;
-}					t_player;
+	long long  d;
+	int    v;
+	long long  vi;
+}     t_argFlags;
+
+typedef struct  s_player
+{
+	int    playerNumber;
+	int    lastAlive;
+	int    liveCount;
+	header_t  header;
+	size_t    len;
+	struct s_player *next;
+	int    num;
+	int    fd;
+}     t_player;
 
 
 typedef struct  s_vizData
@@ -152,7 +161,7 @@ typedef struct  functions_s
 }     functions_t;
 
 void	doNull(t_process *processor);
-void    initMap(unsigned char map[], char **total, header_t *header, char **argv, t_vizData *vizData);
+void    initMap(unsigned char map[], t_vizData *vizData, t_player *players);
 void	initProcesses(t_process **processes);
 int 	ft_iswhitespace(char const c);
 int 	base(int c, int base);
@@ -163,7 +172,7 @@ char 	*ft_convert_2(int tmp, int base);
 char	*ft_arrg_join(char *s1, char *s2);
 char	*ft_uitoa_base2(unsigned int value, int base);
 void	convert(char **str);
-void    getTotal(int fd, char **total, t_vizData *vizData);
+void    getTotal(t_player *players, char **total, t_vizData *vizData, int n);
 void    initVis(void);
 void    visualize(unsigned char map[], size_t len, t_process *proc, t_vizData *vizData);
 void  	live(t_process *processor, unsigned char *map, int i, t_player *pl, t_vizData *vizData);

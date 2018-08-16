@@ -4,25 +4,40 @@
 
 #include "../inc/corewar.h"
 
-void    initMap(unsigned char map[], char **total, header_t *header, char **argv, t_vizData *vizData)
+void    initMap(unsigned char map[], t_vizData *vizData, t_player *players)
 {
-	int     n;
-	int     fd;
-	char    *work;
+	int         n;
+	int         fd;
+	int			count;
+	char        *total;
+	t_player	*ptr;
+
 
 	n = 0;
 	while (n < MEM_SIZE * 2)
-		map[n++] = '0';
-	fd = open(argv[1], O_RDONLY);
-	read(fd, header, sizeof(header_t));
-	getTotal(fd, total, vizData);
-	n = 0;
-	work = *total;
-	while (work[n] != '\0')
 	{
-		map[n] = work[n];
-		n++;
+		vizData->markTimeout[n] = 0;
+		vizData->vizData[n] = 0;
+		map[n++] = '0';
 	}
+	n = 1;
+	while (players)
+	{
+		read(players->fd, &players->header, sizeof(header_t));
+		getTotal(players, &total, vizData, n);
+		players = players->next;
+		++n;
+	}
+//	fd = open(argv[1], O_RDONLY);
+//	read(fd, header, sizeof(header_t));
+//	getTotal(fd, total, vizData);
+	n = 0;
+//	work = total;
+//	while (work[n] != '\0')
+//	{
+//		map[n] = work[n];
+//		n++;
+//	}
 	close(fd);
 }
 
