@@ -73,7 +73,7 @@ void 	fillMap(char *total, int count, int idx, unsigned char map[])
 			n = (MEM_SIZE * 2) / 3;
 		else
 			n = ((MEM_SIZE * 2) / 3) * 2;
-		while (total[n] != '\0')
+		while (total[m] != '\0')
 		{
 			map[n] = total[m];
 			n++;
@@ -88,7 +88,7 @@ void 	fillMap(char *total, int count, int idx, unsigned char map[])
 			n = ((MEM_SIZE * 2) / 4) * 2;
 		else
 			n = ((MEM_SIZE * 2) / 4) * 3;
-		while (total[n] != '\0')
+		while (total[m] != '\0')
 		{
 			map[n] = total[m];
 			n++;
