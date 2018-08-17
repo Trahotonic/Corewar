@@ -85,12 +85,14 @@ void    initMap(unsigned char map[], t_vizData *vizData, t_player *players)
 	}
 	count = getCount(players);
 	n = 1;
-	while (players)
+	ptr = players;
+	while (ptr)
 	{
-		read(players->fd, &players->header, sizeof(header_t));
+		read(ptr->fd, &ptr->header, sizeof(header_t));
 		getTotal(players, &total, vizData, n);
 		fillMap(total, count, n, map);
-		players = players->next;
+		ft_strdel(&total);
+		ptr = ptr->next;
 		++n;
 	}
 //	fd = open(argv[1], O_RDONLY);
@@ -106,34 +108,47 @@ void    initMap(unsigned char map[], t_vizData *vizData, t_player *players)
 	close(fd);
 }
 
-void	initProcesses(t_process **processes)
+void	initProcesses(t_process **processes, t_player *players)
 {
 	t_process	*tmp;
+	t_process	*ptr;
 	int 		n;
 
-	*processes = (t_process*)malloc(sizeof(t_process));
-	tmp = *processes;
-	tmp->cur_pos = 0;
-	tmp->prev_pos = 0;
-	tmp->carry = 0;
-	tmp->proc_num = 1;
-	tmp->pl_num = -1;
-	tmp->alive = 0;
-	tmp->iC = 0;
-	tmp->command[0] = '.';
-	tmp->command[1] = '.';
-	tmp->command[2] = '\0';
-	tmp->cycle_todo = 0;
-	tmp->iterator = 0;
-	tmp->fresh = 0;
-	n = 0;
-	while (n < 16)
-		tmp->reg[n++] = 0;
-	tmp->reg[0] = -1;
-	tmp->t_dir = 0;
-	tmp->invalidAgr = 0;
-	tmp->next = NULL;
-	tmp->prev = NULL;
+	while (players)
+	{
+		tmp = (t_process *)malloc(sizeof(t_process));
+		tmp->cur_pos = players->start;
+		tmp->carry = 0;
+		tmp->proc_num = 1;
+		tmp->pl_num = players->playerNumber;
+		tmp->pl_number = players->num;
+		tmp->alive = 0;
+		tmp->iC = 0;
+		tmp->command[0] = '.';
+		tmp->command[1] = '.';
+		tmp->command[2] = '\0';
+		tmp->cycle_todo = 0;
+		tmp->iterator = 0;
+		n = 0;
+		while (n < 16)
+			tmp->reg[n++] = 0;
+		tmp->reg[0] = -1;
+		tmp->t_dir = 0;
+		tmp->invalidAgr = 0;
+		tmp->next = NULL;
+		tmp->prev = NULL;
+		if (*processes == NULL)
+			*processes = tmp;
+		else
+		{
+			ptr = *processes;
+			while (ptr->next)
+				ptr = ptr->next;
+			ptr->next = tmp;
+		}
+		players = players->next;
+	}
+
 }
 
 void initfunc(functions_t func[]) // Обновленно (но чето выебуется впадло разбираться пошел домой) !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!

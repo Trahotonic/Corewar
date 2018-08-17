@@ -104,11 +104,11 @@ typedef struct		header_s
 typedef struct  	s_process
 {
 	int 				proc_num;
-	int                 prev_pos;
 	int    				cur_pos;
 	int 				codage;
 	int    				carry;
 	int    				pl_num;
+	int 				pl_number;
 	unsigned int		reg[REG_NUMBER];
 	int    				alive;
 	char   				command[3];
@@ -120,7 +120,6 @@ typedef struct  	s_process
 	int 				t_dir;
 	int 				iC;
 	int					invalidAgr;
-	int                 fresh;
 	struct s_process	*next;
 	struct s_process	*prev;
 
@@ -143,6 +142,7 @@ typedef struct  s_player
 	struct s_player *next;
 	int    num;
 	int    fd;
+	int 	start;
 }     t_player;
 
 
@@ -162,7 +162,7 @@ typedef struct  functions_s
 
 void	doNull(t_process *processor);
 void    initMap(unsigned char map[], t_vizData *vizData, t_player *players);
-void	initProcesses(t_process **processes);
+void	initProcesses(t_process **processes, t_player *players);
 int 	ft_iswhitespace(char const c);
 int 	base(int c, int base);
 int 	ft_atoi_base(const char *str, int str_base);

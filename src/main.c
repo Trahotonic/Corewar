@@ -1,4 +1,6 @@
 # include "./../inc/corewar.h"
+#include "../../../../Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/include/ncurses.h"
+#include "../../../../Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/include/curses.h"
 
 # define VIZ 0
 
@@ -376,6 +378,8 @@ void  ft_check_flag_n(t_player **players, char **argv, int *n, t_argFlags *flags
 	(*n)++;
 	if(argv[*n])
 	{
+		if(*argv[*n] == '-')
+			i++;
 		while(argv[*n][i])
 		{
 			if(!ft_isdigit(argv[*n][i]))
@@ -507,7 +511,8 @@ int     main(int argc, char **argv)
 	checkArguments(argc, argv, &flags, &players);
 	n = 0;
 	maxchecks = 1;
-	initProcesses(&processes);
+	processes = NULL;
+	initProcesses(&processes, players);
 	initMap(map, &vizData, players);
 	if (!flags->d && VIZ)
 		initVis();
@@ -570,7 +575,7 @@ int     main(int argc, char **argv)
 		{
 
 		}
-		int br = 10000;
+		int br = 1;
 		if (!flags->d && VIZ && i >= br - 100)
 		{
 			visualize(map, 1, processes, &vizData);

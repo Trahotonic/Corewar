@@ -156,6 +156,7 @@ void    getTotal(t_player *players, char **total, t_vizData *vizData, int c)
         buff = 0;
     }
     n = setStart(count, c);
+	players->start = n;
     while (n < ft_strlen(*total))
     {
         vizData->vizData[n] = c;

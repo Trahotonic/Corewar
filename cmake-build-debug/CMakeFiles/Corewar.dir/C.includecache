@@ -6,6 +6,42 @@
 
 #IncludeRegexTransform: 
 
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/include/curses.h
+ncurses_dll.h
+-
+stdio.h
+-
+unctrl.h
+-
+stdarg.h
+-
+stddef.h
+-
+stdbool.h
+-
+libutf8.h
+-
+wchar.h
+-
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/include/ncurses.h
+ncurses_dll.h
+-
+stdio.h
+-
+unctrl.h
+-
+stdarg.h
+-
+stddef.h
+-
+stdbool.h
+-
+libutf8.h
+-
+wchar.h
+-
+
 /Users/rkyslyy/corewar/inc/corewar.h
 stdio.h
 -
@@ -81,6 +117,10 @@ fcntl.h
 /Users/rkyslyy/corewar/src/main.c
 ./../inc/corewar.h
 /Users/rkyslyy/corewar/src/./../inc/corewar.h
+../../../../Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/include/ncurses.h
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/include/ncurses.h
+../../../../Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/include/curses.h
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/include/curses.h
 
 /Users/rkyslyy/corewar/src/read.c
 ../inc/corewar.h

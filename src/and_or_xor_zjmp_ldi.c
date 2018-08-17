@@ -37,7 +37,6 @@ void  and(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizD
 		processor->carry = 1;
 	else
 		processor->carry = 0;
-	processor->prev_pos = processor->cur_pos;
 	processor->cur_pos = (processor->iterator + processor->cur_pos) % 8192;
 	processor->iterator = 0;
 }
@@ -75,7 +74,6 @@ void  or(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizDa
 		processor->carry = 1;
 	else
 		processor->carry = 0;
-	processor->prev_pos = processor->cur_pos;
 	processor->cur_pos = (processor->iterator + processor->cur_pos) % 8192;
 	processor->iterator = 0;
 }
@@ -113,7 +111,6 @@ void  xor(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizD
 		processor->carry = 1;
 	else
 		processor->carry = 0;
-	processor->prev_pos = processor->cur_pos;
 	processor->cur_pos = (processor->iterator + processor->cur_pos) % 8192;
 	processor->iterator = 0;
 }
@@ -139,7 +136,6 @@ void	zjmp(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizD
 	if (i < 0)
 		i = MEM_SIZE * 2 + i;
 	i %= (MEM_SIZE * 2);
-	processor->prev_pos = processor->cur_pos;
 	processor->cur_pos = i;
 	processor->iterator = 0;
 }
@@ -211,7 +207,6 @@ void ldi(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizDa
 	}
 	processor->reg[ft_atoi_base(processor->arg3, 16) - 1] =
 			(unsigned int)ft_atoi_base(arg1, 16);
-	processor->prev_pos = processor->cur_pos;
 	processor->cur_pos = (processor->iterator + processor->cur_pos) % 8192;
 	processor->iterator = 0;
 	ft_strdel(&arg1);
