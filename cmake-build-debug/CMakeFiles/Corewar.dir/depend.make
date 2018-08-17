@@ -21,8 +21,6 @@ CMakeFiles/Corewar.dir/src/live_ld_st_add_sub.c.o: ../libft/./ft_printf/includes
 CMakeFiles/Corewar.dir/src/live_ld_st_add_sub.c.o: ../libft/libft.h
 CMakeFiles/Corewar.dir/src/live_ld_st_add_sub.c.o: ../src/live_ld_st_add_sub.c
 
-CMakeFiles/Corewar.dir/src/main.c.o: /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/include/curses.h
-CMakeFiles/Corewar.dir/src/main.c.o: /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/include/ncurses.h
 CMakeFiles/Corewar.dir/src/main.c.o: ../src/./../inc/corewar.h
 CMakeFiles/Corewar.dir/src/main.c.o: ../src/./../libft/./ft_printf/includes/prlib.h
 CMakeFiles/Corewar.dir/src/main.c.o: ../src/./../libft/libft.h

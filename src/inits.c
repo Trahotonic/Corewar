@@ -17,26 +17,54 @@ static int     getCount(t_player *players)
 	return (count);
 }
 
+static int     setStart(int count, int idx)
+{
+	if (count == 1 || idx == 1)
+		return (0);
+	if (count == 2)
+		return (MEM_SIZE);
+	else if (count == 3)
+	{
+		if (idx == 2)
+			return ((MEM_SIZE * 2) / 3);
+		else
+			return (((MEM_SIZE * 2) / 3) * 2);
+	}
+	else
+	{
+		if (idx == 2)
+			return ((MEM_SIZE * 2) / 4);
+		else if (idx == 3)
+			return (((MEM_SIZE * 2) / 4) * 2);
+		else
+			return (((MEM_SIZE * 2) / 4) * 3);
+	}
+}
+
 void 	fillMap(char *total, int count, int idx, unsigned char map[])
 {
 	int n;
+	int m;
 
+	m = 0;
 	if (count == 1 || idx == 1)
 	{
 		n = 0;
-		while (total[n] != '\0')
+		while (total[m] != '\0')
 		{
-			map[n] = total[n];
+			map[n] = total[m];
 			n++;
+			m++;
 		}
 	}
 	else if (count == 2)
 	{
 		n = MEM_SIZE;
-		while (total[n] != '\0')
+		while (total[m] != '\0')
 		{
-			map[n] = total[n];
+			map[n] = total[m];
 			n++;
+			m++;
 		}
 	}
 	else if (count == 3)
@@ -47,8 +75,9 @@ void 	fillMap(char *total, int count, int idx, unsigned char map[])
 			n = ((MEM_SIZE * 2) / 3) * 2;
 		while (total[n] != '\0')
 		{
-			map[n] = total[n];
+			map[n] = total[m];
 			n++;
+			m++;
 		}
 	}
 	else
@@ -61,8 +90,9 @@ void 	fillMap(char *total, int count, int idx, unsigned char map[])
 			n = ((MEM_SIZE * 2) / 4) * 3;
 		while (total[n] != '\0')
 		{
-			map[n] = total[n];
+			map[n] = total[m];
 			n++;
+			m++;
 		}
 	}
 }
@@ -70,7 +100,6 @@ void 	fillMap(char *total, int count, int idx, unsigned char map[])
 void    initMap(unsigned char map[], t_vizData *vizData, t_player *players)
 {
 	int         n;
-	int         fd;
 	int			count;
 	char        *total;
 	t_player	*ptr;
@@ -105,19 +134,23 @@ void    initMap(unsigned char map[], t_vizData *vizData, t_player *players)
 //		map[n] = work[n];
 //		n++;
 //	}
-	close(fd);
 }
+
 
 void	initProcesses(t_process **processes, t_player *players)
 {
 	t_process	*tmp;
 	t_process	*ptr;
 	int 		n;
+	int 		idx;
+	int 		count;
 
+	idx = 1;
+	count = getCount(players);
 	while (players)
 	{
 		tmp = (t_process *)malloc(sizeof(t_process));
-		tmp->cur_pos = players->start;
+		tmp->cur_pos = setStart(count, idx);
 		tmp->carry = 0;
 		tmp->proc_num = 1;
 		tmp->pl_num = players->playerNumber;
@@ -132,7 +165,7 @@ void	initProcesses(t_process **processes, t_player *players)
 		n = 0;
 		while (n < 16)
 			tmp->reg[n++] = 0;
-		tmp->reg[0] = -1;
+		tmp->reg[0] = players->playerNumber;
 		tmp->t_dir = 0;
 		tmp->invalidAgr = 0;
 		tmp->next = NULL;
@@ -141,11 +174,15 @@ void	initProcesses(t_process **processes, t_player *players)
 			*processes = tmp;
 		else
 		{
-			ptr = *processes;
-			while (ptr->next)
-				ptr = ptr->next;
-			ptr->next = tmp;
+			tmp->next = *processes;
+			(*processes)->prev = tmp;
+			*processes = tmp;
+//			ptr = *processes;
+//			while (ptr->next)
+//				ptr = ptr->next;
+//			ptr->next = tmp;
 		}
+		++idx;
 		players = players->next;
 	}
 

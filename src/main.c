@@ -1,8 +1,6 @@
 # include "./../inc/corewar.h"
-#include "../../../../Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/include/ncurses.h"
-#include "../../../../Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/include/curses.h"
 
-# define VIZ 0
+# define VIZ 1
 
 void	dump(unsigned char map[])
 {
@@ -402,13 +400,14 @@ void  ft_check_flag_n(t_player **players, char **argv, int *n, t_argFlags *flags
 		}
 		else
 		{
+			i++;
 			while (tmp->next)
 			{
 				tmp = tmp->next;
 				i++;
 			}
 			tmp->next = ft_player_create(argv[*n + 1], i);
-			tmp->playerNumber = ft_atoi(argv[*n]);
+			tmp->next->playerNumber = ft_atoi(argv[*n]);
 		}
 		(*n)++;
 	}
@@ -571,11 +570,18 @@ int     main(int argc, char **argv)
 			ft_printf("GAME OVER on cycle %d\ncycle to die = %d\nprocesses: %d\n", i, cycleToDie, counter(processes));
 			return 0;
 		}
-		if (i == 30)
+		if (i == 49)
 		{
 
 		}
 		int br = 1;
+//		if (i >= 50)
+//		{
+//			for (int j = 0; j < MEM_SIZE * 2; ++j) {
+//				printf("%d", vizData.vizData[j]);
+//			}
+//			return 0;
+//		}
 		if (!flags->d && VIZ && i >= br - 100)
 		{
 			visualize(map, 1, processes, &vizData);

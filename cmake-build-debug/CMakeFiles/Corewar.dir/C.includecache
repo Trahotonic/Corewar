@@ -6,51 +6,15 @@
 
 #IncludeRegexTransform: 
 
-/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/include/curses.h
-ncurses_dll.h
--
-stdio.h
--
-unctrl.h
--
-stdarg.h
--
-stddef.h
--
-stdbool.h
--
-libutf8.h
--
-wchar.h
--
-
-/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/include/ncurses.h
-ncurses_dll.h
--
-stdio.h
--
-unctrl.h
--
-stdarg.h
--
-stddef.h
--
-stdbool.h
--
-libutf8.h
--
-wchar.h
--
-
-/Users/rkyslyy/corewar/inc/corewar.h
+/Users/rkyslyy/CLionProjects/corewar/inc/corewar.h
 stdio.h
 -
 ncurses.h
 -
 ../libft/libft.h
-/Users/rkyslyy/corewar/libft/libft.h
+/Users/rkyslyy/CLionProjects/corewar/libft/libft.h
 
-/Users/rkyslyy/corewar/libft/./ft_printf/includes/prlib.h
+/Users/rkyslyy/CLionProjects/corewar/libft/./ft_printf/includes/prlib.h
 stdarg.h
 -
 unistd.h
@@ -58,7 +22,7 @@ unistd.h
 stdlib.h
 -
 
-/Users/rkyslyy/corewar/libft/libft.h
+/Users/rkyslyy/CLionProjects/corewar/libft/libft.h
 stdlib.h
 -
 unistd.h
@@ -68,17 +32,17 @@ string.h
 fcntl.h
 -
 ./ft_printf/includes/prlib.h
-/Users/rkyslyy/corewar/libft/./ft_printf/includes/prlib.h
+/Users/rkyslyy/CLionProjects/corewar/libft/./ft_printf/includes/prlib.h
 
-/Users/rkyslyy/corewar/src/./../inc/corewar.h
+/Users/rkyslyy/CLionProjects/corewar/src/./../inc/corewar.h
 stdio.h
 -
 ncurses.h
 -
 ../libft/libft.h
-/Users/rkyslyy/corewar/src/./../libft/libft.h
+/Users/rkyslyy/CLionProjects/corewar/src/./../libft/libft.h
 
-/Users/rkyslyy/corewar/src/./../libft/./ft_printf/includes/prlib.h
+/Users/rkyslyy/CLionProjects/corewar/src/./../libft/./ft_printf/includes/prlib.h
 stdarg.h
 -
 unistd.h
@@ -86,7 +50,7 @@ unistd.h
 stdlib.h
 -
 
-/Users/rkyslyy/corewar/src/./../libft/libft.h
+/Users/rkyslyy/CLionProjects/corewar/src/./../libft/libft.h
 stdlib.h
 -
 unistd.h
@@ -96,45 +60,41 @@ string.h
 fcntl.h
 -
 ./ft_printf/includes/prlib.h
-/Users/rkyslyy/corewar/src/./../libft/./ft_printf/includes/prlib.h
+/Users/rkyslyy/CLionProjects/corewar/src/./../libft/./ft_printf/includes/prlib.h
 
-/Users/rkyslyy/corewar/src/and_or_xor_zjmp_ldi.c
+/Users/rkyslyy/CLionProjects/corewar/src/and_or_xor_zjmp_ldi.c
 ../inc/corewar.h
-/Users/rkyslyy/corewar/inc/corewar.h
+/Users/rkyslyy/CLionProjects/corewar/inc/corewar.h
 
-/Users/rkyslyy/corewar/src/converts.c
+/Users/rkyslyy/CLionProjects/corewar/src/converts.c
 ../inc/corewar.h
-/Users/rkyslyy/corewar/inc/corewar.h
+/Users/rkyslyy/CLionProjects/corewar/inc/corewar.h
 
-/Users/rkyslyy/corewar/src/inits.c
+/Users/rkyslyy/CLionProjects/corewar/src/inits.c
 ../inc/corewar.h
-/Users/rkyslyy/corewar/inc/corewar.h
+/Users/rkyslyy/CLionProjects/corewar/inc/corewar.h
 
-/Users/rkyslyy/corewar/src/live_ld_st_add_sub.c
+/Users/rkyslyy/CLionProjects/corewar/src/live_ld_st_add_sub.c
 ../inc/corewar.h
-/Users/rkyslyy/corewar/inc/corewar.h
+/Users/rkyslyy/CLionProjects/corewar/inc/corewar.h
 
-/Users/rkyslyy/corewar/src/main.c
+/Users/rkyslyy/CLionProjects/corewar/src/main.c
 ./../inc/corewar.h
-/Users/rkyslyy/corewar/src/./../inc/corewar.h
-../../../../Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/include/ncurses.h
-/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/include/ncurses.h
-../../../../Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/include/curses.h
-/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/include/curses.h
+/Users/rkyslyy/CLionProjects/corewar/src/./../inc/corewar.h
 
-/Users/rkyslyy/corewar/src/read.c
+/Users/rkyslyy/CLionProjects/corewar/src/read.c
 ../inc/corewar.h
-/Users/rkyslyy/corewar/inc/corewar.h
+/Users/rkyslyy/CLionProjects/corewar/inc/corewar.h
 
-/Users/rkyslyy/corewar/src/read2.c
+/Users/rkyslyy/CLionProjects/corewar/src/read2.c
 ../inc/corewar.h
-/Users/rkyslyy/corewar/inc/corewar.h
+/Users/rkyslyy/CLionProjects/corewar/inc/corewar.h
 
-/Users/rkyslyy/corewar/src/sti_fork_lld_lldi_lfork.c
+/Users/rkyslyy/CLionProjects/corewar/src/sti_fork_lld_lldi_lfork.c
 ../inc/corewar.h
-/Users/rkyslyy/corewar/inc/corewar.h
+/Users/rkyslyy/CLionProjects/corewar/inc/corewar.h
 
-/Users/rkyslyy/corewar/src/vizualize.c
+/Users/rkyslyy/CLionProjects/corewar/src/vizualize.c
 ../inc/corewar.h
-/Users/rkyslyy/corewar/inc/corewar.h
+/Users/rkyslyy/CLionProjects/corewar/inc/corewar.h
 

@@ -108,7 +108,7 @@ static int     getCount(t_player *players)
     return (count);
 }
 
-int     setStart(int count, int idx)
+static int     setStart(int count, int idx)
 {
     if (count == 1 || idx == 1)
 		return (0);
@@ -138,8 +138,16 @@ void    getTotal(t_player *players, char **total, t_vizData *vizData, int c)
     unsigned int    buff;
     char            *str;
     int             count;
+	int 			q;
 
-    count = getCount(players);
+	count = getCount(players);
+	q = 1;
+	while (q < c)
+	{
+		++q;
+		players = players->next;
+	}
+	players->start = setStart(count, c);
     *total = ft_strnew(0);
     while ((n = read(players->fd, &buff, sizeof(int))))
     {
@@ -155,13 +163,12 @@ void    getTotal(t_player *players, char **total, t_vizData *vizData, int c)
         *total = ft_arrg_join(*total, str);
         buff = 0;
     }
-    n = setStart(count, c);
-	players->start = n;
-    while (n < ft_strlen(*total))
+	q = 0;
+    while (q < ft_strlen(*total))
     {
-        vizData->vizData[n] = c;
-        vizData->markTimeout[n] = 0;
-        n++;
+        vizData->vizData[players->start + q] = c;
+        vizData->markTimeout[players->start + q] = 0;
+        ++q;
     }
 //    printf("here\n");
 }
