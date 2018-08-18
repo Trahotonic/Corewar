@@ -124,16 +124,7 @@ void    initMap(unsigned char map[], t_vizData *vizData, t_player *players)
 		ptr = ptr->next;
 		++n;
 	}
-//	fd = open(argv[1], O_RDONLY);
-//	read(fd, header, sizeof(header_t));
-//	getTotal(fd, total, vizData);
-	n = 0;
-//	work = total;
-//	while (work[n] != '\0')
-//	{
-//		map[n] = work[n];
-//		n++;
-//	}
+	vizData->space = false;
 }
 
 

@@ -39,4 +39,5 @@ void	initPairs(void)
 	init_pair(NEW_PLAYER4_CODE_PAIR, LIGHT_BLUE, COLOR_BLACK);
 	init_pair(SEEK_BITCH, COLOR_BLACK, RED_FALCON);
 	init_pair(SEEK_YELLOW_BITCH, COLOR_BLACK, PISS);
+	init_pair(BORDER, COLOR_BLACK, GREY);
 }

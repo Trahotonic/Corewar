@@ -49,12 +49,6 @@ void	runProcesses(t_process **processes, unsigned char map[], functions_t array[
 
 	}
 	go = *processes;
-	while (go)
-	{
-
-		go = go->next;
-	}
-	go = *processes;
 	while (go->next)
 		go = go->next;
 	n = 0;
@@ -519,6 +513,7 @@ int     main(int argc, char **argv)
 	t_player    *p;
 	cycleToDie = CYCLE_TO_DIE;
 	i = 0;
+	c = 0;
 	while (1)
 	{
 		if (n == cycleToDie && check21(players))
@@ -570,8 +565,8 @@ int     main(int argc, char **argv)
 			ft_printf("GAME OVER on cycle %d\ncycle to die = %d\nprocesses: %d\n", i, cycleToDie, counter(processes));
 			return 0;
 		}
-		int br = 1;
-		if (!flags->d && VIZ && i >= br - 100)
+		int br = 1000;
+		if (!flags->d && VIZ)
 		{
 			visualize(map, processes, &vizData);
 			mvwprintw(stdscr, 0, 196, "%d", i);
@@ -583,10 +578,30 @@ int     main(int argc, char **argv)
 			mvwprintw(stdscr, 5, 196, "max checks: %d", maxchecks);
 			mvwprintw(stdscr, 6, 196, "                   ");
 			mvwprintw(stdscr, 6, 196, "cycle to die: %d", cycleToDie);
-			if (i >= br)
+			if (!vizData.space)
+			{
+				while (c != 113 && c != 115 && c != 32)
+					c = getch();
+				if (c == 113)
+					break ;
+				else if (c == 115)
+					nodelay(stdscr, false);
+				else
+					vizData.space = true;
+			}
+			else
+			{
+				nodelay(stdscr, true);
 				c = getch();
-			if (c == 113)
-				break ;
+				if (c == 113)
+					break ;
+				else if (c == 32)
+				{
+					vizData.space = false;
+					nodelay(stdscr, false);
+				}
+			}
+			c = 0;
 		}
 		runProcesses(&processes, map, array, i, players, &vizData);
 		i++;

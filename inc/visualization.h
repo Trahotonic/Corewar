@@ -23,6 +23,7 @@
 # define MARK_PROCESS2_PAIR 13
 # define MARK_PROCESS3_PAIR 14
 # define MARK_PROCESS4_PAIR 15
+# define BORDER 16
 
 # define LIGHT_GREEN 1
 # define GREY 2
