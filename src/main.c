@@ -570,21 +570,10 @@ int     main(int argc, char **argv)
 			ft_printf("GAME OVER on cycle %d\ncycle to die = %d\nprocesses: %d\n", i, cycleToDie, counter(processes));
 			return 0;
 		}
-		if (i == 49)
-		{
-
-		}
 		int br = 1;
-//		if (i >= 50)
-//		{
-//			for (int j = 0; j < MEM_SIZE * 2; ++j) {
-//				printf("%d", vizData.vizData[j]);
-//			}
-//			return 0;
-//		}
 		if (!flags->d && VIZ && i >= br - 100)
 		{
-			visualize(map, 1, processes, &vizData);
+			visualize(map, processes, &vizData);
 			mvwprintw(stdscr, 0, 196, "%d", i);
 			mvwprintw(stdscr, 3, 196, "                       ");
 			mvwprintw(stdscr, 3, 196, "live count: %d", players->liveCount);

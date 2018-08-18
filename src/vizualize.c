@@ -27,6 +27,21 @@ int 	getProcesses(t_process *proc)
 	return (n);
 }
 
+int		markCore(unsigned char x[], int i, unsigned char map[],
+		unsigned char mP[])
+{
+	x[0] = map[i];
+	x[1] = map[i + 1];
+	if (mP[i] == 1)
+		return (MARK_PROCESS1_PAIR);
+	else if (mP[i] == 2)
+		return (MARK_PROCESS2_PAIR);
+	else if (mP[i] == 3)
+		return (MARK_PROCESS3_PAIR);
+	else
+		return (MARK_PROCESS4_PAIR);
+}
+
 void	markProcesses(t_visIter iters, unsigned char map[], unsigned char mP[])
 {
 	unsigned char x[3];
@@ -40,16 +55,7 @@ void	markProcesses(t_visIter iters, unsigned char map[], unsigned char mP[])
 		iters.q = 0;
 		while (iters.m < 64)
 		{
-			x[0] = map[iters.i];
-			x[1] = map[iters.i + 1];
-			if (mP[iters.i] == 1)
-				iters.pair = MARK_PROCESS1_PAIR;
-			else if (mP[iters.i] == 2)
-				iters.pair = MARK_PROCESS2_PAIR;
-			else if (mP[iters.i] == 3)
-				iters.pair = MARK_PROCESS3_PAIR;
-			else if (mP[iters.i] == 4)
-				iters.pair = MARK_PROCESS4_PAIR;
+			iters.pair = markCore(x, iters.i, map, mP);
 			if (mP[iters.i])
 			{
 				attron(COLOR_PAIR(iters.pair));
@@ -64,12 +70,37 @@ void	markProcesses(t_visIter iters, unsigned char map[], unsigned char mP[])
 	}
 }
 
-void    innerCycle(unsigned char map[], unsigned char x[], size_t len, t_process *proc, t_vizData *vizData)
+void	pickPlayerPair(int idx, unsigned char markTimeout[], int *pair, int val)
 {
+	int defaultPairs[4];
+	int newCodePairs[4];
+
+	defaultPairs[0] = DEFAULT_PLAYER1_PAIR;
+	defaultPairs[1] = DEFAULT_PLAYER2_PAIR;
+	defaultPairs[2] = DEFAULT_PLAYER3_PAIR;
+	defaultPairs[3] = DEFAULT_PLAYER4_PAIR;
+	newCodePairs[0] = NEW_PLAYER1_CODE_PAIR;
+	newCodePairs[1] = NEW_PLAYER2_CODE_PAIR;
+	newCodePairs[2] = NEW_PLAYER3_CODE_PAIR;
+	newCodePairs[3] = NEW_PLAYER4_CODE_PAIR;
+	if (markTimeout[idx] > 0)
+	{
+		*pair = newCodePairs[val - 1];
+		--markTimeout[idx];
+	}
+	else
+		*pair = defaultPairs[val - 1];
+}
+
+void    innerCycle(unsigned char map[], t_process *proc, t_vizData *vizData)
+{
+	unsigned char   x[3];
+
     t_visIter	iters;
 	t_process	*ptr;
 	unsigned char   markProc[MEM_SIZE * 2];
 
+	x[2] = '\0';
     iters.n = 0;
 	iters.i = 0;
 	while (iters.n < MEM_SIZE * 2)
@@ -89,46 +120,9 @@ void    innerCycle(unsigned char map[], unsigned char x[], size_t len, t_process
         while (iters.m < 64)
         {
 			iters.pair = DEFAULT_COLOR_PAIR;
-			if (vizData->vizData[iters.i] == 1)
-			{
-				if (vizData->markTimeout[iters.i] > 0)
-				{
-					iters.pair = NEW_PLAYER1_CODE_PAIR;
-					vizData->markTimeout[iters.i]--;
-				}
-				else
-					iters.pair = DEFAULT_PLAYER1_PAIR;
-			}
-			else if (vizData->vizData[iters.i] == 2)
-			{
-				if (vizData->markTimeout[iters.i] > 0)
-				{
-					iters.pair = NEW_PLAYER2_CODE_PAIR;
-					vizData->markTimeout[iters.i]--;
-				}
-				else
-					iters.pair = DEFAULT_PLAYER2_PAIR;
-			}
-			else if (vizData->vizData[iters.i] == 3)
-			{
-				if (vizData->markTimeout[iters.i] > 0)
-				{
-					iters.pair = NEW_PLAYER3_CODE_PAIR;
-					vizData->markTimeout[iters.i]--;
-				}
-				else
-					iters.pair = DEFAULT_PLAYER3_PAIR;
-			}
-			else if (vizData->vizData[iters.i] == 4)
-			{
-				if (vizData->markTimeout[iters.i] > 0)
-				{
-					iters.pair = NEW_PLAYER4_CODE_PAIR;
-					vizData->markTimeout[iters.i]--;
-				}
-				else
-					iters.pair = DEFAULT_PLAYER4_PAIR;
-			}
+			if (vizData->vizData[iters.i])
+				pickPlayerPair(iters.i, vizData->markTimeout,
+						&iters.pair, vizData->vizData[iters.i]);
             x[0] = map[iters.i];
             x[1] = map[iters.i + 1];
 			attron(COLOR_PAIR(iters.pair));
@@ -143,12 +137,9 @@ void    innerCycle(unsigned char map[], unsigned char x[], size_t len, t_process
     markProcesses(iters, map, markProc);
 }
 
-void    visualize(unsigned char map[], size_t len, t_process *proc, t_vizData *vizData)
+void    visualize(unsigned char map[], t_process *proc, t_vizData *vizData)
 {
-    unsigned char   x[3];
-
-	x[2] = '\0';
-	innerCycle(map, x, len, proc, vizData);
+	innerCycle(map, proc, vizData);
 	mvwprintw(stdscr, 2, 196, "                  ");
 	mvwprintw(stdscr, 2, 196, "processes: %d", getProcesses(proc));
 	refresh();

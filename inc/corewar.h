@@ -143,7 +143,7 @@ char	*ft_uitoa_base2(unsigned int value, int base);
 void	convert(char **str);
 void    getTotal(t_player *players, char **total, t_vizData *vizData, int n);
 void    initVis(void);
-void    visualize(unsigned char map[], size_t len, t_process *proc, t_vizData *vizData);
+void    visualize(unsigned char map[], t_process *proc, t_vizData *vizData);
 void  	live(t_process *processor, unsigned char *map, int i, t_player *pl, t_vizData *vizData);
 void  	ld(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizData *vizData);
 void	st(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizData *vizData);
