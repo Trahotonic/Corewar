@@ -339,6 +339,33 @@ src/sti_fork_lld_lldi_lfork.c.s:
 	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/sti_fork_lld_lldi_lfork.c.s
 .PHONY : src/sti_fork_lld_lldi_lfork.c.s
 
+src/visMethods.o: src/visMethods.c.o
+
+.PHONY : src/visMethods.o
+
+# target to build an object file
+src/visMethods.c.o:
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/visMethods.c.o
+.PHONY : src/visMethods.c.o
+
+src/visMethods.i: src/visMethods.c.i
+
+.PHONY : src/visMethods.i
+
+# target to preprocess a source file
+src/visMethods.c.i:
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/visMethods.c.i
+.PHONY : src/visMethods.c.i
+
+src/visMethods.s: src/visMethods.c.s
+
+.PHONY : src/visMethods.s
+
+# target to generate assembly for a file
+src/visMethods.c.s:
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/visMethods.c.s
+.PHONY : src/visMethods.c.s
+
 src/vizualize.o: src/vizualize.c.o
 
 .PHONY : src/vizualize.o
@@ -399,6 +426,9 @@ help:
 	@echo "... src/sti_fork_lld_lldi_lfork.o"
 	@echo "... src/sti_fork_lld_lldi_lfork.i"
 	@echo "... src/sti_fork_lld_lldi_lfork.s"
+	@echo "... src/visMethods.o"
+	@echo "... src/visMethods.i"
+	@echo "... src/visMethods.s"
 	@echo "... src/vizualize.o"
 	@echo "... src/vizualize.i"
 	@echo "... src/vizualize.s"
