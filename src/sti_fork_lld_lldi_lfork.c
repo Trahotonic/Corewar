@@ -310,7 +310,7 @@ void fork_c(t_process **process, t_process *pro)
 		return ;
 	}
 	tmp = node_create(pro);
-	tmp->cur_pos = (((short)(ft_atoi_base(pro->arg1, 16)) % IDX_MOD) * 2 + pro->cur_pos) % (MEM_SIZE * 2);
+	tmp->cur_pos = (((short)(ft_atoi_base(pro->arg1, 16)) % IDX_MOD) * 2 +pro->cur_pos) % (MEM_SIZE * 2);
 	if (tmp->cur_pos < 0)
 		tmp->cur_pos = (MEM_SIZE * 2 + tmp->cur_pos) % 8192;
 	doNull(tmp);

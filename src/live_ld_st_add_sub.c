@@ -4,7 +4,7 @@
 
 #include "../inc/corewar.h"
 
-void  live(t_process *processor,int i, t_player *pl)// Обновленно (но надо менять ) !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+void  live(t_process *processor,int i, t_player *pl)
 {
 	char *tmp;
 	t_player *tmppl;
@@ -32,7 +32,7 @@ void  live(t_process *processor,int i, t_player *pl)// Обновленно (н�
 	processor->iterator = 0;
 }
 
-void		ld(t_process *processor, unsigned char *map) // Обновленно !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+void		ld(t_process *processor, unsigned char *map)
 {
 	int		n;
 	char	*arg1;
@@ -75,7 +75,7 @@ void		ld(t_process *processor, unsigned char *map) // Обновленно !!!!!
 	processor->iterator = 0;
 }
 
-void	st(t_process *processor, unsigned char *map, t_vizData *vizData) // Обновленно !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+void	st(t_process *processor, unsigned char *map, t_vizData *vizData)
 {
 	int		n;
 	char	*tmp;

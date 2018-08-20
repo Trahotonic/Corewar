@@ -51,38 +51,6 @@ int ft_atoi_base(const char *str, int str_base)
 	return (nb);
 }
 
-int ft_bto_i(char *bin)
-{
-	int plus;
-	int ret;
-
-	ret = 0;
-	plus = 124;
-	while (plus >= 1)
-	{
-		if (*bin == '1')
-			ret += plus;
-		plus /= 2;
-		bin++;
-	}
-	return (ret);
-}
-
-char *ft_convert_2(int tmp, int base)
-{
-	char *str;
-
-	str = ft_strnew(base);
-	base -= 1;
-	while (base + 1)
-	{
-		str[base] = tmp % 2 + 48;
-		tmp /= 2;
-		base--;
-	}
-	return (str);
-}
-
 int 	saver(int tmp, int base, int plus)
 {
 	char *str;

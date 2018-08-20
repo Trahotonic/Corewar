@@ -108,13 +108,13 @@ void	runProcesses(t_process **processes, unsigned char map[], functions_t array[
 			else if (go->com2 == 11)
 				sti(go, map, vizData);
 			else if (go->com2 == 12)
-				fork_c(processes);
+				fork_c(processes, go);
 			else if (go->com2 == 13)
 				lld(go, map);
 			else if (go->com2 == 14)
 				lldi(go, map);
 			else if (go->com2 == 15)
-				lfork(processes);
+				lfork(processes, go);
 			else if (go->com2 == 16)
 				aff(go, map);
 			go->com2 = 0;
@@ -183,8 +183,6 @@ void    superkill(t_process ** processes, int i, t_player *player)
 			}
 			continue ;
 		}
-		if (!ptr)
-			break ;
 		ptr = ptr->next;
 	}
 }
@@ -192,11 +190,14 @@ void    superkill(t_process ** processes, int i, t_player *player)
 int 	check21(t_player *players)
 {
 	t_player    *ptr;
+	int k;
 
+	k = 0;
 	ptr = players;
 	while (players)
 	{
-		if (players->liveCount >= NBR_LIVE)
+		k += players->liveCount;
+		if (k >= NBR_LIVE)
 		{
 			players->liveCount = 0;
 			while (ptr)
@@ -225,7 +226,6 @@ t_player *ft_player_create(char *champ, int num)
 	}
 	tmp->next = NULL;
 	tmp->lastAlive = 0;
-	tmp->len = 0;
 	tmp->liveCount = 0;
 	tmp->playerNumber = 0;
 
@@ -430,8 +430,6 @@ void checkArguments(int argc, char **argv, t_argFlags **flags, t_player **player
 
 int     main(int argc, char **argv)
 {
-	header_t        header;
-	char            *total;
 	unsigned char   map[MEM_SIZE * 2];
 	t_process  *processes;
 	int    i;
