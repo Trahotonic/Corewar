@@ -19,32 +19,32 @@ void	doNull(t_process *processor)
 	}
 }
 
-void	readLittleShit(unsigned char map[], char arg1[], char tmp[], t_process *processor, int arg)
+void	readLittleShit(unsigned char map[], char arg1[], int tmp, t_process *processor, int arg)
 {
 	int n;
 
 	n = 0;
-	if (ft_strequ(tmp, "01"))
+	if (tmp == 1)
 	{
 		while (n < 2)
 			arg1[n++] = map[(processor->cur_pos + processor->iterator++) % (MEM_SIZE * 2)];
 		if ((unsigned char)ft_atoi_base(arg1, 16) > 16 || (unsigned char)ft_atoi_base(arg1, 16) <= 0)
 			processor->iC = 1;
 	}
-	else if (ft_strequ(tmp, "11"))
+	else if (tmp == 3)
 	{
 		while (n < 4)
 			arg1[n++] = map[(processor->cur_pos + processor->iterator++) % (MEM_SIZE * 2)];
 	}
-	else if (ft_strequ(tmp, "10") && (ft_strequ(processor->command, "0e") || ft_strequ(processor->command, "0a") ||
-			(ft_strequ(processor->command, "0b")) || (ft_strequ(processor->command, "09")) ||
-			(ft_strequ(processor->command, "0c")) || (ft_strequ(processor->command, "0f"))))
+	else if (tmp == 2 && (processor->com2 == 14 || processor->com2 == 10 ||
+			(processor->com2 == 11 || processor->com2 == 9) ||
+			(processor->com2 == 12) || (processor->com2 == 15)))
 	{
 		processor->t_dir += arg;
 		while (n < 4)
 			arg1[n++] = map[(processor->cur_pos + processor->iterator++) % (MEM_SIZE * 2)];
 	}
-	else if (ft_strequ(tmp, "10") && !ft_strequ(processor->command, "0e") && !ft_strequ(processor->command, "0a"))
+	else if (tmp == 2 && processor->com2 != 14 && processor->com2 != 10)
 	{
 		while (n < 8)
 			arg1[n++] = map[(processor->cur_pos + processor->iterator++) % (MEM_SIZE * 2)];
@@ -62,34 +62,16 @@ void	readShit(unsigned char map[], t_process *processor) // Обновленно
 	if (processor->codage == 0)
 	{
 		processor->iterator += 2;
-		readLittleShit(map, processor->arg1, "10", processor, 1);
+		readLittleShit(map, processor->arg1, 2, processor, 1);
 	}
 	else
 	{
-//		if (!ft_validation_codage(map, processor))
-//			return ;
 		tmp[0] = map[(processor->cur_pos + 2) % (MEM_SIZE * 2)];
 		tmp[1] = map[(processor->cur_pos + 3) % (MEM_SIZE * 2)];
 		processor->iterator += 4;
-
-
 		n = ft_atoi_base(tmp, 16);
-		bin = ft_convert_2(n, 8);
-		tmp[0] = bin[0];
-		tmp[1] = bin[1];
-//		if (bin[0] == '0' && bin[1] == '0')
-//			return ;
-		readLittleShit(map, processor->arg1, tmp, processor, 1);
-		tmp[0] = bin[2];
-		tmp[1] = bin[3];
-//		if (bin[0] == '0' && bin[1] == '0')
-//		{
-//			processor->iterator = 4;
-//			return ;
-//		}
-		readLittleShit(map, processor->arg2, tmp, processor, 2);
-		tmp[0] = bin[4];
-		tmp[1] = bin[5];
-		readLittleShit(map, processor->arg3, tmp, processor, 3);
+		readLittleShit(map, processor->arg1, saver(n, 8, 0), processor, 1);
+		readLittleShit(map, processor->arg2, saver(n, 8, 2), processor, 2);
+		readLittleShit(map, processor->arg3, saver(n, 8, 4), processor, 3);
 	}
 }

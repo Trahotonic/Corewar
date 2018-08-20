@@ -2,8 +2,6 @@
 // Created by Roman KYSLYY on 7/12/18.
 //
 
-int g_global = 1;
-
 #include "../inc/corewar.h"
 
 int  sti_sup(t_process *pro, unsigned char *map)
@@ -85,7 +83,7 @@ void sti_print(unsigned char *map, int i, t_vizData *vizData, char *arg1, t_proc
 	}
 }
 
-void  sti(t_process *pro, unsigned char *map, int iz, t_player *pl, t_vizData *vizData) /* FIXED !!!!!!!!!!! */
+void  sti(t_process *pro, unsigned char *map, t_vizData *vizData) /* FIXED !!!!!!!!!!! */
 {
 	int  i;
 	char *arg1;
@@ -112,221 +110,243 @@ void  sti(t_process *pro, unsigned char *map, int iz, t_player *pl, t_vizData *v
 	pro->iterator = 0;
 }
 
-void	lld(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizData *vizData) // Обновленно !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+void  lld_sup(t_process *pro, unsigned char *map)
 {
-	int	n;
 	int k;
+	int n;
 	char *arg1;
 
-	if (ft_strlen(processor->arg3) == 2)
-		processor->iterator -= 2;
-	if (ft_strlen(processor->arg3) == 4)
-		processor->iterator -= 4;
-	if (ft_strlen(processor->arg3) == 8)
-		processor->iterator -= 8;
-	if (ft_strlen(processor->arg1) == 2 || ft_strlen(processor->arg1) == 0 || ft_strlen(processor->arg2) != 2)
+	k = ((short)ft_atoi_base(pro->arg1, 16) * 2 + pro->cur_pos)
+		% (MEM_SIZE * 2);
+	if (k < 0)
+		k = (MEM_SIZE * 2) + k;
+	n = 0;
+	arg1 = ft_strnew(4);
+	while (n < 4)
 	{
-		processor->cur_pos = (processor->cur_pos + processor->iterator) % (MEM_SIZE * 2);
-		processor->iterator = 0;
-		return ;
+		k %= (MEM_SIZE * 2);
+		arg1[n++] = map[k++];
 	}
-	if (ft_strlen(processor->arg1) == 8)
-	{
-		processor->reg[ft_atoi_base(processor->arg2, 16) - 1] =
-				(unsigned int)ft_atoi_base(processor->arg1, 16);
-	}
-	else if (ft_strlen(processor->arg1) == 4)
-	{
-		k = ((short)ft_atoi_base(processor->arg1, 16) * 2 + processor->cur_pos) % (MEM_SIZE * 2);
-		if (k < 0)
-			k = (MEM_SIZE * 2) + k;
-		n = 0;
-		arg1 = ft_strnew(4);
-		while (n < 4)
-		{
-			k %= (MEM_SIZE * 2);
-			arg1[n++] = map[k++];
-		}
-		processor->reg[ft_atoi_base(processor->arg2, 16) - 1] =
-				(short)ft_atoi_base(arg1, 16);
-	}
-	ft_strdel(&arg1);
-	if (processor->reg[ft_atoi_base(processor->arg2, 16) - 1] == 0)
-		processor->carry = 1;
-	else
-		processor->carry = 0;
-	processor->cur_pos = (processor->iterator + processor->cur_pos) % 8192;
-	processor->iterator = 0;
+	pro->reg[ft_atoi_base(pro->arg2, 16) - 1] =
+			(short)ft_atoi_base(arg1, 16);
 }
 
-void	lldi(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizData *vizData) // Обновленно !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+void lld_compensator(t_process *pro)
 {
-	int		i;
-	char	*arg1;
-	int		n;
+	if (ft_strlen(pro->arg3) == 2)
+		pro->iterator -= 2;
+	if (ft_strlen(pro->arg3) == 4)
+		pro->iterator -= 4;
+	if (ft_strlen(pro->arg3) == 8)
+		pro->iterator -= 8;
+}
+void lld(t_process *pro, unsigned char *map) // Обновленно !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+{
+	char *arg1;
 
-	n = 0;
-	if (ft_strlen(processor->arg3) != 2 || ft_strlen(processor->arg1) == 0 || ft_strlen(processor->arg2) == 0)
+	lld_compensator(pro);
+	if (ft_strlen(pro->arg1) == 2 || ft_strlen(pro->arg1) == 0
+		|| ft_strlen(pro->arg2) != 2)
 	{
-		processor->cur_pos = (processor->cur_pos +processor->iterator) % (MEM_SIZE * 2);
-		processor->iterator = 0;
+		pro->cur_pos = (pro->cur_pos + pro->iterator) % (MEM_SIZE * 2);
+		pro->iterator = 0;
 		return ;
 	}
-	arg1 = ft_strnew(8);
-	if (ft_strlen(processor->arg1) == 2)
-	{
-		if (ft_strlen(processor->arg2) == 2)
-		{
-			i = (((processor->reg[ft_atoi_base(processor->arg1, 16) - 1] + processor->reg[ft_atoi_base(processor->arg2, 16) - 1])) * 2 + processor->cur_pos) % (MEM_SIZE * 2);
-		}
-		else
-		{
-			i = (((processor->reg[ft_atoi_base(processor->arg1, 16) - 1] + (short)ft_atoi_base(processor->arg2, 16))) * 2 + processor->cur_pos) % (MEM_SIZE * 2);
-		}
-	}
-	else if (ft_strlen(processor->arg1) == 4 && processor->t_dir != 1)
-	{
-		i = (((short)ft_atoi_base(processor->arg1, 16) % IDX_MOD) * 2 + processor->cur_pos) % (MEM_SIZE * 2);
-		if (i < 0)
-			i = (MEM_SIZE * 2) + i;
-		while (n < 8)
-		{
-			i %= (MEM_SIZE * 2);
-			arg1[n++] = map[i++];
-		}
-		if (ft_strlen(processor->arg2) == 4)
-		{
-			i = (((ft_atoi_base(arg1, 16) + (short)ft_atoi_base(processor->arg2, 16))) * 2 + processor->cur_pos) % (MEM_SIZE * 2);
-		}
-		else
-		{
-			i = (((ft_atoi_base(arg1, 16) + processor->reg[ft_atoi_base(processor->arg2, 16) - 1])) * 2 + processor->cur_pos) % (MEM_SIZE * 2);
-		}
-		n = 0;
-	}
-	else if (ft_strlen(processor->arg1) == 4 && (processor->t_dir == 1 || processor->t_dir == 3)) /* исправить добавить t_ind */
-	{
-		if (ft_strlen(processor->arg2) == 4)
-		{
-			i = ((((short)ft_atoi_base(processor->arg1, 16) + (short)ft_atoi_base(processor->arg2, 16))) * 2 + processor->cur_pos) % (MEM_SIZE * 2);
-		}
-		else
-		{
-			i = ((short)((short)ft_atoi_base(processor->arg1, 16) + processor->reg[ft_atoi_base(processor->arg2, 16) - 1]) * 2 + processor->cur_pos) % (MEM_SIZE * 2);
-		}
-	}
+	if (ft_strlen(pro->arg1) == 8)
+		pro->reg[ft_atoi_base(pro->arg2, 16) - 1] =
+				(unsigned int)ft_atoi_base(pro->arg1, 16);
+	else if (ft_strlen(pro->arg1) == 4)
+		lld_sup(pro, map);
+	ft_strdel(&arg1);
+	if (pro->reg[ft_atoi_base(pro->arg2, 16) - 1] == 0)
+		pro->carry = 1;
+	else
+		pro->carry = 0;
+	pro->cur_pos = (pro->iterator + pro->cur_pos) %
+				   8192;
+	pro->iterator = 0;
+}
+
+
+int  lldi_sup1(t_process *pro)
+{
+	int i;
+
+	if (ft_strlen(pro->arg2) == 2)
+		i = (((pro->reg[ft_atoi_base(pro->arg1, 16) - 1]
+			   + pro->reg[ft_atoi_base(pro->arg2, 16) - 1]))
+			 * 2 + pro->cur_pos) % (MEM_SIZE * 2);
+	else
+		i = (((pro->reg[ft_atoi_base(pro->arg1, 16) - 1]
+			   + (short)ft_atoi_base(pro->arg2, 16)))
+			 * 2 + pro->cur_pos) % (MEM_SIZE * 2);
+	if (i < 0)
+		i = (MEM_SIZE * 2) + i;
+	return (i);
+}
+
+int  lldi_sup2(t_process *pro, unsigned char *map)
+{
+	int i;
+	int n;
+	char *a1;
+
+	a1 = ft_strnew(8);
+	n = 0;
+	i = (((short)ft_atoi_base(pro->arg1, 16) % IDX_MOD)
+		 * 2 + pro->cur_pos) % (MEM_SIZE * 2);
 	if (i < 0)
 		i = (MEM_SIZE * 2) + i;
 	while (n < 8)
 	{
 		i %= (MEM_SIZE * 2);
-		arg1[n++] = map[i++];
+		a1[n++] = map[i++];
 	}
-	processor->reg[ft_atoi_base(processor->arg3, 16) - 1] =
-			(unsigned int)ft_atoi_base(arg1, 16);
-	processor->cur_pos = (processor->iterator + processor->cur_pos) % 8192;
-	processor->iterator = 0;
+	if (ft_strlen(pro->arg2) == 4)
+		i = (((ft_atoi_base(a1, 16) + (short)ft_atoi_base(pro->arg2, 16)))
+			 * 2 + pro->cur_pos) % (MEM_SIZE * 2);
+	else
+		i = ((ft_atoi_base(a1, 16) + pro->reg[ft_atoi_base(pro->arg2, 16) - 1])
+			 * 2 + pro->cur_pos) % (MEM_SIZE * 2);
+	if (i < 0)
+		i = (MEM_SIZE * 2) + i;
+	ft_strdel(&a1);
+	return (i);
+}
+
+int  lldi_sup3(t_process *pro)
+{
+	int i;
+
+	i = 0;
+	if (ft_strlen(pro->arg2) == 4)
+		i = ((((short)ft_atoi_base(pro->arg1, 16)
+			   + (short)ft_atoi_base(pro->arg2, 16)))
+			 * 2 + pro->cur_pos) % (MEM_SIZE * 2);
+	else
+		i = ((short)((short)ft_atoi_base(pro->arg1, 16)
+					 + pro->reg[ft_atoi_base(pro->arg2, 16) - 1])
+			 * 2 + pro->cur_pos) % (MEM_SIZE * 2);
+	if (i < 0)
+		i = (MEM_SIZE * 2) + i;
+	return (i);
+}
+
+void lldi_print(t_process *pro, int i, unsigned char *map, char **arg1)
+{
+	int n;
+
+	n = 0;
+	(*arg1) = ft_strnew(8);
+	while (n < 8)
+	{
+		i %= (MEM_SIZE * 2);
+		(*arg1)[n++] = map[i++];
+	}
+}
+
+void lldi(t_process *pro, unsigned char *map)
+{
+	int  i;
+	char *arg1;
+	int  n;
+
+	n = 0;
+	i = 0;
+	if (ft_strlen(pro->arg3) != 2 || ft_strlen(pro->arg1) == 0 || ft_strlen(pro->arg2) == 0)
+	{
+		pro->cur_pos = (pro->cur_pos +pro->iterator) % (MEM_SIZE * 2);
+		pro->iterator = 0;
+		return ;
+	}
+	if (ft_strlen(pro->arg1) == 2)
+		i = lldi_sup1(pro);
+	else if (ft_strlen(pro->arg1) == 4 && pro->t_dir != 1)
+		i = lldi_sup2(pro, map);
+	else if (ft_strlen(pro->arg1) == 4 && (pro->t_dir == 1 || pro->t_dir == 3))
+		i = lldi_sup3(pro);
+	lldi_print(pro, i, map, &arg1);
+	pro->reg[ft_atoi_base(pro->arg3, 16) - 1] = (unsigned int)ft_atoi_base(arg1, 16);
+	pro->cur_pos = (pro->iterator + pro->cur_pos) % 8192;
+	pro->iterator = 0;
 	ft_strdel(&arg1);
 }
 
-void	fork_c(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizData *vizData) // Обновленно !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! (но это не точно =))))))))))))
+t_process *node_create(t_process * pro)
 {
-	t_process	*tmp;
-	t_process	*ptr;
-	int 		n;
+	t_process *tmp;
+	int   n;
 
-	if (ft_strlen(processor->arg1) != 4)
-	{
-		processor->cur_pos = (processor->iterator + processor->cur_pos) % 8192;
-		processor->iterator = 0;
-		return ;
-	}
+	n = 0;
 	tmp = (t_process*)malloc(sizeof(t_process));
-	tmp->cur_pos = (((short)(ft_atoi_base(processor->arg1, 16)) % IDX_MOD) * 2 + processor->cur_pos) % (MEM_SIZE * 2);
-	if (tmp->cur_pos < 0)
-		tmp->cur_pos = (MEM_SIZE * 2 + tmp->cur_pos) % 8192;
-	tmp->carry = processor->carry;
-	tmp->pl_num = processor->pl_num;
-	tmp->pl_number = processor->pl_number;
-	tmp->alive = processor->alive;
-	tmp->proc_num = ++g_global;
-
-	tmp->command[0] = '.';
-	tmp->command[1] = '.';
+	tmp->carry = pro->carry;
+	tmp->pl_num = pro->pl_num;
+	tmp->pl_number = pro->pl_number;
+	tmp->alive = pro->alive;
 	tmp->command[2] = '\0';
+	tmp->com2 = 0;
 	tmp->cycle_todo = 0;
 	tmp->iterator = 0;
 	tmp->codage = 1;
 	tmp->iC = 0;
 	tmp->invalidAgr = 0;
-	n = 0;
+	tmp->t_dir = 0;
 	while (n < 16)
 	{
-		tmp->reg[n] = processor->reg[n];
+		tmp->reg[n] = pro->reg[n];
 		n++;
 	}
-	tmp->t_dir = 0;
-	ptr = processor;
-	while (ptr->next)
-		ptr = ptr->next;
-	doNull(tmp);
-	ptr->next = tmp;
-	tmp->prev = ptr;
-	tmp->next = NULL;
-	processor->cur_pos = (processor->iterator + processor->cur_pos) % 8192;
-	processor->iterator = 0;
+	return (tmp);
 }
 
-void	lfork(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizData *vizData) /* Обновленно !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! (но это не точно =)))))))))))) */
+void fork_c(t_process **process, t_process *pro)
 {
-	t_process	*tmp;
-	t_process	*ptr;
-	int 		n;
+	t_process *tmp;
 
-	if (ft_strlen(processor->arg1) != 4)
+	if (ft_strlen(pro->arg1) != 4)
 	{
-		processor->cur_pos = (processor->iterator + processor->cur_pos) % 8192;
-		processor->iterator = 0;
+		pro->cur_pos = (pro->iterator + pro->cur_pos) % 8192;
+		pro->iterator = 0;
 		return ;
 	}
-	tmp = (t_process*)malloc(sizeof(t_process));
-	tmp->cur_pos = ((short)ft_atoi_base(processor->arg1, 16) * 2 + processor->cur_pos) % 8192;
+	tmp = node_create(pro);
+	tmp->cur_pos = (((short)(ft_atoi_base(pro->arg1, 16)) % IDX_MOD) * 2 + pro->cur_pos) % (MEM_SIZE * 2);
 	if (tmp->cur_pos < 0)
 		tmp->cur_pos = (MEM_SIZE * 2 + tmp->cur_pos) % 8192;
-	tmp->carry = processor->carry;
-	tmp->pl_num = processor->pl_num;
-	tmp->pl_number = processor->pl_number;
-	tmp->alive = processor->alive;
-	tmp->proc_num = ++g_global;
-	if (g_global == 49 || g_global == 57)
-	{
+	doNull(tmp);
+	tmp->next = *process;
+	*process = tmp;
+	(*process)->prev = NULL;
+	(*process)->next->prev = *process;
 
-	}
-	tmp->command[0] = '.';
-	tmp->command[1] = '.';
-	tmp->command[2] = '\0';
-	tmp->cycle_todo = 0;
-	tmp->iterator = 0;
-	tmp->iC = 0;
-	tmp->invalidAgr = 0;
-	n = 0;
-	while (n < 16)
-	{
-		tmp->reg[n] = processor->reg[n];
-		n++;
-	}
-	tmp->t_dir = 0;
-	ptr = processor;
-	while (ptr->next)
-		ptr = ptr->next;
-	ptr->next = tmp;
-	tmp->prev = ptr;
-	tmp->next = NULL;
-	processor->cur_pos = (processor->iterator + processor->cur_pos) % 8192;
-	processor->iterator = 0;
+	pro->cur_pos = (pro->iterator + pro->cur_pos) % 8192;
+	pro->iterator = 0;
 }
 
-void aff(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizData *vizData)
+void lfork(t_process **process, t_process *pro)
+{
+	t_process *tmp;
+
+	if (ft_strlen(pro->arg1) != 4)
+	{
+		pro->cur_pos = (pro->iterator + pro->cur_pos) % 8192;
+		pro->iterator = 0;
+		return ;
+	}
+	tmp = node_create(pro);
+	doNull(tmp);
+	tmp->cur_pos = ((short)ft_atoi_base(pro->arg1, 16) * 2 + pro->cur_pos) % 8192;
+	if (tmp->cur_pos < 0)
+		tmp->cur_pos = (MEM_SIZE * 2 + tmp->cur_pos) % 8192;
+	tmp->next = *process;
+	*process = tmp;
+	(*process)->prev = NULL;
+	(*process)->next->prev = *process;
+	pro->cur_pos = (pro->iterator + pro->cur_pos) % 8192;
+	pro->iterator = 0;
+}
+
+void aff(t_process *processor, unsigned char *map)
 {
 	if (ft_strlen(processor->arg3) == 2)
 		processor->iterator -= 2;
@@ -340,6 +360,6 @@ void aff(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizDa
 		processor->iterator -= 4;
 	if (ft_strlen(processor->arg2) == 8)
 		processor->iterator -= 8;
-		processor->cur_pos = (processor->iterator + processor->cur_pos) % (MEM_SIZE * 2);
-		processor->iterator = 0;
+	processor->cur_pos = (processor->iterator + processor->cur_pos) % (MEM_SIZE * 2);
+	processor->iterator = 0;
 }

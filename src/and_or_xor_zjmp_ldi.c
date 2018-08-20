@@ -4,7 +4,7 @@
 
 #include "../inc/corewar.h"
 
-void  and(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizData *vizData)
+void  and(t_process *processor)
 {
 	if (ft_strlen(processor->arg3) != 2 || ft_strlen(processor->arg1) == 0 || ft_strlen(processor->arg2) == 0)
 	{
@@ -41,7 +41,7 @@ void  and(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizD
 	processor->iterator = 0;
 }
 
-void  or(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizData *vizData)
+void  or(t_process *processor)
 {
 	if (ft_strlen(processor->arg3) != 2 || ft_strlen(processor->arg1) == 0 || ft_strlen(processor->arg2) == 0)
 	{
@@ -78,7 +78,7 @@ void  or(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizDa
 	processor->iterator = 0;
 }
 
-void  xor(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizData *vizData)
+void  xor(t_process *processor)
 {
 	if (ft_strlen(processor->arg3) != 2 || ft_strlen(processor->arg1) == 0 || ft_strlen(processor->arg2) == 0)
 	{
@@ -115,7 +115,7 @@ void  xor(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizD
 	processor->iterator = 0;
 }
 
-void	zjmp(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizData *vizData)
+void	zjmp(t_process *processor)
 {
 	int i;
 
@@ -125,13 +125,6 @@ void	zjmp(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizD
 		processor->iterator = 0;
 		return ;
 	}
-//	if (processor->carry == 0)
-//	{
-//		processor->cur_pos = (processor->cur_pos + processor->iterator) % (MEM_SIZE * 2);
-//		processor->iterator = 0;
-//		return;
-//	}
-
 	i = ((((short)ft_atoi_base(processor->arg1, 16)) % IDX_MOD) * 2 + processor->cur_pos) % (MEM_SIZE * 2);
 	if (i < 0)
 		i = MEM_SIZE * 2 + i;
@@ -140,7 +133,7 @@ void	zjmp(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizD
 	processor->iterator = 0;
 }
 
-void ldi(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizData *vizData) // Обновленно !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+void ldi(t_process *processor, unsigned char *map) // Обновленно !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 {
 	int  i;
 	char *arg1;

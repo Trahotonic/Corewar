@@ -4,7 +4,7 @@
 
 #include "../inc/corewar.h"
 
-void  live(t_process *processor, unsigned char *map, int i, t_player *pl, t_vizData *vizData)// Обновленно (но надо менять ) !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+void  live(t_process *processor,int i, t_player *pl)// Обновленно (но надо менять ) !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 {
 	char *tmp;
 	t_player *tmppl;
@@ -32,7 +32,7 @@ void  live(t_process *processor, unsigned char *map, int i, t_player *pl, t_vizD
 	processor->iterator = 0;
 }
 
-void		ld(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizData *vizData) // Обновленно !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+void		ld(t_process *processor, unsigned char *map) // Обновленно !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 {
 	int		n;
 	char	*arg1;
@@ -75,16 +75,11 @@ void		ld(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizDa
 	processor->iterator = 0;
 }
 
-void	st(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizData *vizData) // Обновленно !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+void	st(t_process *processor, unsigned char *map, t_vizData *vizData) // Обновленно !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 {
 	int		n;
 	char	*tmp;
 	int		k;
-
-	if (iz == 15345)
-	{
-
-	}
 
 	if (ft_strlen(processor->arg3) == 2)
 		processor->iterator -= 2;
@@ -123,7 +118,7 @@ void	st(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizDat
 	processor->iterator = 0;
 }
 
-void		add(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizData *vizData)
+void		add(t_process *processor)
 {
 	if (ft_strlen(processor->arg1) != 2 || ft_strlen(processor->arg2) != 2 || ft_strlen(processor->arg3) != 2 || processor->iC == 1)
 	{
@@ -142,7 +137,7 @@ void		add(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizD
 	processor->iterator = 0;
 }
 
-void		sub(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizData *vizData)
+void		sub(t_process *processor)
 {
 	if (ft_strlen(processor->arg1) != 2 || ft_strlen(processor->arg2) != 2 || ft_strlen(processor->arg3) != 2 || processor->iC == 1)
 	{

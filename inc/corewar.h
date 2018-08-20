@@ -72,7 +72,6 @@ typedef struct		header_s
 
 typedef struct  	s_process
 {
-	int 				proc_num;
 	int    				cur_pos;
 	int 				codage;
 	int    				carry;
@@ -81,6 +80,7 @@ typedef struct  	s_process
 	unsigned int		reg[REG_NUMBER];
 	int    				alive;
 	char   				command[3];
+	int 				com2;
 	int    				cycle_todo;
 	int    				iterator;
 	char 				arg1[9];
@@ -107,7 +107,6 @@ typedef struct  s_player
 	int    lastAlive;
 	int    liveCount;
 	header_t  header;
-	size_t    len;
 	struct s_player *next;
 	int    num;
 	int    fd;
@@ -124,10 +123,9 @@ typedef struct  s_vizData
 
 typedef struct  functions_s
 {
-	char   *name;
+	int 	name2;
 	int    codage;
 	int    cycles;
-	void  (*funcptr)(t_process*, unsigned char*, int, t_player*, t_vizData*);
 }     functions_t;
 
 void	doNull(t_process *processor);
@@ -136,31 +134,30 @@ void	initProcesses(t_process **processes, t_player *players);
 int 	ft_iswhitespace(char const c);
 int 	base(int c, int base);
 int 	ft_atoi_base(const char *str, int str_base);
-int 	ft_bto_i(char *bin);
 void	readShit(unsigned char map[], t_process *processor);
-char 	*ft_convert_2(int tmp, int base);
+int 	saver(int tmp, int len, int plus);
 char	*ft_arrg_join(char *s1, char *s2);
 char	*ft_uitoa_base2(unsigned int value, int base);
 void	convert(char **str);
 void    getTotal(t_player *players, char **total, t_vizData *vizData, int n);
 void    initVis(void);
 void    visualize(unsigned char map[], t_process *proc, t_vizData *vizData);
-void  	live(t_process *processor, unsigned char *map, int i, t_player *pl, t_vizData *vizData);
-void  	ld(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizData *vizData);
-void	st(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizData *vizData);
-void	add(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizData *vizData);
-void	sub(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizData *vizData);
-void	and(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizData *vizData);
-void	or(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizData *vizData);
-void	xor(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizData *vizData);
-void	zjmp(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizData *vizData);
-void	ldi(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizData *vizData);
-void	lld(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizData *vizData);
-void	lldi(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizData *vizData);
-void	fork_c(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizData *vizData);
-void	lfork(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizData *vizData);
-void	sti(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizData *vizData);
-void	aff(t_process *processor, unsigned char *map, int iz, t_player *pl, t_vizData *vizData);
+void  	live(t_process *processor, int i, t_player *pl);
+void  	ld(t_process *processor, unsigned char *map);
+void	st(t_process *processor, unsigned char *map, t_vizData *vizData);
+void	add(t_process *processor);
+void	sub(t_process *processor);
+void	and(t_process *processor);
+void	or(t_process *processor);
+void	xor(t_process *processor);
+void	zjmp(t_process *processor);
+void	ldi(t_process *processor, unsigned char *map);
+void	lld(t_process *processor, unsigned char *map);
+void	lldi(t_process *processor, unsigned char *map);
+void	fork_c(t_process **processor, t_process *cur);
+void	lfork(t_process **processor, t_process *cur);
+void	sti(t_process *processor, unsigned char *map, t_vizData *vizData);
+void	aff(t_process *processor, unsigned char *map);
 void 	initfunc(functions_t func[]);
 
 #endif //COREWAR_COREWAR_H

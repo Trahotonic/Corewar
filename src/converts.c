@@ -83,3 +83,24 @@ char *ft_convert_2(int tmp, int base)
 	return (str);
 }
 
+int 	saver(int tmp, int base, int plus)
+{
+	char *str;
+
+	str = ft_strnew(base);
+	base -= 1;
+	while (base + 1)
+	{
+		str[base] = tmp % 2 + 48;
+		tmp /= 2;
+		base--;
+	}
+	if (str[0 + plus] == '0' && str[1 + plus] == '1')
+		return (1);
+	else if (str[0 + plus] == '1' && str[1 + plus] == '0')
+		return (2);
+	else if (str[0 + plus] == '1' && str[1 + plus] == '1')
+		return (3);
+	else return (0);
+}
+

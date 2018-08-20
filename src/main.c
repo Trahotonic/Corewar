@@ -43,31 +43,35 @@ void	runProcesses(t_process **processes, unsigned char map[], functions_t array[
 {
 	t_process	*go;
 	int 		n;
+	char 		tmp[3];
 
+	tmp[2] = '\0';
 	go = *processes;
-	while (go->next)
-		go = go->next;
 	n = 0;
+	if (i == 4)
+	{
+
+	}
 	while (go)
 	{
 		if (go->invalidAgr)
 		{
 			go->invalidAgr = 0;
 			go->cur_pos = (go->cur_pos + 2) % (MEM_SIZE * 2);
-			go = go->prev;
+			go = go->next;
 			continue ;
 		}
-		if (ft_strequ("..", go->command))
+		if (go->com2 == 0)
 		{
-			go->command[0] = map[go->cur_pos];
-			go->command[1] = map[go->cur_pos + 1];
-			while (n < 16 && !ft_strequ(go->command, array[n].name))
+			tmp[0] = map[go->cur_pos];
+			tmp[1] = map[go->cur_pos + 1];
+			go->com2 = ft_atoi_base(tmp, 16);
+			while (n < 16 && go->com2 != array[n].name2)
 				++n;
 			if (n == 16)
 			{
 				go->invalidAgr = 1;
-				go->command[0] = '.';
-				go->command[1] = '.';
+				go->com2 = 0;
 				n = 0;
 				continue ;
 			}
@@ -77,52 +81,46 @@ void	runProcesses(t_process **processes, unsigned char map[], functions_t array[
 		}
 		if (go->cycle_todo > 0)
 			--go->cycle_todo;
-		if ((ft_strequ("01", go->command) || ft_strequ("02", go->command) || ft_strequ("03", go->command) ||
-		     ft_strequ("04", go->command) || ft_strequ("05", go->command) || ft_strequ("06", go->command) ||
-		     ft_strequ("07", go->command) || ft_strequ("08", go->command) || ft_strequ("09", go->command) ||
-		     ft_strequ("0a", go->command) || ft_strequ("0b", go->command) || ft_strequ("0c", go->command) ||
-		     ft_strequ("0d", go->command) || ft_strequ("0e", go->command) || ft_strequ("0f", go->command) ||
-		     ft_strequ("10", go->command))
+		if ((go->com2 > 0 && go->com2 < 16)
 		    && !go->cycle_todo)
 		{
 			readShit(map, go);
-			if (ft_strequ("01", go->command))
-				array[0].funcptr(go, map, i, player, vizData);
-			else if (ft_strequ("02", go->command))
-				array[1].funcptr(go, map, i, player, vizData);
-			else if (ft_strequ("03", go->command))
-				array[2].funcptr(go, map, i, player, vizData);
-			else if (ft_strequ("04", go->command))
-				array[3].funcptr(go, map, i, player, vizData);
-			else if (ft_strequ("05", go->command))
-				array[4].funcptr(go, map, i, player, vizData);
-			else if (ft_strequ("06", go->command))
-				array[5].funcptr(go, map, i, player, vizData);
-			else if (ft_strequ("07", go->command))
-				array[6].funcptr(go, map, i, player, vizData);
-			else if (ft_strequ("08", go->command))
-				array[7].funcptr(go, map, i, player, vizData);
-			else if (ft_strequ("09", go->command))
-				array[8].funcptr(go, map, i, player, vizData);
-			else if (ft_strequ("0a", go->command))
-				array[9].funcptr(go, map, i, player, vizData);
-			else if (ft_strequ("0b", go->command))
-				array[10].funcptr(go, map, i, player, vizData);
-			else if (ft_strequ("0c", go->command))
-				array[11].funcptr(go, map, i, player, vizData);
-			else if (ft_strequ("0d", go->command))
-				array[12].funcptr(go, map, i, player, vizData);
-			else if (ft_strequ("0e", go->command))
-				array[13].funcptr(go, map, i, player, vizData);
-			else if (ft_strequ("0f", go->command))
-				array[14].funcptr(go, map, i, player, vizData);
-			else if (ft_strequ("10", go->command))
-				array[15].funcptr(go, map, i, player, vizData);
-			go->command[0] = '.';
-			go->command[1] = '.';
+			if (go->com2 == 1)
+				live(go, i, player);
+			else if (go->com2 == 2)
+				ld(go, map);
+			else if (go->com2 == 3)
+				st(go, map, vizData);
+			else if (go->com2 == 4)
+				add(go);
+			else if (go->com2 == 5)
+				sub(go);
+			else if (go->com2 == 6)
+				and(go);
+			else if (go->com2 == 7)
+				or(go);
+			else if (go->com2 == 8)
+				xor(go);
+			else if (go->com2 == 9)
+				zjmp(go);
+			else if (go->com2 == 10)
+				ldi(go, map);
+			else if (go->com2 == 11)
+				sti(go, map, vizData);
+			else if (go->com2 == 12)
+				fork_c(processes);
+			else if (go->com2 == 13)
+				lld(go, map);
+			else if (go->com2 == 14)
+				lldi(go, map);
+			else if (go->com2 == 15)
+				lfork(processes);
+			else if (go->com2 == 16)
+				aff(go, map);
+			go->com2 = 0;
 			go->iC = 0;
 		}
-		go = go->prev;
+		go = go->next;
 	}
 }
 
