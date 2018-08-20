@@ -44,10 +44,6 @@ void	runProcesses(t_process **processes, unsigned char map[], functions_t array[
 	t_process	*go;
 	int 		n;
 
-	if (i == 235)
-	{
-
-	}
 	go = *processes;
 	while (go->next)
 		go = go->next;
@@ -61,23 +57,12 @@ void	runProcesses(t_process **processes, unsigned char map[], functions_t array[
 			go = go->prev;
 			continue ;
 		}
-
-//		if (go->invalidAgr)
-//		{
-//			go->invalidAgr = 0;
-//			if ( ((map[go->prev_pos + 1] - 'f') < 0 && map[go->prev_pos] == '0') && map[go->prev_pos] != 0 && (map[go->prev_pos] != '1' && map[go->prev_pos + 1] != '0'))
-//			{
-//				go->command[0] = '.';
-//				go->command[1] = '.';
-//				go->cur_pos = go->prev_pos;
-//			}
-//		}
 		if (ft_strequ("..", go->command))
 		{
 			go->command[0] = map[go->cur_pos];
 			go->command[1] = map[go->cur_pos + 1];
 			while (n < 16 && !ft_strequ(go->command, array[n].name))
-				n++;
+				++n;
 			if (n == 16)
 			{
 				go->invalidAgr = 1;
@@ -90,25 +75,8 @@ void	runProcesses(t_process **processes, unsigned char map[], functions_t array[
 			go->codage = array[n].codage;
 			n = 0;
 		}
-		if (go->proc_num == 8)
-		{
-
-		}
-//		if ((ft_strequ(go->command, "03") || ft_strequ(go->command, "02") || ft_strequ(go->command, "01") || ft_strequ(go->command, "04") ||
-//				ft_strequ(go->command, "05") || ft_strequ(go->command, "06") || ft_strequ(go->command, "07") || ft_strequ(go->command, "08") ||
-//				ft_strequ(go->command, "09") || ft_strequ(go->command, "10") || ft_strequ(go->command, "0a") || ft_strequ(go->command, "0b") ||
-//				ft_strequ(go->command, "0c") || ft_strequ(go->command, "0d") || ft_strequ(go->command, "0e") || ft_strequ(go->command, "0f")) &&
-//				((map[go->cur_pos] == '0' && (map[go->cur_pos + 1] - 'f') > 0) || (map[go->cur_pos] == '1' && map[go->cur_pos + 1] != '0')
-//				 || (map[go->cur_pos] != '0' && map[go->cur_pos] != '1') || (map[go->cur_pos] == '0' && map[go->cur_pos + 1] == '0')) && go->fresh == 1)
-//		{
-//			go->command[0] = '.';
-//			go->command[1] = '.';
-//			go->cur_pos = (go->cur_pos + 2) % (MEM_SIZE * 2);
-//		}
 		if (go->cycle_todo > 0)
-		{
-			go->cycle_todo--;
-		}
+			--go->cycle_todo;
 		if ((ft_strequ("01", go->command) || ft_strequ("02", go->command) || ft_strequ("03", go->command) ||
 		     ft_strequ("04", go->command) || ft_strequ("05", go->command) || ft_strequ("06", go->command) ||
 		     ft_strequ("07", go->command) || ft_strequ("08", go->command) || ft_strequ("09", go->command) ||
@@ -118,23 +86,6 @@ void	runProcesses(t_process **processes, unsigned char map[], functions_t array[
 		    && !go->cycle_todo)
 		{
 			readShit(map, go);
-			int z;
-			z = 0;
-			if (i == 12983)
-			{
-				if (go->proc_num == 14)
-				{
-
-				}
-				while(z < 16)
-				{
-					if (go->reg[z] == -1)
-					{
-
-					}
-					z++;
-				}
-			}
 			if (ft_strequ("01", go->command))
 				array[0].funcptr(go, map, i, player, vizData);
 			else if (ft_strequ("02", go->command))
@@ -173,8 +124,6 @@ void	runProcesses(t_process **processes, unsigned char map[], functions_t array[
 		}
 		go = go->prev;
 	}
-	n = 0;
-
 }
 
 int     counter(t_process * process)
@@ -184,7 +133,7 @@ int     counter(t_process * process)
 	i = 0;
 	while (process)
 	{
-		i++;
+		++i;
 		process = process->next;
 	}
 	return i;
@@ -210,7 +159,6 @@ void    superkill(t_process ** processes, int i, t_player *player)
 	{
 		if (!ptr->alive)
 		{
-//			ft_printf("%d killed on %d\n", ptr->proc_num, i);
 			if (ptr == *processes)
 			{
 				tmp = ptr;
@@ -274,7 +222,7 @@ t_player *ft_player_create(char *champ, int num)
 	tmp->fd = open(champ, O_RDONLY);
 	if (tmp->fd == -1)
 	{
-		printf("ERROR'n");
+		printf("ERROR\n");
 		exit(666);
 	}
 	tmp->next = NULL;
@@ -294,15 +242,13 @@ void ft_get_champ(t_player **players, char **argv, int *n)
 	t_player *tmp;
 	tmp = *players;
 	if (!tmp)
-	{
 		(*players) = ft_player_create(argv[*n], i);
-	}
 	else
 	{
 		while (tmp->next)
 		{
 			(tmp) = (tmp)->next;
-			i++;
+			++i;
 		}
 		tmp->next = ft_player_create(argv[*n], i);
 	}
@@ -323,7 +269,7 @@ void  ft_check_flag_d(t_player **players, char **argv, int *n, t_argFlags *flags
 				printf("ERROR\n");
 				exit(1);
 			}
-			i++;
+			++i;
 		}
 		flags->d = ft_atoi(argv[*n]);
 	}
@@ -349,7 +295,7 @@ void  ft_check_flag_vi(t_player **players, char **argv, int *n, t_argFlags *flag
 				printf("ERROR\n");
 				exit(1);
 			}
-			i++;
+			++i;
 		}
 		flags->vi = ft_atoi(argv[*n]);
 	}
@@ -371,7 +317,7 @@ void  ft_check_flag_n(t_player **players, char **argv, int *n, t_argFlags *flags
 	if(argv[*n])
 	{
 		if(*argv[*n] == '-')
-			i++;
+			++i;
 		while(argv[*n][i])
 		{
 			if(!ft_isdigit(argv[*n][i]))
@@ -379,7 +325,7 @@ void  ft_check_flag_n(t_player **players, char **argv, int *n, t_argFlags *flags
 				printf("ERROR\n");
 				exit(1);
 			}
-			i++;
+			++i;
 		}
 		if ((ft_atoi(argv[*n]) > INT32_MAX || ft_atoi(argv[*n]) < INT32_MIN) || !argv[*n + 1])
 		{
