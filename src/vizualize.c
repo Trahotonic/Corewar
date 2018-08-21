@@ -25,6 +25,19 @@ void	printBorder(void)
 	attroff(COLOR_PAIR(BORDER));
 }
 
+int		getPlayers(t_player *players)
+{
+	int n;
+
+	n = 0;
+	while (players)
+	{
+		players = players->next;
+		++n;
+	}
+	return (n);
+}
+
 void    initVis(void)
 {
     initscr();
@@ -115,11 +128,62 @@ void	pickPlayerPair(int idx, unsigned char markTimeout[], int *pair, int val)
 		*pair = defaultPairs[val - 1];
 }
 
+void	printNames(t_player *players)
+{
+	int		n;
+	int 	plCount;
+	int 	pair;
+
+	n = 0;
+	plCount = getPlayers(players);
+	while (n < plCount)
+	{
+		if (n == 0)
+			pair = NEW_PLAYER1_CODE_PAIR;
+		else if (n == 1)
+			pair = NEW_PLAYER2_CODE_PAIR;
+		else if (n == 2)
+			pair = NEW_PLAYER3_CODE_PAIR;
+		else
+			pair = NEW_PLAYER4_CODE_PAIR;
+		attron(COLOR_PAIR(pair));
+		mvwprintw(stdscr, 11 + (n * 4), 211, "%s", players->header.prog_name);
+		attroff(COLOR_PAIR(pair));
+		players = players->next;
+		++n;
+	}
+}
+
+void	eraseNums(int count)
+{
+	int n;
+
+	n = 0;
+	mvwprintw(stdscr, 7, 207, "            ");
+	mvwprintw(stdscr, 9, 211, "            ");
+	while (n < count)
+	{
+		mvwprintw(stdscr, 11 + (n * 4), 210, "            ");
+		mvwprintw(stdscr, 12 + (n * 4), 213, "            ");
+		mvwprintw(stdscr, 13 + (n * 4), 226, "            ");
+		++n;
+	}
+	mvwprintw(stdscr, 11 + (n * 4) + 6, 214, "            ");
+	mvwprintw(stdscr, 11 + (n * 4) + 8, 113, "            ");
+}
+
 void	printSidePanel(t_vizData *vizData, t_process *proc)
 {
-	char *running = "RUNNING";
-	char *pause = "PAUSED";
+	char		*running = "RUNNING";
+	char		*pause = "PAUSED";
+	int 		plCount;
+	int 		n;
+	t_player	*ptr;
 
+	plCount = getPlayers(vizData->players);
+	n = 0;
+	ptr = vizData->players;
+	eraseNums(plCount);
 	attron(A_BOLD);
 	attron(COLOR_PAIR(WHITE_CUNT));
 	mvwprintw(stdscr, 2, 199, "                  ");
@@ -129,7 +193,18 @@ void	printSidePanel(t_vizData *vizData, t_process *proc)
 		mvwprintw(stdscr, 2, 199, "** %s **", pause);
 	mvwprintw(stdscr, 7, 199, "Cycle : %d", vizData->i);
 	mvwprintw(stdscr, 9, 199, "Processes : %d", getProcesses(proc));
+	while (n < plCount)
+	{
+		mvwprintw(stdscr, 11 + (n * 4), 199, "Player %d :", ptr->playerNumber);
+		mvwprintw(stdscr, 12 + (n * 4), 201, "Last live :%22d", ptr->lastAlive);
+		mvwprintw(stdscr, 13 + (n * 4), 201, "Lives in current period :%8d", ptr->liveCount);
+		ptr = ptr->next;
+		++n;
+	}
+	mvwprintw(stdscr, 11 + (n * 4) + 6, 199, "CYCLE_TO_DIE : %d", vizData->cycleToDie);
+	mvwprintw(stdscr, 11 + (n * 4) + 8, 199, "CYCLE_DELTA : %d", vizData->cycleDelta);
 	attroff(COLOR_PAIR(WHITE_CUNT));
+	printNames(vizData->players);
 	attron(A_BOLD);
 }
 
@@ -165,12 +240,6 @@ void    innerCycle(unsigned char map[], t_process *proc, t_vizData *vizData)
         while (iters.m < 64)
         {
 			iters.pair = DEFAULT_COLOR_PAIR;
-			if (vizData->vizData[iters.i] != 0 && vizData->vizData[iters.i] != 1 &&
-					vizData->vizData[iters.i] != 2 && vizData->vizData[iters.i] != 3 &&
-					vizData->vizData[iters.i] != 4)
-			{
-				mvwprintw(stdscr, 5, 230, "we got problem");
-			}
 			if (vizData->vizData[iters.i])
 				pickPlayerPair(iters.i, vizData->markTimeout,
 						&iters.pair, vizData->vizData[iters.i]);

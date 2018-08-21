@@ -34,11 +34,11 @@
 # define LIGHT_RED 16
 # define PISS 17
 # define GOOD_RED 18
-# define GOOD_YELLOW 19
+# define GOOD_CYAN 19
 # define GOOD_BLUE 20
-# define DARK_YELLOW 21
+# define DARK_CYAN 21
 # define DARK_BLUE 22
-# define LIGHT_YELLOW 23
+# define LIGHT_CYAN 23
 # define LIGHT_BLUE 24
 # define VERY_WHITE 25
 

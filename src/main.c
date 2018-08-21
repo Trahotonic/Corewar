@@ -458,7 +458,7 @@ int     main(int argc, char **argv)
 	initMap(map, &vizData, players);
 	if (!flags->d && VIZ)
 	{
-		system("afplay -v 0.3 ./Benny-hill-theme.mp3 &");
+//		system("afplay -v 0.3 ./Benny-hill-theme.mp3 &");
 		initVis();
 		vizData.players = players;
 	}
@@ -510,7 +510,7 @@ int     main(int argc, char **argv)
 		{
 			if (VIZ)
 			{
-				system("killall afplay");
+//				system("killall afplay");
 				endwin();
 			}
 			ft_printf("GAME OVER on cycle %d\ncycle to die = %d\nprocesses: %d\n", i, cycleToDie, counter(processes));
@@ -522,7 +522,7 @@ int     main(int argc, char **argv)
 		{
 			if (VIZ)
 			{
-				system("killall afplay");
+//				system("killall afplay");
 				endwin();
 			}
 			ft_printf("GAME OVER on cycle %d\ncycle to die = %d\nprocesses: %d\n", i, cycleToDie, counter(processes));
@@ -575,7 +575,7 @@ int     main(int argc, char **argv)
 	}
 	if (!flags->d && VIZ)
 	{
-		system("killall afplay");
+//		system("killall afplay");
 		endwin();
 	}
 	else
