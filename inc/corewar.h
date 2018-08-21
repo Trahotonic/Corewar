@@ -119,6 +119,10 @@ typedef struct  s_vizData
     unsigned char   vizData[MEM_SIZE * 2];
 	unsigned char   markTimeout[MEM_SIZE * 2];
 	bool			space;
+	t_player		*players;
+	int 			i;
+	int 			cycleToDie;
+	int 			cycleDelta;
 }               t_vizData;
 
 typedef struct  functions_s

@@ -61,8 +61,6 @@ int		markCore(unsigned char x[], int i, unsigned char map[],
 		return (MARK_PROCESS3_PAIR);
 	else if (mP[i] == 4)
 		return (MARK_PROCESS4_PAIR);
-		else if (mP[i] == 33)
-		return (WHITE_CUNT);
 	else
 		return (0);
 }
@@ -117,10 +115,29 @@ void	pickPlayerPair(int idx, unsigned char markTimeout[], int *pair, int val)
 		*pair = defaultPairs[val - 1];
 }
 
+void	printSidePanel(t_vizData *vizData, t_process *proc)
+{
+	char *running = "RUNNING";
+	char *pause = "PAUSED";
+
+	attron(A_BOLD);
+	attron(COLOR_PAIR(WHITE_CUNT));
+	mvwprintw(stdscr, 2, 199, "                  ");
+	if (vizData->space)
+		mvwprintw(stdscr, 2, 199, "** %s **", running);
+	else
+		mvwprintw(stdscr, 2, 199, "** %s **", pause);
+	mvwprintw(stdscr, 7, 199, "Cycle : %d", vizData->i);
+	mvwprintw(stdscr, 9, 199, "Processes : %d", getProcesses(proc));
+	attroff(COLOR_PAIR(WHITE_CUNT));
+	attron(A_BOLD);
+}
+
 void    innerCycle(unsigned char map[], t_process *proc, t_vizData *vizData)
 {
 	unsigned char   x[3];
 
+	printSidePanel(vizData, proc);
     t_visIter	iters;
 	t_process	*ptr;
 	unsigned char   markProc[MEM_SIZE * 2];
@@ -174,7 +191,5 @@ void    innerCycle(unsigned char map[], t_process *proc, t_vizData *vizData)
 void    visualize(unsigned char map[], t_process *proc, t_vizData *vizData)
 {
 	innerCycle(map, proc, vizData);
-	mvwprintw(stdscr, 2, 196, "                  ");
-	mvwprintw(stdscr, 2, 196, "processes: %d", getProcesses(proc));
 	refresh();
 }

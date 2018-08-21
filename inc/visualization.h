@@ -40,6 +40,7 @@
 # define DARK_BLUE 22
 # define LIGHT_YELLOW 23
 # define LIGHT_BLUE 24
+# define VERY_WHITE 25
 
 typedef struct	s_visIter
 {

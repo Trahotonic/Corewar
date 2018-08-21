@@ -20,6 +20,7 @@ void	initColors(void)
 	init_color(PISS, 0, 1000, 1000);
 	init_color(LIGHT_YELLOW, 1000, 1000, 400);
 	init_color(LIGHT_BLUE, 400, 400, 1000);
+	init_color(VERY_WHITE, 1000, 1000, 1000);
 }
 
 void	initPairs(void)
@@ -40,5 +41,5 @@ void	initPairs(void)
 	init_pair(SEEK_BITCH, COLOR_BLACK, RED_FALCON);
 	init_pair(SEEK_YELLOW_BITCH, COLOR_BLACK, PISS);
 	init_pair(BORDER, COLOR_BLACK, GREY);
-	init_pair(WHITE_CUNT, COLOR_BLACK, COLOR_WHITE);
+	init_pair(WHITE_CUNT, VERY_WHITE, COLOR_BLACK);
 }
