@@ -4,6 +4,8 @@
 
 #include "../inc/corewar.h"
 
+int procN = 2;
+
 int  sti_sup(t_process *pro, unsigned char *map)
 {
 	char *arg2;
@@ -78,12 +80,16 @@ void sti_print(unsigned char *map, int i, t_vizData *vizData, char *arg1, t_proc
 	{
 		i %= MEM_SIZE * 2;
 		vizData->markTimeout[i] = 100;
+		if (pro->pl_number != 1 && pro->pl_number != 2 && pro->pl_number != 3 && pro->pl_number != 4)
+		{
+
+		}
 		vizData->vizData[i] = pro->pl_number;
 		map[i++] = arg1[n++];
 	}
 }
 
-void  sti(t_process *pro, unsigned char *map, t_vizData *vizData) /* FIXED !!!!!!!!!!! */
+void  sti(t_process *pro, unsigned char *map, t_vizData *vizData)
 {
 	int  i;
 	char *arg1;
@@ -146,7 +152,7 @@ void lld(t_process *pro, unsigned char *map) // Обновленно !!!!!!!!!!!
 
 	lld_compensator(pro);
 	if (ft_strlen(pro->arg1) == 2 || ft_strlen(pro->arg1) == 0
-		|| ft_strlen(pro->arg2) != 2)
+		|| ft_strlen(pro->arg2) != 2 || pro->iC)
 	{
 		pro->cur_pos = (pro->cur_pos + pro->iterator) % (MEM_SIZE * 2);
 		pro->iterator = 0;
@@ -253,7 +259,7 @@ void lldi(t_process *pro, unsigned char *map)
 
 	n = 0;
 	i = 0;
-	if (ft_strlen(pro->arg3) != 2 || ft_strlen(pro->arg1) == 0 || ft_strlen(pro->arg2) == 0)
+	if (ft_strlen(pro->arg3) != 2 || ft_strlen(pro->arg1) == 0 || ft_strlen(pro->arg2) == 0 || pro->iC)
 	{
 		pro->cur_pos = (pro->cur_pos +pro->iterator) % (MEM_SIZE * 2);
 		pro->iterator = 0;
@@ -282,8 +288,11 @@ t_process *node_create(t_process * pro)
 	tmp->carry = pro->carry;
 	tmp->pl_num = pro->pl_num;
 	tmp->pl_number = pro->pl_number;
+	if (tmp->pl_number != 1 && tmp->pl_number != 2 && tmp->pl_number != 3 && tmp->pl_number != 4)
+	{
+
+	}
 	tmp->alive = pro->alive;
-	tmp->command[2] = '\0';
 	tmp->com2 = 0;
 	tmp->cycle_todo = 0;
 	tmp->iterator = 0;
@@ -291,6 +300,7 @@ t_process *node_create(t_process * pro)
 	tmp->iC = 0;
 	tmp->invalidAgr = 0;
 	tmp->t_dir = 0;
+	tmp->proc_num = ++procN;
 	while (n < 16)
 	{
 		tmp->reg[n] = pro->reg[n];

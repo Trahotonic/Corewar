@@ -6,7 +6,7 @@
 
 void  and(t_process *processor)
 {
-	if (ft_strlen(processor->arg3) != 2 || ft_strlen(processor->arg1) == 0 || ft_strlen(processor->arg2) == 0)
+	if (ft_strlen(processor->arg3) != 2 || ft_strlen(processor->arg1) == 0 || ft_strlen(processor->arg2) == 0 || processor->iC)
 	{
 		processor->cur_pos = (processor->iterator + processor->cur_pos) % (MEM_SIZE * 2);
 		processor->iterator = 0;
@@ -43,7 +43,7 @@ void  and(t_process *processor)
 
 void  or(t_process *processor)
 {
-	if (ft_strlen(processor->arg3) != 2 || ft_strlen(processor->arg1) == 0 || ft_strlen(processor->arg2) == 0)
+	if (ft_strlen(processor->arg3) != 2 || ft_strlen(processor->arg1) == 0 || ft_strlen(processor->arg2) == 0 || processor->iC)
 	{
 		processor->cur_pos = (processor->iterator + processor->cur_pos) % (MEM_SIZE * 2);
 		processor->iterator = 0;
@@ -80,7 +80,7 @@ void  or(t_process *processor)
 
 void  xor(t_process *processor)
 {
-	if (ft_strlen(processor->arg3) != 2 || ft_strlen(processor->arg1) == 0 || ft_strlen(processor->arg2) == 0)
+	if (ft_strlen(processor->arg3) != 2 || ft_strlen(processor->arg1) == 0 || ft_strlen(processor->arg2) == 0 || processor->iC)
 	{
 		processor->cur_pos = (processor->iterator + processor->cur_pos) % (MEM_SIZE * 2);
 		processor->iterator = 0;
@@ -140,7 +140,8 @@ void ldi(t_process *processor, unsigned char *map) // Обновленно !!!!!
 	int  n;
 
 	n = 0;
-	if (ft_strlen(processor->arg3) != 2 || ft_strlen(processor->arg1) == 0 || ft_strlen(processor->arg2) == 0)
+	i = 0;
+	if (ft_strlen(processor->arg3) != 2 || ft_strlen(processor->arg1) == 0 || ft_strlen(processor->arg2) == 0 || processor->iC)
 	{
 		processor->cur_pos = (processor->cur_pos +processor->iterator) % (MEM_SIZE * 2);
 		processor->iterator = 0;

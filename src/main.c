@@ -1,6 +1,6 @@
 # include "./../inc/corewar.h"
 
-# define VIZ 1
+# define VIZ 0
 
 void	dump(unsigned char map[])
 {
@@ -39,7 +39,7 @@ void	dump(unsigned char map[])
 	}
 }
 
-void	runProcesses(t_process **processes, unsigned char map[], functions_t array[], int i, t_player *player, t_vizData *vizData) // Обновленно !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+void	runProcesses(t_process **processes, unsigned char map[], functions_t array[], int i, t_player *player, t_vizData *vizData)
 {
 	t_process	*go;
 	int 		n;
@@ -48,12 +48,20 @@ void	runProcesses(t_process **processes, unsigned char map[], functions_t array[
 	tmp[2] = '\0';
 	go = *processes;
 	n = 0;
-	if (i == 4)
+	if (i == 9690)
 	{
 
 	}
 	while (go)
 	{
+		if (go->proc_num == 28)
+		{
+
+		}
+		if (go->pl_number != 1 && go->pl_number != 2 && go->pl_number != 3 && go->pl_number != 4)
+		{
+
+		}
 		if (go->invalidAgr)
 		{
 			go->invalidAgr = 0;
@@ -81,10 +89,14 @@ void	runProcesses(t_process **processes, unsigned char map[], functions_t array[
 		}
 		if (go->cycle_todo > 0)
 			--go->cycle_todo;
-		if ((go->com2 > 0 && go->com2 < 16)
+		if ((go->com2 > 0 && go->com2 <= 16)
 		    && !go->cycle_todo)
 		{
 			readShit(map, go);
+			if (ft_strequ(go->arg1, "ff09"))
+			{
+
+			}
 			if (go->com2 == 1)
 				live(go, i, player);
 			else if (go->com2 == 2)
@@ -216,14 +228,11 @@ t_player *ft_player_create(char *champ, int num)
 {
 	t_player *tmp;
 
-	tmp = malloc(sizeof(t_player));
+	tmp = (t_player*)malloc(sizeof(t_player));
 	tmp->num = num;
 	tmp->fd = open(champ, O_RDONLY);
 	if (tmp->fd == -1)
-	{
-		printf("ERROR\n");
-		exit(666);
-	}
+		exit(printf("ERROR\n"));
 	tmp->next = NULL;
 	tmp->lastAlive = 0;
 	tmp->liveCount = 0;
@@ -423,24 +432,22 @@ void checkArguments(int argc, char **argv, t_argFlags **flags, t_player **player
 		n++;
 	}
 	if (!*players)
-	{
 		printf("ERROR\n");
-	}
 }
 
 int     main(int argc, char **argv)
 {
-	unsigned char   map[MEM_SIZE * 2];
-	t_process  *processes;
-	int    i;
-	int    c;
-	functions_t  array[16];
-	t_player  *players;
-	t_vizData       vizData;
-	int    cycleToDie;
-	int    maxchecks;
-	int             n;
-	t_argFlags  *flags;
+	unsigned char	map[MEM_SIZE * 2];
+	t_process		*processes;
+	int				i;
+	int				c;
+	functions_t		array[16];
+	t_player		*players;
+	t_vizData		vizData;
+	int				cycleToDie;
+	int				maxchecks;
+	int				n;
+	t_argFlags		*flags;
 
 	flags = ft_memalloc(sizeof(t_argFlags));
 	checkArguments(argc, argv, &flags, &players);
@@ -450,7 +457,10 @@ int     main(int argc, char **argv)
 	initProcesses(&processes, players);
 	initMap(map, &vizData, players);
 	if (!flags->d && VIZ)
+	{
+		system("afplay -v 0.3 ./Benny-hill-theme.mp3 &");
 		initVis();
+	}
 	initfunc(array);
 	t_player    *p;
 	cycleToDie = CYCLE_TO_DIE;
@@ -458,6 +468,10 @@ int     main(int argc, char **argv)
 	c = 0;
 	while (1)
 	{
+		if (i == 10367)
+		{
+
+		}
 		if (n == cycleToDie && check21(players))
 		{
 			p = players;
@@ -494,7 +508,10 @@ int     main(int argc, char **argv)
 		if (!processes)
 		{
 			if (VIZ)
+			{
+				system("killall afplay");
 				endwin();
+			}
 			ft_printf("GAME OVER on cycle %d\ncycle to die = %d\nprocesses: %d\n", i, cycleToDie, counter(processes));
 			return 0;
 		}
@@ -503,11 +520,14 @@ int     main(int argc, char **argv)
 		if (cycleToDie <= 0)
 		{
 			if (VIZ)
+			{
+				system("killall afplay");
 				endwin();
+			}
 			ft_printf("GAME OVER on cycle %d\ncycle to die = %d\nprocesses: %d\n", i, cycleToDie, counter(processes));
 			return 0;
 		}
-		int br = 1000;
+		int br = 20137;
 		if (!flags->d && VIZ)
 		{
 			visualize(map, processes, &vizData);
@@ -550,7 +570,10 @@ int     main(int argc, char **argv)
 		n++;
 	}
 	if (!flags->d && VIZ)
+	{
+		system("killall afplay");
 		endwin();
+	}
 	else
 		dump(map);
 	return 0;

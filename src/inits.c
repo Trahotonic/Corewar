@@ -4,6 +4,8 @@
 
 #include "../inc/corewar.h"
 
+int procNum = 1;
+
 static int     getCount(t_player *players)
 {
 	int count;
@@ -141,6 +143,7 @@ void	initProcesses(t_process **processes, t_player *players)
 	while (players)
 	{
 		tmp = (t_process *)malloc(sizeof(t_process));
+		tmp->proc_num = procNum++;
 		tmp->cur_pos = setStart(count, idx);
 		tmp->carry = 0;
 		tmp->pl_num = players->playerNumber;

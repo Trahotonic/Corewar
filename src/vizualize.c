@@ -59,8 +59,12 @@ int		markCore(unsigned char x[], int i, unsigned char map[],
 		return (MARK_PROCESS2_PAIR);
 	else if (mP[i] == 3)
 		return (MARK_PROCESS3_PAIR);
-	else
+	else if (mP[i] == 4)
 		return (MARK_PROCESS4_PAIR);
+		else if (mP[i] == 33)
+		return (WHITE_CUNT);
+	else
+		return (0);
 }
 
 void	markProcesses(t_visIter iters, unsigned char map[], unsigned char mP[])
@@ -77,7 +81,7 @@ void	markProcesses(t_visIter iters, unsigned char map[], unsigned char mP[])
 		while (iters.m < 64)
 		{
 			iters.pair = markCore(x, iters.i, map, mP);
-			if (mP[iters.i])
+			if (iters.pair)
 			{
 				attron(COLOR_PAIR(iters.pair));
 				mvwprintw(stdscr, iters.n + 2, iters.q + 3, (char*)x);
@@ -130,7 +134,10 @@ void    innerCycle(unsigned char map[], t_process *proc, t_vizData *vizData)
 	ptr = proc;
 	while (ptr)
 	{
-		markProc[ptr->cur_pos] = ptr->pl_number;
+		if (ptr->proc_num == 28)
+			markProc[ptr->cur_pos] = 33;
+		else
+			markProc[ptr->cur_pos] = ptr->pl_number;
 		ptr = ptr->next;
 	}
 	iters.n = 0;
@@ -141,6 +148,12 @@ void    innerCycle(unsigned char map[], t_process *proc, t_vizData *vizData)
         while (iters.m < 64)
         {
 			iters.pair = DEFAULT_COLOR_PAIR;
+			if (vizData->vizData[iters.i] != 0 && vizData->vizData[iters.i] != 1 &&
+					vizData->vizData[iters.i] != 2 && vizData->vizData[iters.i] != 3 &&
+					vizData->vizData[iters.i] != 4)
+			{
+				mvwprintw(stdscr, 5, 230, "we got problem");
+			}
 			if (vizData->vizData[iters.i])
 				pickPlayerPair(iters.i, vizData->markTimeout,
 						&iters.pair, vizData->vizData[iters.i]);

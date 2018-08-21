@@ -40,4 +40,5 @@ void	initPairs(void)
 	init_pair(SEEK_BITCH, COLOR_BLACK, RED_FALCON);
 	init_pair(SEEK_YELLOW_BITCH, COLOR_BLACK, PISS);
 	init_pair(BORDER, COLOR_BLACK, GREY);
+	init_pair(WHITE_CUNT, COLOR_BLACK, COLOR_WHITE);
 }

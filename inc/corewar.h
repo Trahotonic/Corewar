@@ -72,6 +72,7 @@ typedef struct		header_s
 
 typedef struct  	s_process
 {
+	int 				proc_num;
 	int    				cur_pos;
 	int 				codage;
 	int    				carry;
@@ -79,7 +80,6 @@ typedef struct  	s_process
 	int 				pl_number;
 	unsigned int		reg[REG_NUMBER];
 	int    				alive;
-	char   				command[3];
 	int 				com2;
 	int    				cycle_todo;
 	int    				iterator;
