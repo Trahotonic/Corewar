@@ -13,6 +13,7 @@ set(CMAKE_DEPENDS_CHECK_C
   "/Users/rkyslyy/corewar2/src/read2.c" "/Users/rkyslyy/corewar2/cmake-build-debug/CMakeFiles/Corewar.dir/src/read2.c.o"
   "/Users/rkyslyy/corewar2/src/sti_fork_lld_lldi_lfork.c" "/Users/rkyslyy/corewar2/cmake-build-debug/CMakeFiles/Corewar.dir/src/sti_fork_lld_lldi_lfork.c.o"
   "/Users/rkyslyy/corewar2/src/visMethods.c" "/Users/rkyslyy/corewar2/cmake-build-debug/CMakeFiles/Corewar.dir/src/visMethods.c.o"
+  "/Users/rkyslyy/corewar2/src/visMethods2.c" "/Users/rkyslyy/corewar2/cmake-build-debug/CMakeFiles/Corewar.dir/src/visMethods2.c.o"
   "/Users/rkyslyy/corewar2/src/vizualize.c" "/Users/rkyslyy/corewar2/cmake-build-debug/CMakeFiles/Corewar.dir/src/vizualize.c.o"
   )
 set(CMAKE_C_COMPILER_ID "AppleClang")

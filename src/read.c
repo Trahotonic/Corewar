@@ -172,3 +172,30 @@ void    getTotal(t_player *players, char **total, t_vizData *vizData, int c)
     }
 //    printf("here\n");
 }
+
+int		getPlayers(t_player *players)
+{
+	int n;
+
+	n = 0;
+	while (players)
+	{
+		players = players->next;
+		++n;
+	}
+	return (n);
+}
+
+
+int 	getProcesses(t_process *proc)
+{
+	int n = 0;
+
+	while (proc)
+	{
+		++n;
+		proc = proc->next;
+	}
+	return (n);
+}
+

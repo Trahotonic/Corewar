@@ -124,6 +124,9 @@
 		<Unit filename="/Users/rkyslyy/corewar2/src/visMethods.c">
 			<Option target="Corewar"/>
 		</Unit>
+		<Unit filename="/Users/rkyslyy/corewar2/src/visMethods2.c">
+			<Option target="Corewar"/>
+		</Unit>
 		<Unit filename="/Users/rkyslyy/corewar2/src/vizualize.c">
 			<Option target="Corewar"/>
 		</Unit>

@@ -7,6 +7,7 @@
 
 
 # include <ncurses.h>
+#include "corewar.h"
 
 # define DEFAULT_COLOR_PAIR 1
 # define MARK_PROCESS1_PAIR 2
@@ -42,6 +43,8 @@
 # define LIGHT_BLUE 24
 # define VERY_WHITE 25
 
+typedef struct	s_player t_player;
+
 typedef struct	s_visIter
 {
 	int 		n;
@@ -53,6 +56,15 @@ typedef struct	s_visIter
 
 void	initColors(void);
 void	initPairs(void);
+void	printBorder(void);
+void    initVis(void);
+int		markCore(unsigned char x[], int i, unsigned char map[],
+					unsigned char mP[]);
+void	markProcesses(t_visIter iters, unsigned char map[], unsigned char mP[]);
+void	pickPlayerPair(int idx, unsigned char markTimeout[],
+					   int *pair, int val);
+void	printNames(t_player *players);
+void	eraseNums(int count);
 
 
 #endif //COREWAR_VISUALIZATION_H

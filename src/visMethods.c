@@ -43,3 +43,36 @@ void	initPairs(void)
 	init_pair(BORDER, COLOR_BLACK, GREY);
 	init_pair(WHITE_CUNT, VERY_WHITE, COLOR_BLACK);
 }
+
+
+void	printBorder(void)
+{
+	int n;
+
+	n = 0;
+	attron(COLOR_PAIR(BORDER));
+	while (n < 254)
+	{
+		mvwprintw(stdscr, 0, n, " ");
+		mvwprintw(stdscr, 67, n++, " ");
+	}
+	n = 0;
+	while (n < 68)
+	{
+		mvwprintw(stdscr, n, 0, " ");
+		mvwprintw(stdscr, n, 196, " ");
+		mvwprintw(stdscr, n++, 253, " ");
+	}
+	attroff(COLOR_PAIR(BORDER));
+}
+
+void    initVis(void)
+{
+	initscr();
+	curs_set(0);
+	nodelay(stdscr, false);
+	start_color();
+	initColors();
+	initPairs();
+	printBorder();
+}

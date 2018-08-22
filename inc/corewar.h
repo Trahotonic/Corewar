@@ -132,6 +132,8 @@ typedef struct  functions_s
 	int    cycles;
 }     functions_t;
 
+int		getPlayers(t_player *players);
+int 	getProcesses(t_process *proc);
 void	doNull(t_process *processor);
 void    initMap(unsigned char map[], t_vizData *vizData, t_player *players);
 void	initProcesses(t_process **processes, t_player *players);

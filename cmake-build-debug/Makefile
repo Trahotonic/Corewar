@@ -366,6 +366,33 @@ src/visMethods.c.s:
 	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/visMethods.c.s
 .PHONY : src/visMethods.c.s
 
+src/visMethods2.o: src/visMethods2.c.o
+
+.PHONY : src/visMethods2.o
+
+# target to build an object file
+src/visMethods2.c.o:
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/visMethods2.c.o
+.PHONY : src/visMethods2.c.o
+
+src/visMethods2.i: src/visMethods2.c.i
+
+.PHONY : src/visMethods2.i
+
+# target to preprocess a source file
+src/visMethods2.c.i:
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/visMethods2.c.i
+.PHONY : src/visMethods2.c.i
+
+src/visMethods2.s: src/visMethods2.c.s
+
+.PHONY : src/visMethods2.s
+
+# target to generate assembly for a file
+src/visMethods2.c.s:
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/visMethods2.c.s
+.PHONY : src/visMethods2.c.s
+
 src/vizualize.o: src/vizualize.c.o
 
 .PHONY : src/vizualize.o
@@ -429,6 +456,9 @@ help:
 	@echo "... src/visMethods.o"
 	@echo "... src/visMethods.i"
 	@echo "... src/visMethods.s"
+	@echo "... src/visMethods2.o"
+	@echo "... src/visMethods2.i"
+	@echo "... src/visMethods2.s"
 	@echo "... src/vizualize.o"
 	@echo "... src/vizualize.i"
 	@echo "... src/vizualize.s"
