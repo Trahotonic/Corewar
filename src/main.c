@@ -1,6 +1,22 @@
 # include "./../inc/corewar.h"
 
-# define VIZ 1
+# define VIZ 0
+
+void	introduce(t_player *players)
+{
+	int m;
+
+	m = 0;
+	ft_printf("Introducing contestants...\n");
+	while (players)
+	{
+		ft_printf("* Player %d, weighing %d bytes, \"%s\" (\"%s\") !\n", m + 1,
+				  players->header.prog_size, players->header.prog_name,
+				  players->header.comment);
+		players = players->next;
+		++m;
+	}
+}
 
 void	dump(unsigned char map[], t_player *players)
 {
@@ -11,17 +27,9 @@ void	dump(unsigned char map[], t_player *players)
 	char 	tmp[3];
 	char 	*r;
 
-	m = 0;
 	q = 0;
 	row = 0;
 	tmp[2] = '\0';
-	ft_printf("Introducing contestants...\n");
-	while (players)
-	{
-		ft_printf("* Player %d, weighing %d bytes, \"%s\" (\"%s\") !\n", m + 1, players->header.prog_size, players->header.prog_name, players->header.comment);
-		players = players->next;
-		++m;
-	}
 	m = 0;
 	while (q < 64)
 	{
@@ -462,6 +470,8 @@ int     main(int argc, char **argv)
 	processes = NULL;
 	init_processes(&processes, players);
 	init_map(map, &vizData, players);
+	if (!VIZ)
+		introduce(players);
 	if (!flags->d && VIZ)
 	{
 //		system("afplay -v 0.3 ./Benny-hill-theme.mp3 &");
