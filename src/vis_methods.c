@@ -1,6 +1,14 @@
-//
-// Created by Roman Kyslyy on 8/18/18.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   vis_methods.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rkyslyy <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/08/22 15:11:05 by rkyslyy           #+#    #+#             */
+/*   Updated: 2018/08/22 15:11:07 by rkyslyy          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../inc/visualization.h"
 
@@ -44,7 +52,6 @@ void	init_pairs(void)
 	init_pair(WHITE_CUNT, VERY_WHITE, COLOR_BLACK);
 }
 
-
 void	print_border(void)
 {
 	int n;
@@ -66,7 +73,7 @@ void	print_border(void)
 	attroff(COLOR_PAIR(BORDER));
 }
 
-void    init_vis(void)
+void	init_vis(void)
 {
 	initscr();
 	curs_set(0);

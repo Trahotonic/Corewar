@@ -59,8 +59,8 @@ void	init_pairs(void);
 void	print_border(void);
 void    init_vis(void);
 int		mark_core(unsigned char x[], int i, unsigned char map[],
-					unsigned char mP[]);
-void	mark_processes(t_vis_iter iters, unsigned char map[], unsigned char mP[]);
+					unsigned char m_p[]);
+void	mark_processes(t_vis_iter iters, unsigned char map[], unsigned char m_p[]);
 void	pick_player_pair(int idx, unsigned char mark_timeout[],
 					   int *pair, int val);
 void	print_names(t_player *players);

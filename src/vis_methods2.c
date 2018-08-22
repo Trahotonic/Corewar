@@ -1,27 +1,36 @@
-//
-// Created by Roman KYSLYY on 8/22/18.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   vis_methods2.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rkyslyy <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/08/22 15:12:23 by rkyslyy           #+#    #+#             */
+/*   Updated: 2018/08/22 15:12:24 by rkyslyy          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../inc/corewar.h"
 
 int		mark_core(unsigned char x[], int i, unsigned char map[],
-					unsigned char mP[])
+					unsigned char m_p[])
 {
 	x[0] = map[i];
 	x[1] = map[i + 1];
-	if (mP[i] == 1)
+	if (m_p[i] == 1)
 		return (MARK_PROCESS1_PAIR);
-	else if (mP[i] == 2)
+	else if (m_p[i] == 2)
 		return (MARK_PROCESS2_PAIR);
-	else if (mP[i] == 3)
+	else if (m_p[i] == 3)
 		return (MARK_PROCESS3_PAIR);
-	else if (mP[i] == 4)
+	else if (m_p[i] == 4)
 		return (MARK_PROCESS4_PAIR);
 	else
 		return (0);
 }
 
-void	mark_processes(t_vis_iter iters, unsigned char map[], unsigned char mP[])
+void	mark_processes(t_vis_iter iters, unsigned char map[],
+					unsigned char m_p[])
 {
 	unsigned char x[3];
 
@@ -34,7 +43,7 @@ void	mark_processes(t_vis_iter iters, unsigned char map[], unsigned char mP[])
 		iters.q = 0;
 		while (iters.m < 64)
 		{
-			iters.pair = mark_core(x, iters.i, map, mP);
+			iters.pair = mark_core(x, iters.i, map, m_p);
 			if (iters.pair)
 			{
 				attron(COLOR_PAIR(iters.pair));
@@ -49,37 +58,38 @@ void	mark_processes(t_vis_iter iters, unsigned char map[], unsigned char mP[])
 	}
 }
 
-void	pick_player_pair(int idx, unsigned char mark_timeout[], int *pair, int val)
+void	pick_player_pair(int idx, unsigned char mark_timeout[], int *pair,
+						int val)
 {
-	int defaultPairs[4];
-	int newCodePairs[4];
+	int default_pairs[4];
+	int new_code_pairs[4];
 
-	defaultPairs[0] = DEFAULT_PLAYER1_PAIR;
-	defaultPairs[1] = DEFAULT_PLAYER2_PAIR;
-	defaultPairs[2] = DEFAULT_PLAYER3_PAIR;
-	defaultPairs[3] = DEFAULT_PLAYER4_PAIR;
-	newCodePairs[0] = NEW_PLAYER1_CODE_PAIR;
-	newCodePairs[1] = NEW_PLAYER2_CODE_PAIR;
-	newCodePairs[2] = NEW_PLAYER3_CODE_PAIR;
-	newCodePairs[3] = NEW_PLAYER4_CODE_PAIR;
+	default_pairs[0] = DEFAULT_PLAYER1_PAIR;
+	default_pairs[1] = DEFAULT_PLAYER2_PAIR;
+	default_pairs[2] = DEFAULT_PLAYER3_PAIR;
+	default_pairs[3] = DEFAULT_PLAYER4_PAIR;
+	new_code_pairs[0] = NEW_PLAYER1_CODE_PAIR;
+	new_code_pairs[1] = NEW_PLAYER2_CODE_PAIR;
+	new_code_pairs[2] = NEW_PLAYER3_CODE_PAIR;
+	new_code_pairs[3] = NEW_PLAYER4_CODE_PAIR;
 	if (mark_timeout[idx] > 0)
 	{
-		*pair = newCodePairs[val - 1];
+		*pair = new_code_pairs[val - 1];
 		--mark_timeout[idx];
 	}
 	else
-		*pair = defaultPairs[val - 1];
+		*pair = default_pairs[val - 1];
 }
 
 void	print_names(t_player *players)
 {
 	int		n;
-	int 	plCount;
-	int 	pair;
+	int		pl_count;
+	int		pair;
 
 	n = 0;
-	plCount = get_players(players);
-	while (n < plCount)
+	pl_count = get_players(players);
+	while (n < pl_count)
 	{
 		if (n == 0)
 			pair = NEW_PLAYER1_CODE_PAIR;
