@@ -6,7 +6,7 @@
 #define COREWAR_VISUALIZATION_H
 
 
-# include <ncurses.h>
+#include <ncurses.h>
 #include "corewar.h"
 
 # define DEFAULT_COLOR_PAIR 1
@@ -45,26 +45,26 @@
 
 typedef struct	s_player t_player;
 
-typedef struct	s_visIter
+typedef struct	s_vis_iter
 {
 	int 		n;
 	int	 		m;
 	int 		q;
 	int 		i;
 	int 		pair;
-}				t_visIter;
+}				t_vis_iter;
 
-void	initColors(void);
-void	initPairs(void);
-void	printBorder(void);
-void    initVis(void);
-int		markCore(unsigned char x[], int i, unsigned char map[],
+void	init_colors(void);
+void	init_pairs(void);
+void	print_border(void);
+void    init_vis(void);
+int		mark_core(unsigned char x[], int i, unsigned char map[],
 					unsigned char mP[]);
-void	markProcesses(t_visIter iters, unsigned char map[], unsigned char mP[]);
-void	pickPlayerPair(int idx, unsigned char markTimeout[],
+void	mark_processes(t_vis_iter iters, unsigned char map[], unsigned char mP[]);
+void	pick_player_pair(int idx, unsigned char mark_timeout[],
 					   int *pair, int val);
-void	printNames(t_player *players);
-void	eraseNums(int count);
+void	print_names(t_player *players);
+void	erase_nums(int count);
 
 
 #endif //COREWAR_VISUALIZATION_H

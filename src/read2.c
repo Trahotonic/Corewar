@@ -5,7 +5,7 @@
 #include "../inc/corewar.h"
 
 
-void	doNull(t_process *processor)
+void	do_null(t_process *processor)
 {
 	int n = 0;
 
@@ -51,14 +51,14 @@ void	readLittleShit(unsigned char map[], char arg1[], int tmp, t_process *proces
 	}
 }
 
-void	readShit(unsigned char map[], t_process *processor) // Обновленно !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+void	read_shit(unsigned char *map, t_process *processor) // Обновленно !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 {
 	int		n;
 	char 	tmp[3];
 	char 	*bin;
 
 	tmp[2] = '\0';
-	doNull(processor);
+	do_null(processor);
 	if (processor->codage == 0)
 	{
 		processor->iterator += 2;

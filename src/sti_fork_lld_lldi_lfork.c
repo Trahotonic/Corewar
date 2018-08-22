@@ -71,7 +71,7 @@ int  sti_sup3(t_process *processor)
 	return (i);
 }
 
-void sti_print(unsigned char *map, int i, t_vizData *vizData, char *arg1, t_process *pro)
+void sti_print(unsigned char *map, int i, t_viz_data *vizData, char *arg1, t_process *pro)
 {
 	int n;
 
@@ -79,17 +79,17 @@ void sti_print(unsigned char *map, int i, t_vizData *vizData, char *arg1, t_proc
 	while (n < 8)
 	{
 		i %= MEM_SIZE * 2;
-		vizData->markTimeout[i] = 100;
+		vizData->mark_timeout[i] = 100;
 		if (pro->pl_number != 1 && pro->pl_number != 2 && pro->pl_number != 3 && pro->pl_number != 4)
 		{
 
 		}
-		vizData->vizData[i] = pro->pl_number;
+		vizData->viz_data[i] = pro->pl_number;
 		map[i++] = arg1[n++];
 	}
 }
 
-void  sti(t_process *pro, unsigned char *map, t_vizData *vizData)
+void  sti(t_process *pro, unsigned char *map, t_viz_data *viz_data)
 {
 	int  i;
 	char *arg1;
@@ -110,7 +110,7 @@ void  sti(t_process *pro, unsigned char *map, t_vizData *vizData)
 		i = sti_sup(pro, map);
 	else if (ft_strlen(pro->arg2) == 4)
 		i = sti_sup2(pro);
-	sti_print(map, i, vizData, arg1, pro);
+	sti_print(map, i, viz_data, arg1, pro);
 	ft_strdel(&arg1);
 	pro->cur_pos = (pro->iterator + pro->cur_pos) % 8192;
 	pro->iterator = 0;
@@ -323,7 +323,7 @@ void fork_c(t_process **process, t_process *pro)
 	tmp->cur_pos = (((short)(ft_atoi_base(pro->arg1, 16)) % IDX_MOD) * 2 +pro->cur_pos) % (MEM_SIZE * 2);
 	if (tmp->cur_pos < 0)
 		tmp->cur_pos = (MEM_SIZE * 2 + tmp->cur_pos) % 8192;
-	doNull(tmp);
+	do_null(tmp);
 	tmp->next = *process;
 	*process = tmp;
 	(*process)->prev = NULL;
@@ -344,7 +344,7 @@ void lfork(t_process **process, t_process *pro)
 		return ;
 	}
 	tmp = node_create(pro);
-	doNull(tmp);
+	do_null(tmp);
 	tmp->cur_pos = ((short)ft_atoi_base(pro->arg1, 16) * 2 + pro->cur_pos) % 8192;
 	if (tmp->cur_pos < 0)
 		tmp->cur_pos = (MEM_SIZE * 2 + tmp->cur_pos) % 8192;

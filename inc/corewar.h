@@ -94,12 +94,12 @@ typedef struct  	s_process
 
 }     				t_process;
 
-typedef struct  s_argFlags
+typedef struct  s_arg_flags
 {
 	long long  d;
 	int    v;
 	long long  vi;
-}     t_argFlags;
+}     t_arg_flags;
 
 typedef struct  s_player
 {
@@ -114,16 +114,16 @@ typedef struct  s_player
 }     t_player;
 
 
-typedef struct  s_vizData
+typedef struct  s_viz_data
 {
-    unsigned char   vizData[MEM_SIZE * 2];
-	unsigned char   markTimeout[MEM_SIZE * 2];
+    unsigned char   viz_data[MEM_SIZE * 2];
+	unsigned char   mark_timeout[MEM_SIZE * 2];
 	bool			space;
 	t_player		*players;
 	int 			i;
 	int 			cycleToDie;
 	int 			cycleDelta;
-}               t_vizData;
+}               t_viz_data;
 
 typedef struct  functions_s
 {
@@ -132,25 +132,24 @@ typedef struct  functions_s
 	int    cycles;
 }     functions_t;
 
-int		getPlayers(t_player *players);
-int 	getProcesses(t_process *proc);
-void	doNull(t_process *processor);
-void    initMap(unsigned char map[], t_vizData *vizData, t_player *players);
-void	initProcesses(t_process **processes, t_player *players);
+int		get_players(t_player *players);
+int 	get_processes(t_process *proc);
+void	do_null(t_process *processor);
+void    init_map(unsigned char *map, t_viz_data *viz_data, t_player *players);
+void	init_processes(t_process **processes, t_player *players);
 int 	ft_iswhitespace(char const c);
 int 	base(int c, int base);
 int 	ft_atoi_base(const char *str, int str_base);
-void	readShit(unsigned char map[], t_process *processor);
+void	read_shit(unsigned char *map, t_process *processor);
 int 	saver(int tmp, int len, int plus);
 char	*ft_arrg_join(char *s1, char *s2);
 char	*ft_uitoa_base2(unsigned int value, int base);
 void	convert(char **str);
-void    getTotal(t_player *players, char **total, t_vizData *vizData, int n);
-void    initVis(void);
-void    visualize(unsigned char map[], t_process *proc, t_vizData *vizData);
+void    get_total(t_player *players, char **total, t_viz_data *viz_data, int n);
+void    visualize(unsigned char map[], t_process *proc, t_viz_data *viz_data);
 void  	live(t_process *processor, int i, t_player *pl);
 void  	ld(t_process *processor, unsigned char *map);
-void	st(t_process *processor, unsigned char *map, t_vizData *vizData);
+void	st(t_process *processor, unsigned char *map, t_viz_data *viz_data);
 void	add(t_process *processor);
 void	sub(t_process *processor);
 void	and(t_process *processor);
@@ -162,7 +161,7 @@ void	lld(t_process *processor, unsigned char *map);
 void	lldi(t_process *processor, unsigned char *map);
 void	fork_c(t_process **processor, t_process *cur);
 void	lfork(t_process **processor, t_process *cur);
-void	sti(t_process *processor, unsigned char *map, t_vizData *vizData);
+void	sti(t_process *processor, unsigned char *map, t_viz_data *viz_data);
 void	aff(t_process *processor, unsigned char *map);
 void 	initfunc(functions_t func[]);
 

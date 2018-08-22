@@ -75,7 +75,7 @@ void		ld(t_process *processor, unsigned char *map)
 	processor->iterator = 0;
 }
 
-void	st(t_process *processor, unsigned char *map, t_vizData *vizData)
+void	st(t_process *processor, unsigned char *map, t_viz_data *viz_data)
 {
 	int		n;
 	char	*tmp;
@@ -106,8 +106,8 @@ void	st(t_process *processor, unsigned char *map, t_vizData *vizData)
 		while (n < 8)
 		{
 			k %= (MEM_SIZE * 2);
-			vizData->markTimeout[k] = 100;
-			vizData->vizData[k] = processor->pl_number;
+			viz_data->mark_timeout[k] = 100;
+			viz_data->viz_data[k] = processor->pl_number;
 			map[k++] = tmp[n++];
 		}
 	}

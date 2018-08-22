@@ -39,7 +39,7 @@ void	dump(unsigned char map[])
 	}
 }
 
-void	runProcesses(t_process **processes, unsigned char map[], functions_t array[], int i, t_player *player, t_vizData *vizData)
+void	runProcesses(t_process **processes, unsigned char map[], functions_t array[], int i, t_player *player, t_viz_data *vizData)
 {
 	t_process	*go;
 	int 		n;
@@ -92,7 +92,7 @@ void	runProcesses(t_process **processes, unsigned char map[], functions_t array[
 		if ((go->com2 > 0 && go->com2 <= 16)
 		    && !go->cycle_todo)
 		{
-			readShit(map, go);
+			read_shit(map, go);
 			if (ft_strequ(go->arg1, "ff09"))
 			{
 
@@ -261,7 +261,7 @@ void ft_get_champ(t_player **players, char **argv, int *n)
 	}
 }
 
-void  ft_check_flag_d(t_player **players, char **argv, int *n, t_argFlags *flags)
+void  ft_check_flag_d(t_player **players, char **argv, int *n, t_arg_flags *flags)
 {
 	int i;
 
@@ -287,7 +287,7 @@ void  ft_check_flag_d(t_player **players, char **argv, int *n, t_argFlags *flags
 	}
 }
 
-void  ft_check_flag_vi(t_player **players, char **argv, int *n, t_argFlags *flags)
+void  ft_check_flag_vi(t_player **players, char **argv, int *n, t_arg_flags *flags)
 {
 	int i;
 
@@ -313,7 +313,7 @@ void  ft_check_flag_vi(t_player **players, char **argv, int *n, t_argFlags *flag
 	}
 }
 
-void  ft_check_flag_n(t_player **players, char **argv, int *n, t_argFlags *flags)
+void  ft_check_flag_n(t_player **players, char **argv, int *n, t_arg_flags *flags)
 {
 	int i;
 	t_player *tmp;
@@ -365,7 +365,7 @@ void  ft_check_flag_n(t_player **players, char **argv, int *n, t_argFlags *flags
 	}
 }
 
-void  ft_check_flags(t_player **players, char **argv, int *n, t_argFlags *flags)
+void  ft_check_flags(t_player **players, char **argv, int *n, t_arg_flags *flags)
 {
 	if (ft_strequ(argv[*n], "-d"))
 		ft_check_flag_d(players, argv, n, flags);
@@ -412,7 +412,7 @@ char *ft_strstr2(const char *big, const char *little)
 	return (NULL);
 }
 
-void checkArguments(int argc, char **argv, t_argFlags **flags, t_player **players)
+void checkArguments(int argc, char **argv, t_arg_flags **flags, t_player **players)
 {
 	int n;
 
@@ -443,23 +443,23 @@ int     main(int argc, char **argv)
 	int				c;
 	functions_t		array[16];
 	t_player		*players;
-	t_vizData		vizData;
+	t_viz_data		vizData;
 	int				cycleToDie;
 	int				maxchecks;
 	int				n;
-	t_argFlags		*flags;
+	t_arg_flags		*flags;
 
-	flags = ft_memalloc(sizeof(t_argFlags));
+	flags = ft_memalloc(sizeof(t_arg_flags));
 	checkArguments(argc, argv, &flags, &players);
 	n = 0;
 	maxchecks = 1;
 	processes = NULL;
-	initProcesses(&processes, players);
-	initMap(map, &vizData, players);
+	init_processes(&processes, players);
+	init_map(map, &vizData, players);
 	if (!flags->d && VIZ)
 	{
 //		system("afplay -v 0.3 ./Benny-hill-theme.mp3 &");
-		initVis();
+		init_vis();
 		vizData.players = players;
 	}
 	initfunc(array);

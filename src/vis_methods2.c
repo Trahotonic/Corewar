@@ -4,7 +4,7 @@
 
 #include "../inc/corewar.h"
 
-int		markCore(unsigned char x[], int i, unsigned char map[],
+int		mark_core(unsigned char x[], int i, unsigned char map[],
 					unsigned char mP[])
 {
 	x[0] = map[i];
@@ -21,7 +21,7 @@ int		markCore(unsigned char x[], int i, unsigned char map[],
 		return (0);
 }
 
-void	markProcesses(t_visIter iters, unsigned char map[], unsigned char mP[])
+void	mark_processes(t_vis_iter iters, unsigned char map[], unsigned char mP[])
 {
 	unsigned char x[3];
 
@@ -34,7 +34,7 @@ void	markProcesses(t_visIter iters, unsigned char map[], unsigned char mP[])
 		iters.q = 0;
 		while (iters.m < 64)
 		{
-			iters.pair = markCore(x, iters.i, map, mP);
+			iters.pair = mark_core(x, iters.i, map, mP);
 			if (iters.pair)
 			{
 				attron(COLOR_PAIR(iters.pair));
@@ -49,7 +49,7 @@ void	markProcesses(t_visIter iters, unsigned char map[], unsigned char mP[])
 	}
 }
 
-void	pickPlayerPair(int idx, unsigned char markTimeout[], int *pair, int val)
+void	pick_player_pair(int idx, unsigned char mark_timeout[], int *pair, int val)
 {
 	int defaultPairs[4];
 	int newCodePairs[4];
@@ -62,23 +62,23 @@ void	pickPlayerPair(int idx, unsigned char markTimeout[], int *pair, int val)
 	newCodePairs[1] = NEW_PLAYER2_CODE_PAIR;
 	newCodePairs[2] = NEW_PLAYER3_CODE_PAIR;
 	newCodePairs[3] = NEW_PLAYER4_CODE_PAIR;
-	if (markTimeout[idx] > 0)
+	if (mark_timeout[idx] > 0)
 	{
 		*pair = newCodePairs[val - 1];
-		--markTimeout[idx];
+		--mark_timeout[idx];
 	}
 	else
 		*pair = defaultPairs[val - 1];
 }
 
-void	printNames(t_player *players)
+void	print_names(t_player *players)
 {
 	int		n;
 	int 	plCount;
 	int 	pair;
 
 	n = 0;
-	plCount = getPlayers(players);
+	plCount = get_players(players);
 	while (n < plCount)
 	{
 		if (n == 0)
@@ -97,7 +97,7 @@ void	printNames(t_player *players)
 	}
 }
 
-void	eraseNums(int count)
+void	erase_nums(int count)
 {
 	int n;
 

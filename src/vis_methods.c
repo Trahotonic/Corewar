@@ -4,7 +4,7 @@
 
 #include "../inc/visualization.h"
 
-void	initColors(void)
+void	init_colors(void)
 {
 	init_color(LIGHT_GREEN, 500, 1000, 500);
 	init_color(GREY, 300, 300, 300);
@@ -23,7 +23,7 @@ void	initColors(void)
 	init_color(VERY_WHITE, 1000, 1000, 1000);
 }
 
-void	initPairs(void)
+void	init_pairs(void)
 {
 	init_pair(DEFAULT_COLOR_PAIR, GREY, COLOR_BLACK);
 	init_pair(MARK_PROCESS1_PAIR, COLOR_BLACK, GOOD_GREEN);
@@ -45,7 +45,7 @@ void	initPairs(void)
 }
 
 
-void	printBorder(void)
+void	print_border(void)
 {
 	int n;
 
@@ -66,13 +66,13 @@ void	printBorder(void)
 	attroff(COLOR_PAIR(BORDER));
 }
 
-void    initVis(void)
+void    init_vis(void)
 {
 	initscr();
 	curs_set(0);
 	nodelay(stdscr, false);
 	start_color();
-	initColors();
-	initPairs();
-	printBorder();
+	init_colors();
+	init_pairs();
+	print_border();
 }

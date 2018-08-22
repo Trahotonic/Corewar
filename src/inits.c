@@ -99,7 +99,7 @@ void 	fillMap(char *total, int count, int idx, unsigned char map[])
 	}
 }
 
-void    initMap(unsigned char map[], t_vizData *vizData, t_player *players)
+void    init_map(unsigned char *map, t_viz_data *viz_data, t_player *players)
 {
 	int         n;
 	int			count;
@@ -110,8 +110,8 @@ void    initMap(unsigned char map[], t_vizData *vizData, t_player *players)
 	n = 0;
 	while (n < MEM_SIZE * 2)
 	{
-		vizData->markTimeout[n] = 0;
-		vizData->vizData[n] = 0;
+		viz_data->mark_timeout[n] = 0;
+		viz_data->viz_data[n] = 0;
 		map[n++] = '0';
 	}
 	count = getCount(players);
@@ -120,17 +120,17 @@ void    initMap(unsigned char map[], t_vizData *vizData, t_player *players)
 	while (ptr)
 	{
 		read(ptr->fd, &ptr->header, sizeof(header_t));
-		getTotal(players, &total, vizData, n);
+		get_total(players, &total, viz_data, n);
 		fillMap(total, count, n, map);
 		ft_strdel(&total);
 		ptr = ptr->next;
 		++n;
 	}
-	vizData->space = false;
+	viz_data->space = false;
 }
 
 
-void	initProcesses(t_process **processes, t_player *players)
+void	init_processes(t_process **processes, t_player *players)
 {
 	t_process	*tmp;
 	t_process	*ptr;

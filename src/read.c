@@ -132,7 +132,7 @@ static int     setStart(int count, int idx)
 	}
 }
 
-void    getTotal(t_player *players, char **total, t_vizData *vizData, int c)
+void    get_total(t_player *players, char **total, t_viz_data *viz_data, int c)
 {
     ssize_t         n;
     unsigned int    buff;
@@ -166,14 +166,14 @@ void    getTotal(t_player *players, char **total, t_vizData *vizData, int c)
 	q = 0;
     while (q < ft_strlen(*total))
     {
-        vizData->vizData[players->start + q] = c;
-        vizData->markTimeout[players->start + q] = 0;
+        viz_data->viz_data[players->start + q] = c;
+        viz_data->mark_timeout[players->start + q] = 0;
         ++q;
     }
 //    printf("here\n");
 }
 
-int		getPlayers(t_player *players)
+int		get_players(t_player *players)
 {
 	int n;
 
@@ -187,7 +187,7 @@ int		getPlayers(t_player *players)
 }
 
 
-int 	getProcesses(t_process *proc)
+int 	get_processes(t_process *proc)
 {
 	int n = 0;
 
