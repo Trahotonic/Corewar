@@ -13,7 +13,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a69af0ba-4ee2-469f-ba16-c19649af79bd" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main.c" afterPath="$PROJECT_DIR$/src/main.c" />
+      <change beforePath="$PROJECT_DIR$/src/sti_fork_lld_lldi_lfork.c" afterPath="$PROJECT_DIR$/src/sti_fork_lld_lldi_lfork.c" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -67,11 +67,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="main.c" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main.c" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
+            <state relative-caret-position="-7748">
               <caret line="30" column="60" lean-forward="false" selection-start-line="30" selection-start-column="60" selection-end-line="30" selection-end-column="60" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="and_or_xor_zjmp_ldi.c" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/and_or_xor_zjmp_ldi.c">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-653">
+              <caret line="82" column="126" lean-forward="false" selection-start-line="82" selection-start-column="126" selection-end-line="82" selection-end-column="126" />
               <folding />
             </state>
           </provider>
@@ -82,6 +92,16 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="607">
               <caret line="76" column="20" lean-forward="false" selection-start-line="76" selection-start-column="20" selection-end-line="76" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sti_fork_lld_lldi_lfork.c" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/sti_fork_lld_lldi_lfork.c">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1207">
+              <caret line="377" column="82" lean-forward="false" selection-start-line="377" selection-start-column="82" selection-end-line="377" selection-end-column="82" />
               <folding />
             </state>
           </provider>
@@ -102,26 +122,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="450">
               <caret line="30" column="97" lean-forward="false" selection-start-line="30" selection-start-column="97" selection-end-line="30" selection-end-column="98" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="vis_methods2.c" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/vis_methods2.c">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="682">
-              <caret line="87" column="8" lean-forward="false" selection-start-line="87" selection-start-column="8" selection-end-line="87" selection-end-column="8" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="vis_methods.c" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/vis_methods.c">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="772">
-              <caret line="53" column="0" lean-forward="false" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -201,7 +201,6 @@
         <option value="$PROJECT_DIR$/src/converts.c" />
         <option value="$PROJECT_DIR$/src/read2.c" />
         <option value="$PROJECT_DIR$/src/and_or_xor_zjmp_ldi.c" />
-        <option value="$PROJECT_DIR$/src/sti_fork_lld_lldi_lfork.c" />
         <option value="$PROJECT_DIR$/src/visMethods2.c" />
         <option value="$PROJECT_DIR$/src/visMethods.c" />
         <option value="$PROJECT_DIR$/src/read.c" />
@@ -213,6 +212,7 @@
         <option value="$PROJECT_DIR$/inc/corewar.h" />
         <option value="$PROJECT_DIR$/src/inits.c" />
         <option value="$PROJECT_DIR$/src/main.c" />
+        <option value="$PROJECT_DIR$/src/sti_fork_lld_lldi_lfork.c" />
       </list>
     </option>
   </component>
@@ -467,7 +467,7 @@
       <workItem from="1534753993022" duration="1657000" />
       <workItem from="1534757231159" duration="8720000" />
       <workItem from="1534843220202" duration="12140000" />
-      <workItem from="1534934784706" duration="7497000" />
+      <workItem from="1534934784706" duration="8080000" />
     </task>
     <task id="LOCAL-00001" summary="maybe good">
       <created>1532968262721</created>
@@ -756,11 +756,18 @@
       <option name="project" value="LOCAL" />
       <updated>1534944228798</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="we have a winner">
+      <created>1534946686974</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1534946686974</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="166759000" />
+    <option name="totallyTimeSpent" value="167342000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="2560" height="1440" extended-state="0" />
@@ -794,7 +801,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="tomorrow&#10;problem with maxchecks" />
     <MESSAGE value="sran" />
     <MESSAGE value="fix and or xor" />
     <MESSAGE value="10" />
@@ -819,7 +825,8 @@
     <MESSAGE value="norme live_ld..." />
     <MESSAGE value="dump almost good" />
     <MESSAGE value="introduction" />
-    <option name="LAST_COMMIT_MESSAGE" value="introduction" />
+    <MESSAGE value="we have a winner" />
+    <option name="LAST_COMMIT_MESSAGE" value="we have a winner" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1148,25 +1155,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/and_or_xor_zjmp_ldi.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-653">
-          <caret line="82" column="126" lean-forward="false" selection-start-line="82" selection-start-column="126" selection-end-line="82" selection-end-column="126" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/include/ncurses.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="447">
           <caret line="650" column="26" lean-forward="true" selection-start-line="650" selection-start-column="26" selection-end-line="650" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sti_fork_lld_lldi_lfork.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4530">
-          <caret line="302" column="27" lean-forward="false" selection-start-line="302" selection-start-column="27" selection-end-line="302" selection-end-column="27" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1190,14 +1182,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="682">
           <caret line="87" column="8" lean-forward="false" selection-start-line="87" selection-start-column="8" selection-end-line="87" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/live_ld_st_add_sub.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-983">
-          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1254,10 +1238,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/and_or_xor_zjmp_ldi.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-653">
+          <caret line="82" column="126" lean-forward="false" selection-start-line="82" selection-start-column="126" selection-end-line="82" selection-end-column="126" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
+        <state relative-caret-position="-7748">
           <caret line="30" column="60" lean-forward="false" selection-start-line="30" selection-start-column="60" selection-end-line="30" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/live_ld_st_add_sub.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-983">
+          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sti_fork_lld_lldi_lfork.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1207">
+          <caret line="377" column="82" lean-forward="false" selection-start-line="377" selection-start-column="82" selection-end-line="377" selection-end-column="82" />
           <folding />
         </state>
       </provider>

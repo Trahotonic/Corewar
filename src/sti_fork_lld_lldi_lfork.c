@@ -370,6 +370,12 @@ void aff(t_process *processor, unsigned char *map)
 		processor->iterator -= 4;
 	if (ft_strlen(processor->arg2) == 8)
 		processor->iterator -= 8;
+	if (processor->iC)
+	{
+		processor->cur_pos = (processor->iterator + processor->cur_pos) % (MEM_SIZE * 2);
+		processor->iterator = 0;
+	}
+	ft_printf("%c",  processor->reg[ft_atoi_base(processor->arg1, 16) - 1] % 256);
 	processor->cur_pos = (processor->iterator + processor->cur_pos) % (MEM_SIZE * 2);
 	processor->iterator = 0;
 }
