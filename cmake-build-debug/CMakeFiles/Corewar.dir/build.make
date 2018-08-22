@@ -273,52 +273,52 @@ CMakeFiles/Corewar.dir/src/sti_fork_lld_lldi_lfork.c.o.provides: CMakeFiles/Core
 CMakeFiles/Corewar.dir/src/sti_fork_lld_lldi_lfork.c.o.provides.build: CMakeFiles/Corewar.dir/src/sti_fork_lld_lldi_lfork.c.o
 
 
-CMakeFiles/Corewar.dir/src/visMethods.c.o: CMakeFiles/Corewar.dir/flags.make
-CMakeFiles/Corewar.dir/src/visMethods.c.o: ../src/visMethods.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/rkyslyy/corewar2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/Corewar.dir/src/visMethods.c.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Corewar.dir/src/visMethods.c.o   -c /Users/rkyslyy/corewar2/src/visMethods.c
+CMakeFiles/Corewar.dir/src/vis_methods.c.o: CMakeFiles/Corewar.dir/flags.make
+CMakeFiles/Corewar.dir/src/vis_methods.c.o: ../src/vis_methods.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/rkyslyy/corewar2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/Corewar.dir/src/vis_methods.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Corewar.dir/src/vis_methods.c.o   -c /Users/rkyslyy/corewar2/src/vis_methods.c
 
-CMakeFiles/Corewar.dir/src/visMethods.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Corewar.dir/src/visMethods.c.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/rkyslyy/corewar2/src/visMethods.c > CMakeFiles/Corewar.dir/src/visMethods.c.i
+CMakeFiles/Corewar.dir/src/vis_methods.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Corewar.dir/src/vis_methods.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/rkyslyy/corewar2/src/vis_methods.c > CMakeFiles/Corewar.dir/src/vis_methods.c.i
 
-CMakeFiles/Corewar.dir/src/visMethods.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Corewar.dir/src/visMethods.c.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/rkyslyy/corewar2/src/visMethods.c -o CMakeFiles/Corewar.dir/src/visMethods.c.s
+CMakeFiles/Corewar.dir/src/vis_methods.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Corewar.dir/src/vis_methods.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/rkyslyy/corewar2/src/vis_methods.c -o CMakeFiles/Corewar.dir/src/vis_methods.c.s
 
-CMakeFiles/Corewar.dir/src/visMethods.c.o.requires:
+CMakeFiles/Corewar.dir/src/vis_methods.c.o.requires:
 
-.PHONY : CMakeFiles/Corewar.dir/src/visMethods.c.o.requires
+.PHONY : CMakeFiles/Corewar.dir/src/vis_methods.c.o.requires
 
-CMakeFiles/Corewar.dir/src/visMethods.c.o.provides: CMakeFiles/Corewar.dir/src/visMethods.c.o.requires
-	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/visMethods.c.o.provides.build
-.PHONY : CMakeFiles/Corewar.dir/src/visMethods.c.o.provides
+CMakeFiles/Corewar.dir/src/vis_methods.c.o.provides: CMakeFiles/Corewar.dir/src/vis_methods.c.o.requires
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/vis_methods.c.o.provides.build
+.PHONY : CMakeFiles/Corewar.dir/src/vis_methods.c.o.provides
 
-CMakeFiles/Corewar.dir/src/visMethods.c.o.provides.build: CMakeFiles/Corewar.dir/src/visMethods.c.o
+CMakeFiles/Corewar.dir/src/vis_methods.c.o.provides.build: CMakeFiles/Corewar.dir/src/vis_methods.c.o
 
 
-CMakeFiles/Corewar.dir/src/visMethods2.c.o: CMakeFiles/Corewar.dir/flags.make
-CMakeFiles/Corewar.dir/src/visMethods2.c.o: ../src/visMethods2.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/rkyslyy/corewar2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object CMakeFiles/Corewar.dir/src/visMethods2.c.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Corewar.dir/src/visMethods2.c.o   -c /Users/rkyslyy/corewar2/src/visMethods2.c
+CMakeFiles/Corewar.dir/src/vis_methods2.c.o: CMakeFiles/Corewar.dir/flags.make
+CMakeFiles/Corewar.dir/src/vis_methods2.c.o: ../src/vis_methods2.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/rkyslyy/corewar2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object CMakeFiles/Corewar.dir/src/vis_methods2.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Corewar.dir/src/vis_methods2.c.o   -c /Users/rkyslyy/corewar2/src/vis_methods2.c
 
-CMakeFiles/Corewar.dir/src/visMethods2.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Corewar.dir/src/visMethods2.c.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/rkyslyy/corewar2/src/visMethods2.c > CMakeFiles/Corewar.dir/src/visMethods2.c.i
+CMakeFiles/Corewar.dir/src/vis_methods2.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Corewar.dir/src/vis_methods2.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/rkyslyy/corewar2/src/vis_methods2.c > CMakeFiles/Corewar.dir/src/vis_methods2.c.i
 
-CMakeFiles/Corewar.dir/src/visMethods2.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Corewar.dir/src/visMethods2.c.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/rkyslyy/corewar2/src/visMethods2.c -o CMakeFiles/Corewar.dir/src/visMethods2.c.s
+CMakeFiles/Corewar.dir/src/vis_methods2.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Corewar.dir/src/vis_methods2.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/rkyslyy/corewar2/src/vis_methods2.c -o CMakeFiles/Corewar.dir/src/vis_methods2.c.s
 
-CMakeFiles/Corewar.dir/src/visMethods2.c.o.requires:
+CMakeFiles/Corewar.dir/src/vis_methods2.c.o.requires:
 
-.PHONY : CMakeFiles/Corewar.dir/src/visMethods2.c.o.requires
+.PHONY : CMakeFiles/Corewar.dir/src/vis_methods2.c.o.requires
 
-CMakeFiles/Corewar.dir/src/visMethods2.c.o.provides: CMakeFiles/Corewar.dir/src/visMethods2.c.o.requires
-	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/visMethods2.c.o.provides.build
-.PHONY : CMakeFiles/Corewar.dir/src/visMethods2.c.o.provides
+CMakeFiles/Corewar.dir/src/vis_methods2.c.o.provides: CMakeFiles/Corewar.dir/src/vis_methods2.c.o.requires
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/vis_methods2.c.o.provides.build
+.PHONY : CMakeFiles/Corewar.dir/src/vis_methods2.c.o.provides
 
-CMakeFiles/Corewar.dir/src/visMethods2.c.o.provides.build: CMakeFiles/Corewar.dir/src/visMethods2.c.o
+CMakeFiles/Corewar.dir/src/vis_methods2.c.o.provides.build: CMakeFiles/Corewar.dir/src/vis_methods2.c.o
 
 
 # Object files for target Corewar
@@ -332,8 +332,8 @@ Corewar_OBJECTS = \
 "CMakeFiles/Corewar.dir/src/read2.c.o" \
 "CMakeFiles/Corewar.dir/src/and_or_xor_zjmp_ldi.c.o" \
 "CMakeFiles/Corewar.dir/src/sti_fork_lld_lldi_lfork.c.o" \
-"CMakeFiles/Corewar.dir/src/visMethods.c.o" \
-"CMakeFiles/Corewar.dir/src/visMethods2.c.o"
+"CMakeFiles/Corewar.dir/src/vis_methods.c.o" \
+"CMakeFiles/Corewar.dir/src/vis_methods2.c.o"
 
 # External object files for target Corewar
 Corewar_EXTERNAL_OBJECTS =
@@ -347,8 +347,8 @@ Corewar: CMakeFiles/Corewar.dir/src/live_ld_st_add_sub.c.o
 Corewar: CMakeFiles/Corewar.dir/src/read2.c.o
 Corewar: CMakeFiles/Corewar.dir/src/and_or_xor_zjmp_ldi.c.o
 Corewar: CMakeFiles/Corewar.dir/src/sti_fork_lld_lldi_lfork.c.o
-Corewar: CMakeFiles/Corewar.dir/src/visMethods.c.o
-Corewar: CMakeFiles/Corewar.dir/src/visMethods2.c.o
+Corewar: CMakeFiles/Corewar.dir/src/vis_methods.c.o
+Corewar: CMakeFiles/Corewar.dir/src/vis_methods2.c.o
 Corewar: CMakeFiles/Corewar.dir/build.make
 Corewar: ../libft/libft.a
 Corewar: ../libft/ft_printf/libftprintf.a
@@ -370,8 +370,8 @@ CMakeFiles/Corewar.dir/requires: CMakeFiles/Corewar.dir/src/live_ld_st_add_sub.c
 CMakeFiles/Corewar.dir/requires: CMakeFiles/Corewar.dir/src/read2.c.o.requires
 CMakeFiles/Corewar.dir/requires: CMakeFiles/Corewar.dir/src/and_or_xor_zjmp_ldi.c.o.requires
 CMakeFiles/Corewar.dir/requires: CMakeFiles/Corewar.dir/src/sti_fork_lld_lldi_lfork.c.o.requires
-CMakeFiles/Corewar.dir/requires: CMakeFiles/Corewar.dir/src/visMethods.c.o.requires
-CMakeFiles/Corewar.dir/requires: CMakeFiles/Corewar.dir/src/visMethods2.c.o.requires
+CMakeFiles/Corewar.dir/requires: CMakeFiles/Corewar.dir/src/vis_methods.c.o.requires
+CMakeFiles/Corewar.dir/requires: CMakeFiles/Corewar.dir/src/vis_methods2.c.o.requires
 
 .PHONY : CMakeFiles/Corewar.dir/requires
 

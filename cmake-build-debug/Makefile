@@ -339,59 +339,59 @@ src/sti_fork_lld_lldi_lfork.c.s:
 	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/sti_fork_lld_lldi_lfork.c.s
 .PHONY : src/sti_fork_lld_lldi_lfork.c.s
 
-src/visMethods.o: src/visMethods.c.o
+src/vis_methods.o: src/vis_methods.c.o
 
-.PHONY : src/visMethods.o
-
-# target to build an object file
-src/visMethods.c.o:
-	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/visMethods.c.o
-.PHONY : src/visMethods.c.o
-
-src/visMethods.i: src/visMethods.c.i
-
-.PHONY : src/visMethods.i
-
-# target to preprocess a source file
-src/visMethods.c.i:
-	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/visMethods.c.i
-.PHONY : src/visMethods.c.i
-
-src/visMethods.s: src/visMethods.c.s
-
-.PHONY : src/visMethods.s
-
-# target to generate assembly for a file
-src/visMethods.c.s:
-	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/visMethods.c.s
-.PHONY : src/visMethods.c.s
-
-src/visMethods2.o: src/visMethods2.c.o
-
-.PHONY : src/visMethods2.o
+.PHONY : src/vis_methods.o
 
 # target to build an object file
-src/visMethods2.c.o:
-	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/visMethods2.c.o
-.PHONY : src/visMethods2.c.o
+src/vis_methods.c.o:
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/vis_methods.c.o
+.PHONY : src/vis_methods.c.o
 
-src/visMethods2.i: src/visMethods2.c.i
+src/vis_methods.i: src/vis_methods.c.i
 
-.PHONY : src/visMethods2.i
+.PHONY : src/vis_methods.i
 
 # target to preprocess a source file
-src/visMethods2.c.i:
-	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/visMethods2.c.i
-.PHONY : src/visMethods2.c.i
+src/vis_methods.c.i:
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/vis_methods.c.i
+.PHONY : src/vis_methods.c.i
 
-src/visMethods2.s: src/visMethods2.c.s
+src/vis_methods.s: src/vis_methods.c.s
 
-.PHONY : src/visMethods2.s
+.PHONY : src/vis_methods.s
 
 # target to generate assembly for a file
-src/visMethods2.c.s:
-	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/visMethods2.c.s
-.PHONY : src/visMethods2.c.s
+src/vis_methods.c.s:
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/vis_methods.c.s
+.PHONY : src/vis_methods.c.s
+
+src/vis_methods2.o: src/vis_methods2.c.o
+
+.PHONY : src/vis_methods2.o
+
+# target to build an object file
+src/vis_methods2.c.o:
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/vis_methods2.c.o
+.PHONY : src/vis_methods2.c.o
+
+src/vis_methods2.i: src/vis_methods2.c.i
+
+.PHONY : src/vis_methods2.i
+
+# target to preprocess a source file
+src/vis_methods2.c.i:
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/vis_methods2.c.i
+.PHONY : src/vis_methods2.c.i
+
+src/vis_methods2.s: src/vis_methods2.c.s
+
+.PHONY : src/vis_methods2.s
+
+# target to generate assembly for a file
+src/vis_methods2.c.s:
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/vis_methods2.c.s
+.PHONY : src/vis_methods2.c.s
 
 src/vizualize.o: src/vizualize.c.o
 
@@ -453,12 +453,12 @@ help:
 	@echo "... src/sti_fork_lld_lldi_lfork.o"
 	@echo "... src/sti_fork_lld_lldi_lfork.i"
 	@echo "... src/sti_fork_lld_lldi_lfork.s"
-	@echo "... src/visMethods.o"
-	@echo "... src/visMethods.i"
-	@echo "... src/visMethods.s"
-	@echo "... src/visMethods2.o"
-	@echo "... src/visMethods2.i"
-	@echo "... src/visMethods2.s"
+	@echo "... src/vis_methods.o"
+	@echo "... src/vis_methods.i"
+	@echo "... src/vis_methods.s"
+	@echo "... src/vis_methods2.o"
+	@echo "... src/vis_methods2.i"
+	@echo "... src/vis_methods2.s"
 	@echo "... src/vizualize.o"
 	@echo "... src/vizualize.i"
 	@echo "... src/vizualize.s"

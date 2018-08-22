@@ -8,8 +8,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/Corewar.dir/src/read2.c.o"
   "CMakeFiles/Corewar.dir/src/and_or_xor_zjmp_ldi.c.o"
   "CMakeFiles/Corewar.dir/src/sti_fork_lld_lldi_lfork.c.o"
-  "CMakeFiles/Corewar.dir/src/visMethods.c.o"
-  "CMakeFiles/Corewar.dir/src/visMethods2.c.o"
+  "CMakeFiles/Corewar.dir/src/vis_methods.c.o"
+  "CMakeFiles/Corewar.dir/src/vis_methods2.c.o"
   "Corewar.pdb"
   "Corewar"
 )

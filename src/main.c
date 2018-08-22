@@ -588,15 +588,6 @@ int     main(int argc, char **argv)
 			vizData.cycleToDie = cycleToDie;
 			vizData.i = i;
 			visualize(map, processes, &vizData);
-//			mvwprintw(stdscr, 0, 196, "%d", i);
-//			mvwprintw(stdscr, 3, 196, "                       ");
-//			mvwprintw(stdscr, 3, 196, "live count: %d", players->liveCount);
-//			mvwprintw(stdscr, 4, 196, "                       ");
-//			mvwprintw(stdscr, 4, 196, "last alive: %d", players->lastAlive);
-//			mvwprintw(stdscr, 5, 196, "                       ");
-//			mvwprintw(stdscr, 5, 196, "max checks: %d", maxchecks);
-//			mvwprintw(stdscr, 6, 196, "                   ");
-//			mvwprintw(stdscr, 6, 196, "cycle to die: %d", cycleToDie);
 			if (!vizData.space)
 			{
 				while (c != 113 && c != 115 && c != 32)
