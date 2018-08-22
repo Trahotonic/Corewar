@@ -18,6 +18,36 @@ void	introduce(t_player *players)
 	}
 }
 
+int	pick_winner(t_player *players)
+{
+	t_player	*ptr;
+	t_player	*winner;
+	int 		max;
+
+	ptr = players;
+	winner = players;
+	max = players->lastAlive;
+	if (!players->next)
+		return (ft_printf("Contestant 1, \"%s\", has won !\n", players->header.prog_name));
+	players = players->next;
+	while (players)
+	{
+		if (players->lastAlive > max)
+		{
+			max = players->lastAlive;
+			winner = players;
+		}
+		players = players->next;
+	}
+	while (ptr)
+	{
+		if (ptr->lastAlive == max)
+			winner = ptr;
+		ptr = ptr->next;
+	}
+	return (ft_printf("Contestant %d, \"%s\", has won !\n", winner->num, winner->header.prog_name));
+}
+
 void	dump(unsigned char map[], t_player *players)
 {
 	int		n;
@@ -529,7 +559,7 @@ int     main(int argc, char **argv)
 //				system("killall afplay");
 				endwin();
 			}
-			ft_printf("GAME OVER on cycle %d\ncycle to die = %d\nprocesses: %d\n", i, cycleToDie, counter(processes));
+			pick_winner(players);
 			return 0;
 		}
 		if (flags->d && i == flags->d)
@@ -541,7 +571,7 @@ int     main(int argc, char **argv)
 //				system("killall afplay");
 				endwin();
 			}
-			ft_printf("GAME OVER on cycle %d\ncycle to die = %d\nprocesses: %d\n", i, cycleToDie, counter(processes));
+			pick_winner(players);
 			return 0;
 		}
 		int br = 20137;

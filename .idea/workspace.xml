@@ -70,8 +70,8 @@
       <file leaf-file-name="main.c" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="14" lean-forward="false" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
+            <state relative-caret-position="450">
+              <caret line="30" column="60" lean-forward="false" selection-start-line="30" selection-start-column="60" selection-end-line="30" selection-end-column="60" />
               <folding />
             </state>
           </provider>
@@ -467,7 +467,7 @@
       <workItem from="1534753993022" duration="1657000" />
       <workItem from="1534757231159" duration="8720000" />
       <workItem from="1534843220202" duration="12140000" />
-      <workItem from="1534934784706" duration="6077000" />
+      <workItem from="1534934784706" duration="7497000" />
     </task>
     <task id="LOCAL-00001" summary="maybe good">
       <created>1532968262721</created>
@@ -749,11 +749,18 @@
       <option name="project" value="LOCAL" />
       <updated>1534943823551</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="introduction">
+      <created>1534944228798</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1534944228798</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="165339000" />
+    <option name="totallyTimeSpent" value="166759000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="2560" height="1440" extended-state="0" />
@@ -787,7 +794,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="tomorrow" />
     <MESSAGE value="tomorrow&#10;problem with maxchecks" />
     <MESSAGE value="sran" />
     <MESSAGE value="fix and or xor" />
@@ -812,19 +818,20 @@
     <MESSAGE value="norme all viz" />
     <MESSAGE value="norme live_ld..." />
     <MESSAGE value="dump almost good" />
-    <option name="LAST_COMMIT_MESSAGE" value="dump almost good" />
+    <MESSAGE value="introduction" />
+    <option name="LAST_COMMIT_MESSAGE" value="introduction" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/src/main.c</url>
-          <line>66</line>
+          <line>96</line>
           <option name="timeStamp" value="209" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/src/main.c</url>
-          <line>72</line>
+          <line>102</line>
           <option name="timeStamp" value="210" />
         </line-breakpoint>
       </breakpoints>
@@ -1249,8 +1256,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="14" lean-forward="false" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
+        <state relative-caret-position="450">
+          <caret line="30" column="60" lean-forward="false" selection-start-line="30" selection-start-column="60" selection-end-line="30" selection-end-column="60" />
           <folding />
         </state>
       </provider>
