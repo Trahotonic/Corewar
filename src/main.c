@@ -2,7 +2,7 @@
 
 # define VIZ 1
 
-void	dump(unsigned char map[])
+void	dump(unsigned char map[], t_player *players)
 {
 	int		n;
 	int 	m;
@@ -15,8 +15,14 @@ void	dump(unsigned char map[])
 	q = 0;
 	row = 0;
 	tmp[2] = '\0';
-	ft_printf("Introducing contestants...\n"
-					  "* Player 1, weighing 325 bytes, \"Celebration Funebre v0.99pl42\" (\"Jour J\") !\n");
+	ft_printf("Introducing contestants...\n");
+	while (players)
+	{
+		ft_printf("* Player %d, weighing %d bytes, \"%s\" (\"%s\") !\n", m + 1, players->header.prog_size, players->header.prog_name, players->header.comment);
+		players = players->next;
+		++m;
+	}
+	m = 0;
 	while (q < 64)
 	{
 		n = 2;
@@ -579,6 +585,6 @@ int     main(int argc, char **argv)
 		endwin();
 	}
 	else
-		dump(map);
+		dump(map, players);
 	return 0;
 }

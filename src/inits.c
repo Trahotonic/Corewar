@@ -120,6 +120,14 @@ void    init_map(unsigned char *map, t_viz_data *viz_data, t_player *players)
 	while (ptr)
 	{
 		read(ptr->fd, &ptr->header, sizeof(header_t));
+		ptr->header.prog_size = ((ptr->header.prog_size & 0x000000FF) << 24) |
+				((ptr->header.prog_size & 0x0000FF00) << 8) |
+								((ptr->header.prog_size & 0x00FF0000) >>  8) |
+				((ptr->header.prog_size & 0xFF000000) >> 24);
+		ptr->header.magic = ((ptr->header.magic & 0x000000FF) << 24) |
+				((ptr->header.magic & 0x0000FF00) << 8) |
+							((ptr->header.magic & 0x00FF0000) >>  8) |
+				((ptr->header.magic & 0xFF000000) >> 24);
 		get_total(players, &total, viz_data, n);
 		fillMap(total, count, n, map);
 		ft_strdel(&total);
@@ -177,7 +185,7 @@ void	init_processes(t_process **processes, t_player *players)
 
 }
 
-void initfunc(functions_t func[]) // Обновленно (но чето выебуется впадло разбираться пошел домой) !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+void initfunc(functions_t func[])
 {
 	func[0].codage = 0;
 	func[0].cycles = 10;
