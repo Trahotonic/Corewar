@@ -1,6 +1,6 @@
 # include "./../inc/corewar.h"
 
-# define VIZ 0
+# define VIZ 1
 
 void	introduce(t_player *players)
 {
@@ -18,17 +18,31 @@ void	introduce(t_player *players)
 	}
 }
 
-int	pick_winner(t_player *players)
+int	pick_winner(t_player *players, bool vis, int pl)
 {
 	t_player	*ptr;
 	t_player	*winner;
 	int 		max;
 
+	if (vis)
+		nodelay(stdscr, false);
 	ptr = players;
 	winner = players;
 	max = players->lastAlive;
 	if (!players->next)
-		return (ft_printf("Contestant 1, \"%s\", has won !\n", players->header.prog_name));
+	{
+		if (!vis)
+			return (ft_printf("Contestant 1, \"%s\", has won !\n", players->header.prog_name));
+		else
+		{
+			attron(COLOR_PAIR(WHITE_CUNT));
+			mvwprintw(stdscr, 11 + (pl * 4) + 14, 199, "The winner is : %s", players->header.prog_name);
+			mvwprintw(stdscr, 11 + (pl * 4) + 16, 199, "Press any key to finish");
+			attroff(COLOR_PAIR(WHITE_CUNT));
+			getch();
+			return (endwin());
+		}
+	}
 	players = players->next;
 	while (players)
 	{
@@ -45,7 +59,17 @@ int	pick_winner(t_player *players)
 			winner = ptr;
 		ptr = ptr->next;
 	}
-	return (ft_printf("Contestant %d, \"%s\", has won !\n", winner->num, winner->header.prog_name));
+	if (!vis)
+		return (ft_printf("Contestant %d, \"%s\", has won !\n", winner->num, winner->header.prog_name));
+	else
+	{
+		attron(COLOR_PAIR(WHITE_CUNT));
+		mvwprintw(stdscr, 11 + (pl * 4) + 14, 199, "The winner is : %s", winner->header.prog_name);
+		mvwprintw(stdscr, 11 + (pl * 4) + 16, 199, "Press any key to finish");
+		attroff(COLOR_PAIR(WHITE_CUNT));
+		getch();
+		return (endwin());
+	}
 }
 
 void	dump(unsigned char map[], t_player *players)
@@ -98,14 +122,6 @@ void	runProcesses(t_process **processes, unsigned char map[], functions_t array[
 	}
 	while (go)
 	{
-		if (go->proc_num == 28)
-		{
-
-		}
-		if (go->pl_number != 1 && go->pl_number != 2 && go->pl_number != 3 && go->pl_number != 4)
-		{
-
-		}
 		if (go->invalidAgr)
 		{
 			go->invalidAgr = 0;
@@ -356,8 +372,34 @@ void  ft_check_flag_vi(t_player **players, char **argv, int *n, t_arg_flags *fla
 		exit(1);
 	}
 }
+void ft_flag_n_sup(t_player *tmp, t_player **players, char **argv, int n)
+{
+	int i;
 
-void  ft_check_flag_n(t_player **players, char **argv, int *n, t_arg_flags *flags)
+	i = 1;
+	if (!(tmp))
+	{
+		(*players) = ft_player_create(argv[n + 1], i);
+		(*players)->playerNumber = ft_atoi(argv[n]);
+	}
+	else
+	{
+		i++;
+		while ((tmp)->next)
+		{
+			if (tmp->playerNumber == ft_atoi(argv[n]))
+				exit(printf("Error same number in players\n"));
+			tmp = (tmp)->next;
+			i++;
+		}
+		if (tmp->playerNumber == ft_atoi(argv[n]))
+			exit(printf("Error same number in players\n"));
+		(tmp)->next = ft_player_create(argv[n + 1], i);
+		(tmp)->next->playerNumber = ft_atoi(argv[n]);
+	}
+}
+
+void  ft_check_flag_n(t_player **players, char **argv, int *n)
 {
 	int i;
 	t_player *tmp;
@@ -372,41 +414,16 @@ void  ft_check_flag_n(t_player **players, char **argv, int *n, t_arg_flags *flag
 		while(argv[*n][i])
 		{
 			if(!ft_isdigit(argv[*n][i]))
-			{
-				printf("ERROR\n");
-				exit(1);
-			}
+				exit(printf("Player number should be from -4 to -1 \n"));
 			++i;
 		}
-		if ((ft_atoi(argv[*n]) > INT32_MAX || ft_atoi(argv[*n]) < INT32_MIN) || !argv[*n + 1])
-		{
-			printf("ERROR\n");
-			exit(666);
-		}
-		i = 1;
-		if (!tmp)
-		{
-			*players = ft_player_create(argv[*n + 1], i);
-			(*players)->playerNumber = ft_atoi(argv[*n]);
-		}
-		else
-		{
-			i++;
-			while (tmp->next)
-			{
-				tmp = tmp->next;
-				i++;
-			}
-			tmp->next = ft_player_create(argv[*n + 1], i);
-			tmp->next->playerNumber = ft_atoi(argv[*n]);
-		}
+		if (!argv[*n + 1] || (ft_atoi(argv[*n]) > -1 || ft_atoi(argv[*n]) < -4))
+			exit(printf("Player number should be from -4 to -1 \n"));
+		ft_flag_n_sup(tmp, players, argv, *n);
 		(*n)++;
 	}
 	else
-	{
-		printf("ERROR\n");
-		exit(1);
-	}
+		exit(printf("Player number should be from -4 to -1 \n"));
 }
 
 void  ft_check_flags(t_player **players, char **argv, int *n, t_arg_flags *flags)
@@ -418,7 +435,7 @@ void  ft_check_flags(t_player **players, char **argv, int *n, t_arg_flags *flags
 	else if (ft_strequ(argv[*n], "-v"))
 		flags->v = 1;
 	else if (ft_strequ(argv[*n], "-n"))
-		ft_check_flag_n(players, argv, n, flags);
+		ft_check_flag_n(players, argv, n);
 	else
 		ft_printf("ERROR\n");
 
@@ -554,24 +571,14 @@ int     main(int argc, char **argv)
 		}
 		if (!processes)
 		{
-			if (VIZ)
-			{
-//				system("killall afplay");
-				endwin();
-			}
-			pick_winner(players);
+			pick_winner(players, VIZ, get_players(players));
 			return 0;
 		}
 		if (flags->d && i == flags->d)
 			break ;
 		if (cycleToDie <= 0)
 		{
-			if (VIZ)
-			{
-//				system("killall afplay");
-				endwin();
-			}
-			pick_winner(players);
+			pick_winner(players, VIZ, get_players(players));
 			return 0;
 		}
 		int br = 20137;

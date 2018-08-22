@@ -137,6 +137,36 @@ void    init_map(unsigned char *map, t_viz_data *viz_data, t_player *players)
 	viz_data->space = false;
 }
 
+void check_pl_number(t_player *player)
+{
+	t_player *buf;
+	t_player *buf2;
+
+	buf = player;
+	buf2 = player;
+	while(buf)
+	{
+		if (buf->playerNumber == 0)
+		{
+			while(buf2)
+			{
+				if (buf2->next)
+				{
+					if (buf2->next->playerNumber == 0)
+					{
+						buf->playerNumber = buf2->playerNumber - 1;
+						break;
+					}
+				}
+				else
+					buf->playerNumber = -1;
+				buf2 = buf2->next;
+			}
+			buf2 = player;
+		}
+		buf = buf->next;
+	}
+}
 
 void	init_processes(t_process **processes, t_player *players)
 {
@@ -153,6 +183,7 @@ void	init_processes(t_process **processes, t_player *players)
 		tmp = (t_process *)malloc(sizeof(t_process));
 		tmp->proc_num = procNum++;
 		tmp->cur_pos = setStart(count, idx);
+		check_pl_number(players);
 		tmp->carry = 0;
 		tmp->pl_num = players->playerNumber;
 		tmp->pl_number = players->num;
