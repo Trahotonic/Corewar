@@ -14,7 +14,7 @@ int  sti_sup(t_process *pro, unsigned char *map)
 
 	n = 0;
 	arg2 = ft_strnew(8);
-	i = ((((short) ft_ab(pro->arg2, 16)) % IDX_MOD) * 2)
+	i = ((((short) ab(pro->arg2, 16)) % IDX_MOD) * 2)
 		+ pro->cur_pos % (MEM_SIZE * 2);
 	if (i < 0)
 		i = (MEM_SIZE * 2) + i;
@@ -24,11 +24,11 @@ int  sti_sup(t_process *pro, unsigned char *map)
 		arg2[n++] = map[i++];
 	}
 	if (ft_strlen(pro->arg3) == 4)
-		i = (((ft_ab(arg2, 16) + (short)(ft_ab(pro->arg3, 16)))
+		i = (((ab(arg2, 16) + (short)(ab(pro->arg3, 16)))
 			  % IDX_MOD) * 2 + pro->cur_pos) % (MEM_SIZE * 2);
 	else
-		i = (((ft_ab(arg2, 16) + (short)pro->reg[ft_ab(pro->arg3,
-															  16)- 1] ) % IDX_MOD) * 2 + pro->cur_pos) % (MEM_SIZE * 2);
+		i = (((ab(arg2, 16) + (short)pro->reg[ab(pro->arg3,
+													16)- 1] ) % IDX_MOD) * 2 + pro->cur_pos) % (MEM_SIZE * 2);
 	ft_strdel(&arg2);
 	if (i < 0)
 		i = MEM_SIZE * 2 + i;
@@ -40,13 +40,13 @@ int  sti_sup2(t_process *processor)
 	int i;
 
 	if (ft_strlen(processor->arg3) == 4)
-		i = (((((short)(ft_ab(processor->arg2, 16) +
-						(short)(ft_ab(processor->arg3, 16)))))
+		i = (((((short)(ab(processor->arg2, 16) +
+						(short)(ab(processor->arg3, 16)))))
 			  % IDX_MOD) * 2 + processor->cur_pos) % (MEM_SIZE * 2);
 	else
 	{
-		i = (((short)(ft_ab(processor->arg2, 16) +
-					  (int)processor->reg[ft_ab(processor->arg3, 16)- 1])
+		i = (((short)(ab(processor->arg2, 16) +
+					  (int)processor->reg[ab(processor->arg3, 16)- 1])
 			  % IDX_MOD) * 2 + processor->cur_pos) % (MEM_SIZE * 2);
 	}
 	if (i < 0)
@@ -59,12 +59,12 @@ int  sti_sup3(t_process *processor)
 	int i;
 
 	if (ft_strlen(processor->arg3) == 2)
-		i = (((int)(processor->reg[ft_ab(processor->arg2, 16) - 1]
-					+ (int)processor->reg[ft_ab(processor->arg3, 16) - 1])
+		i = (((int)(processor->reg[ab(processor->arg2, 16) - 1]
+					+ (int)processor->reg[ab(processor->arg3, 16) - 1])
 			  % IDX_MOD) * 2 + processor->cur_pos) % (MEM_SIZE * 2);
 	else
-		i = (((short)(processor->reg[ft_ab(processor->arg2, 16) - 1]
-					  + (short)(ft_ab(processor->arg3, 16)))
+		i = (((short)(processor->reg[ab(processor->arg2, 16) - 1]
+					  + (short)(ab(processor->arg3, 16)))
 			  % IDX_MOD) * 2 + processor->cur_pos) % (MEM_SIZE * 2);
 	if (i < 0)
 		i = MEM_SIZE * 2 + i;
@@ -102,7 +102,7 @@ void  sti(t_process *pro, unsigned char *map, t_viz_data *viz_data)
 		pro->iterator = 0;
 		return ;
 	}
-	arg1 = ft_itoa_base(pro->reg[ft_ab(pro->arg1, 16) - 1], 16);
+	arg1 = ft_itoa_base(pro->reg[ab(pro->arg1, 16) - 1], 16);
 	convert(&arg1);
 	if (ft_strlen(pro->arg2) == 2)
 		i = sti_sup3(pro);
@@ -122,7 +122,7 @@ void  lld_sup(t_process *pro, unsigned char *map)
 	int n;
 	char *arg1;
 
-	k = ((short) ft_ab(pro->arg1, 16) * 2 + pro->cur_pos)
+	k = ((short) ab(pro->arg1, 16) * 2 + pro->cur_pos)
 		% (MEM_SIZE * 2);
 	if (k < 0)
 		k = (MEM_SIZE * 2) + k;
@@ -133,8 +133,8 @@ void  lld_sup(t_process *pro, unsigned char *map)
 		k %= (MEM_SIZE * 2);
 		arg1[n++] = map[k++];
 	}
-	pro->reg[ft_ab(pro->arg2, 16) - 1] =
-			(short) ft_ab(arg1, 16);
+	pro->reg[ab(pro->arg2, 16) - 1] =
+			(short) ab(arg1, 16);
 }
 
 void lld_compensator(t_process *pro)
@@ -159,12 +159,12 @@ void lld(t_process *pro, unsigned char *map) // Обновленно !!!!!!!!!!!
 		return ;
 	}
 	if (ft_strlen(pro->arg1) == 8)
-		pro->reg[ft_ab(pro->arg2, 16) - 1] =
-				(unsigned int) ft_ab(pro->arg1, 16);
+		pro->reg[ab(pro->arg2, 16) - 1] =
+				(unsigned int) ab(pro->arg1, 16);
 	else if (ft_strlen(pro->arg1) == 4)
 		lld_sup(pro, map);
 	ft_strdel(&arg1);
-	if (pro->reg[ft_ab(pro->arg2, 16) - 1] == 0)
+	if (pro->reg[ab(pro->arg2, 16) - 1] == 0)
 		pro->carry = 1;
 	else
 		pro->carry = 0;
@@ -179,12 +179,12 @@ int  lldi_sup1(t_process *pro)
 	int i;
 
 	if (ft_strlen(pro->arg2) == 2)
-		i = (((pro->reg[ft_ab(pro->arg1, 16) - 1]
-			   + pro->reg[ft_ab(pro->arg2, 16) - 1]))
+		i = (((pro->reg[ab(pro->arg1, 16) - 1]
+			   + pro->reg[ab(pro->arg2, 16) - 1]))
 			 * 2 + pro->cur_pos) % (MEM_SIZE * 2);
 	else
-		i = (((pro->reg[ft_ab(pro->arg1, 16) - 1]
-			   + (short) ft_ab(pro->arg2, 16)))
+		i = (((pro->reg[ab(pro->arg1, 16) - 1]
+			   + (short) ab(pro->arg2, 16)))
 			 * 2 + pro->cur_pos) % (MEM_SIZE * 2);
 	if (i < 0)
 		i = (MEM_SIZE * 2) + i;
@@ -199,7 +199,7 @@ int  lldi_sup2(t_process *pro, unsigned char *map)
 
 	a1 = ft_strnew(8);
 	n = 0;
-	i = (((short) ft_ab(pro->arg1, 16) % IDX_MOD)
+	i = (((short) ab(pro->arg1, 16) % IDX_MOD)
 		 * 2 + pro->cur_pos) % (MEM_SIZE * 2);
 	if (i < 0)
 		i = (MEM_SIZE * 2) + i;
@@ -209,10 +209,10 @@ int  lldi_sup2(t_process *pro, unsigned char *map)
 		a1[n++] = map[i++];
 	}
 	if (ft_strlen(pro->arg2) == 4)
-		i = (((ft_ab(a1, 16) + (short) ft_ab(pro->arg2, 16)))
+		i = (((ab(a1, 16) + (short) ab(pro->arg2, 16)))
 			 * 2 + pro->cur_pos) % (MEM_SIZE * 2);
 	else
-		i = ((ft_ab(a1, 16) + pro->reg[ft_ab(pro->arg2, 16) - 1])
+		i = ((ab(a1, 16) + pro->reg[ab(pro->arg2, 16) - 1])
 			 * 2 + pro->cur_pos) % (MEM_SIZE * 2);
 	if (i < 0)
 		i = (MEM_SIZE * 2) + i;
@@ -226,12 +226,12 @@ int  lldi_sup3(t_process *pro)
 
 	i = 0;
 	if (ft_strlen(pro->arg2) == 4)
-		i = ((((short) ft_ab(pro->arg1, 16)
-			   + (short) ft_ab(pro->arg2, 16)))
+		i = ((((short) ab(pro->arg1, 16)
+			   + (short) ab(pro->arg2, 16)))
 			 * 2 + pro->cur_pos) % (MEM_SIZE * 2);
 	else
-		i = ((short)((short) ft_ab(pro->arg1, 16)
-					 + pro->reg[ft_ab(pro->arg2, 16) - 1])
+		i = ((short)((short) ab(pro->arg1, 16)
+					 + pro->reg[ab(pro->arg2, 16) - 1])
 			 * 2 + pro->cur_pos) % (MEM_SIZE * 2);
 	if (i < 0)
 		i = (MEM_SIZE * 2) + i;
@@ -272,7 +272,7 @@ void lldi(t_process *pro, unsigned char *map)
 	else if (ft_strlen(pro->arg1) == 4 && (pro->t_dir == 1 || pro->t_dir == 3))
 		i = lldi_sup3(pro);
 	lldi_print(pro, i, map, &arg1);
-	pro->reg[ft_ab(pro->arg3, 16) - 1] = (unsigned int) ft_ab(arg1, 16);
+	pro->reg[ab(pro->arg3, 16) - 1] = (unsigned int) ab(arg1, 16);
 	pro->cur_pos = (pro->iterator + pro->cur_pos) % 8192;
 	pro->iterator = 0;
 	ft_strdel(&arg1);
@@ -320,7 +320,7 @@ void fork_c(t_process **process, t_process *pro)
 		return ;
 	}
 	tmp = node_create(pro);
-	tmp->cur_pos = (((short)(ft_ab(pro->arg1, 16)) % IDX_MOD) * 2 +pro->cur_pos) % (MEM_SIZE * 2);
+	tmp->cur_pos = (((short)(ab(pro->arg1, 16)) % IDX_MOD) * 2 +pro->cur_pos) % (MEM_SIZE * 2);
 	if (tmp->cur_pos < 0)
 		tmp->cur_pos = (MEM_SIZE * 2 + tmp->cur_pos) % 8192;
 	do_null(tmp);
@@ -345,7 +345,7 @@ void lfork(t_process **process, t_process *pro)
 	}
 	tmp = node_create(pro);
 	do_null(tmp);
-	tmp->cur_pos = ((short) ft_ab(pro->arg1, 16) * 2 + pro->cur_pos) % 8192;
+	tmp->cur_pos = ((short) ab(pro->arg1, 16) * 2 + pro->cur_pos) % 8192;
 	if (tmp->cur_pos < 0)
 		tmp->cur_pos = (MEM_SIZE * 2 + tmp->cur_pos) % 8192;
 	tmp->next = *process;
@@ -375,7 +375,7 @@ void aff(t_process *processor, unsigned char *map)
 		processor->cur_pos = (processor->iterator + processor->cur_pos) % (MEM_SIZE * 2);
 		processor->iterator = 0;
 	}
-	ft_printf("%c",  processor->reg[ft_ab(processor->arg1, 16) - 1] % 256);
+	ft_printf("%c",  processor->reg[ab(processor->arg1, 16) - 1] % 256);
 	processor->cur_pos = (processor->iterator + processor->cur_pos) % (MEM_SIZE * 2);
 	processor->iterator = 0;
 }

@@ -4,143 +4,98 @@
 
 #include "../inc/corewar.h"
 
-void  and(t_process *processor)
+void  and(t_process *pro)
 {
-	if (ft_strlen(processor->arg3) != 2 || ft_strlen(processor->arg1) == 0 || ft_strlen(processor->arg2) == 0 || processor->iC)
-	{
-		processor->cur_pos = (processor->iterator + processor->cur_pos) % (MEM_SIZE * 2);
-		processor->iterator = 0;
+	pro->cur_pos = (pro->iterator + pro->cur_pos) % (MEM_SIZE * 2);
+	pro->iterator = 0;
+	if (ft_strlen(pro->arg3) != 2 || ft_strlen(pro->arg1) == 0
+		|| ft_strlen(pro->arg2) == 0 || pro->iC)
 		return ;
-	}
-	if (ft_strlen(processor->arg1) != 2 && ft_strlen(processor->arg2) == 2)
-	{
-		processor->reg[ft_ab(processor->arg3, 16) - 1] =
-				ft_ab(processor->arg1, 16) & processor->reg[
-															ft_ab(processor->arg2,
-																  16) - 1];
-	}
-	else if (ft_strlen(processor->arg1) == 2 && ft_strlen(processor->arg2) != 2)
-	{
-		processor->reg[ft_ab(processor->arg3, 16) - 1] =
-				processor->reg[ft_ab(processor->arg1, 16) - 1] &
-						ft_ab(processor->arg2, 16);
+	if (ft_strlen(pro->arg1) != 2 && ft_strlen(pro->arg2) == 2)
+		pro->reg[ab(pro->arg3, 16) - 1] = ab(pro->arg1, 16)
+													& pro->reg[ab(pro->arg2, 16) - 1];
+	else if (ft_strlen(pro->arg1) == 2 && ft_strlen(pro->arg2) != 2)
+		pro->reg[ab(pro->arg3, 16) - 1] =
+				pro->reg[ab(pro->arg1, 16) - 1] & ab(pro->arg2, 16);
 
-	}
-	else if (ft_strlen(processor->arg1) == 2 && ft_strlen(processor->arg2) == 2)
-	{
-		processor->reg[ft_ab(processor->arg3, 16) - 1] =
-				processor->reg[ft_ab(processor->arg1, 16) - 1] & processor->reg[
-																				ft_ab(processor->arg2,
-																					  16) - 1];
-	}
+	else if (ft_strlen(pro->arg1) == 2 && ft_strlen(pro->arg2) == 2)
+		pro->reg[ab(pro->arg3, 16) - 1] =
+				pro->reg[ab(pro->arg1, 16) - 1]
+				& pro->reg[ab(pro->arg2, 16) - 1];
 	else
-	{
-		processor->reg[ft_ab(processor->arg3, 16) - 1] =
-				ft_ab(processor->arg1, 16) & ft_ab(processor->arg2, 16);
-	}
-	if (processor->reg[ft_ab(processor->arg3, 16) - 1] == 0)
-		processor->carry = 1;
+		pro->reg[ab(pro->arg3, 16) - 1] =
+				ab(pro->arg1, 16) & ab(pro->arg2, 16);
+	if (pro->reg[ab(pro->arg3, 16) - 1] == 0)
+		pro->carry = 1;
 	else
-		processor->carry = 0;
-	processor->cur_pos = (processor->iterator + processor->cur_pos) % 8192;
-	processor->iterator = 0;
+		pro->carry = 0;
 }
 
-void  or(t_process *processor)
+void  or(t_process *pro)
 {
-	if (ft_strlen(processor->arg3) != 2 || ft_strlen(processor->arg1) == 0 || ft_strlen(processor->arg2) == 0 || processor->iC)
-	{
-		processor->cur_pos = (processor->iterator + processor->cur_pos) % (MEM_SIZE * 2);
-		processor->iterator = 0;
+	pro->cur_pos = (pro->iterator + pro->cur_pos) % (MEM_SIZE * 2);
+	pro->iterator = 0;
+	if (ft_strlen(pro->arg3) != 2 || ft_strlen(pro->arg1) == 0
+		|| ft_strlen(pro->arg2) == 0 || pro->iC)
 		return ;
-	}
-	if (ft_strlen(processor->arg1) != 2 && ft_strlen(processor->arg2) == 2)
-	{
-		processor->reg[ft_ab(processor->arg3, 16) - 1] =
-				ft_ab(processor->arg1, 16) | processor->reg[
-															ft_ab(processor->arg2,
-																  16) - 1];
-	}
-	else if (ft_strlen(processor->arg1) == 2 && ft_strlen(processor->arg2) != 2)
-	{
-		processor->reg[ft_ab(processor->arg3, 16) - 1] =
-				processor->reg[ft_ab(processor->arg1, 16) - 1] |
-						ft_ab(processor->arg2, 16);
-
-	}
-	else if (ft_strlen(processor->arg1) == 2 && ft_strlen(processor->arg2) == 2)
-	{
-		processor->reg[ft_ab(processor->arg3, 16) - 1] =
-				processor->reg[ft_ab(processor->arg1, 16) - 1] | processor->reg[
-																				ft_ab(processor->arg2,
-																					  16) - 1];
-	}
+	if (ft_strlen(pro->arg1) != 2 && ft_strlen(pro->arg2) == 2)
+		pro->reg[ab(pro->arg3, 16) - 1] =
+				ab(pro->arg1, 16) | pro->reg[ab(pro->arg2, 16) - 1];
+	else if (ft_strlen(pro->arg1) == 2 && ft_strlen(pro->arg2) != 2)
+		pro->reg[ab(pro->arg3, 16) - 1] =
+				pro->reg[ab(pro->arg1, 16) - 1] | ab(pro->arg2, 16);
+	else if (ft_strlen(pro->arg1) == 2 && ft_strlen(pro->arg2) == 2)
+		pro->reg[ab(pro->arg3, 16) - 1] =
+				pro->reg[ab(pro->arg1, 16) - 1]
+				| pro->reg[ab(pro->arg2, 16) - 1];
 	else
-	{
-		processor->reg[ft_ab(processor->arg3, 16) - 1] =
-				ft_ab(processor->arg1, 16) | ft_ab(processor->arg2, 16);
-	}
-	if (processor->reg[ft_ab(processor->arg3, 16) - 1] == 0)
-		processor->carry = 1;
+		pro->reg[ab(pro->arg3, 16) - 1] =
+				ab(pro->arg1, 16) | ab(pro->arg2, 16);
+	if (pro->reg[ab(pro->arg3, 16) - 1] == 0)
+		pro->carry = 1;
 	else
-		processor->carry = 0;
-	processor->cur_pos = (processor->iterator + processor->cur_pos) % 8192;
-	processor->iterator = 0;
+		pro->carry = 0;
 }
 
-void  xor(t_process *processor)
+void  xor(t_process *pro)
 {
-	if (ft_strlen(processor->arg3) != 2 || ft_strlen(processor->arg1) == 0 || ft_strlen(processor->arg2) == 0 || processor->iC)
-	{
-		processor->cur_pos = (processor->iterator + processor->cur_pos) % (MEM_SIZE * 2);
-		processor->iterator = 0;
+	pro->cur_pos = (pro->iterator + pro->cur_pos) % (MEM_SIZE * 2);
+	pro->iterator = 0;
+	if (ft_strlen(pro->arg3) != 2 || ft_strlen(pro->arg1) == 0
+		|| ft_strlen(pro->arg2) == 0 || pro->iC)
 		return ;
-	}
-	if (ft_strlen(processor->arg1) != 2 && ft_strlen(processor->arg2) == 2)
-	{
-		processor->reg[ft_ab(processor->arg3, 16) - 1] =
-				ft_ab(processor->arg1, 16) ^ processor->reg[
-															ft_ab(processor->arg2,
-																  16) - 1];
-	}
-	else if (ft_strlen(processor->arg1) == 2 && ft_strlen(processor->arg2) != 2)
-	{
-		processor->reg[ft_ab(processor->arg3, 16) - 1] =
-				processor->reg[ft_ab(processor->arg1, 16) - 1] ^
-						ft_ab(processor->arg2, 16);
-
-	}
-	else if (ft_strlen(processor->arg1) == 2 && ft_strlen(processor->arg2) == 2)
-	{
-		processor->reg[ft_ab(processor->arg3, 16) - 1] =
-				processor->reg[ft_ab(processor->arg1, 16) - 1] ^ processor->reg[
-																				ft_ab(processor->arg2,
-																					  16) - 1];
-	}
+	if (ft_strlen(pro->arg1) != 2 && ft_strlen(pro->arg2) == 2)
+		pro->reg[ab(pro->arg3, 16) - 1] =
+				ab(pro->arg1, 16) ^ pro->reg[ab(pro->arg2, 16) - 1];
+	else if (ft_strlen(pro->arg1) == 2 && ft_strlen(pro->arg2) != 2)
+		pro->reg[ab(pro->arg3, 16) - 1] =
+				pro->reg[ab(pro->arg1, 16) - 1] ^ ab(pro->arg2, 16);
+	else if (ft_strlen(pro->arg1) == 2 && ft_strlen(pro->arg2) == 2)
+		pro->reg[ab(pro->arg3, 16) - 1] =
+				pro->reg[ab(pro->arg1, 16) - 1]
+				^ pro->reg[ab(pro->arg2, 16) - 1];
 	else
-	{
-		processor->reg[ft_ab(processor->arg3, 16) - 1] =
-				ft_ab(processor->arg1, 16) ^ ft_ab(processor->arg2, 16);
-	}
-	if (processor->reg[ft_ab(processor->arg3, 16) - 1] == 0)
-		processor->carry = 1;
+		pro->reg[ab(pro->arg3, 16) - 1] =
+				ab(pro->arg1, 16) ^ ab(pro->arg2, 16);
+	if (pro->reg[ab(pro->arg3, 16) - 1] == 0)
+		pro->carry = 1;
 	else
-		processor->carry = 0;
-	processor->cur_pos = (processor->iterator + processor->cur_pos) % 8192;
-	processor->iterator = 0;
+		pro->carry = 0;
 }
 
-void	zjmp(t_process *processor)
+void zjmp(t_process *processor)
 {
 	int i;
 
 	if (ft_strlen(processor->arg1) != 4 || processor->carry == 0)
 	{
-		processor->cur_pos = (processor->cur_pos + processor->iterator) % (MEM_SIZE * 2);
+		processor->cur_pos = (processor->cur_pos + processor->iterator)
+							 % (MEM_SIZE * 2);
 		processor->iterator = 0;
 		return ;
 	}
-	i = ((((short) ft_ab(processor->arg1, 16)) % IDX_MOD) * 2 + processor->cur_pos) % (MEM_SIZE * 2);
+	i = ((((short)ab(processor->arg1, 16)) % IDX_MOD)
+		 * 2 + processor->cur_pos) % (MEM_SIZE * 2);
 	if (i < 0)
 		i = MEM_SIZE * 2 + i;
 	i %= (MEM_SIZE * 2);
@@ -148,72 +103,32 @@ void	zjmp(t_process *processor)
 	processor->iterator = 0;
 }
 
-void ldi(t_process *processor, unsigned char *map) // Обновленно !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+int ldi_sup3(t_process *pro)
 {
-	int  i;
-	char *arg1;
-	int  n;
+	int i;
 
-	n = 0;
-	i = 0;
-	if (ft_strlen(processor->arg3) != 2 || ft_strlen(processor->arg1) == 0 || ft_strlen(processor->arg2) == 0 || processor->iC)
-	{
-		processor->cur_pos = (processor->cur_pos +processor->iterator) % (MEM_SIZE * 2);
-		processor->iterator = 0;
-		return ;
-	}
+	if (ft_strlen(pro->arg2) == 4)
+		i = ((((short)ab(pro->arg1, 16) +
+			   (short)ab(pro->arg2, 16)) % IDX_MOD)
+			 * 2 + pro->cur_pos) % (MEM_SIZE * 2);
+	else
+		i = ((short)((short)ab(pro->arg1, 16)
+					 + pro->reg[ab(pro->arg2, 16) - 1])
+			 % IDX_MOD * 2 + pro->cur_pos) % (MEM_SIZE * 2);
+	return (i);
+}
+
+int ldi_sup2(t_process *pro, unsigned char *map)
+{
+	int i;
+	int n;
+	char *arg1;
+
 	arg1 = ft_strnew(8);
-	if (ft_strlen(processor->arg1) == 2)
-	{
-		if (ft_strlen(processor->arg2) == 2)
-		{
-			i = (((processor->reg[ft_ab(processor->arg1, 16) - 1] + processor->reg[
-																				   ft_ab(processor->arg2,
-																						 16) - 1])% IDX_MOD) * 2 + processor->cur_pos) % (MEM_SIZE * 2);
-		}
-		else
-		{
-			i = (((processor->reg[ft_ab(processor->arg1, 16) - 1] + (short) ft_ab(
-					processor->arg2, 16)) % IDX_MOD) * 2 + processor->cur_pos) % (MEM_SIZE * 2);
-		}
-	}
-	else if (ft_strlen(processor->arg1) == 4 && (processor->t_dir != 1 && processor->t_dir != 3))
-	{
-		i = (((short) ft_ab(processor->arg1, 16) % IDX_MOD) * 2 + processor->cur_pos) % (MEM_SIZE * 2);
-		if (i < 0)
-			i = (MEM_SIZE * 2) + i;
-		while (n < 8)
-		{
-			i %= (MEM_SIZE * 2);
-			arg1[n++] = map[i++];
-		}
-		if (ft_strlen(processor->arg2) == 4)
-		{
-			i = (((ft_ab(arg1, 16) + (short) ft_ab(processor->arg2, 16)) % IDX_MOD) * 2 + processor->cur_pos) % (MEM_SIZE * 2);
-		}
-		else
-		{
-			i = (((ft_ab(arg1, 16) + processor->reg[
-													ft_ab(processor->arg2, 16) - 1]) % IDX_MOD) * 2 + processor->cur_pos) % (MEM_SIZE * 2);
-		}
-//  i = ft_atoi_base(arg1, 16) + ft_ab(processor->arg2, 16) * 2
-//   + processor->cur_pos;
-		n = 0;
-	}
-	else if (ft_strlen(processor->arg1) == 4 && (processor->t_dir == 1 || processor->t_dir == 3)) /* исправить добавить t_ind */
-	{
-		if (ft_strlen(processor->arg2) == 4)
-		{
-			i = ((((short) ft_ab(processor->arg1, 16) + (short) ft_ab(
-					processor->arg2, 16)) % IDX_MOD) * 2 + processor->cur_pos) % (MEM_SIZE * 2);
-		}
-		else
-		{
-			i = ((short)((short) ft_ab(processor->arg1, 16) + processor->reg[
-																			ft_ab(processor->arg2,
-																				  16) - 1]) % IDX_MOD * 2 + processor->cur_pos) % (MEM_SIZE * 2);
-		}
-	}
+	n = 0;
+	i = (((short)ab(pro->arg1, 16) % IDX_MOD)
+		 * 2 + pro->cur_pos) % (MEM_SIZE
+								* 2);
 	if (i < 0)
 		i = (MEM_SIZE * 2) + i;
 	while (n < 8)
@@ -221,11 +136,70 @@ void ldi(t_process *processor, unsigned char *map) // Обновленно !!!!!
 		i %= (MEM_SIZE * 2);
 		arg1[n++] = map[i++];
 	}
-	processor->reg[ft_ab(processor->arg3, 16) - 1] =
-			(unsigned int) ft_ab(arg1, 16);
-	processor->cur_pos = (processor->iterator + processor->cur_pos) % 8192;
-	processor->iterator = 0;
+	if (ft_strlen(pro->arg2) == 4)
+		i = (((ab(arg1, 16) + (short)ab(pro->arg2, 16))
+			  % IDX_MOD) * 2 + pro->cur_pos) % (MEM_SIZE * 2);
+	else
+		i = (((ab(arg1, 16) + pro->reg[ab(pro->arg2, 16)
+												 - 1]) % IDX_MOD) * 2 + pro->cur_pos) % (MEM_SIZE * 2);
+	ft_strdel(&arg1);
+	return (i);
+}
+
+int ldi_sup1(t_process *pro)
+{
+	int i;
+
+	if (ft_strlen(pro->arg2) == 2)
+		i = (((pro->reg[ab(pro->arg1, 16) - 1]
+			   + pro->reg[ab(pro->arg2, 16) - 1])% IDX_MOD)
+			 * 2 + pro->cur_pos) % (MEM_SIZE * 2);
+	else
+		i = (((pro->reg[ab(pro->arg1, 16) - 1]
+			   + (short)ab(pro->arg2, 16)) % IDX_MOD)
+			 * 2 + pro->cur_pos) % (MEM_SIZE * 2);
+	return (i);
+}
+
+void ldi_print(t_process *pro, unsigned char *map, int i)
+{
+	char *arg1;
+	int n;
+
+	n = 0;
+	arg1 = ft_strnew(8);
+	while (n < 8)
+	{
+		i %= (MEM_SIZE * 2);
+		arg1[n++] = map[i++];
+	}
+	pro->reg[ab(pro->arg3, 16) - 1] =
+			(unsigned int)ab(arg1, 16);
 	ft_strdel(&arg1);
 }
 
+void ldi(t_process *pro, unsigned char *map)
+{
+	int  i;
+
+	i = 0;
+	if (ft_strlen(pro->arg3) != 2 || ft_strlen(pro->arg1) == 0
+		|| ft_strlen(pro->arg2) == 0 || pro->iC)
+	{
+		pro->cur_pos = (pro->cur_pos +pro->iterator) % (MEM_SIZE * 2);
+		pro->iterator = 0;
+		return ;
+	}
+	if (ft_strlen(pro->arg1) == 2)
+		i = ldi_sup1(pro);
+	else if (ft_strlen(pro->arg1) == 4 && (pro->t_dir != 1 && pro->t_dir != 3))
+		i = ldi_sup2(pro, map);
+	else if (ft_strlen(pro->arg1) == 4 && (pro->t_dir == 1 || pro->t_dir == 3))
+		i = ldi_sup3(pro);
+	if (i < 0)
+		i = (MEM_SIZE * 2) + i;
+	ldi_print(pro, map, i);
+	pro->cur_pos = (pro->iterator + pro->cur_pos) % (MEM_SIZE * 2);
+	pro->iterator = 0;
+}
 

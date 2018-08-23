@@ -11,12 +11,11 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a69af0ba-4ee2-469f-ba16-c19649af79bd" name="Default" comment="del comment">
+    <list default="true" id="a69af0ba-4ee2-469f-ba16-c19649af79bd" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/inc/corewar.h" afterPath="$PROJECT_DIR$/inc/corewar.h" />
       <change beforePath="$PROJECT_DIR$/src/and_or_xor_zjmp_ldi.c" afterPath="$PROJECT_DIR$/src/and_or_xor_zjmp_ldi.c" />
       <change beforePath="$PROJECT_DIR$/src/converts.c" afterPath="$PROJECT_DIR$/src/converts.c" />
-      <change beforePath="$PROJECT_DIR$/src/inits.c" afterPath="$PROJECT_DIR$/src/inits.c" />
       <change beforePath="$PROJECT_DIR$/src/live_ld_st_add_sub.c" afterPath="$PROJECT_DIR$/src/live_ld_st_add_sub.c" />
       <change beforePath="$PROJECT_DIR$/src/main.c" afterPath="$PROJECT_DIR$/src/main.c" />
       <change beforePath="$PROJECT_DIR$/src/read2.c" afterPath="$PROJECT_DIR$/src/read2.c" />
@@ -80,17 +79,17 @@
             <state relative-caret-position="397">
               <caret line="587" column="48" lean-forward="false" selection-start-line="587" selection-start-column="48" selection-end-line="587" selection-end-column="48" />
               <folding>
-                <marker date="1535035593000" expanded="true" signature="3519:3526" ph="^(go){...}" />
+                <marker date="1535037283000" expanded="true" signature="3516:3523" ph="^(go){...}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="and_or_xor_zjmp_ldi.c" pinned="false" current-in-tab="false">
+      <file leaf-file-name="and_or_xor_zjmp_ldi.c" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/and_or_xor_zjmp_ldi.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1230">
-              <caret line="92" column="126" lean-forward="false" selection-start-line="92" selection-start-column="126" selection-end-line="92" selection-end-column="126" />
+            <state relative-caret-position="1770">
+              <caret line="118" column="1" lean-forward="false" selection-start-line="118" selection-start-column="1" selection-end-line="118" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -110,7 +109,7 @@
         <entry file="file://$PROJECT_DIR$/src/sti_fork_lld_lldi_lfork.c">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="5655">
-              <caret line="377" column="75" lean-forward="false" selection-start-line="377" selection-start-column="75" selection-end-line="377" selection-end-column="75" />
+              <caret line="377" column="72" lean-forward="false" selection-start-line="377" selection-start-column="72" selection-end-line="377" selection-end-column="72" />
               <folding />
             </state>
           </provider>
@@ -129,8 +128,8 @@
       <file leaf-file-name="read2.c" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/read2.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="907">
-              <caret line="62" column="59" lean-forward="false" selection-start-line="62" selection-start-column="59" selection-end-line="62" selection-end-column="59" />
+            <state relative-caret-position="1230">
+              <caret line="82" column="1" lean-forward="false" selection-start-line="82" selection-start-column="1" selection-end-line="82" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -146,11 +145,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="corewar.h" pinned="false" current-in-tab="true">
+      <file leaf-file-name="corewar.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/inc/corewar.h">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="847">
-              <caret line="141" column="13" lean-forward="false" selection-start-line="141" selection-start-column="13" selection-end-line="141" selection-end-column="13" />
+              <caret line="141" column="10" lean-forward="false" selection-start-line="141" selection-start-column="10" selection-end-line="141" selection-end-column="10" />
               <folding>
                 <element signature="e#99#117#0" expanded="true" />
               </folding>
@@ -193,6 +192,7 @@
       <find>dump</find>
       <find>sizeof(he</find>
       <find>sizeof(</find>
+      <find>ft_atoi_base</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$</dir>
@@ -206,7 +206,6 @@
       <list>
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/src/converts.c" />
-        <option value="$PROJECT_DIR$/src/and_or_xor_zjmp_ldi.c" />
         <option value="$PROJECT_DIR$/src/visMethods2.c" />
         <option value="$PROJECT_DIR$/src/visMethods.c" />
         <option value="$PROJECT_DIR$/src/read.c" />
@@ -220,6 +219,7 @@
         <option value="$PROJECT_DIR$/src/main.c" />
         <option value="$PROJECT_DIR$/src/read2.c" />
         <option value="$PROJECT_DIR$/inc/corewar.h" />
+        <option value="$PROJECT_DIR$/src/and_or_xor_zjmp_ldi.c" />
       </list>
     </option>
   </component>
@@ -361,7 +361,7 @@
       <workItem from="1534843220202" duration="12140000" />
       <workItem from="1534934784706" duration="10053000" />
       <workItem from="1535023924780" duration="39000" />
-      <workItem from="1535034061215" duration="908000" />
+      <workItem from="1535034061215" duration="2044000" />
     </task>
     <task id="LOCAL-00001" summary="maybe good">
       <created>1532968262721</created>
@@ -678,11 +678,18 @@
       <option name="project" value="LOCAL" />
       <updated>1534953081754</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="norming">
+      <created>1535035623449</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1535035623449</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="170262000" />
+    <option name="totallyTimeSpent" value="171398000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="2560" height="1440" extended-state="0" />
@@ -716,7 +723,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="kostyl" />
     <MESSAGE value="razjoban" />
     <MESSAGE value="fixed end" />
     <MESSAGE value="fixed visualization" />
@@ -741,7 +747,8 @@
     <MESSAGE value="aff works without visualization" />
     <MESSAGE value="good exit in vis" />
     <MESSAGE value="del comment" />
-    <option name="LAST_COMMIT_MESSAGE" value="del comment" />
+    <MESSAGE value="norming" />
+    <option name="LAST_COMMIT_MESSAGE" value="norming" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -797,7 +804,7 @@
         <state relative-caret-position="56">
           <caret line="2" column="14" lean-forward="false" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
           <folding>
-            <marker date="1535035593000" expanded="true" signature="3519:3526" ph="^(go){...}" />
+            <marker date="1535037283000" expanded="true" signature="3516:3523" ph="^(go){...}" />
           </folding>
         </state>
       </provider>
@@ -815,7 +822,7 @@
         <state relative-caret-position="8428">
           <caret line="301" column="25" lean-forward="false" selection-start-line="301" selection-start-column="25" selection-end-line="301" selection-end-column="25" />
           <folding>
-            <marker date="1535035593000" expanded="true" signature="3519:3526" ph="^(go){...}" />
+            <marker date="1535037283000" expanded="true" signature="3516:3523" ph="^(go){...}" />
           </folding>
         </state>
       </provider>
@@ -881,7 +888,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="22" lean-forward="false" selection-start-line="0" selection-start-column="22" selection-end-line="0" selection-end-column="22" />
           <folding>
-            <marker date="1535035593000" expanded="true" signature="3519:3526" ph="^(go){...}" />
+            <marker date="1535037283000" expanded="true" signature="3516:3523" ph="^(go){...}" />
           </folding>
         </state>
       </provider>
@@ -901,7 +908,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="22" lean-forward="false" selection-start-line="0" selection-start-column="22" selection-end-line="0" selection-end-column="22" />
           <folding>
-            <marker date="1535035593000" expanded="true" signature="3519:3526" ph="^(go){...}" />
+            <marker date="1535037283000" expanded="true" signature="3516:3523" ph="^(go){...}" />
           </folding>
         </state>
       </provider>
@@ -1031,7 +1038,7 @@
         <state relative-caret-position="7785">
           <caret line="519" column="19" lean-forward="false" selection-start-line="519" selection-start-column="19" selection-end-line="519" selection-end-column="19" />
           <folding>
-            <marker date="1535035593000" expanded="true" signature="3519:3526" ph="^(go){...}" />
+            <marker date="1535037283000" expanded="true" signature="3516:3523" ph="^(go){...}" />
           </folding>
         </state>
       </provider>
@@ -1096,18 +1103,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/and_or_xor_zjmp_ldi.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1230">
-          <caret line="92" column="126" lean-forward="false" selection-start-line="92" selection-start-column="126" selection-end-line="92" selection-end-column="126" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/sti_fork_lld_lldi_lfork.c">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5655">
-          <caret line="377" column="75" lean-forward="false" selection-start-line="377" selection-start-column="75" selection-end-line="377" selection-end-column="75" />
+          <caret line="377" column="72" lean-forward="false" selection-start-line="377" selection-start-column="72" selection-end-line="377" selection-end-column="72" />
           <folding />
         </state>
       </provider>
@@ -1149,16 +1148,8 @@
         <state relative-caret-position="397">
           <caret line="587" column="48" lean-forward="false" selection-start-line="587" selection-start-column="48" selection-end-line="587" selection-end-column="48" />
           <folding>
-            <marker date="1535035593000" expanded="true" signature="3519:3526" ph="^(go){...}" />
+            <marker date="1535037283000" expanded="true" signature="3516:3523" ph="^(go){...}" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/read2.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="907">
-          <caret line="62" column="59" lean-forward="false" selection-start-line="62" selection-start-column="59" selection-end-line="62" selection-end-column="59" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1173,10 +1164,26 @@
     <entry file="file://$PROJECT_DIR$/inc/corewar.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="847">
-          <caret line="141" column="13" lean-forward="false" selection-start-line="141" selection-start-column="13" selection-end-line="141" selection-end-column="13" />
+          <caret line="141" column="10" lean-forward="false" selection-start-line="141" selection-start-column="10" selection-end-line="141" selection-end-column="10" />
           <folding>
             <element signature="e#99#117#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/read2.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1230">
+          <caret line="82" column="1" lean-forward="false" selection-start-line="82" selection-start-column="1" selection-end-line="82" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/and_or_xor_zjmp_ldi.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1770">
+          <caret line="118" column="1" lean-forward="false" selection-start-line="118" selection-start-column="1" selection-end-line="118" selection-end-column="1" />
+          <folding />
         </state>
       </provider>
     </entry>

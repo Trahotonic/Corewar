@@ -146,7 +146,7 @@ void	runProcesses(t_process **processes, unsigned char map[], functions_t array[
 		{
 			tmp[0] = map[go->cur_pos];
 			tmp[1] = map[go->cur_pos + 1];
-			go->com2 = ft_ab(tmp, 16);
+			go->com2 = ab(tmp, 16);
 			while (n < 16 && go->com2 != array[n].name2)
 				++n;
 			if (n == 16)

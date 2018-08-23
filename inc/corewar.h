@@ -139,7 +139,7 @@ void    init_map(unsigned char *map, t_viz_data *viz_data, t_player *players);
 void	init_processes(t_process **processes, t_player *players);
 int 	ft_iswhitespace(char const c);
 int 	base(int c, int base);
-int 	ft_ab(const char *str, int str_base);
+int 	ab(const char *str, int str_base);
 void	read_shit(unsigned char *map, t_process *processor);
 int 	saver(int tmp, int len, int plus);
 char	*ft_arrg_join(char *s1, char *s2);
