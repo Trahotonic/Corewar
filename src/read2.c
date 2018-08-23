@@ -19,39 +19,48 @@ void	do_null(t_process *processor)
 	}
 }
 
-void	readLittleShit(unsigned char map[], char arg1[], int tmp, t_process *processor, int arg)
+char *ft_show_me_the_arg(t_process *pro, int arg)
+{
+	if (arg == 1)
+		return (pro->arg1);
+	else if (arg == 2)
+		return (pro->arg2);
+	else
+		return (pro->arg3);
+}
+
+void readLittleShit(unsigned char map[],int tmp, t_process *pro, int arg)
 {
 	int n;
+	char *arg1;
 
 	n = 0;
+	arg1 = ft_show_me_the_arg(pro, arg);
 	if (tmp == 1)
 	{
 		while (n < 2)
-			arg1[n++] = map[(processor->cur_pos + processor->iterator++) % (MEM_SIZE * 2)];
-		if ((unsigned char)ft_atoi_base(arg1, 16) > 16 || (unsigned char)ft_atoi_base(arg1, 16) <= 0)
-			processor->iC = 1;
+			arg1[n++] = map[(pro->cur_pos + pro->iterator++) % (MEM_SIZE * 2)];
+		if ((unsigned char) ft_ab(arg1, 16) > 16
+			|| (unsigned char) ft_ab(arg1, 16) <= 0)
+			pro->iC = 1;
 	}
 	else if (tmp == 3)
-	{
 		while (n < 4)
-			arg1[n++] = map[(processor->cur_pos + processor->iterator++) % (MEM_SIZE * 2)];
-	}
-	else if (tmp == 2 && (processor->com2 == 14 || processor->com2 == 10 ||
-			(processor->com2 == 11 || processor->com2 == 9) ||
-			(processor->com2 == 12) || (processor->com2 == 15)))
+			arg1[n++] = map[(pro->cur_pos + pro->iterator++) % (MEM_SIZE * 2)];
+	else if (tmp == 2 && (pro->com2 == 14 || pro->com2 == 10 ||
+						  (pro->com2 == 11 || pro->com2 == 9) ||
+						  (pro->com2 == 12) || (pro->com2 == 15)))
 	{
-		processor->t_dir += arg;
+		pro->t_dir += arg;
 		while (n < 4)
-			arg1[n++] = map[(processor->cur_pos + processor->iterator++) % (MEM_SIZE * 2)];
+			arg1[n++] = map[(pro->cur_pos + pro->iterator++) % (MEM_SIZE * 2)];
 	}
-	else if (tmp == 2 && processor->com2 != 14 && processor->com2 != 10)
-	{
+	else if (tmp == 2 && pro->com2 != 14 && pro->com2 != 10)
 		while (n < 8)
-			arg1[n++] = map[(processor->cur_pos + processor->iterator++) % (MEM_SIZE * 2)];
-	}
+			arg1[n++] = map[(pro->cur_pos + pro->iterator++) % (MEM_SIZE * 2)];
 }
 
-void	read_shit(unsigned char *map, t_process *processor) // Обновленно !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+void	read_shit(unsigned char *map, t_process *processor)
 {
 	int		n;
 	char 	tmp[3];
@@ -62,16 +71,16 @@ void	read_shit(unsigned char *map, t_process *processor) // Обновленно
 	if (processor->codage == 0)
 	{
 		processor->iterator += 2;
-		readLittleShit(map, processor->arg1, 2, processor, 1);
+		readLittleShit(map, 2, processor, 1);
 	}
 	else
 	{
 		tmp[0] = map[(processor->cur_pos + 2) % (MEM_SIZE * 2)];
 		tmp[1] = map[(processor->cur_pos + 3) % (MEM_SIZE * 2)];
 		processor->iterator += 4;
-		n = ft_atoi_base(tmp, 16);
-		readLittleShit(map, processor->arg1, saver(n, 8, 0), processor, 1);
-		readLittleShit(map, processor->arg2, saver(n, 8, 2), processor, 2);
-		readLittleShit(map, processor->arg3, saver(n, 8, 4), processor, 3);
+		n = ft_ab(tmp, 16);
+		readLittleShit(map, saver(n, 8, 0), processor, 1);
+		readLittleShit(map, saver(n, 8, 2), processor, 2);
+		readLittleShit(map, saver(n, 8, 4), processor, 3);
 	}
 }

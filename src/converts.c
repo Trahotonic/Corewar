@@ -27,7 +27,7 @@ int base(int c, int base)
 	return (-1);
 }
 
-int ft_atoi_base(const char *str, int str_base)
+int ft_ab(const char *str, int str_base)
 {
 	int nb = 0;
 	int negatif = 0;

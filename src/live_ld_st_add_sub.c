@@ -37,7 +37,7 @@ void ld_sup(t_process *pro, unsigned char* map)
 	int  k;
 	int  n;
 	char *arg1;
-	k = ((((short)ft_atoi_base(pro->arg1, 16)) % IDX_MOD)
+	k = ((((short) ft_ab(pro->arg1, 16)) % IDX_MOD)
 		 * 2 + pro->cur_pos) % (MEM_SIZE * 2);
 	n = 0;
 	arg1 = ft_strnew(8);
@@ -46,7 +46,7 @@ void ld_sup(t_process *pro, unsigned char* map)
 		k %= (MEM_SIZE * 2);
 		arg1[n++] = map[k++];
 	}
-	pro->reg[ft_atoi_base(pro->arg2, 16) - 1] = ft_atoi_base(arg1, 16);
+	pro->reg[ft_ab(pro->arg2, 16) - 1] = ft_ab(arg1, 16);
 }
 
 void  ld(t_process *pro, unsigned char *map)
@@ -65,11 +65,11 @@ void  ld(t_process *pro, unsigned char *map)
 		return ;
 	}
 	if (ft_strlen(pro->arg1) == 8)
-		pro->reg[ft_atoi_base(pro->arg2, 16) - 1] =
-				(unsigned int)ft_atoi_base(pro->arg1, 16);
+		pro->reg[ft_ab(pro->arg2, 16) - 1] =
+				(unsigned int) ft_ab(pro->arg1, 16);
 	else if (ft_strlen(pro->arg1) == 4)
 		ld_sup(pro, map);
-	if (pro->reg[ft_atoi_base(pro->arg2, 16) - 1] == 0)
+	if (pro->reg[ft_ab(pro->arg2, 16) - 1] == 0)
 		pro->carry = 1;
 	else
 		pro->carry = 0;
@@ -83,10 +83,10 @@ void st_sup(t_process *pro, unsigned char *map, t_viz_data *vizData)
 	int    k;
 	char   *tmp;
 
-	k = ((((short)ft_atoi_base(pro->arg2, 16) ) % IDX_MOD)
+	k = ((((short) ft_ab(pro->arg2, 16) ) % IDX_MOD)
 		 * 2 + pro->cur_pos) % (MEM_SIZE * 2);
 	n = 0;
-	tmp = ft_itoa_base(pro->reg[ft_atoi_base(pro->arg1, 16) - 1], 16);
+	tmp = ft_itoa_base(pro->reg[ft_ab(pro->arg1, 16) - 1], 16);
 	convert(&tmp);
 	if (k < 0)
 		k = (MEM_SIZE * 2 + k) % (MEM_SIZE * 2);
@@ -117,8 +117,8 @@ void st(t_process *pro, unsigned char *map, t_viz_data *vizData)
 	if (ft_strlen(pro->arg2) == 4)
 		st_sup(pro, map, vizData);
 	else if (ft_strlen(pro->arg2) == 2)
-		pro->reg[ft_atoi_base(pro->arg2, 16) - 1] =
-				pro->reg[ft_atoi_base(pro->arg1, 16) - 1];
+		pro->reg[ft_ab(pro->arg2, 16) - 1] =
+				pro->reg[ft_ab(pro->arg1, 16) - 1];
 	pro->cur_pos = (pro->iterator + pro->cur_pos) % 8192;
 	pro->iterator = 0;
 }
@@ -130,10 +130,10 @@ void  add(t_process *pro)
 	if (ft_strlen(pro->arg1) != 2 || ft_strlen(pro->arg2) != 2
 		|| ft_strlen(pro->arg3) != 2 || pro->iC == 1)
 		return ;
-	pro->reg[ft_atoi_base(pro->arg3, 16) - 1] =
-			pro->reg[ft_atoi_base(pro->arg1, 16) - 1] +
-			pro->reg[ft_atoi_base(pro->arg2, 16) - 1];
-	if (pro->reg[ft_atoi_base(pro->arg3, 16) - 1] == 0)
+	pro->reg[ft_ab(pro->arg3, 16) - 1] =
+			pro->reg[ft_ab(pro->arg1, 16) - 1] +
+			pro->reg[ft_ab(pro->arg2, 16) - 1];
+	if (pro->reg[ft_ab(pro->arg3, 16) - 1] == 0)
 		pro->carry = 1;
 	else
 		pro->carry = 0;
@@ -148,10 +148,10 @@ void  sub(t_process *pro)
 	if (ft_strlen(pro->arg1) != 2 || ft_strlen(pro->arg2) != 2
 		|| ft_strlen(pro->arg3) != 2 || pro->iC == 1)
 		return ;
-	pro->reg[ft_atoi_base(pro->arg3, 16) - 1] =
-			pro->reg[ft_atoi_base(pro->arg1, 16) - 1] -
-			pro->reg[ft_atoi_base(pro->arg2, 16) - 1];
-	if (pro->reg[ft_atoi_base(pro->arg3, 16) - 1] == 0)
+	pro->reg[ft_ab(pro->arg3, 16) - 1] =
+			pro->reg[ft_ab(pro->arg1, 16) - 1] -
+			pro->reg[ft_ab(pro->arg2, 16) - 1];
+	if (pro->reg[ft_ab(pro->arg3, 16) - 1] == 0)
 		pro->carry = 1;
 	else
 		pro->carry = 0;

@@ -18,6 +18,19 @@ void	introduce(t_player *players)
 	}
 }
 
+void kill_them_all(t_process **process)
+{
+	t_process *tmp;
+
+	tmp = *process;
+	while(tmp)
+	{
+		*process = tmp->next;
+		free(tmp);
+		tmp = *process;
+	}
+}
+
 int	pick_winner(t_player *players, bool vis, int pl)
 {
 	t_player	*ptr;
@@ -133,7 +146,7 @@ void	runProcesses(t_process **processes, unsigned char map[], functions_t array[
 		{
 			tmp[0] = map[go->cur_pos];
 			tmp[1] = map[go->cur_pos + 1];
-			go->com2 = ft_atoi_base(tmp, 16);
+			go->com2 = ft_ab(tmp, 16);
 			while (n < 16 && go->com2 != array[n].name2)
 				++n;
 			if (n == 16)
@@ -312,6 +325,7 @@ void ft_get_champ(t_player **players, char **argv, int *n)
 		(*players) = ft_player_create(argv[*n], i);
 	else
 	{
+		++i;
 		while (tmp->next)
 		{
 			(tmp) = (tmp)->next;
@@ -571,6 +585,7 @@ int     main(int argc, char **argv)
 		}
 		if (!processes)
 		{
+			visualize(map, processes, &vizData);
 			pick_winner(players, VIZ, get_players(players));
 			return 0;
 		}
@@ -578,6 +593,8 @@ int     main(int argc, char **argv)
 			break ;
 		if (cycleToDie <= 0)
 		{
+			kill_them_all(&processes);
+			visualize(map, processes, &vizData);
 			pick_winner(players, VIZ, get_players(players));
 			return 0;
 		}

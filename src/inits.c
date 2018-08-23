@@ -128,6 +128,13 @@ void    init_map(unsigned char *map, t_viz_data *viz_data, t_player *players)
 				((ptr->header.magic & 0x0000FF00) << 8) |
 							((ptr->header.magic & 0x00FF0000) >>  8) |
 				((ptr->header.magic & 0xFF000000) >> 24);
+		if (ptr->header.prog_size > 682)
+			exit(ft_printf("Error: \"%s\" has too large a code"
+			"(%d bytes > 682 bytes)\n",ptr->header.prog_name,
+						   ptr->header.prog_size));
+		if (ptr->header.magic != 0xea83f3)
+			exit(ft_printf("Error: \"%s\" has an invalid header\n",
+						   ptr->header.prog_name));
 		get_total(players, &total, viz_data, n);
 		fillMap(total, count, n, map);
 		ft_strdel(&total);
@@ -155,7 +162,7 @@ void check_pl_number(t_player *player)
 					if (buf2->next->playerNumber == 0)
 					{
 						buf->playerNumber = buf2->playerNumber - 1;
-						break;
+						break ;
 					}
 				}
 				else
