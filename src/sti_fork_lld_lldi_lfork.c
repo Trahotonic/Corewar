@@ -356,8 +356,10 @@ void lfork(t_process **process, t_process *pro)
 	pro->iterator = 0;
 }
 
-void aff(t_process *processor, unsigned char *map)
+void aff(t_process *processor, unsigned char *map, t_viz_data *viz_data)
 {
+	t_char	*ptr;
+
 	if (ft_strlen(processor->arg3) == 2)
 		processor->iterator -= 2;
 	if (ft_strlen(processor->arg3) == 4)
@@ -375,7 +377,21 @@ void aff(t_process *processor, unsigned char *map)
 		processor->cur_pos = (processor->iterator + processor->cur_pos) % (MEM_SIZE * 2);
 		processor->iterator = 0;
 	}
-	ft_printf("%c",  processor->reg[ab(processor->arg1, 16) - 1] % 256);
+	if (!viz_data->print)
+	{
+		viz_data->print = (t_char*)malloc(sizeof(t_char));
+		viz_data->print->c = processor->reg[ab(processor->arg1, 16) - 1] % 256;
+		viz_data->print->next = NULL;
+	}
+	else
+	{
+		ptr = viz_data->print;
+		while (ptr->next)
+			ptr = ptr->next;
+		ptr->next = (t_char*)malloc(sizeof(t_char));
+		viz_data->print->c = processor->reg[ab(processor->arg1, 16) - 1] % 256;
+		viz_data->print->next = NULL;
+	}
 	processor->cur_pos = (processor->iterator + processor->cur_pos) % (MEM_SIZE * 2);
 	processor->iterator = 0;
 }

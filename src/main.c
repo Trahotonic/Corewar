@@ -1,6 +1,6 @@
 # include "./../inc/corewar.h"
 
-# define VIZ 1
+# define VIZ 0
 
 void	introduce(t_player *players)
 {
@@ -11,8 +11,8 @@ void	introduce(t_player *players)
 	while (players)
 	{
 		ft_printf("* Player %d, weighing %d bytes, \"%s\" (\"%s\") !\n", m + 1,
-				  players->header.prog_size, players->header.prog_name,
-				  players->header.comment);
+				  players->h.prog_size, players->h.prog_name,
+				  players->h.comment);
 		players = players->next;
 		++m;
 	}
@@ -45,11 +45,11 @@ int	pick_winner(t_player *players, bool vis, int pl)
 	if (!players->next)
 	{
 		if (!vis)
-			return (ft_printf("Contestant 1, \"%s\", has won !\n", players->header.prog_name));
+			return (ft_printf("Contestant 1, \"%s\", has won !\n", players->h.prog_name));
 		else
 		{
 			attron(COLOR_PAIR(WHITE_CUNT));
-			mvwprintw(stdscr, 11 + (pl * 4) + 14, 199, "The winner is : %s", players->header.prog_name);
+			mvwprintw(stdscr, 11 + (pl * 4) + 14, 199, "The winner is : %s", players->h.prog_name);
 			mvwprintw(stdscr, 11 + (pl * 4) + 16, 199, "Press any key to finish");
 			attroff(COLOR_PAIR(WHITE_CUNT));
 			getch();
@@ -73,11 +73,11 @@ int	pick_winner(t_player *players, bool vis, int pl)
 		ptr = ptr->next;
 	}
 	if (!vis)
-		return (ft_printf("Contestant %d, \"%s\", has won !\n", winner->num, winner->header.prog_name));
+		return (ft_printf("Contestant %d, \"%s\", has won !\n", winner->num, winner->h.prog_name));
 	else
 	{
 		attron(COLOR_PAIR(WHITE_CUNT));
-		mvwprintw(stdscr, 11 + (pl * 4) + 14, 199, "The winner is : %s", winner->header.prog_name);
+		mvwprintw(stdscr, 11 + (pl * 4) + 14, 199, "The winner is : %s", winner->h.prog_name);
 		mvwprintw(stdscr, 11 + (pl * 4) + 16, 199, "Press any key to finish");
 		attroff(COLOR_PAIR(WHITE_CUNT));
 		getch();
@@ -201,7 +201,7 @@ void	runProcesses(t_process **processes, unsigned char map[], functions_t array[
 			else if (go->com2 == 15)
 				lfork(processes, go);
 			else if (go->com2 == 16)
-				aff(go, map);
+				aff(go, map, vizData);
 			go->com2 = 0;
 			go->iC = 0;
 		}
@@ -510,6 +510,15 @@ void checkArguments(int argc, char **argv, t_arg_flags **flags, t_player **playe
 		printf("ERROR\n");
 }
 
+void	printEnd(t_char *print)
+{
+	while (print)
+	{
+		ft_printf("%c", print->c);
+		print = print->next;
+	}
+}
+
 int     main(int argc, char **argv)
 {
 	unsigned char	map[MEM_SIZE * 2];
@@ -585,8 +594,10 @@ int     main(int argc, char **argv)
 		}
 		if (!processes)
 		{
-			visualize(map, processes, &vizData);
+			if (VIZ)
+				visualize(map, processes, &vizData);
 			pick_winner(players, VIZ, get_players(players));
+			printEnd(vizData.print);
 			return 0;
 		}
 		if (flags->d && i == flags->d)
@@ -594,8 +605,10 @@ int     main(int argc, char **argv)
 		if (cycleToDie <= 0)
 		{
 			kill_them_all(&processes);
-			visualize(map, processes, &vizData);
+			if (VIZ)
+				visualize(map, processes, &vizData);
 			pick_winner(players, VIZ, get_players(players));
+			printEnd(vizData.print);
 			return 0;
 		}
 		int br = 20137;

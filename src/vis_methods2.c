@@ -100,7 +100,7 @@ void	print_names(t_player *players)
 		else
 			pair = NEW_PLAYER4_CODE_PAIR;
 		attron(COLOR_PAIR(pair));
-		mvwprintw(stdscr, 11 + (n * 4), 211, "%s", players->header.prog_name);
+		mvwprintw(stdscr, 11 + (n * 4), 211, "%s", players->h.prog_name);
 		attroff(COLOR_PAIR(pair));
 		players = players->next;
 		++n;

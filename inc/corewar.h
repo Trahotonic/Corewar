@@ -106,13 +106,18 @@ typedef struct  s_player
 	int    playerNumber;
 	int    lastAlive;
 	int    liveCount;
-	header_t  header;
+	header_t  h;
 	struct s_player *next;
 	int    num;
 	int    fd;
 	int 	start;
 }     t_player;
 
+typedef struct	s_char
+{
+	char			c;
+	struct s_char	*next;
+}				t_char;
 
 typedef struct  s_viz_data
 {
@@ -123,6 +128,7 @@ typedef struct  s_viz_data
 	int 			i;
 	int 			cycleToDie;
 	int 			cycleDelta;
+	t_char			*print;
 }               t_viz_data;
 
 typedef struct  functions_s
@@ -162,7 +168,7 @@ void	lldi(t_process *processor, unsigned char *map);
 void	fork_c(t_process **processor, t_process *cur);
 void	lfork(t_process **processor, t_process *cur);
 void	sti(t_process *processor, unsigned char *map, t_viz_data *viz_data);
-void	aff(t_process *processor, unsigned char *map);
+void	aff(t_process *processor, unsigned char *map, t_viz_data *viz_data);
 void 	initfunc(functions_t func[]);
 
 #endif //COREWAR_COREWAR_H

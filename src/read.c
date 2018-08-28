@@ -170,7 +170,7 @@ void    get_total(t_player *players, char **total, t_viz_data *viz_data, int c)
         viz_data->mark_timeout[players->start + q] = 0;
         ++q;
     }
-//    printf("here\n");
+	viz_data->print = NULL;
 }
 
 int		get_players(t_player *players)

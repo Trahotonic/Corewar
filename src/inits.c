@@ -43,45 +43,18 @@ static int     setStart(int count, int idx)
 	}
 }
 
-void 	fillMap(char *total, int count, int idx, unsigned char map[])
+void  fillMap(char *total, int count, int idx, unsigned char map[])
 {
 	int n;
 	int m;
 
 	m = 0;
 	if (count == 1 || idx == 1)
-	{
 		n = 0;
-		while (total[m] != '\0')
-		{
-			map[n] = total[m];
-			n++;
-			m++;
-		}
-	}
 	else if (count == 2)
-	{
 		n = MEM_SIZE;
-		while (total[m] != '\0')
-		{
-			map[n] = total[m];
-			n++;
-			m++;
-		}
-	}
 	else if (count == 3)
-	{
-		if (idx == 2)
-			n = (MEM_SIZE * 2) / 3;
-		else
-			n = ((MEM_SIZE * 2) / 3) * 2;
-		while (total[m] != '\0')
-		{
-			map[n] = total[m];
-			n++;
-			m++;
-		}
-	}
+		n = idx == 2 ? (MEM_SIZE * 2) / 3 : ((MEM_SIZE * 2) / 3) * 2;
 	else
 	{
 		if (idx == 2)
@@ -90,26 +63,28 @@ void 	fillMap(char *total, int count, int idx, unsigned char map[])
 			n = ((MEM_SIZE * 2) / 4) * 2;
 		else
 			n = ((MEM_SIZE * 2) / 4) * 3;
-		while (total[m] != '\0')
-		{
-			map[n] = total[m];
-			n++;
-			m++;
-		}
 	}
+	while (total[m] != '\0')
+		map[n++] = total[m++];
+}
+
+unsigned int bit_swaper(unsigned int i)
+{
+	i = ((i & 0x000000FF) << 24) | ((i & 0x0000FF00) << 8) |
+		((i & 0x00FF0000) >>  8) | ((i & 0xFF000000) >> 24);
+	return (i);
 }
 
 void    init_map(unsigned char *map, t_viz_data *viz_data, t_player *players)
 {
-	int         n;
-	int			count;
-	char        *total;
-	t_player	*ptr;
+	int n;
+	int count;
+	char *total;
+	t_player *ptr;
 
 
 	n = 0;
-	while (n < MEM_SIZE * 2)
-	{
+	while (n < MEM_SIZE * 2) {
 		viz_data->mark_timeout[n] = 0;
 		viz_data->viz_data[n] = 0;
 		map[n++] = '0';
@@ -117,24 +92,17 @@ void    init_map(unsigned char *map, t_viz_data *viz_data, t_player *players)
 	count = getCount(players);
 	n = 1;
 	ptr = players;
-	while (ptr)
-	{
-		read(ptr->fd, &ptr->header, sizeof(header_t));
-		ptr->header.prog_size = ((ptr->header.prog_size & 0x000000FF) << 24) |
-				((ptr->header.prog_size & 0x0000FF00) << 8) |
-								((ptr->header.prog_size & 0x00FF0000) >>  8) |
-				((ptr->header.prog_size & 0xFF000000) >> 24);
-		ptr->header.magic = ((ptr->header.magic & 0x000000FF) << 24) |
-				((ptr->header.magic & 0x0000FF00) << 8) |
-							((ptr->header.magic & 0x00FF0000) >>  8) |
-				((ptr->header.magic & 0xFF000000) >> 24);
-		if (ptr->header.prog_size > 682)
+	while (ptr) {
+		read(ptr->fd, &ptr->h, sizeof(header_t));
+		ptr->h.prog_size = bit_swaper(ptr->h.prog_size);
+		ptr->h.magic = bit_swaper(ptr->h.magic);
+		if (ptr->h.prog_size > 682)
 			exit(ft_printf("Error: \"%s\" has too large a code"
-			"(%d bytes > 682 bytes)\n",ptr->header.prog_name,
-						   ptr->header.prog_size));
-		if (ptr->header.magic != 0xea83f3)
-			exit(ft_printf("Error: \"%s\" has an invalid header\n",
-						   ptr->header.prog_name));
+								   "(%d bytes > 682 bytes)\n", ptr->h.prog_name,
+						   ptr->h.prog_size));
+		if (ptr->h.magic != 0xea83f3)
+			exit(ft_printf("Error: \"%s\" has an invalid h\n",
+						   ptr->h.prog_name));
 		get_total(players, &total, viz_data, n);
 		fillMap(total, count, n, map);
 		ft_strdel(&total);
@@ -146,32 +114,33 @@ void    init_map(unsigned char *map, t_viz_data *viz_data, t_player *players)
 
 void check_pl_number(t_player *player)
 {
-	t_player *buf;
 	t_player *buf2;
 
-	buf = player;
 	buf2 = player;
-	while(buf)
+	while(player)
 	{
-		if (buf->playerNumber == 0)
+		if (player->playerNumber == 0)
 		{
 			while(buf2)
 			{
-				if (buf2->next)
+				if (buf2->next && buf2->playerNumber != 0)
 				{
 					if (buf2->next->playerNumber == 0)
 					{
-						buf->playerNumber = buf2->playerNumber - 1;
+						player->playerNumber = buf2->playerNumber - 1;
 						break ;
 					}
 				}
 				else
-					buf->playerNumber = -1;
+				{
+					player->playerNumber = -1;
+					break;
+				}
 				buf2 = buf2->next;
 			}
 			buf2 = player;
 		}
-		buf = buf->next;
+		player = player->next;
 	}
 }
 
@@ -211,11 +180,9 @@ void	init_processes(t_process **processes, t_player *players)
 			*processes = tmp;
 		else
 		{
-			ptr = *processes;
-			while (ptr->next)
-				ptr = ptr->next;
-			ptr->next = tmp;
-			tmp->prev = ptr;
+			(*processes)->prev = tmp;
+			tmp->next = *processes;
+			*processes = tmp;
 		}
 		++idx;
 		players = players->next;
