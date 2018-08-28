@@ -312,6 +312,33 @@ src/read2.c.s:
 	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/read2.c.s
 .PHONY : src/read2.c.s
 
+src/run_processes.o: src/run_processes.c.o
+
+.PHONY : src/run_processes.o
+
+# target to build an object file
+src/run_processes.c.o:
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/run_processes.c.o
+.PHONY : src/run_processes.c.o
+
+src/run_processes.i: src/run_processes.c.i
+
+.PHONY : src/run_processes.i
+
+# target to preprocess a source file
+src/run_processes.c.i:
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/run_processes.c.i
+.PHONY : src/run_processes.c.i
+
+src/run_processes.s: src/run_processes.c.s
+
+.PHONY : src/run_processes.s
+
+# target to generate assembly for a file
+src/run_processes.c.s:
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/run_processes.c.s
+.PHONY : src/run_processes.c.s
+
 src/sti_fork_lld_lldi_lfork.o: src/sti_fork_lld_lldi_lfork.c.o
 
 .PHONY : src/sti_fork_lld_lldi_lfork.o
@@ -504,6 +531,9 @@ help:
 	@echo "... src/read2.o"
 	@echo "... src/read2.i"
 	@echo "... src/read2.s"
+	@echo "... src/run_processes.o"
+	@echo "... src/run_processes.i"
+	@echo "... src/run_processes.s"
 	@echo "... src/sti_fork_lld_lldi_lfork.o"
 	@echo "... src/sti_fork_lld_lldi_lfork.i"
 	@echo "... src/sti_fork_lld_lldi_lfork.s"

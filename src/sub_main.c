@@ -81,3 +81,29 @@ int	pick_winner(t_player *players, int vis, int pl)
 		return (endwin());
 	}
 }
+
+
+int 	check21(t_player *players)
+{
+	t_player    *ptr;
+	int k;
+
+	k = 0;
+	ptr = players;
+	while (players)
+	{
+		k += players->liveCount;
+		if (k >= NBR_LIVE)
+		{
+			players->liveCount = 0;
+			while (ptr)
+			{
+				ptr->liveCount = 0;
+				ptr = ptr->next;
+			}
+			return (1);
+		}
+		players = players->next;
+	}
+	return (0);
+}

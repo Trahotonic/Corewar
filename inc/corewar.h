@@ -138,11 +138,24 @@ typedef struct  functions_s
 	int    cycles;
 }     functions_t;
 
+typedef	struct	s_proc_pack
+{
+	t_process **processes;
+	unsigned char map[MEM_SIZE * 2];
+	functions_t array[16];
+	int i;
+	t_player *player;
+	t_viz_data *vizData;
+}				t_proc_pack;
+
 void	introduce(t_player *players);
-void kill_them_all(t_process **process);
-int	pick_winner(t_player *players, int vis, int pl);
+void	kill_them_all(t_process **process);
+int		pick_winner(t_player *players, int vis, int pl);
+int 	check21(t_player *players);
 void	dump(unsigned char map[], t_player *players);
-void	runProcesses(t_process **processes, unsigned char map[], functions_t array[], int i, t_player *player, t_viz_data *vizData);
+void    kill(t_process * processes);
+void    superkill(t_process ** processes, int i, t_player *player);
+void	runProcesses(unsigned char map[], functions_t array[], t_proc_pack *proc_pack);
 int		get_players(t_player *players);
 int 	get_processes(t_process *proc);
 void	do_null(t_process *processor);

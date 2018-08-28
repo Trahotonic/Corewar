@@ -11,6 +11,7 @@ set(CMAKE_DEPENDS_CHECK_C
   "/Users/rkyslyy/corewar2/src/main.c" "/Users/rkyslyy/corewar2/cmake-build-debug/CMakeFiles/Corewar.dir/src/main.c.o"
   "/Users/rkyslyy/corewar2/src/read.c" "/Users/rkyslyy/corewar2/cmake-build-debug/CMakeFiles/Corewar.dir/src/read.c.o"
   "/Users/rkyslyy/corewar2/src/read2.c" "/Users/rkyslyy/corewar2/cmake-build-debug/CMakeFiles/Corewar.dir/src/read2.c.o"
+  "/Users/rkyslyy/corewar2/src/run_processes.c" "/Users/rkyslyy/corewar2/cmake-build-debug/CMakeFiles/Corewar.dir/src/run_processes.c.o"
   "/Users/rkyslyy/corewar2/src/sti_fork_lld_lldi_lfork.c" "/Users/rkyslyy/corewar2/cmake-build-debug/CMakeFiles/Corewar.dir/src/sti_fork_lld_lldi_lfork.c.o"
   "/Users/rkyslyy/corewar2/src/sub_main.c" "/Users/rkyslyy/corewar2/cmake-build-debug/CMakeFiles/Corewar.dir/src/sub_main.c.o"
   "/Users/rkyslyy/corewar2/src/sub_main2.c" "/Users/rkyslyy/corewar2/cmake-build-debug/CMakeFiles/Corewar.dir/src/sub_main2.c.o"

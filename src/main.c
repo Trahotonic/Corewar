@@ -1,93 +1,5 @@
 # include "./../inc/corewar.h"
 
-int     counter(t_process * process)
-{
-	int i;
-
-	i = 0;
-	while (process)
-	{
-		++i;
-		process = process->next;
-	}
-	return i;
-}
-
-void    kill(t_process * processes)
-{
-	while (processes)
-	{
-		processes->alive = 0;
-		processes = processes->next;
-	}
-}
-
-void    superkill(t_process ** processes, int i, t_player *player)
-{
-	t_process   *ptr;
-	t_process   *tmp;
-	t_player    *plptr;
-
-	ptr = *processes;
-	while (ptr)
-	{
-		if (!ptr->alive)
-		{
-			if (ptr == *processes)
-			{
-				tmp = ptr;
-				if (ptr->next)
-					ptr->next->prev = NULL;
-				*processes = ptr->next;
-				ptr = *processes;
-				free(tmp);
-			}
-			else
-			{
-				tmp = ptr;
-				ptr->prev->next = ptr->next;
-				if (ptr->next)
-					ptr->next->prev = ptr->prev;
-				ptr = ptr->next;
-				free(tmp);
-			}
-			plptr = player;
-			while (plptr)
-			{
-				plptr->liveCount = 0;
-				plptr = plptr->next;
-			}
-			continue ;
-		}
-		ptr = ptr->next;
-	}
-}
-
-int 	check21(t_player *players)
-{
-	t_player    *ptr;
-	int k;
-
-	k = 0;
-	ptr = players;
-	while (players)
-	{
-		k += players->liveCount;
-		if (k >= NBR_LIVE)
-		{
-			players->liveCount = 0;
-			while (ptr)
-			{
-				ptr->liveCount = 0;
-				ptr = ptr->next;
-			}
-			return (1);
-		}
-		players = players->next;
-	}
-	return (0);
-}
-
 t_player *ft_player_create(char *champ, int num)
 {
 	t_player *tmp;
@@ -323,7 +235,9 @@ int     main(int argc, char **argv)
 	int				maxchecks;
 	int				n;
 	t_arg_flags		*flags;
+	t_proc_pack		*proc_pack;
 
+	proc_pack = (t_proc_pack*)malloc(sizeof(t_proc_pack));
 	flags = ft_memalloc(sizeof(t_arg_flags));
 	checkArguments(argc, argv, &flags, &players);
 	n = 0;
@@ -434,7 +348,11 @@ int     main(int argc, char **argv)
 			}
 			c = 0;
 		}
-		runProcesses(&processes, map, array, i, players, &vizData);
+		proc_pack->i = i;
+		proc_pack->player = players;
+		proc_pack->processes = &processes;
+		proc_pack->vizData = &vizData;
+		runProcesses(map, array, proc_pack);
 		i++;
 		n++;
 	}

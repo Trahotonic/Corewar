@@ -118,6 +118,9 @@
 		<Unit filename="/Users/rkyslyy/corewar2/src/read2.c">
 			<Option target="Corewar"/>
 		</Unit>
+		<Unit filename="/Users/rkyslyy/corewar2/src/run_processes.c">
+			<Option target="Corewar"/>
+		</Unit>
 		<Unit filename="/Users/rkyslyy/corewar2/src/sti_fork_lld_lldi_lfork.c">
 			<Option target="Corewar"/>
 		</Unit>
