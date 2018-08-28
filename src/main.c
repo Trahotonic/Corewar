@@ -1,214 +1,5 @@
 # include "./../inc/corewar.h"
 
-# define VIZ 0
-
-void	introduce(t_player *players)
-{
-	int m;
-
-	m = 0;
-	ft_printf("Introducing contestants...\n");
-	while (players)
-	{
-		ft_printf("* Player %d, weighing %d bytes, \"%s\" (\"%s\") !\n", m + 1,
-				  players->h.prog_size, players->h.prog_name,
-				  players->h.comment);
-		players = players->next;
-		++m;
-	}
-}
-
-void kill_them_all(t_process **process)
-{
-	t_process *tmp;
-
-	tmp = *process;
-	while(tmp)
-	{
-		*process = tmp->next;
-		free(tmp);
-		tmp = *process;
-	}
-}
-
-int	pick_winner(t_player *players, bool vis, int pl)
-{
-	t_player	*ptr;
-	t_player	*winner;
-	int 		max;
-
-	if (vis)
-		nodelay(stdscr, false);
-	ptr = players;
-	winner = players;
-	max = players->lastAlive;
-	if (!players->next)
-	{
-		if (!vis)
-			return (ft_printf("Contestant 1, \"%s\", has won !\n", players->h.prog_name));
-		else
-		{
-			attron(COLOR_PAIR(WHITE_CUNT));
-			mvwprintw(stdscr, 11 + (pl * 4) + 14, 199, "The winner is : %s", players->h.prog_name);
-			mvwprintw(stdscr, 11 + (pl * 4) + 16, 199, "Press any key to finish");
-			attroff(COLOR_PAIR(WHITE_CUNT));
-			getch();
-			return (endwin());
-		}
-	}
-	players = players->next;
-	while (players)
-	{
-		if (players->lastAlive > max)
-		{
-			max = players->lastAlive;
-			winner = players;
-		}
-		players = players->next;
-	}
-	while (ptr)
-	{
-		if (ptr->lastAlive == max)
-			winner = ptr;
-		ptr = ptr->next;
-	}
-	if (!vis)
-		return (ft_printf("Contestant %d, \"%s\", has won !\n", winner->num, winner->h.prog_name));
-	else
-	{
-		attron(COLOR_PAIR(WHITE_CUNT));
-		mvwprintw(stdscr, 11 + (pl * 4) + 14, 199, "The winner is : %s", winner->h.prog_name);
-		mvwprintw(stdscr, 11 + (pl * 4) + 16, 199, "Press any key to finish");
-		attroff(COLOR_PAIR(WHITE_CUNT));
-		getch();
-		return (endwin());
-	}
-}
-
-void	dump(unsigned char map[], t_player *players)
-{
-	int		n;
-	int 	m;
-	int 	q;
-	int 	row;
-	char 	tmp[3];
-	char 	*r;
-
-	q = 0;
-	row = 0;
-	tmp[2] = '\0';
-	m = 0;
-	while (q < 64)
-	{
-		n = 2;
-		r = ft_itoa_base(row, 16);
-		ft_printf("0x");
-		while (n++ < 6 - ft_strlen(r))
-			ft_printf("0");
-		ft_printf("%s : ", r);
-		n = 0;
-		while (n < 64)
-		{
-			tmp[0] = map[m++];
-			tmp[1] = map[m++];
-			ft_printf("%s ", tmp);
-			n++;
-		}
-		ft_printf("\n");
-		row += 64;
-		q++;
-	}
-}
-
-void	runProcesses(t_process **processes, unsigned char map[], functions_t array[], int i, t_player *player, t_viz_data *vizData)
-{
-	t_process	*go;
-	int 		n;
-	char 		tmp[3];
-
-	tmp[2] = '\0';
-	go = *processes;
-	n = 0;
-	if (i == 9690)
-	{
-
-	}
-	while (go)
-	{
-		if (go->invalidAgr)
-		{
-			go->invalidAgr = 0;
-			go->cur_pos = (go->cur_pos + 2) % (MEM_SIZE * 2);
-			go = go->next;
-			continue ;
-		}
-		if (go->com2 == 0)
-		{
-			tmp[0] = map[go->cur_pos];
-			tmp[1] = map[go->cur_pos + 1];
-			go->com2 = ab(tmp, 16);
-			while (n < 16 && go->com2 != array[n].name2)
-				++n;
-			if (n == 16)
-			{
-				go->invalidAgr = 1;
-				go->com2 = 0;
-				n = 0;
-				continue ;
-			}
-			go->cycle_todo = array[n].cycles;
-			go->codage = array[n].codage;
-			n = 0;
-		}
-		if (go->cycle_todo > 0)
-			--go->cycle_todo;
-		if ((go->com2 > 0 && go->com2 <= 16)
-		    && !go->cycle_todo)
-		{
-			read_shit(map, go);
-			if (ft_strequ(go->arg1, "ff09"))
-			{
-
-			}
-			if (go->com2 == 1)
-				live(go, i, player);
-			else if (go->com2 == 2)
-				ld(go, map);
-			else if (go->com2 == 3)
-				st(go, map, vizData);
-			else if (go->com2 == 4)
-				add(go);
-			else if (go->com2 == 5)
-				sub(go);
-			else if (go->com2 == 6)
-				and(go);
-			else if (go->com2 == 7)
-				or(go);
-			else if (go->com2 == 8)
-				xor(go);
-			else if (go->com2 == 9)
-				zjmp(go);
-			else if (go->com2 == 10)
-				ldi(go, map);
-			else if (go->com2 == 11)
-				sti(go, map, vizData);
-			else if (go->com2 == 12)
-				fork_c(processes, go);
-			else if (go->com2 == 13)
-				lld(go, map);
-			else if (go->com2 == 14)
-				lldi(go, map);
-			else if (go->com2 == 15)
-				lfork(processes, go);
-			else if (go->com2 == 16)
-				aff(go, map, vizData);
-			go->com2 = 0;
-			go->iC = 0;
-		}
-		go = go->next;
-	}
-}
-
 int     counter(t_process * process)
 {
 	int i;
@@ -540,9 +331,9 @@ int     main(int argc, char **argv)
 	processes = NULL;
 	init_processes(&processes, players);
 	init_map(map, &vizData, players);
-	if (!VIZ)
+	if (!flags->v)
 		introduce(players);
-	if (!flags->d && VIZ)
+	if (!flags->d && flags->v)
 	{
 //		system("afplay -v 0.3 ./Benny-hill-theme.mp3 &");
 		init_vis();
@@ -594,9 +385,9 @@ int     main(int argc, char **argv)
 		}
 		if (!processes)
 		{
-			if (VIZ)
+			if (flags->v)
 				visualize(map, processes, &vizData);
-			pick_winner(players, VIZ, get_players(players));
+			pick_winner(players, flags->v, get_players(players));
 			printEnd(vizData.print);
 			return 0;
 		}
@@ -605,14 +396,14 @@ int     main(int argc, char **argv)
 		if (cycleToDie <= 0)
 		{
 			kill_them_all(&processes);
-			if (VIZ)
+			if (flags->v)
 				visualize(map, processes, &vizData);
-			pick_winner(players, VIZ, get_players(players));
+			pick_winner(players, flags->v, get_players(players));
 			printEnd(vizData.print);
 			return 0;
 		}
 		int br = 20137;
-		if (!flags->d && VIZ)
+		if (!flags->d && flags->v)
 		{
 			vizData.cycleDelta = CYCLE_DELTA;
 			vizData.cycleToDie = cycleToDie;
@@ -647,7 +438,7 @@ int     main(int argc, char **argv)
 		i++;
 		n++;
 	}
-	if (!flags->d && VIZ)
+	if (!flags->d && flags->v)
 	{
 //		system("killall afplay");
 		endwin();

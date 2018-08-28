@@ -339,6 +339,60 @@ src/sti_fork_lld_lldi_lfork.c.s:
 	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/sti_fork_lld_lldi_lfork.c.s
 .PHONY : src/sti_fork_lld_lldi_lfork.c.s
 
+src/sub_main.o: src/sub_main.c.o
+
+.PHONY : src/sub_main.o
+
+# target to build an object file
+src/sub_main.c.o:
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/sub_main.c.o
+.PHONY : src/sub_main.c.o
+
+src/sub_main.i: src/sub_main.c.i
+
+.PHONY : src/sub_main.i
+
+# target to preprocess a source file
+src/sub_main.c.i:
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/sub_main.c.i
+.PHONY : src/sub_main.c.i
+
+src/sub_main.s: src/sub_main.c.s
+
+.PHONY : src/sub_main.s
+
+# target to generate assembly for a file
+src/sub_main.c.s:
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/sub_main.c.s
+.PHONY : src/sub_main.c.s
+
+src/sub_main2.o: src/sub_main2.c.o
+
+.PHONY : src/sub_main2.o
+
+# target to build an object file
+src/sub_main2.c.o:
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/sub_main2.c.o
+.PHONY : src/sub_main2.c.o
+
+src/sub_main2.i: src/sub_main2.c.i
+
+.PHONY : src/sub_main2.i
+
+# target to preprocess a source file
+src/sub_main2.c.i:
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/sub_main2.c.i
+.PHONY : src/sub_main2.c.i
+
+src/sub_main2.s: src/sub_main2.c.s
+
+.PHONY : src/sub_main2.s
+
+# target to generate assembly for a file
+src/sub_main2.c.s:
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/sub_main2.c.s
+.PHONY : src/sub_main2.c.s
+
 src/vis_methods.o: src/vis_methods.c.o
 
 .PHONY : src/vis_methods.o
@@ -453,6 +507,12 @@ help:
 	@echo "... src/sti_fork_lld_lldi_lfork.o"
 	@echo "... src/sti_fork_lld_lldi_lfork.i"
 	@echo "... src/sti_fork_lld_lldi_lfork.s"
+	@echo "... src/sub_main.o"
+	@echo "... src/sub_main.i"
+	@echo "... src/sub_main.s"
+	@echo "... src/sub_main2.o"
+	@echo "... src/sub_main2.i"
+	@echo "... src/sub_main2.s"
 	@echo "... src/vis_methods.o"
 	@echo "... src/vis_methods.i"
 	@echo "... src/vis_methods.s"

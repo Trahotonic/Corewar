@@ -78,6 +78,7 @@ void	init_vis(void)
 	initscr();
 	curs_set(0);
 	nodelay(stdscr, false);
+	noecho();
 	start_color();
 	init_colors();
 	init_pairs();

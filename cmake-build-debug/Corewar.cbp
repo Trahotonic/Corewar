@@ -121,6 +121,12 @@
 		<Unit filename="/Users/rkyslyy/corewar2/src/sti_fork_lld_lldi_lfork.c">
 			<Option target="Corewar"/>
 		</Unit>
+		<Unit filename="/Users/rkyslyy/corewar2/src/sub_main.c">
+			<Option target="Corewar"/>
+		</Unit>
+		<Unit filename="/Users/rkyslyy/corewar2/src/sub_main2.c">
+			<Option target="Corewar"/>
+		</Unit>
 		<Unit filename="/Users/rkyslyy/corewar2/src/vis_methods.c">
 			<Option target="Corewar"/>
 		</Unit>

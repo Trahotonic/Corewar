@@ -138,6 +138,11 @@ typedef struct  functions_s
 	int    cycles;
 }     functions_t;
 
+void	introduce(t_player *players);
+void kill_them_all(t_process **process);
+int	pick_winner(t_player *players, int vis, int pl);
+void	dump(unsigned char map[], t_player *players);
+void	runProcesses(t_process **processes, unsigned char map[], functions_t array[], int i, t_player *player, t_viz_data *vizData);
 int		get_players(t_player *players);
 int 	get_processes(t_process *proc);
 void	do_null(t_process *processor);

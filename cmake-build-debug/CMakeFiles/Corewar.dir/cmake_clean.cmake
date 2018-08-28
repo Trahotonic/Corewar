@@ -10,6 +10,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/Corewar.dir/src/sti_fork_lld_lldi_lfork.c.o"
   "CMakeFiles/Corewar.dir/src/vis_methods.c.o"
   "CMakeFiles/Corewar.dir/src/vis_methods2.c.o"
+  "CMakeFiles/Corewar.dir/src/sub_main.c.o"
+  "CMakeFiles/Corewar.dir/src/sub_main2.c.o"
   "Corewar.pdb"
   "Corewar"
 )
