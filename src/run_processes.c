@@ -45,13 +45,13 @@ static void	pick_function_2(t_process	*go, t_proc_pack *proc_pack,
 						unsigned char map[])
 {
 	if (go->com2 == 12)
-		fork_c(proc_pack->processes, go);
+		fork_c(proc_pack->processes_deep, go);
 	else if (go->com2 == 13)
 		lld(go, map);
 	else if (go->com2 == 14)
 		lldi(go, map);
 	else if (go->com2 == 15)
-		lfork(proc_pack->processes, go);
+		lfork(proc_pack->processes_deep, go);
 	else if (go->com2 == 16)
 		aff(go, map, proc_pack->vizData);
 }
@@ -92,7 +92,7 @@ void		runProcesses(unsigned char map[], functions_t array[],
 	char 		tmp[3];
 
 	tmp[2] = '\0';
-	go = *proc_pack->processes;
+	go = *proc_pack->processes_deep;
 	while (go)
 	{
 		if (check_invalid_1(&go) || check_invalid_2(go, tmp, map, array))

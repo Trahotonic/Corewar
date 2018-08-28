@@ -106,6 +106,9 @@
 		<Unit filename="/Users/rkyslyy/corewar2/src/inits.c">
 			<Option target="Corewar"/>
 		</Unit>
+		<Unit filename="/Users/rkyslyy/corewar2/src/lil_func.c">
+			<Option target="Corewar"/>
+		</Unit>
 		<Unit filename="/Users/rkyslyy/corewar2/src/live_ld_st_add_sub.c">
 			<Option target="Corewar"/>
 		</Unit>
@@ -128,6 +131,12 @@
 			<Option target="Corewar"/>
 		</Unit>
 		<Unit filename="/Users/rkyslyy/corewar2/src/sub_main2.c">
+			<Option target="Corewar"/>
+		</Unit>
+		<Unit filename="/Users/rkyslyy/corewar2/src/sub_main3.c">
+			<Option target="Corewar"/>
+		</Unit>
+		<Unit filename="/Users/rkyslyy/corewar2/src/sub_main4.c">
 			<Option target="Corewar"/>
 		</Unit>
 		<Unit filename="/Users/rkyslyy/corewar2/src/vis_methods.c">

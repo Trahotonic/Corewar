@@ -13,6 +13,9 @@ file(REMOVE_RECURSE
   "CMakeFiles/Corewar.dir/src/sub_main.c.o"
   "CMakeFiles/Corewar.dir/src/sub_main2.c.o"
   "CMakeFiles/Corewar.dir/src/run_processes.c.o"
+  "CMakeFiles/Corewar.dir/src/sub_main3.c.o"
+  "CMakeFiles/Corewar.dir/src/sub_main4.c.o"
+  "CMakeFiles/Corewar.dir/src/lil_func.c.o"
   "Corewar.pdb"
   "Corewar"
 )

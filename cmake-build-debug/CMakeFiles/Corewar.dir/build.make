@@ -393,6 +393,78 @@ CMakeFiles/Corewar.dir/src/run_processes.c.o.provides: CMakeFiles/Corewar.dir/sr
 CMakeFiles/Corewar.dir/src/run_processes.c.o.provides.build: CMakeFiles/Corewar.dir/src/run_processes.c.o
 
 
+CMakeFiles/Corewar.dir/src/sub_main3.c.o: CMakeFiles/Corewar.dir/flags.make
+CMakeFiles/Corewar.dir/src/sub_main3.c.o: ../src/sub_main3.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/rkyslyy/corewar2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building C object CMakeFiles/Corewar.dir/src/sub_main3.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Corewar.dir/src/sub_main3.c.o   -c /Users/rkyslyy/corewar2/src/sub_main3.c
+
+CMakeFiles/Corewar.dir/src/sub_main3.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Corewar.dir/src/sub_main3.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/rkyslyy/corewar2/src/sub_main3.c > CMakeFiles/Corewar.dir/src/sub_main3.c.i
+
+CMakeFiles/Corewar.dir/src/sub_main3.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Corewar.dir/src/sub_main3.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/rkyslyy/corewar2/src/sub_main3.c -o CMakeFiles/Corewar.dir/src/sub_main3.c.s
+
+CMakeFiles/Corewar.dir/src/sub_main3.c.o.requires:
+
+.PHONY : CMakeFiles/Corewar.dir/src/sub_main3.c.o.requires
+
+CMakeFiles/Corewar.dir/src/sub_main3.c.o.provides: CMakeFiles/Corewar.dir/src/sub_main3.c.o.requires
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/sub_main3.c.o.provides.build
+.PHONY : CMakeFiles/Corewar.dir/src/sub_main3.c.o.provides
+
+CMakeFiles/Corewar.dir/src/sub_main3.c.o.provides.build: CMakeFiles/Corewar.dir/src/sub_main3.c.o
+
+
+CMakeFiles/Corewar.dir/src/sub_main4.c.o: CMakeFiles/Corewar.dir/flags.make
+CMakeFiles/Corewar.dir/src/sub_main4.c.o: ../src/sub_main4.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/rkyslyy/corewar2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building C object CMakeFiles/Corewar.dir/src/sub_main4.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Corewar.dir/src/sub_main4.c.o   -c /Users/rkyslyy/corewar2/src/sub_main4.c
+
+CMakeFiles/Corewar.dir/src/sub_main4.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Corewar.dir/src/sub_main4.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/rkyslyy/corewar2/src/sub_main4.c > CMakeFiles/Corewar.dir/src/sub_main4.c.i
+
+CMakeFiles/Corewar.dir/src/sub_main4.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Corewar.dir/src/sub_main4.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/rkyslyy/corewar2/src/sub_main4.c -o CMakeFiles/Corewar.dir/src/sub_main4.c.s
+
+CMakeFiles/Corewar.dir/src/sub_main4.c.o.requires:
+
+.PHONY : CMakeFiles/Corewar.dir/src/sub_main4.c.o.requires
+
+CMakeFiles/Corewar.dir/src/sub_main4.c.o.provides: CMakeFiles/Corewar.dir/src/sub_main4.c.o.requires
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/sub_main4.c.o.provides.build
+.PHONY : CMakeFiles/Corewar.dir/src/sub_main4.c.o.provides
+
+CMakeFiles/Corewar.dir/src/sub_main4.c.o.provides.build: CMakeFiles/Corewar.dir/src/sub_main4.c.o
+
+
+CMakeFiles/Corewar.dir/src/lil_func.c.o: CMakeFiles/Corewar.dir/flags.make
+CMakeFiles/Corewar.dir/src/lil_func.c.o: ../src/lil_func.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/rkyslyy/corewar2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building C object CMakeFiles/Corewar.dir/src/lil_func.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Corewar.dir/src/lil_func.c.o   -c /Users/rkyslyy/corewar2/src/lil_func.c
+
+CMakeFiles/Corewar.dir/src/lil_func.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Corewar.dir/src/lil_func.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/rkyslyy/corewar2/src/lil_func.c > CMakeFiles/Corewar.dir/src/lil_func.c.i
+
+CMakeFiles/Corewar.dir/src/lil_func.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Corewar.dir/src/lil_func.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/rkyslyy/corewar2/src/lil_func.c -o CMakeFiles/Corewar.dir/src/lil_func.c.s
+
+CMakeFiles/Corewar.dir/src/lil_func.c.o.requires:
+
+.PHONY : CMakeFiles/Corewar.dir/src/lil_func.c.o.requires
+
+CMakeFiles/Corewar.dir/src/lil_func.c.o.provides: CMakeFiles/Corewar.dir/src/lil_func.c.o.requires
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/lil_func.c.o.provides.build
+.PHONY : CMakeFiles/Corewar.dir/src/lil_func.c.o.provides
+
+CMakeFiles/Corewar.dir/src/lil_func.c.o.provides.build: CMakeFiles/Corewar.dir/src/lil_func.c.o
+
+
 # Object files for target Corewar
 Corewar_OBJECTS = \
 "CMakeFiles/Corewar.dir/src/main.c.o" \
@@ -408,7 +480,10 @@ Corewar_OBJECTS = \
 "CMakeFiles/Corewar.dir/src/vis_methods2.c.o" \
 "CMakeFiles/Corewar.dir/src/sub_main.c.o" \
 "CMakeFiles/Corewar.dir/src/sub_main2.c.o" \
-"CMakeFiles/Corewar.dir/src/run_processes.c.o"
+"CMakeFiles/Corewar.dir/src/run_processes.c.o" \
+"CMakeFiles/Corewar.dir/src/sub_main3.c.o" \
+"CMakeFiles/Corewar.dir/src/sub_main4.c.o" \
+"CMakeFiles/Corewar.dir/src/lil_func.c.o"
 
 # External object files for target Corewar
 Corewar_EXTERNAL_OBJECTS =
@@ -427,11 +502,14 @@ Corewar: CMakeFiles/Corewar.dir/src/vis_methods2.c.o
 Corewar: CMakeFiles/Corewar.dir/src/sub_main.c.o
 Corewar: CMakeFiles/Corewar.dir/src/sub_main2.c.o
 Corewar: CMakeFiles/Corewar.dir/src/run_processes.c.o
+Corewar: CMakeFiles/Corewar.dir/src/sub_main3.c.o
+Corewar: CMakeFiles/Corewar.dir/src/sub_main4.c.o
+Corewar: CMakeFiles/Corewar.dir/src/lil_func.c.o
 Corewar: CMakeFiles/Corewar.dir/build.make
 Corewar: ../libft/libft.a
 Corewar: ../libft/ft_printf/libftprintf.a
 Corewar: CMakeFiles/Corewar.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/rkyslyy/corewar2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Linking C executable Corewar"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/rkyslyy/corewar2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Linking C executable Corewar"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Corewar.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -453,6 +531,9 @@ CMakeFiles/Corewar.dir/requires: CMakeFiles/Corewar.dir/src/vis_methods2.c.o.req
 CMakeFiles/Corewar.dir/requires: CMakeFiles/Corewar.dir/src/sub_main.c.o.requires
 CMakeFiles/Corewar.dir/requires: CMakeFiles/Corewar.dir/src/sub_main2.c.o.requires
 CMakeFiles/Corewar.dir/requires: CMakeFiles/Corewar.dir/src/run_processes.c.o.requires
+CMakeFiles/Corewar.dir/requires: CMakeFiles/Corewar.dir/src/sub_main3.c.o.requires
+CMakeFiles/Corewar.dir/requires: CMakeFiles/Corewar.dir/src/sub_main4.c.o.requires
+CMakeFiles/Corewar.dir/requires: CMakeFiles/Corewar.dir/src/lil_func.c.o.requires
 
 .PHONY : CMakeFiles/Corewar.dir/requires
 

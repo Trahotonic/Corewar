@@ -204,6 +204,33 @@ src/inits.c.s:
 	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/inits.c.s
 .PHONY : src/inits.c.s
 
+src/lil_func.o: src/lil_func.c.o
+
+.PHONY : src/lil_func.o
+
+# target to build an object file
+src/lil_func.c.o:
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/lil_func.c.o
+.PHONY : src/lil_func.c.o
+
+src/lil_func.i: src/lil_func.c.i
+
+.PHONY : src/lil_func.i
+
+# target to preprocess a source file
+src/lil_func.c.i:
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/lil_func.c.i
+.PHONY : src/lil_func.c.i
+
+src/lil_func.s: src/lil_func.c.s
+
+.PHONY : src/lil_func.s
+
+# target to generate assembly for a file
+src/lil_func.c.s:
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/lil_func.c.s
+.PHONY : src/lil_func.c.s
+
 src/live_ld_st_add_sub.o: src/live_ld_st_add_sub.c.o
 
 .PHONY : src/live_ld_st_add_sub.o
@@ -420,6 +447,60 @@ src/sub_main2.c.s:
 	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/sub_main2.c.s
 .PHONY : src/sub_main2.c.s
 
+src/sub_main3.o: src/sub_main3.c.o
+
+.PHONY : src/sub_main3.o
+
+# target to build an object file
+src/sub_main3.c.o:
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/sub_main3.c.o
+.PHONY : src/sub_main3.c.o
+
+src/sub_main3.i: src/sub_main3.c.i
+
+.PHONY : src/sub_main3.i
+
+# target to preprocess a source file
+src/sub_main3.c.i:
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/sub_main3.c.i
+.PHONY : src/sub_main3.c.i
+
+src/sub_main3.s: src/sub_main3.c.s
+
+.PHONY : src/sub_main3.s
+
+# target to generate assembly for a file
+src/sub_main3.c.s:
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/sub_main3.c.s
+.PHONY : src/sub_main3.c.s
+
+src/sub_main4.o: src/sub_main4.c.o
+
+.PHONY : src/sub_main4.o
+
+# target to build an object file
+src/sub_main4.c.o:
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/sub_main4.c.o
+.PHONY : src/sub_main4.c.o
+
+src/sub_main4.i: src/sub_main4.c.i
+
+.PHONY : src/sub_main4.i
+
+# target to preprocess a source file
+src/sub_main4.c.i:
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/sub_main4.c.i
+.PHONY : src/sub_main4.c.i
+
+src/sub_main4.s: src/sub_main4.c.s
+
+.PHONY : src/sub_main4.s
+
+# target to generate assembly for a file
+src/sub_main4.c.s:
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/sub_main4.c.s
+.PHONY : src/sub_main4.c.s
+
 src/vis_methods.o: src/vis_methods.c.o
 
 .PHONY : src/vis_methods.o
@@ -519,6 +600,9 @@ help:
 	@echo "... src/inits.o"
 	@echo "... src/inits.i"
 	@echo "... src/inits.s"
+	@echo "... src/lil_func.o"
+	@echo "... src/lil_func.i"
+	@echo "... src/lil_func.s"
 	@echo "... src/live_ld_st_add_sub.o"
 	@echo "... src/live_ld_st_add_sub.i"
 	@echo "... src/live_ld_st_add_sub.s"
@@ -543,6 +627,12 @@ help:
 	@echo "... src/sub_main2.o"
 	@echo "... src/sub_main2.i"
 	@echo "... src/sub_main2.s"
+	@echo "... src/sub_main3.o"
+	@echo "... src/sub_main3.i"
+	@echo "... src/sub_main3.s"
+	@echo "... src/sub_main4.o"
+	@echo "... src/sub_main4.i"
+	@echo "... src/sub_main4.s"
 	@echo "... src/vis_methods.o"
 	@echo "... src/vis_methods.i"
 	@echo "... src/vis_methods.s"
