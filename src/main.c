@@ -1,37 +1,57 @@
 # include "./../inc/corewar.h"
 
-void	init_all()
+void	init_all(t_proc_pack **pp, int argc, char **argv, t_viz_data *viz_data)
 {
-
+	*pp = (t_proc_pack*)malloc(sizeof(t_proc_pack));
+	(*pp)->flags = ft_memalloc(sizeof(t_arg_flags));
+	checkArguments(argc, argv, &(*pp)->flags, &(*pp)->players);
+	(*pp)->n = 0;
+	(*pp)->maxchecks = 1;
+	(*pp)->processes = NULL;
+	init_processes(&(*pp)->processes, (*pp)->players);
+	init_map((*pp)->map, viz_data, (*pp)->players);
+	if (!(*pp)->flags->v)
+		introduce((*pp)->players);
+	if (!(*pp)->flags->d && (*pp)->flags->v)
+	{
+//		system("afplay -v 0.3 ./Benny-hill-theme.mp3 &");
+		init_vis();
+		(viz_data)->players = (*pp)->players;
+	}
+	initfunc((*pp)->array);
+	t_player    *p;
+	(*pp)->cycleToDie = CYCLE_TO_DIE;
+	(*pp)->i = 0;
+	(*pp)->c = 0;
 }
 
 int     main(int argc, char **argv)
 {
 	t_viz_data		vizData;
-	t_arg_flags		*flags;
 	t_proc_pack		*pp;
 
-	pp = (t_proc_pack*)malloc(sizeof(t_proc_pack));
-	flags = ft_memalloc(sizeof(t_arg_flags));
-	checkArguments(argc, argv, &flags, &pp->players);
-	pp->n = 0;
-	pp->maxchecks = 1;
-	pp->processes = NULL;
-	init_processes(&pp->processes, pp->players);
-	init_map(pp->map, &vizData, pp->players);
-	if (!flags->v)
-		introduce(pp->players);
-	if (!flags->d && flags->v)
-	{
-//		system("afplay -v 0.3 ./Benny-hill-theme.mp3 &");
-		init_vis();
-		vizData.players = pp->players;
-	}
-	initfunc(pp->array);
+//	pp = (t_proc_pack*)malloc(sizeof(t_proc_pack));
+//	pp->flags = ft_memalloc(sizeof(t_arg_flags));
+//	checkArguments(argc, argv, &pp->flags, &pp->players);
+//	pp->n = 0;
+//	pp->maxchecks = 1;
+//	pp->processes = NULL;
+//	init_processes(&pp->processes, pp->players);
+//	init_map(pp->map, &vizData, pp->players);
+//	if (!pp->flags->v)
+//		introduce(pp->players);
+//	if (!pp->flags->d && pp->flags->v)
+//	{
+////		system("afplay -v 0.3 ./Benny-hill-theme.mp3 &");
+//		init_vis();
+//		vizData.players = pp->players;
+//	}
+//	initfunc(pp->array);
+//	pp->cycleToDie = CYCLE_TO_DIE;
+//	pp->i = 0;
+//	pp->c = 0;
+	init_all(&pp, argc, argv, &vizData);
 	t_player    *p;
-	pp->cycleToDie = CYCLE_TO_DIE;
-	pp->i = 0;
-	pp->c = 0;
 	while (1)
 	{
 		if (pp->n == pp->cycleToDie && check21(pp->players))
@@ -67,29 +87,29 @@ int     main(int argc, char **argv)
 			kill(pp->processes);
 			pp->n = 0;
 		}
+		vizData.cycleDelta = CYCLE_DELTA;
+		vizData.cycleToDie = pp->cycleToDie;
 		if (!pp->processes)
 		{
-			if (flags->v)
+			if (pp->flags->v)
 				visualize(pp->map, pp->processes, &vizData);
-			pick_winner(pp->players, flags->v, get_players(pp->players));
+			pick_winner(pp->players, pp->flags->v, get_players(pp->players));
 			printEnd(vizData.print);
 			return 0;
 		}
-		if (flags->d && pp->i == flags->d)
+		if (pp->flags->d && pp->i == pp->flags->d)
 			break ;
 		if (pp->cycleToDie <= 0)
 		{
 			kill_them_all(&pp->processes);
-			if (flags->v)
+			if (pp->flags->v)
 				visualize(pp->map, pp->processes, &vizData);
-			pick_winner(pp->players, flags->v, get_players(pp->players));
+			pick_winner(pp->players, pp->flags->v, get_players(pp->players));
 			printEnd(vizData.print);
 			return 0;
 		}
-		if (!flags->d && flags->v)
+		if (!pp->flags->d && pp->flags->v)
 		{
-			vizData.cycleDelta = CYCLE_DELTA;
-			vizData.cycleToDie = pp->cycleToDie;
 			vizData.i = pp->i;
 			visualize(pp->map, pp->processes, &vizData);
 			if (!vizData.space)
@@ -124,7 +144,7 @@ int     main(int argc, char **argv)
 		pp->i++;
 		pp->n++;
 	}
-	if (!flags->d && flags->v)
+	if (!pp->flags->d && pp->flags->v)
 	{
 //		system("killall afplay");
 		endwin();

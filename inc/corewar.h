@@ -152,6 +152,7 @@ typedef	struct	s_proc_pack
 	int				c;
 	t_process		*processes;
 	t_player		*players;
+	t_arg_flags		*flags;
 }				t_proc_pack;
 
 void		introduce(t_player *players);

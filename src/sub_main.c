@@ -50,7 +50,11 @@ static void	get_win_and_max(t_player **winner, int *max, t_player *players)
 	while (ptr)
 	{
 		if (ptr->lastAlive == *max)
+		{
 			*winner = ptr;
+			if (*max != 0)
+				return ;
+		}
 		ptr = ptr->next;
 	}
 }
@@ -64,7 +68,7 @@ int	pick_winner(t_player *players, int vis, int pl)
 		nodelay(stdscr, false);
 	winner = players;
 	max = players->lastAlive;
-	get_win_and_max(&winner, &max, players->next);
+	get_win_and_max(&winner, &max, players);
 	if (!vis)
 		return (ft_printf("Contestant %d, \"%s\", has won !\n", winner->num,
 						  winner->h.prog_name));

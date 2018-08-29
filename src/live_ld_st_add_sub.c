@@ -4,7 +4,7 @@
 
 #include "../inc/corewar.h"
 
-void  live(t_process *pro,int i, t_player *pl)
+void  live(t_process *pro, int i, t_player *pl)
 {
 	char *tmp;
 	t_player *tmppl;
@@ -27,7 +27,7 @@ void  live(t_process *pro,int i, t_player *pl)
 	ft_strdel(&tmp);
 	pro->alive = 1;
 	if (pl)
-		pl->lastAlive = i;
+		pl->lastAlive = i + 1;
 	pro->cur_pos = (pro->iterator + pro->cur_pos) % 8192;
 	pro->iterator = 0;
 }
