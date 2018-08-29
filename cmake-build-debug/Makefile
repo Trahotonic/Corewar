@@ -501,6 +501,33 @@ src/sub_main4.c.s:
 	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/sub_main4.c.s
 .PHONY : src/sub_main4.c.s
 
+src/sub_main5.o: src/sub_main5.c.o
+
+.PHONY : src/sub_main5.o
+
+# target to build an object file
+src/sub_main5.c.o:
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/sub_main5.c.o
+.PHONY : src/sub_main5.c.o
+
+src/sub_main5.i: src/sub_main5.c.i
+
+.PHONY : src/sub_main5.i
+
+# target to preprocess a source file
+src/sub_main5.c.i:
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/sub_main5.c.i
+.PHONY : src/sub_main5.c.i
+
+src/sub_main5.s: src/sub_main5.c.s
+
+.PHONY : src/sub_main5.s
+
+# target to generate assembly for a file
+src/sub_main5.c.s:
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/sub_main5.c.s
+.PHONY : src/sub_main5.c.s
+
 src/vis_methods.o: src/vis_methods.c.o
 
 .PHONY : src/vis_methods.o
@@ -633,6 +660,9 @@ help:
 	@echo "... src/sub_main4.o"
 	@echo "... src/sub_main4.i"
 	@echo "... src/sub_main4.s"
+	@echo "... src/sub_main5.o"
+	@echo "... src/sub_main5.i"
+	@echo "... src/sub_main5.s"
 	@echo "... src/vis_methods.o"
 	@echo "... src/vis_methods.i"
 	@echo "... src/vis_methods.s"

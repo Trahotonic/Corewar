@@ -205,6 +205,11 @@ void		fork_c(t_process **processor, t_process *cur);
 void		lfork(t_process **processor, t_process *cur);
 void		sti(t_process *processor, unsigned char *map, t_viz_data *viz_data);
 void		aff(t_process *processor, unsigned char *map, t_viz_data *viz_data);
+void		init_all(t_proc_pack **pp, int argc, char **argv, t_viz_data *viz_data);
+int			end_game(t_proc_pack *pp, t_viz_data *viz_data);
+void		if21(t_proc_pack *pp);
+void		not21(t_proc_pack *pp);
+int			end_main(t_proc_pack *pp);
 void 		initfunc(functions_t func[]);
 
 #endif //COREWAR_COREWAR_H
