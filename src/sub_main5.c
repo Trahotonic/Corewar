@@ -1,6 +1,14 @@
-//
-// Created by Roman KYSLYY on 8/29/18.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sub_main5.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: msemenov <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/08/30 16:58:08 by msemenov          #+#    #+#             */
+/*   Updated: 2018/08/30 16:58:14 by msemenov         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../inc/corewar.h"
 
@@ -8,7 +16,7 @@ void	init_all(t_proc_pack **pp, int argc, char **argv, t_viz_data *viz_data)
 {
 	*pp = (t_proc_pack*)malloc(sizeof(t_proc_pack));
 	(*pp)->flags = ft_memalloc(sizeof(t_arg_flags));
-	checkArguments(argc, argv, &(*pp)->flags, &(*pp)->players);
+	check_arguments(argc, argv, &(*pp)->flags, &(*pp)->players);
 	(*pp)->n = 0;
 	(*pp)->maxchecks = 1;
 	(*pp)->processes = NULL;
@@ -22,6 +30,7 @@ void	init_all(t_proc_pack **pp, int argc, char **argv, t_viz_data *viz_data)
 		(viz_data)->players = (*pp)->players;
 	}
 	initfunc((*pp)->array);
+	initfunc2((*pp)->array);
 	(*pp)->cycleToDie = CYCLE_TO_DIE;
 	(*pp)->i = 0;
 	(*pp)->c = 0;
@@ -33,7 +42,7 @@ int		end_game(t_proc_pack *pp, t_viz_data *viz_data)
 	if (pp->flags->v)
 		visualize(pp->map, pp->processes, viz_data);
 	pick_winner(pp->players, pp->flags->v, get_players(pp->players));
-	printEnd(viz_data->print);
+	print_end(viz_data->print);
 	return (0);
 }
 
@@ -49,7 +58,7 @@ void	if21(t_proc_pack *pp)
 	}
 	pp->cycleToDie -= CYCLE_DELTA;
 	pp->maxchecks = 1;
-	superkill(&pp->processes, pp->i, pp->players);
+	superkill(&pp->processes, pp->players);
 	kill(pp->processes);
 	pp->n = 0;
 }
@@ -71,7 +80,7 @@ void	not21(t_proc_pack *pp)
 	}
 	else
 		pp->maxchecks++;
-	superkill(&pp->processes, pp->i, pp->players);
+	superkill(&pp->processes, pp->players);
 	kill(pp->processes);
 	pp->n = 0;
 }
@@ -83,7 +92,6 @@ int		end_main(t_proc_pack *pp)
 		endwin();
 	}
 	else
-		dump(pp->map, pp->players);
+		dump(pp->map);
 	return (0);
 }
-

@@ -1,23 +1,31 @@
-//
-// Created by Roman KYSLYY on 8/28/18.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   run_processes.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: msemenov <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/08/30 16:36:42 by msemenov          #+#    #+#             */
+/*   Updated: 2018/08/30 16:36:49 by msemenov         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../inc/corewar.h"
 
-static int 	check_invalid_1(t_process **go)
+static int	check_invalid_1(t_process **go)
 {
 	if ((*go)->invalidAgr)
 	{
 		(*go)->invalidAgr = 0;
-		(*go)->cur_pos = ((*go)->cur_pos + 2) % (MEM_SIZE * 2);
+		(*go)->cur_pos = ((*go)->cur_pos + 2) % ((MEM_SIZE) * 2);
 		(*go) = (*go)->next;
 		return (1);
 	}
 	return (0);
 }
 
-static int 	check_invalid_2(t_process *go, char tmp[], unsigned char map[],
-					   functions_t array[])
+static int	check_invalid_2(t_process *go, char tmp[], unsigned char map[],
+					functions_t array[])
 {
 	int n;
 
@@ -41,7 +49,7 @@ static int 	check_invalid_2(t_process *go, char tmp[], unsigned char map[],
 	return (0);
 }
 
-static void	pick_function_2(t_process	*go, t_proc_pack *proc_pack,
+static void	pick_function_2(t_process *go, t_proc_pack *proc_pack,
 						unsigned char map[])
 {
 	if (go->com2 == 12)
@@ -53,11 +61,11 @@ static void	pick_function_2(t_process	*go, t_proc_pack *proc_pack,
 	else if (go->com2 == 15)
 		lfork(proc_pack->processes_deep, go);
 	else if (go->com2 == 16)
-		aff(go, map, proc_pack->vizData);
+		aff(go, proc_pack->vizData);
 }
 
-static void	pick_function_1(t_process	*go, t_proc_pack *proc_pack,
-					  unsigned char map[])
+static void	pick_function_1(t_process *go, t_proc_pack *proc_pack,
+					unsigned char map[])
 {
 	if (go->com2 == 1)
 		live(go, proc_pack->i, proc_pack->player);
@@ -85,11 +93,11 @@ static void	pick_function_1(t_process	*go, t_proc_pack *proc_pack,
 		pick_function_2(go, proc_pack, map);
 }
 
-void		runProcesses(unsigned char map[], functions_t array[],
-					 t_proc_pack *proc_pack)
+void		run_processes(unsigned char *map, functions_t *array,
+						t_proc_pack *proc_pack)
 {
 	t_process	*go;
-	char 		tmp[3];
+	char		tmp[3];
 
 	tmp[2] = '\0';
 	go = *proc_pack->processes_deep;

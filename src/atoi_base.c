@@ -1,48 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lil_func.c                                         :+:      :+:    :+:   */
+/*   atoi_base.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msemenov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/30 15:19:49 by msemenov          #+#    #+#             */
-/*   Updated: 2018/08/30 15:19:58 by msemenov         ###   ########.fr       */
+/*   Created: 2018/08/30 16:30:44 by msemenov          #+#    #+#             */
+/*   Updated: 2018/08/30 16:30:51 by msemenov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/corewar.h"
 
-int		get_players(t_player *players)
+char		*ft_uitoa_base2(unsigned int value, int base)
 {
-	int	n;
+	char	*array;
+	char	tmp[60];
+	char	*ret;
+	int		size;
+	int		ptr;
 
-	n = 0;
-	while (players)
+	if (value == 0)
+		return (ft_go_zero());
+	array = "0123456789abcdef";
+	size = 0;
+	ptr = 59;
+	while (value != 0)
 	{
-		players = players->next;
-		++n;
+		tmp[ptr--] = array[value % base];
+		value /= base;
+		size++;
 	}
-	return (n);
-}
-
-int		get_processes(t_process *proc)
-{
-	int n;
-
-	n = 0;
-	while (proc)
-	{
-		++n;
-		proc = proc->next;
-	}
-	return (n);
-}
-
-void	print_end(t_char *print)
-{
-	while (print)
-	{
-		ft_printf("%c", print->c);
-		print = print->next;
-	}
+	ptr++;
+	ret = (char*)malloc(sizeof(char) * (size + 1));
+	size = 0;
+	while (ptr <= 59)
+		ret[size++] = tmp[ptr++];
+	ret[size] = '\0';
+	return (ret);
 }

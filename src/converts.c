@@ -1,10 +1,18 @@
-//
-// Created by Roman KYSLYY on 7/12/18.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   converts.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: msemenov <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/08/30 15:04:22 by msemenov          #+#    #+#             */
+/*   Updated: 2018/08/30 15:04:26 by msemenov         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../inc/corewar.h"
 
-int  ft_iswhitespace(char const c)
+int		ft_iswhitespace(char const c)
 {
 	if (c == ' ' || c == '\n' || c == '\t' || c == '\v'
 		|| c == '\r' || c == '\f')
@@ -12,12 +20,15 @@ int  ft_iswhitespace(char const c)
 	return (0);
 }
 
-int base(int c, int base)
+int		base(int c, int base)
 {
-	char *str = "0123456789abcdef";
-	char *str2 = "0123456789abcdef";
-	int  i = 0;
+	char	*str;
+	char	*str2;
+	int		i;
 
+	i = 0;
+	str = "0123456789abcdef";
+	str2 = "0123456789abcdef";
 	while (i < base)
 	{
 		if (c == str[i] || c == str2[i])
@@ -27,11 +38,15 @@ int base(int c, int base)
 	return (-1);
 }
 
-int ab(const char *str, int str_base)
+int		ab(const char *str, int str_base)
 {
-	int nb = 0;
-	int negatif = 0;
-	int i = 0;
+	int	nb;
+	int	negatif;
+	int	i;
+
+	nb = 0;
+	i = 0;
+	negatif = 0;
 	while (ft_iswhitespace(str[i]))
 		i++;
 	if (str[i] == '+' || str[i] == '-')
@@ -51,9 +66,9 @@ int ab(const char *str, int str_base)
 	return (nb);
 }
 
-int 	saver(int tmp, int base, int plus)
+int		saver(int tmp, int base, int plus)
 {
-	char *str;
+	char	*str;
 
 	str = ft_strnew(base);
 	base -= 1;
@@ -67,8 +82,8 @@ int 	saver(int tmp, int base, int plus)
 		return (1);
 	else if (str[0 + plus] == '1' && str[1 + plus] == '0')
 		return (2);
-	else if (str[0 + plus] == '1' && str[1 + plus] == '1')
+	else if ((str[0 + plus] == '1') && (str[1 + plus] == '1'))
 		return (3);
-	else return (0);
+	else
+		return (0);
 }
-

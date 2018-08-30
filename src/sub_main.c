@@ -1,31 +1,39 @@
-//
-// Created by Roman KYSLYY on 8/28/18.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sub_main.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: msemenov <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/08/30 16:39:08 by msemenov          #+#    #+#             */
+/*   Updated: 2018/08/30 16:39:20 by msemenov         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../inc/corewar.h"
 
-void	introduce(t_player *players)
+void		introduce(t_player *players)
 {
-	int m;
+	int	m;
 
 	m = 0;
 	ft_printf("Introducing contestants...\n");
 	while (players)
 	{
 		ft_printf("* Player %d, weighing %d bytes, \"%s\" (\"%s\") !\n", m + 1,
-				  players->h.prog_size, players->h.prog_name,
-				  players->h.comment);
+				players->h.prog_size, players->h.prog_name,
+				players->h.comment);
 		players = players->next;
 		++m;
 	}
 }
 
-void kill_them_all(t_process **process)
+void		kill_them_all(t_process **process)
 {
-	t_process *tmp;
+	t_process	*tmp;
 
 	tmp = *process;
-	while(tmp)
+	while (tmp)
 	{
 		*process = tmp->next;
 		free(tmp);
@@ -59,10 +67,10 @@ static void	get_win_and_max(t_player **winner, int *max, t_player *players)
 	}
 }
 
-int	pick_winner(t_player *players, int vis, int pl)
+int			pick_winner(t_player *players, int vis, int pl)
 {
 	t_player	*winner;
-	int 		max;
+	int			max;
 
 	if (vis)
 		nodelay(stdscr, false);
@@ -71,7 +79,7 @@ int	pick_winner(t_player *players, int vis, int pl)
 	get_win_and_max(&winner, &max, players);
 	if (!vis)
 		return (ft_printf("Contestant %d, \"%s\", has won !\n", winner->num,
-						  winner->h.prog_name));
+						winner->h.prog_name));
 	else
 	{
 		attron(COLOR_PAIR(WHITE_CUNT));
@@ -86,11 +94,10 @@ int	pick_winner(t_player *players, int vis, int pl)
 	}
 }
 
-
-int 	check21(t_player *players)
+int			check21(t_player *players)
 {
-	t_player    *ptr;
-	int k;
+	t_player	*ptr;
+	int			k;
 
 	k = 0;
 	ptr = players;

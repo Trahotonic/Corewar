@@ -1,24 +1,32 @@
-//
-// Created by Roman KYSLYY on 8/28/18.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sub_main4.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: msemenov <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/08/30 16:50:19 by msemenov          #+#    #+#             */
+/*   Updated: 2018/08/30 16:50:28 by msemenov         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../inc/corewar.h"
 
-void  ft_check_flag_n(t_player **players, char **argv, int *n)
+void	ft_check_flag_n(t_player **players, char **argv, int *n)
 {
-	int i;
-	t_player *tmp;
+	int			i;
+	t_player	*tmp;
 
 	tmp = *players;
 	i = 0;
 	(*n)++;
-	if(argv[*n])
+	if (argv[*n])
 	{
-		if(*argv[*n] == '-')
+		if (*argv[*n] == '-')
 			++i;
-		while(argv[*n][i])
+		while (argv[*n][i])
 		{
-			if(!ft_isdigit(argv[*n][i]))
+			if (!ft_isdigit(argv[*n][i]))
 				exit(printf("Player number should be from -4 to -1 \n"));
 			++i;
 		}
@@ -31,27 +39,22 @@ void  ft_check_flag_n(t_player **players, char **argv, int *n)
 		exit(printf("Player number should be from -4 to -1 \n"));
 }
 
-void  ft_check_flags(t_player **players, char **argv, int *n, t_arg_flags *flags)
+void	ft_check_flags(t_player **players, char **argv,
+					int *n, t_arg_flags *flags)
 {
 	if (ft_strequ(argv[*n], "-d"))
-		ft_check_flag_d(players, argv, n, flags);
+		ft_check_flag_d(argv, n, flags);
 	else if (ft_strequ(argv[*n], "-vi"))
-		ft_check_flag_vi(players, argv, n, flags);
+		ft_check_flag_vi(argv, n, flags);
 	else if (ft_strequ(argv[*n], "-v"))
 		flags->v = 1;
 	else if (ft_strequ(argv[*n], "-n"))
 		ft_check_flag_n(players, argv, n);
 	else
 		ft_printf("ERROR\n");
-
 }
 
-void ft_usage()
-{
-
-}
-
-char *ft_strstr2(const char *big, const char *little)
+char	*ft_strstr2(const char *big, const char *little)
 {
 	size_t lrunner;
 	size_t brunner;
@@ -78,13 +81,12 @@ char *ft_strstr2(const char *big, const char *little)
 	return (NULL);
 }
 
-void checkArguments(int argc, char **argv, t_arg_flags **flags, t_player **players)
+void	check_arguments(int argc, char **argv, t_arg_flags **flags,
+						t_player **players)
 {
 	int n;
 
 	n = 1;
-	if (argc == 1)
-		ft_usage();
 	while (n < argc)
 	{
 		if (ft_strstr2(argv[n], ".cor"))

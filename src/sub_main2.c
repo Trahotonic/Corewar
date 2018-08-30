@@ -1,6 +1,14 @@
-//
-// Created by Roman KYSLYY on 8/28/18.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sub_main2.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: msemenov <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/08/30 16:41:44 by msemenov          #+#    #+#             */
+/*   Updated: 2018/08/30 16:43:09 by msemenov         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../inc/corewar.h"
 
@@ -22,13 +30,13 @@ static void	sub_dump(unsigned char map[], int *m)
 	}
 }
 
-void	dump(unsigned char map[], t_player *players)
+void		dump(unsigned char map[])
 {
 	int		n;
-	int 	m;
-	int 	q;
-	int 	row;
-	char 	*r;
+	int		m;
+	int		q;
+	int		row;
+	char	*r;
 
 	q = 0;
 	row = 0;
@@ -48,7 +56,7 @@ void	dump(unsigned char map[], t_player *players)
 	}
 }
 
-void    kill(t_process * processes)
+void		kill(t_process *processes)
 {
 	while (processes)
 	{
@@ -57,10 +65,9 @@ void    kill(t_process * processes)
 	}
 }
 
-static void	del_pointer(t_process ** processes, t_process **ptr)
+static void	del_pointer(t_process **processes, t_process **ptr)
 {
 	t_process *tmp;
-
 
 	if (*ptr == *processes)
 	{
@@ -82,11 +89,10 @@ static void	del_pointer(t_process ** processes, t_process **ptr)
 	}
 }
 
-void    superkill(t_process ** processes, int i, t_player *player)
+void		superkill(t_process **processes, t_player *player)
 {
-	t_process   *ptr;
-	t_process   *tmp;
-	t_player    *plptr;
+	t_process	*ptr;
+	t_player	*plptr;
 
 	ptr = *processes;
 	while (ptr)

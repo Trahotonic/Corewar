@@ -58,7 +58,7 @@ void	iterate(t_proc_pack *pp, t_viz_data *viz_data)
 	pp->player = pp->players;
 	pp->processes_deep = &pp->processes;
 	pp->vizData = viz_data;
-	runProcesses(pp->map, pp->array, pp);
+	run_processes(pp->map, pp->array, pp);
 	pp->i++;
 	pp->n++;
 }

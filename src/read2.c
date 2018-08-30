@@ -1,10 +1,18 @@
-//
-// Created by Roman KYSLYY on 7/12/18.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   read2.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: msemenov <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/08/30 16:57:03 by msemenov          #+#    #+#             */
+/*   Updated: 2018/08/30 16:57:08 by msemenov         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../inc/corewar.h"
 
-void do_null(t_process *processor)
+void	do_null(t_process *processor)
 {
 	int n;
 
@@ -19,7 +27,7 @@ void do_null(t_process *processor)
 	}
 }
 
-char *ft_show_me_the_arg(t_process *pro, int arg)
+char	*ft_show_me_the_arg(t_process *pro, int arg)
 {
 	if (arg == 1)
 		return (pro->arg1);
@@ -29,10 +37,10 @@ char *ft_show_me_the_arg(t_process *pro, int arg)
 		return (pro->arg3);
 }
 
-void read_little_shit(unsigned char *map, int tmp, t_process *pro, int arg)
+void	read_little_shit(unsigned char *map, int tmp, t_process *pro, int arg)
 {
-	int  n;
-	char *a;
+	int		n;
+	char	*a;
 
 	n = 0;
 	a = ft_show_me_the_arg(pro, arg);
@@ -47,7 +55,7 @@ void read_little_shit(unsigned char *map, int tmp, t_process *pro, int arg)
 		while (n < 4)
 			a[n++] = map[((pro->cur_pos + pro->iterator++) % ((MEM_SIZE) * 2))];
 	else if (tmp == 2 && (pro->com2 == 14 || pro->com2 == 10 || pro->com2 == 11
-						  || pro->com2 == 9 || pro->com2 == 12 || pro->com2 == 15))
+				|| pro->com2 == 9 || pro->com2 == 12 || pro->com2 == 15))
 	{
 		pro->t_dir += arg;
 		while (n < 4)
@@ -58,10 +66,10 @@ void read_little_shit(unsigned char *map, int tmp, t_process *pro, int arg)
 			a[n++] = map[(pro->cur_pos + pro->iterator++) % ((MEM_SIZE) * 2)];
 }
 
-void read_shit(unsigned char *map, t_process *processor)
+void	read_shit(unsigned char *map, t_process *processor)
 {
-	int  n;
-	char tmp[3];
+	int		n;
+	char	tmp[3];
 
 	tmp[2] = '\0';
 	do_null(processor);
