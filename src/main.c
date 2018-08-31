@@ -12,7 +12,7 @@
 
 #include "./../inc/corewar.h"
 
-int		partvis(t_proc_pack *pp, t_viz_data *viz_data)
+int			partvis(t_proc_pack *pp, t_viz_data *viz_data)
 {
 	if (!viz_data->space)
 	{
@@ -40,7 +40,7 @@ int		partvis(t_proc_pack *pp, t_viz_data *viz_data)
 	return (0);
 }
 
-int		break_vis(t_proc_pack *pp, t_viz_data *viz_data)
+int			break_vis(t_proc_pack *pp, t_viz_data *viz_data)
 {
 	if (!pp->flags->d && pp->flags->v)
 	{
@@ -53,7 +53,7 @@ int		break_vis(t_proc_pack *pp, t_viz_data *viz_data)
 	return (0);
 }
 
-void	iterate(t_proc_pack *pp, t_viz_data *viz_data)
+void		iterate(t_proc_pack *pp, t_viz_data *viz_data)
 {
 	pp->player = pp->players;
 	pp->processes_deep = &pp->processes;
@@ -63,7 +63,17 @@ void	iterate(t_proc_pack *pp, t_viz_data *viz_data)
 	pp->n++;
 }
 
-int		main(int argc, char **argv)
+static void	shmatok(t_proc_pack *pp, t_viz_data *viz_data)
+{
+	if (pp->n == pp->cycle_to_die && check21(pp->players))
+		if21(pp);
+	else if (pp->n == pp->cycle_to_die)
+		not21(pp);
+	viz_data->cycle_delta = CYCLE_DELTA;
+	viz_data->cycle_to_die = pp->cycle_to_die;
+}
+
+int			main(int argc, char **argv)
 {
 	t_viz_data		viz_data;
 	t_proc_pack		*pp;
@@ -71,12 +81,7 @@ int		main(int argc, char **argv)
 	init_all(&pp, argc, argv, &viz_data);
 	while (1)
 	{
-		if (pp->n == pp->cycle_to_die && check21(pp->players))
-			if21(pp);
-		else if (pp->n == pp->cycle_to_die)
-			not21(pp);
-		viz_data.cycle_delta = CYCLE_DELTA;
-		viz_data.cycle_to_die = pp->cycle_to_die;
+		shmatok(pp, &viz_data);
 		if (!pp->processes)
 		{
 			end_game(pp, &viz_data);

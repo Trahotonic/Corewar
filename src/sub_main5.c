@@ -90,7 +90,7 @@ int		end_main(t_proc_pack *pp)
 {
 	if (!pp->flags->di && pp->flags->v)
 		endwin();
-	else
+	else if (pp->flags->di)
 		dump(pp->map);
 	return (0);
 }

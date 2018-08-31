@@ -7,17 +7,47 @@ CMakeFiles/Corewar.dir/src/and_or_xor_zjmp_ldi.c.o: ../libft/./ft_printf/include
 CMakeFiles/Corewar.dir/src/and_or_xor_zjmp_ldi.c.o: ../libft/libft.h
 CMakeFiles/Corewar.dir/src/and_or_xor_zjmp_ldi.c.o: ../src/and_or_xor_zjmp_ldi.c
 
+CMakeFiles/Corewar.dir/src/atoi_base.c.o: ../inc/corewar.h
+CMakeFiles/Corewar.dir/src/atoi_base.c.o: ../inc/visualization.h
+CMakeFiles/Corewar.dir/src/atoi_base.c.o: ../libft/./ft_printf/includes/prlib.h
+CMakeFiles/Corewar.dir/src/atoi_base.c.o: ../libft/libft.h
+CMakeFiles/Corewar.dir/src/atoi_base.c.o: ../src/atoi_base.c
+
+CMakeFiles/Corewar.dir/src/bswp_errprint.c.o: ../inc/corewar.h
+CMakeFiles/Corewar.dir/src/bswp_errprint.c.o: ../inc/visualization.h
+CMakeFiles/Corewar.dir/src/bswp_errprint.c.o: ../libft/./ft_printf/includes/prlib.h
+CMakeFiles/Corewar.dir/src/bswp_errprint.c.o: ../libft/libft.h
+CMakeFiles/Corewar.dir/src/bswp_errprint.c.o: ../src/bswp_errprint.c
+
 CMakeFiles/Corewar.dir/src/converts.c.o: ../inc/corewar.h
 CMakeFiles/Corewar.dir/src/converts.c.o: ../inc/visualization.h
 CMakeFiles/Corewar.dir/src/converts.c.o: ../libft/./ft_printf/includes/prlib.h
 CMakeFiles/Corewar.dir/src/converts.c.o: ../libft/libft.h
 CMakeFiles/Corewar.dir/src/converts.c.o: ../src/converts.c
 
+CMakeFiles/Corewar.dir/src/init_pro.c.o: ../inc/corewar.h
+CMakeFiles/Corewar.dir/src/init_pro.c.o: ../inc/visualization.h
+CMakeFiles/Corewar.dir/src/init_pro.c.o: ../libft/./ft_printf/includes/prlib.h
+CMakeFiles/Corewar.dir/src/init_pro.c.o: ../libft/libft.h
+CMakeFiles/Corewar.dir/src/init_pro.c.o: ../src/init_pro.c
+
+CMakeFiles/Corewar.dir/src/initfunc.c.o: ../inc/corewar.h
+CMakeFiles/Corewar.dir/src/initfunc.c.o: ../inc/visualization.h
+CMakeFiles/Corewar.dir/src/initfunc.c.o: ../libft/./ft_printf/includes/prlib.h
+CMakeFiles/Corewar.dir/src/initfunc.c.o: ../libft/libft.h
+CMakeFiles/Corewar.dir/src/initfunc.c.o: ../src/initfunc.c
+
 CMakeFiles/Corewar.dir/src/inits.c.o: ../inc/corewar.h
 CMakeFiles/Corewar.dir/src/inits.c.o: ../inc/visualization.h
 CMakeFiles/Corewar.dir/src/inits.c.o: ../libft/./ft_printf/includes/prlib.h
 CMakeFiles/Corewar.dir/src/inits.c.o: ../libft/libft.h
 CMakeFiles/Corewar.dir/src/inits.c.o: ../src/inits.c
+
+CMakeFiles/Corewar.dir/src/ldi.c.o: ../inc/corewar.h
+CMakeFiles/Corewar.dir/src/ldi.c.o: ../inc/visualization.h
+CMakeFiles/Corewar.dir/src/ldi.c.o: ../libft/./ft_printf/includes/prlib.h
+CMakeFiles/Corewar.dir/src/ldi.c.o: ../libft/libft.h
+CMakeFiles/Corewar.dir/src/ldi.c.o: ../src/ldi.c
 
 CMakeFiles/Corewar.dir/src/lil_func.c.o: ../inc/corewar.h
 CMakeFiles/Corewar.dir/src/lil_func.c.o: ../inc/visualization.h
@@ -30,6 +60,18 @@ CMakeFiles/Corewar.dir/src/live_ld_st_add_sub.c.o: ../inc/visualization.h
 CMakeFiles/Corewar.dir/src/live_ld_st_add_sub.c.o: ../libft/./ft_printf/includes/prlib.h
 CMakeFiles/Corewar.dir/src/live_ld_st_add_sub.c.o: ../libft/libft.h
 CMakeFiles/Corewar.dir/src/live_ld_st_add_sub.c.o: ../src/live_ld_st_add_sub.c
+
+CMakeFiles/Corewar.dir/src/lld.c.o: ../inc/corewar.h
+CMakeFiles/Corewar.dir/src/lld.c.o: ../inc/visualization.h
+CMakeFiles/Corewar.dir/src/lld.c.o: ../libft/./ft_printf/includes/prlib.h
+CMakeFiles/Corewar.dir/src/lld.c.o: ../libft/libft.h
+CMakeFiles/Corewar.dir/src/lld.c.o: ../src/lld.c
+
+CMakeFiles/Corewar.dir/src/lldi.c.o: ../inc/corewar.h
+CMakeFiles/Corewar.dir/src/lldi.c.o: ../inc/visualization.h
+CMakeFiles/Corewar.dir/src/lldi.c.o: ../libft/./ft_printf/includes/prlib.h
+CMakeFiles/Corewar.dir/src/lldi.c.o: ../libft/libft.h
+CMakeFiles/Corewar.dir/src/lldi.c.o: ../src/lldi.c
 
 CMakeFiles/Corewar.dir/src/main.c.o: ../src/./../inc/corewar.h
 CMakeFiles/Corewar.dir/src/main.c.o: ../src/./../inc/visualization.h
@@ -54,6 +96,18 @@ CMakeFiles/Corewar.dir/src/run_processes.c.o: ../inc/visualization.h
 CMakeFiles/Corewar.dir/src/run_processes.c.o: ../libft/./ft_printf/includes/prlib.h
 CMakeFiles/Corewar.dir/src/run_processes.c.o: ../libft/libft.h
 CMakeFiles/Corewar.dir/src/run_processes.c.o: ../src/run_processes.c
+
+CMakeFiles/Corewar.dir/src/st.c.o: ../inc/corewar.h
+CMakeFiles/Corewar.dir/src/st.c.o: ../inc/visualization.h
+CMakeFiles/Corewar.dir/src/st.c.o: ../libft/./ft_printf/includes/prlib.h
+CMakeFiles/Corewar.dir/src/st.c.o: ../libft/libft.h
+CMakeFiles/Corewar.dir/src/st.c.o: ../src/st.c
+
+CMakeFiles/Corewar.dir/src/sti.c.o: ../inc/corewar.h
+CMakeFiles/Corewar.dir/src/sti.c.o: ../inc/visualization.h
+CMakeFiles/Corewar.dir/src/sti.c.o: ../libft/./ft_printf/includes/prlib.h
+CMakeFiles/Corewar.dir/src/sti.c.o: ../libft/libft.h
+CMakeFiles/Corewar.dir/src/sti.c.o: ../src/sti.c
 
 CMakeFiles/Corewar.dir/src/sti_fork_lld_lldi_lfork.c.o: ../inc/corewar.h
 CMakeFiles/Corewar.dir/src/sti_fork_lld_lldi_lfork.c.o: ../inc/visualization.h
@@ -84,6 +138,12 @@ CMakeFiles/Corewar.dir/src/sub_main4.c.o: ../inc/visualization.h
 CMakeFiles/Corewar.dir/src/sub_main4.c.o: ../libft/./ft_printf/includes/prlib.h
 CMakeFiles/Corewar.dir/src/sub_main4.c.o: ../libft/libft.h
 CMakeFiles/Corewar.dir/src/sub_main4.c.o: ../src/sub_main4.c
+
+CMakeFiles/Corewar.dir/src/sub_main5.c.o: ../inc/corewar.h
+CMakeFiles/Corewar.dir/src/sub_main5.c.o: ../inc/visualization.h
+CMakeFiles/Corewar.dir/src/sub_main5.c.o: ../libft/./ft_printf/includes/prlib.h
+CMakeFiles/Corewar.dir/src/sub_main5.c.o: ../libft/libft.h
+CMakeFiles/Corewar.dir/src/sub_main5.c.o: ../src/sub_main5.c
 
 CMakeFiles/Corewar.dir/src/vis_methods.c.o: ../inc/corewar.h
 CMakeFiles/Corewar.dir/src/vis_methods.c.o: ../inc/visualization.h
