@@ -94,6 +94,7 @@ typedef struct			s_process
 typedef struct			s_arg_flags
 {
 	long long			d;
+	bool				di;
 	int					v;
 	long long			vi;
 }						t_arg_flags;

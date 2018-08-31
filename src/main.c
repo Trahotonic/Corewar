@@ -78,13 +78,20 @@ int		main(int argc, char **argv)
 		viz_data.cycle_delta = CYCLE_DELTA;
 		viz_data.cycle_to_die = pp->cycle_to_die;
 		if (!pp->processes)
-			return (end_game(pp, &viz_data));
+		{
+			end_game(pp, &viz_data);
+			break ;
+		}
 		if (pp->flags->d && pp->i == pp->flags->d)
 			break ;
 		if (pp->cycle_to_die <= 0)
-			return (end_game(pp, &viz_data));
-		if (break_vis(pp, &viz_data))
+		{
+			end_game(pp, &viz_data);
 			break ;
+		}
+		if (pp->flags->v && pp->i >= pp->flags->vi)
+			if (break_vis(pp, &viz_data))
+				break ;
 		iterate(pp, &viz_data);
 	}
 	return (end_main(pp));

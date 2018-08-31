@@ -150,6 +150,60 @@ src/and_or_xor_zjmp_ldi.c.s:
 	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/and_or_xor_zjmp_ldi.c.s
 .PHONY : src/and_or_xor_zjmp_ldi.c.s
 
+src/atoi_base.o: src/atoi_base.c.o
+
+.PHONY : src/atoi_base.o
+
+# target to build an object file
+src/atoi_base.c.o:
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/atoi_base.c.o
+.PHONY : src/atoi_base.c.o
+
+src/atoi_base.i: src/atoi_base.c.i
+
+.PHONY : src/atoi_base.i
+
+# target to preprocess a source file
+src/atoi_base.c.i:
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/atoi_base.c.i
+.PHONY : src/atoi_base.c.i
+
+src/atoi_base.s: src/atoi_base.c.s
+
+.PHONY : src/atoi_base.s
+
+# target to generate assembly for a file
+src/atoi_base.c.s:
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/atoi_base.c.s
+.PHONY : src/atoi_base.c.s
+
+src/bswp_errprint.o: src/bswp_errprint.c.o
+
+.PHONY : src/bswp_errprint.o
+
+# target to build an object file
+src/bswp_errprint.c.o:
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/bswp_errprint.c.o
+.PHONY : src/bswp_errprint.c.o
+
+src/bswp_errprint.i: src/bswp_errprint.c.i
+
+.PHONY : src/bswp_errprint.i
+
+# target to preprocess a source file
+src/bswp_errprint.c.i:
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/bswp_errprint.c.i
+.PHONY : src/bswp_errprint.c.i
+
+src/bswp_errprint.s: src/bswp_errprint.c.s
+
+.PHONY : src/bswp_errprint.s
+
+# target to generate assembly for a file
+src/bswp_errprint.c.s:
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/bswp_errprint.c.s
+.PHONY : src/bswp_errprint.c.s
+
 src/converts.o: src/converts.c.o
 
 .PHONY : src/converts.o
@@ -177,6 +231,60 @@ src/converts.c.s:
 	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/converts.c.s
 .PHONY : src/converts.c.s
 
+src/init_pro.o: src/init_pro.c.o
+
+.PHONY : src/init_pro.o
+
+# target to build an object file
+src/init_pro.c.o:
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/init_pro.c.o
+.PHONY : src/init_pro.c.o
+
+src/init_pro.i: src/init_pro.c.i
+
+.PHONY : src/init_pro.i
+
+# target to preprocess a source file
+src/init_pro.c.i:
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/init_pro.c.i
+.PHONY : src/init_pro.c.i
+
+src/init_pro.s: src/init_pro.c.s
+
+.PHONY : src/init_pro.s
+
+# target to generate assembly for a file
+src/init_pro.c.s:
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/init_pro.c.s
+.PHONY : src/init_pro.c.s
+
+src/initfunc.o: src/initfunc.c.o
+
+.PHONY : src/initfunc.o
+
+# target to build an object file
+src/initfunc.c.o:
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/initfunc.c.o
+.PHONY : src/initfunc.c.o
+
+src/initfunc.i: src/initfunc.c.i
+
+.PHONY : src/initfunc.i
+
+# target to preprocess a source file
+src/initfunc.c.i:
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/initfunc.c.i
+.PHONY : src/initfunc.c.i
+
+src/initfunc.s: src/initfunc.c.s
+
+.PHONY : src/initfunc.s
+
+# target to generate assembly for a file
+src/initfunc.c.s:
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/initfunc.c.s
+.PHONY : src/initfunc.c.s
+
 src/inits.o: src/inits.c.o
 
 .PHONY : src/inits.o
@@ -203,6 +311,33 @@ src/inits.s: src/inits.c.s
 src/inits.c.s:
 	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/inits.c.s
 .PHONY : src/inits.c.s
+
+src/ldi.o: src/ldi.c.o
+
+.PHONY : src/ldi.o
+
+# target to build an object file
+src/ldi.c.o:
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/ldi.c.o
+.PHONY : src/ldi.c.o
+
+src/ldi.i: src/ldi.c.i
+
+.PHONY : src/ldi.i
+
+# target to preprocess a source file
+src/ldi.c.i:
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/ldi.c.i
+.PHONY : src/ldi.c.i
+
+src/ldi.s: src/ldi.c.s
+
+.PHONY : src/ldi.s
+
+# target to generate assembly for a file
+src/ldi.c.s:
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/ldi.c.s
+.PHONY : src/ldi.c.s
 
 src/lil_func.o: src/lil_func.c.o
 
@@ -257,6 +392,60 @@ src/live_ld_st_add_sub.s: src/live_ld_st_add_sub.c.s
 src/live_ld_st_add_sub.c.s:
 	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/live_ld_st_add_sub.c.s
 .PHONY : src/live_ld_st_add_sub.c.s
+
+src/lld.o: src/lld.c.o
+
+.PHONY : src/lld.o
+
+# target to build an object file
+src/lld.c.o:
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/lld.c.o
+.PHONY : src/lld.c.o
+
+src/lld.i: src/lld.c.i
+
+.PHONY : src/lld.i
+
+# target to preprocess a source file
+src/lld.c.i:
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/lld.c.i
+.PHONY : src/lld.c.i
+
+src/lld.s: src/lld.c.s
+
+.PHONY : src/lld.s
+
+# target to generate assembly for a file
+src/lld.c.s:
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/lld.c.s
+.PHONY : src/lld.c.s
+
+src/lldi.o: src/lldi.c.o
+
+.PHONY : src/lldi.o
+
+# target to build an object file
+src/lldi.c.o:
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/lldi.c.o
+.PHONY : src/lldi.c.o
+
+src/lldi.i: src/lldi.c.i
+
+.PHONY : src/lldi.i
+
+# target to preprocess a source file
+src/lldi.c.i:
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/lldi.c.i
+.PHONY : src/lldi.c.i
+
+src/lldi.s: src/lldi.c.s
+
+.PHONY : src/lldi.s
+
+# target to generate assembly for a file
+src/lldi.c.s:
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/lldi.c.s
+.PHONY : src/lldi.c.s
 
 src/main.o: src/main.c.o
 
@@ -365,6 +554,60 @@ src/run_processes.s: src/run_processes.c.s
 src/run_processes.c.s:
 	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/run_processes.c.s
 .PHONY : src/run_processes.c.s
+
+src/st.o: src/st.c.o
+
+.PHONY : src/st.o
+
+# target to build an object file
+src/st.c.o:
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/st.c.o
+.PHONY : src/st.c.o
+
+src/st.i: src/st.c.i
+
+.PHONY : src/st.i
+
+# target to preprocess a source file
+src/st.c.i:
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/st.c.i
+.PHONY : src/st.c.i
+
+src/st.s: src/st.c.s
+
+.PHONY : src/st.s
+
+# target to generate assembly for a file
+src/st.c.s:
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/st.c.s
+.PHONY : src/st.c.s
+
+src/sti.o: src/sti.c.o
+
+.PHONY : src/sti.o
+
+# target to build an object file
+src/sti.c.o:
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/sti.c.o
+.PHONY : src/sti.c.o
+
+src/sti.i: src/sti.c.i
+
+.PHONY : src/sti.i
+
+# target to preprocess a source file
+src/sti.c.i:
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/sti.c.i
+.PHONY : src/sti.c.i
+
+src/sti.s: src/sti.c.s
+
+.PHONY : src/sti.s
+
+# target to generate assembly for a file
+src/sti.c.s:
+	$(MAKE) -f CMakeFiles/Corewar.dir/build.make CMakeFiles/Corewar.dir/src/sti.c.s
+.PHONY : src/sti.c.s
 
 src/sti_fork_lld_lldi_lfork.o: src/sti_fork_lld_lldi_lfork.c.o
 
@@ -621,18 +864,39 @@ help:
 	@echo "... src/and_or_xor_zjmp_ldi.o"
 	@echo "... src/and_or_xor_zjmp_ldi.i"
 	@echo "... src/and_or_xor_zjmp_ldi.s"
+	@echo "... src/atoi_base.o"
+	@echo "... src/atoi_base.i"
+	@echo "... src/atoi_base.s"
+	@echo "... src/bswp_errprint.o"
+	@echo "... src/bswp_errprint.i"
+	@echo "... src/bswp_errprint.s"
 	@echo "... src/converts.o"
 	@echo "... src/converts.i"
 	@echo "... src/converts.s"
+	@echo "... src/init_pro.o"
+	@echo "... src/init_pro.i"
+	@echo "... src/init_pro.s"
+	@echo "... src/initfunc.o"
+	@echo "... src/initfunc.i"
+	@echo "... src/initfunc.s"
 	@echo "... src/inits.o"
 	@echo "... src/inits.i"
 	@echo "... src/inits.s"
+	@echo "... src/ldi.o"
+	@echo "... src/ldi.i"
+	@echo "... src/ldi.s"
 	@echo "... src/lil_func.o"
 	@echo "... src/lil_func.i"
 	@echo "... src/lil_func.s"
 	@echo "... src/live_ld_st_add_sub.o"
 	@echo "... src/live_ld_st_add_sub.i"
 	@echo "... src/live_ld_st_add_sub.s"
+	@echo "... src/lld.o"
+	@echo "... src/lld.i"
+	@echo "... src/lld.s"
+	@echo "... src/lldi.o"
+	@echo "... src/lldi.i"
+	@echo "... src/lldi.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
@@ -645,6 +909,12 @@ help:
 	@echo "... src/run_processes.o"
 	@echo "... src/run_processes.i"
 	@echo "... src/run_processes.s"
+	@echo "... src/st.o"
+	@echo "... src/st.i"
+	@echo "... src/st.s"
+	@echo "... src/sti.o"
+	@echo "... src/sti.i"
+	@echo "... src/sti.s"
 	@echo "... src/sti_fork_lld_lldi_lfork.o"
 	@echo "... src/sti_fork_lld_lldi_lfork.i"
 	@echo "... src/sti_fork_lld_lldi_lfork.s"

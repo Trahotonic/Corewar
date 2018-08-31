@@ -72,8 +72,6 @@ int			pick_winner(t_player *players, int vis, int pl)
 	t_player	*winner;
 	int			max;
 
-	if (vis)
-		nodelay(stdscr, false);
 	winner = players;
 	max = players->last_alive;
 	get_win_and_max(&winner, &max, players);
@@ -89,6 +87,7 @@ int			pick_winner(t_player *players, int vis, int pl)
 		attron(COLOR_PAIR(6 + winner->num));
 		mvwprintw(stdscr, 11 + (pl * 4) + 14, 215, "%s", winner->h.prog_name);
 		attroff(COLOR_PAIR(6 + winner->num));
+		nodelay(stdscr, false);
 		getch();
 		return (endwin());
 	}

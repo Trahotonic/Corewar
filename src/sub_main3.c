@@ -60,19 +60,14 @@ void		ft_check_flag_d(char **argv, int *n, t_arg_flags *flags)
 		while (argv[*n][i])
 		{
 			if (!ft_isdigit(argv[*n][i]))
-			{
-				printf("ERROR\n");
-				exit(1);
-			}
+				exit(printf("invalid arguments\n"));
 			++i;
 		}
 		flags->d = ft_atoi(argv[*n]);
+		flags->di = true;
 	}
 	else
-	{
-		printf("ERROR\n");
-		exit(1);
-	}
+		exit(printf("invalid arguments\n"));
 }
 
 void		ft_check_flag_vi(char **argv, int *n, t_arg_flags *flags)
@@ -86,19 +81,14 @@ void		ft_check_flag_vi(char **argv, int *n, t_arg_flags *flags)
 		while (argv[*n][i])
 		{
 			if (!ft_isdigit(argv[*n][i]))
-			{
-				printf("ERROR\n");
-				exit(1);
-			}
+				exit(printf("invalid iteration\n"));
 			++i;
 		}
 		flags->vi = ft_atoi(argv[*n]);
+		flags->v = 1;
 	}
 	else
-	{
-		printf("ERROR\n");
-		exit(1);
-	}
+		exit(printf("invalid arguments\n"));
 }
 
 void		ft_flag_n_sup(t_player *tmp, t_player **players, char **argv, int n)

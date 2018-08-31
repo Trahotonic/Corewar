@@ -39,6 +39,7 @@ void	init_all(t_proc_pack **pp, int argc, char **argv, t_viz_data *viz_data)
 int		end_game(t_proc_pack *pp, t_viz_data *viz_data)
 {
 	kill_them_all(&pp->processes);
+	pp->viz_data->i = pp->i;
 	if (pp->flags->v)
 		visualize(pp->map, pp->processes, viz_data);
 	pick_winner(pp->players, pp->flags->v, get_players(pp->players));
@@ -87,10 +88,8 @@ void	not21(t_proc_pack *pp)
 
 int		end_main(t_proc_pack *pp)
 {
-	if (!pp->flags->d && pp->flags->v)
-	{
+	if (!pp->flags->di && pp->flags->v)
 		endwin();
-	}
 	else
 		dump(pp->map);
 	return (0);

@@ -88,9 +88,6 @@
 		<Unit filename="/Users/rkyslyy/corewar2/inc/corewar.h">
 			<Option target="Corewar"/>
 		</Unit>
-		<Unit filename="/Users/rkyslyy/corewar2/inc/glob.h">
-			<Option target="Corewar"/>
-		</Unit>
 		<Unit filename="/Users/rkyslyy/corewar2/inc/visualization.h">
 			<Option target="Corewar"/>
 		</Unit>
@@ -100,16 +97,37 @@
 		<Unit filename="/Users/rkyslyy/corewar2/src/and_or_xor_zjmp_ldi.c">
 			<Option target="Corewar"/>
 		</Unit>
+		<Unit filename="/Users/rkyslyy/corewar2/src/atoi_base.c">
+			<Option target="Corewar"/>
+		</Unit>
+		<Unit filename="/Users/rkyslyy/corewar2/src/bswp_errprint.c">
+			<Option target="Corewar"/>
+		</Unit>
 		<Unit filename="/Users/rkyslyy/corewar2/src/converts.c">
 			<Option target="Corewar"/>
 		</Unit>
+		<Unit filename="/Users/rkyslyy/corewar2/src/init_pro.c">
+			<Option target="Corewar"/>
+		</Unit>
+		<Unit filename="/Users/rkyslyy/corewar2/src/initfunc.c">
+			<Option target="Corewar"/>
+		</Unit>
 		<Unit filename="/Users/rkyslyy/corewar2/src/inits.c">
+			<Option target="Corewar"/>
+		</Unit>
+		<Unit filename="/Users/rkyslyy/corewar2/src/ldi.c">
 			<Option target="Corewar"/>
 		</Unit>
 		<Unit filename="/Users/rkyslyy/corewar2/src/lil_func.c">
 			<Option target="Corewar"/>
 		</Unit>
 		<Unit filename="/Users/rkyslyy/corewar2/src/live_ld_st_add_sub.c">
+			<Option target="Corewar"/>
+		</Unit>
+		<Unit filename="/Users/rkyslyy/corewar2/src/lld.c">
+			<Option target="Corewar"/>
+		</Unit>
+		<Unit filename="/Users/rkyslyy/corewar2/src/lldi.c">
 			<Option target="Corewar"/>
 		</Unit>
 		<Unit filename="/Users/rkyslyy/corewar2/src/main.c">
@@ -122,6 +140,12 @@
 			<Option target="Corewar"/>
 		</Unit>
 		<Unit filename="/Users/rkyslyy/corewar2/src/run_processes.c">
+			<Option target="Corewar"/>
+		</Unit>
+		<Unit filename="/Users/rkyslyy/corewar2/src/st.c">
+			<Option target="Corewar"/>
+		</Unit>
+		<Unit filename="/Users/rkyslyy/corewar2/src/sti.c">
 			<Option target="Corewar"/>
 		</Unit>
 		<Unit filename="/Users/rkyslyy/corewar2/src/sti_fork_lld_lldi_lfork.c">
