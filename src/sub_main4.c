@@ -39,6 +39,7 @@ void	ft_check_flag_n(t_player **players, char **argv, int *n)
 		exit(printf("Player number should be from -4 to -1 \n"));
 }
 
+
 void	ft_check_flags(t_player **players, char **argv,
 					int *n, t_arg_flags *flags)
 {
@@ -50,6 +51,8 @@ void	ft_check_flags(t_player **players, char **argv,
 		flags->v = 1;
 	else if (ft_strequ(argv[*n], "-n"))
 		ft_check_flag_n(players, argv, n);
+	else if (ft_strequ(argv[*n], "-a"))
+		flags->a = true;
 	else
 		exit(printf("Invalid arguments\n"));
 }
@@ -86,6 +89,8 @@ void	check_arguments(int argc, char **argv, t_arg_flags **flags,
 {
 	int n;
 
+	if (argc == 1)
+		usage();
 	n = 1;
 	while (n < argc)
 	{

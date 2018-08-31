@@ -49,3 +49,17 @@ void	print_end(t_char *print)
 		ptr = ptr->next;
 	}
 }
+
+void	usage(void)
+{
+	ft_printf("Usage: ./vm_champs/corewar [-d N -n N -vi N ] [-a] "
+					  "<champion1.cor> <...>\n"
+					  "    -a        : Prints output from \"aff\" "
+					  "(Default is to hide it)\n"
+					  "    -n  N     : Enter player number from -4 to -1\n"
+					  "    -d  N     : Dumps memory after N cycles then exits\n"
+					  "    -vi N     : Ncurses output mode starts from N "
+					  "iteration\n"
+					  "    -v        : Ncurses output mode\n");
+	exit(1);
+}

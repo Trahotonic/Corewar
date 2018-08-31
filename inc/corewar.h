@@ -96,6 +96,7 @@ typedef struct			s_arg_flags
 	long long			d;
 	bool				di;
 	int					v;
+	bool				a;
 	long long			vi;
 }						t_arg_flags;
 
@@ -230,5 +231,6 @@ void					error_printer(int i, t_player *ptr);
 void					check_pl_number(t_player *player);
 int						get_start(int count, int idx);
 int						get_count(t_player *players);
+void					usage(void);
 
 #endif

@@ -42,8 +42,13 @@ int		end_game(t_proc_pack *pp, t_viz_data *viz_data)
 	pp->viz_data->i = pp->i;
 	if (pp->flags->v)
 		visualize(pp->map, pp->processes, viz_data);
+	if (pp->flags->a)
+	{
+		ft_printf("Aff: ");
+		print_end(viz_data->print);
+		ft_printf("\n");
+	}
 	pick_winner(pp->players, pp->flags->v, get_players(pp->players));
-	print_end(viz_data->print);
 	return (0);
 }
 
