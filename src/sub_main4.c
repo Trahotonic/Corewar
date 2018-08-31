@@ -51,7 +51,7 @@ void	ft_check_flags(t_player **players, char **argv,
 	else if (ft_strequ(argv[*n], "-n"))
 		ft_check_flag_n(players, argv, n);
 	else
-		exit (printf("Invalid arguments\n"));
+		exit(printf("Invalid arguments\n"));
 }
 
 char	*ft_strstr2(const char *big, const char *little)
@@ -96,11 +96,11 @@ void	check_arguments(int argc, char **argv, t_arg_flags **flags,
 		else if (*argv[n] == '-')
 			ft_check_flags(players, argv, &n, *flags);
 		else
-			exit (printf("Invalid arguments\n"));
+			exit(printf("Invalid arguments\n"));
 		n++;
 	}
 	if (!*players)
-		exit (printf("No players provided\n"));
+		exit(printf("No players provided\n"));
 	if ((*flags)->di == true && (*flags)->v == 1)
-		exit (printf("Invalid arguments\n"));
+		exit(printf("Invalid arguments\n"));
 }
