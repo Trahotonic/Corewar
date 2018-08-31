@@ -39,7 +39,6 @@ void	ft_check_flag_n(t_player **players, char **argv, int *n)
 		exit(printf("Player number should be from -4 to -1 \n"));
 }
 
-
 void	ft_check_flags(t_player **players, char **argv,
 					int *n, t_arg_flags *flags)
 {
