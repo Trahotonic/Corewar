@@ -12,7 +12,7 @@
 
 #include "../inc/corewar.h"
 
-void	initfunc(functions_t func[])
+void	initfunc(t_functions func[])
 {
 	func[0].codage = 0;
 	func[0].cycles = 10;
@@ -40,7 +40,7 @@ void	initfunc(functions_t func[])
 	func[7].name2 = 8;
 }
 
-void	initfunc2(functions_t func[])
+void	initfunc2(t_functions func[])
 {
 	func[8].codage = 0;
 	func[8].cycles = 20;

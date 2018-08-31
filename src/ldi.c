@@ -91,7 +91,7 @@ void	ldi(t_process *pro, unsigned char *map)
 
 	i = 0;
 	if (ft_strlen(pro->arg3) != 2 || ft_strlen(pro->arg1) == 0
-		|| ft_strlen(pro->arg2) == 0 || pro->iC)
+		|| ft_strlen(pro->arg2) == 0 || pro->i_c)
 	{
 		pro->cur_pos = (pro->cur_pos + pro->iterator) % ((MEM_SIZE) * 2);
 		pro->iterator = 0;

@@ -19,17 +19,18 @@ void	print_words(int pl_count, t_player *ptr, t_viz_data *viz_data)
 	n = 0;
 	while (n < pl_count)
 	{
-		mvwprintw(stdscr, 11 + (n * 4), 199, "Player %d :", ptr->playerNumber);
-		mvwprintw(stdscr, 12 + (n * 4), 201, "Last live :%22d", ptr->lastAlive);
+		mvwprintw(stdscr, 11 + (n * 4), 199, "Player %d :", ptr->player_number);
+		mvwprintw(stdscr, 12 + (n * 4), 201, "Last live :%22d",
+				ptr->last_alive);
 		mvwprintw(stdscr, 13 + (n * 4), 201, "Lives in current period :%8d",
-				ptr->liveCount);
+				ptr->live_count);
 		ptr = ptr->next;
 		++n;
 	}
 	mvwprintw(stdscr, 11 + (n * 4) + 6, 199, "CYCLE_TO_DIE : %d",
-			viz_data->cycleToDie);
+			viz_data->cycle_to_die);
 	mvwprintw(stdscr, 11 + (n * 4) + 8, 199, "CYCLE_DELTA : %d",
-			viz_data->cycleDelta);
+			viz_data->cycle_delta);
 }
 
 void	print_side_panel(t_viz_data *viz_data, t_process *proc)

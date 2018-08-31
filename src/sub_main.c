@@ -48,16 +48,16 @@ static void	get_win_and_max(t_player **winner, int *max, t_player *players)
 	ptr = players;
 	while (players)
 	{
-		if (players->lastAlive > *max)
+		if (players->last_alive > *max)
 		{
-			*max = players->lastAlive;
+			*max = players->last_alive;
 			*winner = players;
 		}
 		players = players->next;
 	}
 	while (ptr)
 	{
-		if (ptr->lastAlive == *max)
+		if (ptr->last_alive == *max)
 		{
 			*winner = ptr;
 			if (*max != 0)
@@ -75,7 +75,7 @@ int			pick_winner(t_player *players, int vis, int pl)
 	if (vis)
 		nodelay(stdscr, false);
 	winner = players;
-	max = players->lastAlive;
+	max = players->last_alive;
 	get_win_and_max(&winner, &max, players);
 	if (!vis)
 		return (ft_printf("Contestant %d, \"%s\", has won !\n", winner->num,
@@ -103,13 +103,13 @@ int			check21(t_player *players)
 	ptr = players;
 	while (players)
 	{
-		k += players->liveCount;
+		k += players->live_count;
 		if (k >= NBR_LIVE)
 		{
-			players->liveCount = 0;
+			players->live_count = 0;
 			while (ptr)
 			{
-				ptr->liveCount = 0;
+				ptr->live_count = 0;
 				ptr = ptr->next;
 			}
 			return (1);

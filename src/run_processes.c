@@ -14,9 +14,9 @@
 
 static int	check_invalid_1(t_process **go)
 {
-	if ((*go)->invalidAgr)
+	if ((*go)->invalid_agr)
 	{
-		(*go)->invalidAgr = 0;
+		(*go)->invalid_agr = 0;
 		(*go)->cur_pos = ((*go)->cur_pos + 2) % ((MEM_SIZE) * 2);
 		(*go) = (*go)->next;
 		return (1);
@@ -25,7 +25,7 @@ static int	check_invalid_1(t_process **go)
 }
 
 static int	check_invalid_2(t_process *go, char tmp[], unsigned char map[],
-					functions_t array[])
+					t_functions array[])
 {
 	int n;
 
@@ -39,7 +39,7 @@ static int	check_invalid_2(t_process *go, char tmp[], unsigned char map[],
 			++n;
 		if (n == 16)
 		{
-			go->invalidAgr = 1;
+			go->invalid_agr = 1;
 			go->com2 = 0;
 			return (1);
 		}
@@ -61,7 +61,7 @@ static void	pick_function_2(t_process *go, t_proc_pack *proc_pack,
 	else if (go->com2 == 15)
 		lfork(proc_pack->processes_deep, go);
 	else if (go->com2 == 16)
-		aff(go, proc_pack->vizData);
+		aff(go, proc_pack->viz_data);
 }
 
 static void	pick_function_1(t_process *go, t_proc_pack *proc_pack,
@@ -72,7 +72,7 @@ static void	pick_function_1(t_process *go, t_proc_pack *proc_pack,
 	else if (go->com2 == 2)
 		ld(go, map);
 	else if (go->com2 == 3)
-		st(go, map, proc_pack->vizData);
+		st(go, map, proc_pack->viz_data);
 	else if (go->com2 == 4)
 		add(go);
 	else if (go->com2 == 5)
@@ -88,12 +88,12 @@ static void	pick_function_1(t_process *go, t_proc_pack *proc_pack,
 	else if (go->com2 == 10)
 		ldi(go, map);
 	else if (go->com2 == 11)
-		sti(go, map, proc_pack->vizData);
+		sti(go, map, proc_pack->viz_data);
 	else
 		pick_function_2(go, proc_pack, map);
 }
 
-void		run_processes(unsigned char *map, functions_t *array,
+void		run_processes(unsigned char *map, t_functions *array,
 						t_proc_pack *proc_pack)
 {
 	t_process	*go;
@@ -112,7 +112,7 @@ void		run_processes(unsigned char *map, functions_t *array,
 			read_shit(map, go);
 			pick_function_1(go, proc_pack, map);
 			go->com2 = 0;
-			go->iC = 0;
+			go->i_c = 0;
 		}
 		go = go->next;
 	}

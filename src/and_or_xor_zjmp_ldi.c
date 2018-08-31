@@ -17,7 +17,7 @@ void	and(t_process *pro)
 	pro->cur_pos = (pro->iterator + pro->cur_pos) % ((MEM_SIZE) * 2);
 	pro->iterator = 0;
 	if (ft_strlen(pro->arg3) != 2 || ft_strlen(pro->arg1) == 0
-		|| ft_strlen(pro->arg2) == 0 || pro->iC)
+		|| ft_strlen(pro->arg2) == 0 || pro->i_c)
 		return ;
 	if (ft_strlen(pro->arg1) != 2 && ft_strlen(pro->arg2) == 2)
 		pro->reg[ab(pro->arg3, 16) - 1] = ab(pro->arg1, 16)
@@ -43,7 +43,7 @@ void	or(t_process *pro)
 	pro->cur_pos = (pro->iterator + pro->cur_pos) % ((MEM_SIZE) * 2);
 	pro->iterator = 0;
 	if (ft_strlen(pro->arg3) != 2 || ft_strlen(pro->arg1) == 0
-		|| ft_strlen(pro->arg2) == 0 || pro->iC)
+		|| ft_strlen(pro->arg2) == 0 || pro->i_c)
 		return ;
 	if (ft_strlen(pro->arg1) != 2 && ft_strlen(pro->arg2) == 2)
 		pro->reg[ab(pro->arg3, 16) - 1] =
@@ -69,7 +69,7 @@ void	xor(t_process *pro)
 	pro->cur_pos = (pro->iterator + pro->cur_pos) % ((MEM_SIZE) * 2);
 	pro->iterator = 0;
 	if (ft_strlen(pro->arg3) != 2 || ft_strlen(pro->arg1) == 0
-		|| ft_strlen(pro->arg2) == 0 || pro->iC)
+		|| ft_strlen(pro->arg2) == 0 || pro->i_c)
 		return ;
 	if (ft_strlen(pro->arg1) != 2 && ft_strlen(pro->arg2) == 2)
 		pro->reg[ab(pro->arg3, 16) - 1] =

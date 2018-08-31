@@ -100,7 +100,7 @@ void	init_map(unsigned char *map, t_viz_data *viz_data, t_player *players)
 	ptr = players;
 	while (ptr)
 	{
-		read(ptr->fd, &ptr->h, sizeof(header_t));
+		read(ptr->fd, &ptr->h, sizeof(t_header));
 		ptr->h.prog_size = bit_swaper(ptr->h.prog_size);
 		ptr->h.magic = bit_swaper(ptr->h.magic);
 		if (ptr->h.prog_size > 682)

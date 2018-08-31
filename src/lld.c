@@ -30,6 +30,7 @@ void	lld_sup(t_process *pro, unsigned char *map)
 		arg1[n++] = map[k++];
 	}
 	pro->reg[ab(pro->arg2, 16) - 1] = ab(arg1, 16);
+	ft_strdel(&arg1);
 }
 
 void	lld_compensator(t_process *pro)
@@ -48,7 +49,7 @@ void	lld(t_process *pro, unsigned char *map)
 
 	lld_compensator(pro);
 	if (ft_strlen(pro->arg1) == 2 || ft_strlen(pro->arg1) == 0
-		|| ft_strlen(pro->arg2) != 2 || pro->iC)
+		|| ft_strlen(pro->arg2) != 2 || pro->i_c)
 	{
 		pro->cur_pos = (pro->cur_pos + pro->iterator) % ((MEM_SIZE) * 2);
 		pro->iterator = 0;

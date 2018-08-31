@@ -27,8 +27,8 @@ t_process	*node_create(t_process *pro)
 	tmp->cycle_todo = 0;
 	tmp->iterator = 0;
 	tmp->codage = 1;
-	tmp->iC = 0;
-	tmp->invalidAgr = 0;
+	tmp->i_c = 0;
+	tmp->invalid_agr = 0;
 	tmp->t_dir = 0;
 	while (n < 16)
 	{
@@ -109,7 +109,7 @@ void		aff(t_process *pro, t_viz_data *viz_data)
 	aff_compensator(pro);
 	pro->cur_pos = (pro->iterator + pro->cur_pos) % ((MEM_SIZE) * 2);
 	pro->iterator = 0;
-	if (pro->iC)
+	if (pro->i_c)
 		return ;
 	if (!viz_data->print)
 	{
@@ -123,8 +123,8 @@ void		aff(t_process *pro, t_viz_data *viz_data)
 		while (ptr->next)
 			ptr = ptr->next;
 		ptr->next = (t_char*)malloc(sizeof(t_char));
-		viz_data->print->c = pro->reg[ab(pro->arg1, 16) - 1] % 256;
-		viz_data->print->next = NULL;
+		ptr->next->c = pro->reg[ab(pro->arg1, 16) - 1] % 256;
+		ptr->next->next = NULL;
 	}
 	pro->cur_pos = (pro->iterator + pro->cur_pos) % ((MEM_SIZE) * 2);
 	pro->iterator = 0;

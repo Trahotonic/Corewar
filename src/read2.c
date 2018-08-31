@@ -49,7 +49,7 @@ void	read_little_shit(unsigned char *map, int tmp, t_process *pro, int arg)
 		while (n < 2)
 			a[n++] = map[((pro->cur_pos + pro->iterator++) % ((MEM_SIZE) * 2))];
 		if ((unsigned char)ab(a, 16) > 16 || (unsigned char)ab(a, 16) <= 0)
-			pro->iC = 1;
+			pro->i_c = 1;
 	}
 	else if (tmp == 3)
 		while (n < 4)

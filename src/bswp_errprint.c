@@ -42,13 +42,13 @@ void			check_pl_number(t_player *player)
 	buf = player;
 	while (buf)
 	{
-		if (buf->playerNumber == 0)
+		if (buf->player_number == 0)
 		{
 			while (n >= -4)
 			{
-				while (bu && bu->playerNumber != n && buf->playerNumber == 0)
+				while (bu && bu->player_number != n && buf->player_number == 0)
 					bu = bu->next;
-				!bu ? buf->playerNumber = n : 0;
+				!bu ? buf->player_number = n : 0;
 				bu = player;
 				n--;
 			}

@@ -69,6 +69,7 @@ int		ab(const char *str, int str_base)
 int		saver(int tmp, int base, int plus)
 {
 	char	*str;
+	int		i;
 
 	str = ft_strnew(base);
 	base -= 1;
@@ -79,11 +80,13 @@ int		saver(int tmp, int base, int plus)
 		base--;
 	}
 	if (str[0 + plus] == '0' && str[1 + plus] == '1')
-		return (1);
+		i = 1;
 	else if (str[0 + plus] == '1' && str[1 + plus] == '0')
-		return (2);
+		i = 2;
 	else if ((str[0 + plus] == '1') && (str[1 + plus] == '1'))
-		return (3);
+		i = 3;
 	else
-		return (0);
+		i = 0;
+	ft_strdel(&str);
+	return (i);
 }

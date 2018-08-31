@@ -53,6 +53,7 @@ void		dump(unsigned char map[])
 		ft_printf("\n");
 		row += 64;
 		q++;
+		ft_strdel(&r);
 	}
 }
 
@@ -103,7 +104,7 @@ void		superkill(t_process **processes, t_player *player)
 			plptr = player;
 			while (plptr)
 			{
-				plptr->liveCount = 0;
+				plptr->live_count = 0;
 				plptr = plptr->next;
 			}
 			continue ;

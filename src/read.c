@@ -55,7 +55,7 @@ void		convert(char **str)
 		new[n++] = '0';
 	while (n < 8)
 		new[n++] = work[m++];
-	free(*str);
+	ft_strdel(str);
 	*str = new;
 }
 
@@ -72,7 +72,7 @@ void		case123(unsigned int buff, char **str, ssize_t n)
 		*str = ft_strsub(dump, 0, 4);
 	else if (n == 3)
 		*str = ft_strsub(dump, 0, 6);
-	free(dump);
+	ft_strdel(&dump);
 }
 
 void		shmatok(unsigned int *buff, char **str, int n, char **total)

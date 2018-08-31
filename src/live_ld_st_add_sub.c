@@ -20,23 +20,23 @@ void	live(t_process *pro, int i, t_player *pl)
 	tmppl = pl;
 	while (tmppl)
 	{
-		if (tmppl->playerNumber == pro->pl_num)
-			tmppl->liveCount++;
+		if (tmppl->player_number == pro->pl_num)
+			tmppl->live_count++;
 		tmppl = tmppl->next;
 	}
-	tmp = ft_uitoa_base2(pl->playerNumber, 16);
+	tmp = ft_uitoa_base2(pl->player_number, 16);
 	while (pl && !ft_strequ(tmp, pro->arg1))
 	{
 		ft_strdel(&tmp);
 		pl = pl->next;
 		if (pl)
-			tmp = ft_uitoa_base2(pl->playerNumber, 16);
+			tmp = ft_uitoa_base2(pl->player_number, 16);
 	}
 	ft_strdel(&tmp);
 	pro->alive = 1;
 	if (pl)
-		pl->lastAlive = i + 1;
-	pro->cur_pos = (pro->iterator + pro->cur_pos) % 8192;
+		pl->last_alive = i + 1;
+	pro->cur_pos = (pro->iterator + pro->cur_pos) % ((MEM_SIZE) * 2);
 	pro->iterator = 0;
 }
 
@@ -56,6 +56,7 @@ void	ld_sup(t_process *pro, unsigned char *map)
 		arg1[n++] = map[k++];
 	}
 	pro->reg[ab(pro->arg2, 16) - 1] = ab(arg1, 16);
+	ft_strdel(&arg1);
 }
 
 void	ld(t_process *pro, unsigned char *map)
@@ -67,7 +68,7 @@ void	ld(t_process *pro, unsigned char *map)
 	if (ft_strlen(pro->arg3) == 8)
 		pro->iterator -= 8;
 	if (ft_strlen(pro->arg1) == 2 || ft_strlen(pro->arg1) == 0
-		|| ft_strlen(pro->arg2) != 2 || pro->iC == 1)
+		|| ft_strlen(pro->arg2) != 2 || pro->i_c == 1)
 	{
 		pro->cur_pos = (pro->iterator + pro->cur_pos) % ((MEM_SIZE) * 2);
 		pro->iterator = 0;
@@ -81,7 +82,7 @@ void	ld(t_process *pro, unsigned char *map)
 		pro->carry = 1;
 	else
 		pro->carry = 0;
-	pro->cur_pos = (pro->iterator + pro->cur_pos) % 8192;
+	pro->cur_pos = (pro->iterator + pro->cur_pos) % ((MEM_SIZE) * 2);
 	pro->iterator = 0;
 }
 
@@ -90,7 +91,7 @@ void	add(t_process *pro)
 	pro->cur_pos = (pro->iterator + pro->cur_pos) % ((MEM_SIZE) * 2);
 	pro->iterator = 0;
 	if (ft_strlen(pro->arg1) != 2 || ft_strlen(pro->arg2) != 2
-		|| ft_strlen(pro->arg3) != 2 || pro->iC == 1)
+		|| ft_strlen(pro->arg3) != 2 || pro->i_c == 1)
 		return ;
 	pro->reg[ab(pro->arg3, 16) - 1] =
 			pro->reg[ab(pro->arg1, 16) - 1] + pro->reg[ab(pro->arg2, 16) - 1];
@@ -98,7 +99,7 @@ void	add(t_process *pro)
 		pro->carry = 1;
 	else
 		pro->carry = 0;
-	pro->cur_pos = (pro->iterator + pro->cur_pos) % 8192;
+	pro->cur_pos = (pro->iterator + pro->cur_pos) % ((MEM_SIZE) * 2);
 	pro->iterator = 0;
 }
 
@@ -107,7 +108,7 @@ void	sub(t_process *pro)
 	pro->cur_pos = (pro->iterator + pro->cur_pos) % (MEM_SIZE * 2);
 	pro->iterator = 0;
 	if (ft_strlen(pro->arg1) != 2 || ft_strlen(pro->arg2) != 2
-		|| ft_strlen(pro->arg3) != 2 || pro->iC == 1)
+		|| ft_strlen(pro->arg3) != 2 || pro->i_c == 1)
 		return ;
 	pro->reg[ab(pro->arg3, 16) - 1] =
 			pro->reg[ab(pro->arg1, 16) - 1] - pro->reg[ab(pro->arg2, 16) - 1];
@@ -115,6 +116,6 @@ void	sub(t_process *pro)
 		pro->carry = 1;
 	else
 		pro->carry = 0;
-	pro->cur_pos = (pro->iterator + pro->cur_pos) % 8192;
+	pro->cur_pos = (pro->iterator + pro->cur_pos) % ((MEM_SIZE) * 2);
 	pro->iterator = 0;
 }

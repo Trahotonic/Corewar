@@ -57,7 +57,7 @@ void	iterate(t_proc_pack *pp, t_viz_data *viz_data)
 {
 	pp->player = pp->players;
 	pp->processes_deep = &pp->processes;
-	pp->vizData = viz_data;
+	pp->viz_data = viz_data;
 	run_processes(pp->map, pp->array, pp);
 	pp->i++;
 	pp->n++;
@@ -71,17 +71,17 @@ int		main(int argc, char **argv)
 	init_all(&pp, argc, argv, &viz_data);
 	while (1)
 	{
-		if (pp->n == pp->cycleToDie && check21(pp->players))
+		if (pp->n == pp->cycle_to_die && check21(pp->players))
 			if21(pp);
-		else if (pp->n == pp->cycleToDie)
+		else if (pp->n == pp->cycle_to_die)
 			not21(pp);
-		viz_data.cycleDelta = CYCLE_DELTA;
-		viz_data.cycleToDie = pp->cycleToDie;
+		viz_data.cycle_delta = CYCLE_DELTA;
+		viz_data.cycle_to_die = pp->cycle_to_die;
 		if (!pp->processes)
 			return (end_game(pp, &viz_data));
 		if (pp->flags->d && pp->i == pp->flags->d)
 			break ;
-		if (pp->cycleToDie <= 0)
+		if (pp->cycle_to_die <= 0)
 			return (end_game(pp, &viz_data));
 		if (break_vis(pp, &viz_data))
 			break ;

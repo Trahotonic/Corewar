@@ -31,7 +31,7 @@ void	init_all(t_proc_pack **pp, int argc, char **argv, t_viz_data *viz_data)
 	}
 	initfunc((*pp)->array);
 	initfunc2((*pp)->array);
-	(*pp)->cycleToDie = CYCLE_TO_DIE;
+	(*pp)->cycle_to_die = CYCLE_TO_DIE;
 	(*pp)->i = 0;
 	(*pp)->c = 0;
 }
@@ -53,10 +53,10 @@ void	if21(t_proc_pack *pp)
 	p = pp->players;
 	while (p)
 	{
-		p->liveCount = 0;
+		p->live_count = 0;
 		p = p->next;
 	}
-	pp->cycleToDie -= CYCLE_DELTA;
+	pp->cycle_to_die -= CYCLE_DELTA;
 	pp->maxchecks = 1;
 	superkill(&pp->processes, pp->players);
 	kill(pp->processes);
@@ -70,12 +70,12 @@ void	not21(t_proc_pack *pp)
 	p = pp->players;
 	while (p)
 	{
-		p->liveCount = 0;
+		p->live_count = 0;
 		p = p->next;
 	}
 	if (pp->maxchecks == MAX_CHECKS)
 	{
-		pp->cycleToDie -= CYCLE_DELTA;
+		pp->cycle_to_die -= CYCLE_DELTA;
 		pp->maxchecks = 1;
 	}
 	else

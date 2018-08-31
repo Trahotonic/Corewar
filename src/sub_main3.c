@@ -22,9 +22,9 @@ t_player	*ft_player_create(char *champ, int num)
 	if (tmp->fd == -1)
 		exit(printf("ERROR\n"));
 	tmp->next = NULL;
-	tmp->lastAlive = 0;
-	tmp->liveCount = 0;
-	tmp->playerNumber = 0;
+	tmp->last_alive = 0;
+	tmp->live_count = 0;
+	tmp->player_number = 0;
 	return (tmp);
 }
 
@@ -109,21 +109,21 @@ void		ft_flag_n_sup(t_player *tmp, t_player **players, char **argv, int n)
 	if (!(tmp))
 	{
 		(*players) = ft_player_create(argv[n + 1], i);
-		(*players)->playerNumber = ft_atoi(argv[n]);
+		(*players)->player_number = ft_atoi(argv[n]);
 	}
 	else
 	{
 		i++;
 		while ((tmp)->next)
 		{
-			if (tmp->playerNumber == ft_atoi(argv[n]))
+			if (tmp->player_number == ft_atoi(argv[n]))
 				exit(printf("Error same number in players\n"));
 			tmp = (tmp)->next;
 			i++;
 		}
-		if (tmp->playerNumber == ft_atoi(argv[n]))
+		if (tmp->player_number == ft_atoi(argv[n]))
 			exit(printf("Error same number in players\n"));
 		(tmp)->next = ft_player_create(argv[n + 1], i);
-		(tmp)->next->playerNumber = ft_atoi(argv[n]);
+		(tmp)->next->player_number = ft_atoi(argv[n]);
 	}
 }

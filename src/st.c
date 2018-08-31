@@ -32,6 +32,7 @@ void	st_sup(t_process *pro, unsigned char *map, t_viz_data *viz_data)
 		viz_data->viz_data[k] = pro->pl_number;
 		map[k++] = tmp[n++];
 	}
+	ft_strdel(&tmp);
 }
 
 void	st(t_process *pro, unsigned char *map, t_viz_data *viz_data)
@@ -43,7 +44,7 @@ void	st(t_process *pro, unsigned char *map, t_viz_data *viz_data)
 	if (ft_strlen(pro->arg3) == 8)
 		pro->iterator -= 8;
 	if (ft_strlen(pro->arg1) != 2 || ft_strlen(pro->arg2) == 8
-		|| ft_strlen(pro->arg2) == 0 || pro->iC == 1)
+		|| ft_strlen(pro->arg2) == 0 || pro->i_c == 1)
 	{
 		pro->cur_pos = (pro->iterator + pro->cur_pos) % ((MEM_SIZE) * 2);
 		pro->iterator = 0;
@@ -53,6 +54,6 @@ void	st(t_process *pro, unsigned char *map, t_viz_data *viz_data)
 		st_sup(pro, map, viz_data);
 	else if (ft_strlen(pro->arg2) == 2)
 		pro->reg[ab(pro->arg2, 16) - 1] = pro->reg[ab(pro->arg1, 16) - 1];
-	pro->cur_pos = (pro->iterator + pro->cur_pos) % 8192;
+	pro->cur_pos = (pro->iterator + pro->cur_pos) % ((MEM_SIZE) * 2);
 	pro->iterator = 0;
 }

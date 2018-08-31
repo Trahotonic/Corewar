@@ -20,18 +20,18 @@ t_process	*pro_creator(t_player *players)
 	n = 0;
 	tmp = (t_process *)malloc(sizeof(t_process));
 	tmp->carry = 0;
-	tmp->pl_num = players->playerNumber;
+	tmp->pl_num = players->player_number;
 	tmp->pl_number = players->num;
 	tmp->alive = 0;
-	tmp->iC = 0;
+	tmp->i_c = 0;
 	tmp->com2 = 0;
 	tmp->cycle_todo = 0;
 	tmp->iterator = 0;
 	while (n < 16)
 		tmp->reg[n++] = 0;
-	tmp->reg[0] = players->playerNumber;
+	tmp->reg[0] = players->player_number;
 	tmp->t_dir = 0;
-	tmp->invalidAgr = 0;
+	tmp->invalid_agr = 0;
 	tmp->next = NULL;
 	tmp->prev = NULL;
 	return (tmp);

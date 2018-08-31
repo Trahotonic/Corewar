@@ -92,7 +92,7 @@ void	lldi(t_process *pro, unsigned char *map)
 
 	i = 0;
 	if (ft_strlen(pro->arg3) != 2 || ft_strlen(pro->arg1) == 0
-		|| ft_strlen(pro->arg2) == 0 || pro->iC)
+		|| ft_strlen(pro->arg2) == 0 || pro->i_c)
 	{
 		pro->cur_pos = (pro->cur_pos + pro->iterator) % ((MEM_SIZE) * 2);
 		pro->iterator = 0;
@@ -106,7 +106,7 @@ void	lldi(t_process *pro, unsigned char *map)
 		i = lldi_sup3(pro);
 	lldi_print(pro, i, map, &arg1);
 	pro->reg[ab(pro->arg3, 16) - 1] = (unsigned int)ab(arg1, 16);
-	pro->cur_pos = (pro->iterator + pro->cur_pos) % 8192;
+	pro->cur_pos = (pro->iterator + pro->cur_pos) % ((MEM_SIZE) * 2);
 	pro->iterator = 0;
 	ft_strdel(&arg1);
 }

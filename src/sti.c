@@ -94,7 +94,7 @@ void	sti(t_process *pro, unsigned char *map, t_viz_data *viz_data)
 
 	n = 0;
 	if (ft_strlen(pro->arg1) != 2 || ft_strlen(pro->arg2) == 0
-		|| ft_strlen(pro->arg3) == 0 || pro->iC)
+		|| ft_strlen(pro->arg3) == 0 || pro->i_c)
 		if (sti_kostil(pro, &arg1, false))
 			return ;
 	arg1 = ft_itoa_base(pro->reg[ab(pro->arg1, 16) - 1], 16);

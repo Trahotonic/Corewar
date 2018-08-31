@@ -40,9 +40,12 @@ int		get_processes(t_process *proc)
 
 void	print_end(t_char *print)
 {
-	while (print)
+	t_char	*ptr;
+
+	ptr = print;
+	while (ptr)
 	{
-		ft_printf("%c", print->c);
-		print = print->next;
+		ft_printf("%c", ptr->c);
+		ptr = ptr->next;
 	}
 }
