@@ -34,6 +34,8 @@ void	init_all(t_proc_pack **pp, int argc, char **argv, t_viz_data *viz_data)
 	(*pp)->cycle_to_die = CYCLE_TO_DIE;
 	(*pp)->i = 0;
 	(*pp)->c = 0;
+	if ((*pp)->flags->v)
+		system("while :; do afplay Benny-hill-theme.mp3; done &");
 }
 
 int		end_game(t_proc_pack *pp, t_viz_data *viz_data)
@@ -41,7 +43,10 @@ int		end_game(t_proc_pack *pp, t_viz_data *viz_data)
 	kill_them_all(&pp->processes);
 	pp->viz_data->i = pp->i;
 	if (pp->flags->v)
+	{
 		visualize(pp->map, pp->processes, viz_data);
+		system("killall sh -c while;");
+	}
 	if (pp->flags->a)
 	{
 		ft_printf("Aff: ");
@@ -94,7 +99,10 @@ void	not21(t_proc_pack *pp)
 int		end_main(t_proc_pack *pp)
 {
 	if (!pp->flags->di && pp->flags->v)
+	{
+		system("killall sh -c while;");
 		endwin();
+	}
 	else if (pp->flags->di)
 		dump(pp->map);
 	return (0);

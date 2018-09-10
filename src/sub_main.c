@@ -89,6 +89,7 @@ int			pick_winner(t_player *players, int vis, int pl)
 		attroff(COLOR_PAIR(6 + winner->num));
 		nodelay(stdscr, false);
 		getch();
+		system("killall afplay");
 		return (endwin());
 	}
 }
