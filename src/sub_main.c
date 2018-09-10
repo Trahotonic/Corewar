@@ -14,17 +14,14 @@
 
 void		introduce(t_player *players)
 {
-	int	m;
-
-	m = 0;
 	ft_printf("Introducing contestants...\n");
 	while (players)
 	{
-		ft_printf("* Player %d, weighing %d bytes, \"%s\" (\"%s\") !\n", m + 1,
+		ft_printf("* Player %d, weighing %d bytes, \"%s\" (\"%s\") !\n",
+				players->player_number * -1,
 				players->h.prog_size, players->h.prog_name,
 				players->h.comment);
 		players = players->next;
-		++m;
 	}
 }
 
@@ -76,7 +73,8 @@ int			pick_winner(t_player *players, int vis, int pl)
 	max = players->last_alive;
 	get_win_and_max(&winner, &max, players);
 	if (!vis)
-		return (ft_printf("Contestant %d, \"%s\", has won !\n", winner->num,
+		return (ft_printf("Player %d, (%s) won.\n",
+						winner->player_number * -1,
 						winner->h.prog_name));
 	else
 	{

@@ -63,7 +63,7 @@ void	iterate(t_proc_pack *pp, t_viz_data *viz_data)
 	pp->n++;
 }
 
-void	shmatok(t_proc_pack *pp, t_viz_data *viz_data)
+void	shmatok666(t_proc_pack *pp, t_viz_data *viz_data)
 {
 	if (pp->n == pp->cycle_to_die && check21(pp->players))
 		if21(pp);
@@ -77,7 +77,7 @@ int		kusok(t_proc_pack *pp, t_viz_data *viz_data)
 {
 	pp->cycle_to_die -= CYCLE_DELTA;
 	iterate(pp, viz_data);
-	shmatok(pp, viz_data);
+	shmatok666(pp, viz_data);
 	if (!pp->processes)
 		return (end_game(pp, viz_data));
 	if (pp->flags->d && pp->i == pp->flags->d)

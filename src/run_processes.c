@@ -68,7 +68,7 @@ static void	pick_function_1(t_process *go, t_proc_pack *proc_pack,
 					unsigned char map[])
 {
 	if (go->com2 == 1)
-		live(go, proc_pack->i, proc_pack->player);
+		live(go, proc_pack->i, proc_pack->player, *proc_pack->flags);
 	else if (go->com2 == 2)
 		ld(go, map);
 	else if (go->com2 == 3)

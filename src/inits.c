@@ -100,14 +100,13 @@ void	init_map(unsigned char *map, t_viz_data *viz_data, t_player *players)
 	ptr = players;
 	while (ptr)
 	{
-		read(ptr->fd, &ptr->h, sizeof(t_header));
+		if (read(ptr->fd, &ptr->h, sizeof(t_header)) < PROG_NAME_LENGTH +
+				COMMENT_LENGTH + 8)
+			exit(ft_printf("Error: File is too small to be a champion\n"));
 		ptr->h.prog_size = bit_swaper(ptr->h.prog_size);
 		ptr->h.magic = bit_swaper(ptr->h.magic);
-		if (ptr->h.prog_size > 682)
-			error_printer(1, ptr);
-		if (ptr->h.magic != 0xea83f3)
-			error_printer(2, ptr);
 		get_total(players, &total, viz_data, n);
+		error_printer(ptr, total);
 		fill_map(total, count, n, map);
 		ft_strdel(&total);
 		ptr = ptr->next;

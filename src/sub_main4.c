@@ -52,6 +52,8 @@ void	ft_check_flags(t_player **players, char **argv,
 		ft_check_flag_n(players, argv, n);
 	else if (ft_strequ(argv[*n], "-a"))
 		flags->a = true;
+	else if (ft_strequ(argv[*n], "-l"))
+		flags->l = true;
 	else
 		exit(printf("Invalid arguments\n"));
 }

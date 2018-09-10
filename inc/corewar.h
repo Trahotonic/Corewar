@@ -98,6 +98,7 @@ typedef struct			s_arg_flags
 	int					v;
 	bool				a;
 	long long			vi;
+	bool				l;
 }						t_arg_flags;
 
 typedef struct			s_player
@@ -201,7 +202,8 @@ void					get_total(t_player *players, char **total,
 						int n);
 void					visualize(unsigned char map[], t_process *proc,
 						t_viz_data *viz_data);
-void					live(t_process *processor, int i, t_player *pl);
+void					live(t_process *processor, int i, t_player *pl,
+							t_arg_flags q);
 void					ld(t_process *processor, unsigned char *map);
 void					st(t_process *processor, unsigned char *map,
 						t_viz_data *viz_data);
@@ -228,7 +230,7 @@ int						end_main(t_proc_pack *pp);
 void					initfunc(t_functions func[]);
 void					initfunc2(t_functions func[]);
 unsigned int			bit_swaper(unsigned int i);
-void					error_printer(int i, t_player *ptr);
+void					error_printer(t_player *ptr, char *total);
 void					check_pl_number(t_player *player);
 int						get_start(int count, int idx);
 int						get_count(t_player *players);
@@ -236,7 +238,7 @@ void					usage(void);
 int						partvis(t_proc_pack *pp, t_viz_data *viz_data);
 int						break_vis(t_proc_pack *pp, t_viz_data *viz_data);
 void					iterate(t_proc_pack *pp, t_viz_data *viz_data);
-void					shmatok(t_proc_pack *pp, t_viz_data *viz_data);
+void					shmatok666(t_proc_pack *pp, t_viz_data *viz_data);
 int						kusok(t_proc_pack *pp, t_viz_data *viz_data);
 
 #endif

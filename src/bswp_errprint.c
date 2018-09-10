@@ -19,14 +19,19 @@ unsigned int	bit_swaper(unsigned int i)
 	return (i);
 }
 
-void			error_printer(int i, t_player *ptr)
+void			error_printer(t_player *ptr, char *total)
 {
-	if (i == 1)
-		exit(ft_printf("Error: \"%s\" has too large code"
-			"(%d bytes > 682 bytes)\n", ptr->h.prog_name, ptr->h.prog_size));
-	if (i == 2)
+	if (ptr->h.prog_size != ft_strlen(total) / 2)
+		exit(ft_printf("Error: \"%s's\" size doesn't match provided size"
+							   " in header\n", ptr->h.prog_name));
+	if (ptr->h.magic != 0xea83f3) {
 		exit(ft_printf("Error: \"%s\" has an invalid"
-			"header\n", ptr->h.prog_name));
+								"header\n", ptr->h.prog_name));
+	}
+	if (ptr->h.prog_size > 682) {
+		exit(ft_printf("Error: \"%s\" has too large code"
+				"(%d bytes > 682 bytes)\n", ptr->h.prog_name, ptr->h.prog_size));
+	}
 }
 
 void			check_pl_number(t_player *player)

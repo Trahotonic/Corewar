@@ -20,7 +20,7 @@ int			main(int argc, char **argv)
 	init_all(&pp, argc, argv, &viz_data);
 	while (1)
 	{
-		shmatok(pp, &viz_data);
+		shmatok666(pp, &viz_data);
 		if (!pp->processes)
 		{
 			end_game(pp, &viz_data);

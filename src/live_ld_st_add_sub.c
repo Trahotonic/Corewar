@@ -12,7 +12,7 @@
 
 #include "../inc/corewar.h"
 
-void	live(t_process *pro, int i, t_player *pl)
+void	live(t_process *pro, int i, t_player *pl, t_arg_flags q)
 {
 	char		*tmp;
 
@@ -22,6 +22,9 @@ void	live(t_process *pro, int i, t_player *pl)
 		if (ft_strequ(tmp, pro->arg1))
 		{
 			pl->last_alive = i + 1;
+			if (!q.v && q.l)
+			ft_printf("A process shows that player %d (%s) is alive.\n",
+					pl->player_number * -1, pl->h.prog_name);
 			++pl->live_count_p;
 		}
 		if (pl->player_number == pro->pl_num)
