@@ -72,7 +72,7 @@ int		lldi_sup3(t_process *pro)
 	return (i);
 }
 
-void	lldi_print(t_process *pro, int i, unsigned char *map, char **arg1)
+void	lldi_print(int i, unsigned char *map, char **arg1)
 {
 	int	n;
 
@@ -104,7 +104,7 @@ void	lldi(t_process *pro, unsigned char *map)
 		i = lldi_sup2(pro, map);
 	else if (ft_strlen(pro->arg1) == 4 && (pro->t_dir == 1 || pro->t_dir == 3))
 		i = lldi_sup3(pro);
-	lldi_print(pro, i, map, &arg1);
+	lldi_print(i, map, &arg1);
 	pro->reg[ab(pro->arg3, 16) - 1] = (unsigned int)ab(arg1, 16);
 	pro->cur_pos = (pro->iterator + pro->cur_pos) % ((MEM_SIZE) * 2);
 	pro->iterator = 0;

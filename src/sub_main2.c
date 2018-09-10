@@ -46,7 +46,7 @@ void		dump(unsigned char map[])
 		n = 2;
 		r = ft_itoa_base(row, 16);
 		ft_printf("0x");
-		while (n++ < 6 - ft_strlen(r))
+		while ((unsigned int)n++ < 6 - ft_strlen(r))
 			ft_printf("0");
 		ft_printf("%s : ", r);
 		sub_dump(map, &m);

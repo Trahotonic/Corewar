@@ -73,6 +73,23 @@ static void	shmatok(t_proc_pack *pp, t_viz_data *viz_data)
 	viz_data->cycle_to_die = pp->cycle_to_die;
 }
 
+static int	kusok(t_proc_pack *pp, t_viz_data *viz_data)
+{
+	pp->cycle_to_die -= CYCLE_DELTA;
+	iterate(pp, viz_data);
+	shmatok(pp, viz_data);
+	if (!pp->processes)
+		return (end_game(pp, viz_data));
+	if (pp->flags->d && pp->i == pp->flags->d)
+		return (end_game(pp, viz_data));
+	if (pp->cycle_to_die <= 0)
+		return (end_game(pp, viz_data));
+	if (pp->flags->v && pp->i >= pp->flags->vi)
+		if (break_vis(pp, viz_data))
+			return (end_game(pp, viz_data));
+	return (end_game(pp, viz_data));
+}
+
 int			main(int argc, char **argv)
 {
 	t_viz_data		viz_data;
@@ -91,7 +108,7 @@ int			main(int argc, char **argv)
 			break ;
 		if (pp->cycle_to_die <= 0)
 		{
-			end_game(pp, &viz_data);
+			kusok(pp, &viz_data);
 			break ;
 		}
 		if (pp->flags->v && pp->i >= pp->flags->vi)

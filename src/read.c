@@ -110,7 +110,7 @@ void		get_total(t_player *players, char **total,
 	while ((n = (int)read(players->fd, &buff, sizeof(int))))
 		shmatok(&buff, &str, n, total);
 	q = 0;
-	while (q < ft_strlen(*total))
+	while ((size_t)q < ft_strlen(*total))
 	{
 		viz_data->viz_data[players->start + q] = c;
 		viz_data->mark_timeout[players->start + q] = 0;
