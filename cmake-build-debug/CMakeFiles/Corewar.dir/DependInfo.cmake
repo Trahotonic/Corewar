@@ -28,6 +28,7 @@ set(CMAKE_DEPENDS_CHECK_C
   "/Users/rkyslyy/corewar2/src/sub_main3.c" "/Users/rkyslyy/corewar2/cmake-build-debug/CMakeFiles/Corewar.dir/src/sub_main3.c.o"
   "/Users/rkyslyy/corewar2/src/sub_main4.c" "/Users/rkyslyy/corewar2/cmake-build-debug/CMakeFiles/Corewar.dir/src/sub_main4.c.o"
   "/Users/rkyslyy/corewar2/src/sub_main5.c" "/Users/rkyslyy/corewar2/cmake-build-debug/CMakeFiles/Corewar.dir/src/sub_main5.c.o"
+  "/Users/rkyslyy/corewar2/src/sub_main6.c" "/Users/rkyslyy/corewar2/cmake-build-debug/CMakeFiles/Corewar.dir/src/sub_main6.c.o"
   "/Users/rkyslyy/corewar2/src/vis_methods.c" "/Users/rkyslyy/corewar2/cmake-build-debug/CMakeFiles/Corewar.dir/src/vis_methods.c.o"
   "/Users/rkyslyy/corewar2/src/vis_methods2.c" "/Users/rkyslyy/corewar2/cmake-build-debug/CMakeFiles/Corewar.dir/src/vis_methods2.c.o"
   "/Users/rkyslyy/corewar2/src/vizualize.c" "/Users/rkyslyy/corewar2/cmake-build-debug/CMakeFiles/Corewar.dir/src/vizualize.c.o"

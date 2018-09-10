@@ -166,6 +166,9 @@
 		<Unit filename="/Users/rkyslyy/corewar2/src/sub_main5.c">
 			<Option target="Corewar"/>
 		</Unit>
+		<Unit filename="/Users/rkyslyy/corewar2/src/sub_main6.c">
+			<Option target="Corewar"/>
+		</Unit>
 		<Unit filename="/Users/rkyslyy/corewar2/src/vis_methods.c">
 			<Option target="Corewar"/>
 		</Unit>

@@ -26,6 +26,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/Corewar.dir/src/lldi.c.o"
   "CMakeFiles/Corewar.dir/src/st.c.o"
   "CMakeFiles/Corewar.dir/src/sti.c.o"
+  "CMakeFiles/Corewar.dir/src/sub_main6.c.o"
   "Corewar.pdb"
   "Corewar"
 )

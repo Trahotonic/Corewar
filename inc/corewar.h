@@ -110,7 +110,7 @@ typedef struct			s_player
 	int					num;
 	int					fd;
 	int					start;
-	int 				live_count_p;
+	int					live_count_p;
 }						t_player;
 
 typedef struct			s_char
@@ -233,5 +233,10 @@ void					check_pl_number(t_player *player);
 int						get_start(int count, int idx);
 int						get_count(t_player *players);
 void					usage(void);
+int						partvis(t_proc_pack *pp, t_viz_data *viz_data);
+int						break_vis(t_proc_pack *pp, t_viz_data *viz_data);
+void					iterate(t_proc_pack *pp, t_viz_data *viz_data);
+void					shmatok(t_proc_pack *pp, t_viz_data *viz_data);
+int						kusok(t_proc_pack *pp, t_viz_data *viz_data);
 
 #endif
