@@ -110,6 +110,7 @@ typedef struct			s_player
 	int					num;
 	int					fd;
 	int					start;
+	int 				live_count_p;
 }						t_player;
 
 typedef struct			s_char

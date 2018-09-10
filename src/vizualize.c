@@ -23,7 +23,7 @@ void	print_words(int pl_count, t_player *ptr, t_viz_data *viz_data)
 		mvwprintw(stdscr, 12 + (n * 4), 201, "Last live :%22d",
 				ptr->last_alive);
 		mvwprintw(stdscr, 13 + (n * 4), 201, "Lives in current period :%8d",
-				ptr->live_count);
+				ptr->live_count_p);
 		ptr = ptr->next;
 		++n;
 	}

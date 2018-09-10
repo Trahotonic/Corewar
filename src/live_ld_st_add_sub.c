@@ -15,18 +15,17 @@
 void	live(t_process *pro, int i, t_player *pl)
 {
 	char		*tmp;
-	t_player	*tmppl;
 
-	tmppl = pl;
-	while (tmppl)
-	{
-		if (tmppl->player_number == pro->pl_num)
-			tmppl->live_count++;
-		tmppl = tmppl->next;
-	}
 	tmp = ft_uitoa_base2(pl->player_number, 16);
-	while (pl && !ft_strequ(tmp, pro->arg1))
+	while (pl)
 	{
+		if (ft_strequ(tmp, pro->arg1))
+		{
+			pl->last_alive = i + 1;
+			++pl->live_count_p;
+		}
+		if (pl->player_number == pro->pl_num)
+			pl->live_count++;
 		ft_strdel(&tmp);
 		pl = pl->next;
 		if (pl)
@@ -34,8 +33,6 @@ void	live(t_process *pro, int i, t_player *pl)
 	}
 	ft_strdel(&tmp);
 	pro->alive = 1;
-	if (pl)
-		pl->last_alive = i + 1;
 	pro->cur_pos = (pro->iterator + pro->cur_pos) % ((MEM_SIZE) * 2);
 	pro->iterator = 0;
 }

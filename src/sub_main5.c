@@ -65,6 +65,7 @@ void	if21(t_proc_pack *pp)
 	while (p)
 	{
 		p->live_count = 0;
+		p->live_count_p = 0;
 		p = p->next;
 	}
 	pp->cycle_to_die -= CYCLE_DELTA;
@@ -82,6 +83,7 @@ void	not21(t_proc_pack *pp)
 	while (p)
 	{
 		p->live_count = 0;
+		p->live_count_p = 0;
 		p = p->next;
 	}
 	if (pp->maxchecks == MAX_CHECKS)

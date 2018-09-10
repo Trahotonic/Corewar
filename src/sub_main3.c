@@ -24,6 +24,7 @@ t_player	*ft_player_create(char *champ, int num)
 	tmp->next = NULL;
 	tmp->last_alive = 0;
 	tmp->live_count = 0;
+	tmp->live_count_p = 0;
 	tmp->player_number = 0;
 	return (tmp);
 }
