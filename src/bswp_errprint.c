@@ -30,7 +30,8 @@ void			error_printer(t_player *ptr, char *total)
 	}
 	if (ptr->h.prog_size > 682) {
 		exit(ft_printf("Error: \"%s\" has too large code"
-				"(%d bytes > 682 bytes)\n", ptr->h.prog_name, ptr->h.prog_size));
+				"(%d bytes > 682 bytes)\n", ptr->h.prog_name,
+					ptr->h.prog_size));
 	}
 }
 

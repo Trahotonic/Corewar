@@ -105,8 +105,8 @@ void	check_arguments(int argc, char **argv, t_arg_flags **flags,
 			exit(printf("Invalid arguments\n"));
 		n++;
 	}
-	if (!*players)
-		exit(printf("No players provided\n"));
+	if (!*players || get_players(*players) > 4)
+		exit(printf("No players provided or more then 4\n"));
 	if ((*flags)->di == true && (*flags)->v == 1)
 		exit(printf("Invalid arguments\n"));
 }

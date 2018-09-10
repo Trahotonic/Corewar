@@ -13,17 +13,10 @@
   <component name="ChangeListManager">
     <list default="true" id="a69af0ba-4ee2-469f-ba16-c19649af79bd" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/file1" afterPath="$PROJECT_DIR$/file1" />
-      <change beforePath="$PROJECT_DIR$/file2" afterPath="$PROJECT_DIR$/file2" />
-      <change beforePath="$PROJECT_DIR$/inc/corewar.h" afterPath="$PROJECT_DIR$/inc/corewar.h" />
+      <change beforePath="$PROJECT_DIR$/ex.cor" afterPath="$PROJECT_DIR$/ex.cor" />
       <change beforePath="$PROJECT_DIR$/src/bswp_errprint.c" afterPath="$PROJECT_DIR$/src/bswp_errprint.c" />
-      <change beforePath="$PROJECT_DIR$/src/inits.c" afterPath="$PROJECT_DIR$/src/inits.c" />
-      <change beforePath="$PROJECT_DIR$/src/live_ld_st_add_sub.c" afterPath="$PROJECT_DIR$/src/live_ld_st_add_sub.c" />
-      <change beforePath="$PROJECT_DIR$/src/main.c" afterPath="$PROJECT_DIR$/src/main.c" />
-      <change beforePath="$PROJECT_DIR$/src/run_processes.c" afterPath="$PROJECT_DIR$/src/run_processes.c" />
-      <change beforePath="$PROJECT_DIR$/src/sub_main.c" afterPath="$PROJECT_DIR$/src/sub_main.c" />
+      <change beforePath="$PROJECT_DIR$/src/sub_main3.c" afterPath="$PROJECT_DIR$/src/sub_main3.c" />
       <change beforePath="$PROJECT_DIR$/src/sub_main4.c" afterPath="$PROJECT_DIR$/src/sub_main4.c" />
-      <change beforePath="$PROJECT_DIR$/src/sub_main6.c" afterPath="$PROJECT_DIR$/src/sub_main6.c" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -87,11 +80,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="run_processes.c" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/run_processes.c">
+      <file leaf-file-name="lil_func.c" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/lil_func.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="232">
-              <caret line="51" column="66" lean-forward="false" selection-start-line="51" selection-start-column="66" selection-end-line="51" selection-end-column="66" />
+            <state relative-caret-position="210">
+              <caret line="14" column="8" lean-forward="false" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -100,8 +93,8 @@
       <file leaf-file-name="inits.c" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/inits.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1102">
-              <caret line="104" column="71" lean-forward="false" selection-start-line="104" selection-start-column="71" selection-end-line="104" selection-end-column="71" />
+            <state relative-caret-position="1042">
+              <caret line="100" column="15" lean-forward="false" selection-start-line="100" selection-start-column="15" selection-end-line="100" selection-end-column="15" />
               <folding />
             </state>
           </provider>
@@ -110,18 +103,18 @@
       <file leaf-file-name="read.c" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/read.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1515">
+            <state relative-caret-position="967">
               <caret line="101" column="10" lean-forward="false" selection-start-line="101" selection-start-column="10" selection-end-line="101" selection-end-column="10" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="bswp_errprint.c" pinned="false" current-in-tab="true">
+      <file leaf-file-name="bswp_errprint.c" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/bswp_errprint.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="27" column="53" lean-forward="false" selection-start-line="27" selection-start-column="53" selection-end-line="27" selection-end-column="53" />
+            <state relative-caret-position="900">
+              <caret line="60" column="19" lean-forward="false" selection-start-line="60" selection-start-column="19" selection-end-line="60" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -130,7 +123,7 @@
       <file leaf-file-name="sub_main5.c" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sub_main5.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="672">
+            <state relative-caret-position="825">
               <caret line="55" column="6" lean-forward="false" selection-start-line="55" selection-start-column="6" selection-end-line="55" selection-end-column="6" />
               <folding />
             </state>
@@ -140,8 +133,18 @@
       <file leaf-file-name="sub_main4.c" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sub_main4.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="674">
-              <caret line="58" column="1" lean-forward="false" selection-start-line="58" selection-start-column="1" selection-end-line="58" selection-end-column="1" />
+            <state relative-caret-position="1177">
+              <caret line="107" column="29" lean-forward="false" selection-start-line="107" selection-start-column="29" selection-end-line="107" selection-end-column="29" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sub_main3.c" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/sub_main3.c">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1252">
+              <caret line="126" column="0" lean-forward="false" selection-start-line="126" selection-start-column="0" selection-end-line="126" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -162,16 +165,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="592">
               <caret line="74" column="13" lean-forward="false" selection-start-line="74" selection-start-column="13" selection-end-line="74" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="live_ld_st_add_sub.c" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/live_ld_st_add_sub.c">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
-              <caret line="36" column="20" lean-forward="false" selection-start-line="36" selection-start-column="20" selection-end-line="36" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -228,20 +221,20 @@
         <option value="$PROJECT_DIR$/Makefile" />
         <option value="$PROJECT_DIR$/src/lldi.c" />
         <option value="$PROJECT_DIR$/src/sub_main2.c" />
-        <option value="$PROJECT_DIR$/src/sub_main3.c" />
         <option value="$PROJECT_DIR$/src/vizualize.c" />
         <option value="$PROJECT_DIR$/src/sub_main5.c" />
         <option value="$PROJECT_DIR$/src/initfunc.c" />
         <option value="$PROJECT_DIR$/src/read.c" />
         <option value="$PROJECT_DIR$/src/sub_main6.c" />
         <option value="$PROJECT_DIR$/src/main.c" />
-        <option value="$PROJECT_DIR$/src/sub_main4.c" />
         <option value="$PROJECT_DIR$/inc/corewar.h" />
         <option value="$PROJECT_DIR$/src/run_processes.c" />
         <option value="$PROJECT_DIR$/src/live_ld_st_add_sub.c" />
         <option value="$PROJECT_DIR$/src/sub_main.c" />
         <option value="$PROJECT_DIR$/src/inits.c" />
         <option value="$PROJECT_DIR$/src/bswp_errprint.c" />
+        <option value="$PROJECT_DIR$/src/sub_main3.c" />
+        <option value="$PROJECT_DIR$/src/sub_main4.c" />
       </list>
     </option>
   </component>
@@ -398,14 +391,7 @@
       <workItem from="1536071220076" duration="76000" />
       <workItem from="1536071300171" duration="5000" />
       <workItem from="1536144765769" duration="162000" />
-      <workItem from="1536570633587" duration="10575000" />
-    </task>
-    <task id="LOCAL-00017" summary="fix and or xor">
-      <created>1533818140829</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1533818140829</updated>
+      <workItem from="1536570633587" duration="11557000" />
     </task>
     <task id="LOCAL-00018" summary="update">
       <created>1533832199955</created>
@@ -743,11 +729,18 @@
       <option name="project" value="LOCAL" />
       <updated>1536584946539</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="update">
+      <created>1536591356225</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1536591356225</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="211021000" />
+    <option name="totallyTimeSpent" value="212003000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="2560" height="1440" extended-state="0" />
@@ -821,12 +814,12 @@
     <MESSAGE value="norme main" />
     <MESSAGE value="norme" />
     <MESSAGE value="fixed vis end" />
-    <MESSAGE value="update" />
     <MESSAGE value="music" />
     <MESSAGE value="fixed endgame" />
     <MESSAGE value="fixed live count" />
     <MESSAGE value="fixed norme" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed norme" />
+    <MESSAGE value="update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1055,14 +1048,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/lil_func.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="945">
-          <caret line="63" column="12" lean-forward="false" selection-start-line="63" selection-start-column="12" selection-end-line="63" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/vis_methods.c">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1087">
@@ -1107,14 +1092,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
           <caret line="25" column="33" lean-forward="false" selection-start-line="25" selection-start-column="33" selection-end-line="25" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sub_main3.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="26" column="26" lean-forward="false" selection-start-line="26" selection-start-column="26" selection-end-line="26" selection-end-column="26" />
           <folding />
         </state>
       </provider>
@@ -1175,14 +1152,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sub_main5.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="672">
-          <caret line="55" column="6" lean-forward="false" selection-start-line="55" selection-start-column="6" selection-end-line="55" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main.c">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
@@ -1201,32 +1170,56 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sub_main4.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="674">
-          <caret line="58" column="1" lean-forward="false" selection-start-line="58" selection-start-column="1" selection-end-line="58" selection-end-column="1" />
+        <state relative-caret-position="1177">
+          <caret line="107" column="29" lean-forward="false" selection-start-line="107" selection-start-column="29" selection-end-line="107" selection-end-column="29" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/read.c">
+    <entry file="file://$PROJECT_DIR$/src/lil_func.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1515">
-          <caret line="101" column="10" lean-forward="false" selection-start-line="101" selection-start-column="10" selection-end-line="101" selection-end-column="10" />
+        <state relative-caret-position="210">
+          <caret line="14" column="8" lean-forward="false" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/inits.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1102">
-          <caret line="104" column="71" lean-forward="false" selection-start-line="104" selection-start-column="71" selection-end-line="104" selection-end-column="71" />
+        <state relative-caret-position="1042">
+          <caret line="100" column="15" lean-forward="false" selection-start-line="100" selection-start-column="15" selection-end-line="100" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/read.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="967">
+          <caret line="101" column="10" lean-forward="false" selection-start-line="101" selection-start-column="10" selection-end-line="101" selection-end-column="10" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/bswp_errprint.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" column="53" lean-forward="false" selection-start-line="27" selection-start-column="53" selection-end-line="27" selection-end-column="53" />
+        <state relative-caret-position="900">
+          <caret line="60" column="19" lean-forward="false" selection-start-line="60" selection-start-column="19" selection-end-line="60" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sub_main5.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="825">
+          <caret line="55" column="6" lean-forward="false" selection-start-line="55" selection-start-column="6" selection-end-line="55" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sub_main3.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1252">
+          <caret line="126" column="0" lean-forward="false" selection-start-line="126" selection-start-column="0" selection-end-line="126" selection-end-column="0" />
           <folding />
         </state>
       </provider>
