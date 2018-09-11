@@ -26,7 +26,7 @@ int			main(int argc, char **argv)
 			end_game(pp, &viz_data);
 			break ;
 		}
-		if (pp->flags->d && pp->i == pp->flags->d)
+		if (pp->flags->di && pp->i == pp->flags->d)
 			break ;
 		if (pp->cycle_to_die <= 0)
 		{

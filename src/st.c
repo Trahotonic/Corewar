@@ -28,7 +28,7 @@ void	st_sup(t_process *pro, unsigned char *map, t_viz_data *viz_data)
 	while (n < 8)
 	{
 		k %= ((MEM_SIZE) * 2);
-		viz_data->mark_timeout[k] = 100;
+		viz_data->mark_timeout[k] = 1;
 		viz_data->viz_data[k] = pro->pl_number;
 		map[k++] = tmp[n++];
 	}

@@ -27,6 +27,7 @@ t_process	*pro_creator(t_player *players)
 	tmp->com2 = 0;
 	tmp->cycle_todo = 0;
 	tmp->iterator = 0;
+	tmp->proc_num = 1;
 	while (n < 16)
 		tmp->reg[n++] = 0;
 	tmp->reg[0] = players->player_number;

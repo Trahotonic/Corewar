@@ -12,6 +12,8 @@
 
 #include "../inc/corewar.h"
 
+int g_num = 3;
+
 t_process	*node_create(t_process *pro)
 {
 	t_process	*tmp;
@@ -30,6 +32,7 @@ t_process	*node_create(t_process *pro)
 	tmp->i_c = 0;
 	tmp->invalid_agr = 0;
 	tmp->t_dir = 0;
+	tmp->proc_num = g_num++;
 	while (n < 16)
 	{
 		tmp->reg[n] = pro->reg[n];

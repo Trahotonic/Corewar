@@ -44,6 +44,8 @@ int		sti_sup(t_process *pro, unsigned char *map)
 int		sti_sup2(t_process *processor)
 {
 	int	i;
+	int k;
+	int j;
 
 	if (ft_strlen(processor->arg3) == 4)
 		i = (((((short)(ab(processor->arg2, 16) +
@@ -51,8 +53,9 @@ int		sti_sup2(t_process *processor)
 			% (IDX_MOD)) * 2 + processor->cur_pos) % ((MEM_SIZE) * 2);
 	else
 	{
-		i = (((short)(ab(processor->arg2, 16) +
-					(int)processor->reg[ab(processor->arg3, 16) - 1])
+		k = (short)(ab(processor->arg2, 16));
+		j = (int)processor->reg[ab(processor->arg3, 16) - 1];
+		i = (((k + j)
 			% (IDX_MOD)) * 2 + processor->cur_pos) % ((MEM_SIZE) * 2);
 	}
 	if (i < 0)
@@ -108,7 +111,7 @@ void	sti(t_process *pro, unsigned char *map, t_viz_data *viz_data)
 	while (n < 8)
 	{
 		i %= (MEM_SIZE) * 2;
-		viz_data->mark_timeout[i] = 100;
+		viz_data->mark_timeout[i] = 1;
 		viz_data->viz_data[i] = pro->pl_number;
 		map[i++] = arg1[n++];
 	}

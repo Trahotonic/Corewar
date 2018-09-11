@@ -15,14 +15,18 @@
 int		ldi_sup3(t_process *pro)
 {
 	int	i;
+	int z;
+	int q;
 
 	if (ft_strlen(pro->arg2) == 4)
 		i = ((((short)ab(pro->arg1, 16) + (short)ab(pro->arg2, 16)) % (IDX_MOD))
 			* 2 + pro->cur_pos) % ((MEM_SIZE) * 2);
-	else
-		i = ((short)((short)ab(pro->arg1, 16)
-					+ pro->reg[ab(pro->arg2, 16) - 1])
-			% (IDX_MOD) * 2 + pro->cur_pos) % ((MEM_SIZE) * 2);
+	else {
+		z = ((short) ab(pro->arg1, 16));
+		q = ((int) pro->reg[ab(pro->arg2, 16) - 1]);
+		i = ((z + q)
+			 % (IDX_MOD) * 2 + pro->cur_pos) % ((MEM_SIZE) * 2);
+	}
 	return (i);
 }
 
