@@ -22,7 +22,7 @@ t_player	*ft_player_create(char *champ, int num)
 		tmp->num = num;
 		tmp->fd = open(champ, O_RDONLY);
 		if (tmp->fd == -1)
-			exit(printf("ERROR\n"));
+			exit(printf("Invalid champion provided\n"));
 		tmp->next = NULL;
 		tmp->last_alive = 0;
 		tmp->live_count = 0;
