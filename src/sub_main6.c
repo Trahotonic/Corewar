@@ -47,7 +47,11 @@ int		break_vis(t_proc_pack *pp, t_viz_data *viz_data)
 		viz_data->i = pp->i;
 		visualize(pp->map, pp->processes, viz_data);
 		if (partvis(pp, viz_data))
+		{
+			system("killall sh -c while;");
+			system("killall afplay");
 			return (1);
+		}
 		pp->c = 0;
 	}
 	return (0);
