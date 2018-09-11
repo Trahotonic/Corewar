@@ -101,16 +101,8 @@ void		run_processes(unsigned char *map, t_functions *array,
 
 	tmp[2] = '\0';
 	go = *proc_pack->processes_deep;
-	if (proc_pack->i == 12712)
-	{
-
-	}
 	while (go)
 	{
-		if (go->proc_num == 624)
-		{
-
-		}
 		if (check_invalid_1(&go) || check_invalid_2(go, tmp, map, array))
 			continue ;
 		if (go->cycle_todo > 0)

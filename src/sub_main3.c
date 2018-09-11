@@ -18,7 +18,7 @@ t_player	*ft_player_create(char *champ, int num)
 
 	if (ft_strstr2(champ, ".cor"))
 	{
-		tmp = (t_player *) malloc(sizeof(t_player));
+		tmp = (t_player *)malloc(sizeof(t_player));
 		tmp->num = num;
 		tmp->fd = open(champ, O_RDONLY);
 		if (tmp->fd == -1)
@@ -31,7 +31,6 @@ t_player	*ft_player_create(char *champ, int num)
 	}
 	else
 		exit(ft_printf("Invalid champion\n"));
-
 	return (tmp);
 }
 

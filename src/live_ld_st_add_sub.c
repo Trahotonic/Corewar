@@ -23,7 +23,7 @@ void	live(t_process *pro, int i, t_player *pl, t_arg_flags q)
 		{
 			pl->last_alive = i + 1;
 			if (!q.v && q.l)
-			ft_printf("A process shows that player %d (%s) is alive.\n",
+				ft_printf("A process shows that player %d (%s) is alive.\n",
 					pl->player_number * -1, pl->h.prog_name);
 			++pl->live_count_p;
 		}
