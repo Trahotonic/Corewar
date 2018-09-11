@@ -6,11 +6,10 @@
 /*   By: rkyslyy <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/13 13:08:36 by rkyslyy           #+#    #+#             */
-/*   Updated: 2017/12/13 13:08:37 by rkyslyy          ###   ########.fr       */
+/*   Updated: 2018/09/11 16:28:39 by rkyslyy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "libft.h"
 
 int					ft_check_nl(char *line)

@@ -27,16 +27,16 @@ void	ft_check_flag_n(t_player **players, char **argv, int *n)
 		while (argv[*n][i])
 		{
 			if (!ft_isdigit(argv[*n][i]))
-				exit(printf("Player number should be from -4 to -1 \n"));
+				exit(ft_printf("Player number should be from -4 to -1 \n"));
 			++i;
 		}
 		if (!argv[*n + 1] || (ft_atoi(argv[*n]) > -1 || ft_atoi(argv[*n]) < -4))
-			exit(printf("Player number should be from -4 to -1 \n"));
+			exit(ft_printf("Player number should be from -4 to -1 \n"));
 		ft_flag_n_sup(tmp, players, argv, *n);
 		(*n)++;
 	}
 	else
-		exit(printf("Player number should be from -4 to -1 \n"));
+		exit(ft_printf("Player number should be from -4 to -1 \n"));
 }
 
 void	ft_check_flags(t_player **players, char **argv,
@@ -55,7 +55,7 @@ void	ft_check_flags(t_player **players, char **argv,
 	else if (ft_strequ(argv[*n], "-l"))
 		flags->l = true;
 	else
-		exit(printf("Invalid arguments\n"));
+		exit(ft_printf("Invalid arguments\n"));
 }
 
 char	*ft_strstr2(const char *big, const char *little)
@@ -102,11 +102,11 @@ void	check_arguments(int argc, char **argv, t_arg_flags **flags,
 		else if (*argv[n] == '-')
 			ft_check_flags(players, argv, &n, *flags);
 		else
-			exit(printf("Invalid arguments\n"));
+			exit(ft_printf("Invalid arguments\n"));
 		n++;
 	}
 	if (!*players || get_players(*players) > 4)
-		exit(printf("No players provided or more then 4\n"));
+		exit(ft_printf("No players provided or more then 4\n"));
 	if ((*flags)->di == true && (*flags)->v == 1)
-		exit(printf("Invalid arguments\n"));
+		exit(ft_printf("Invalid arguments\n"));
 }

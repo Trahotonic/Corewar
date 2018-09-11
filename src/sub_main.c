@@ -45,23 +45,26 @@ static void	get_win_and_max(t_player **winner, int *max, t_player *players)
 	ptr = players;
 	while (players)
 	{
-		if (players->last_alive > *max)
+		if (players->last_alive >= *max)
 		{
 			*max = players->last_alive;
 			*winner = players;
 		}
 		players = players->next;
 	}
-	while (ptr)
-	{
-		if (ptr->last_alive == *max)
-		{
-			*winner = ptr;
-			if (*max != 0)
-				return ;
-		}
-		ptr = ptr->next;
-	}
+	if (*max != 0)
+		return ;
+	*winner = ptr;
+//	while (ptr)
+//	{
+//		if (ptr->last_alive == *max)
+//		{
+//			if (*max != 0)
+//				return ;
+//			*winner = ptr;
+//		}
+//		ptr = ptr->next;
+//	}
 }
 
 int			pick_winner(t_player *players, int vis, int pl)

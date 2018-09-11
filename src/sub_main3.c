@@ -22,7 +22,7 @@ t_player	*ft_player_create(char *champ, int num)
 		tmp->num = num;
 		tmp->fd = open(champ, O_RDONLY);
 		if (tmp->fd == -1)
-			exit(printf("Invalid champion provided\n"));
+			exit(ft_printf("Invalid champion provided\n"));
 		tmp->next = NULL;
 		tmp->last_alive = 0;
 		tmp->live_count = 0;
@@ -66,14 +66,14 @@ void		ft_check_flag_d(char **argv, int *n, t_arg_flags *flags)
 		while (argv[*n][i])
 		{
 			if (!ft_isdigit(argv[*n][i]))
-				exit(printf("invalid arguments\n"));
+				exit(ft_printf("invalid arguments\n"));
 			++i;
 		}
 		flags->d = ft_atoi(argv[*n]);
 		flags->di = true;
 	}
 	else
-		exit(printf("invalid arguments\n"));
+		exit(ft_printf("invalid arguments\n"));
 }
 
 void		ft_check_flag_vi(char **argv, int *n, t_arg_flags *flags)
@@ -87,14 +87,14 @@ void		ft_check_flag_vi(char **argv, int *n, t_arg_flags *flags)
 		while (argv[*n][i])
 		{
 			if (!ft_isdigit(argv[*n][i]))
-				exit(printf("invalid iteration\n"));
+				exit(ft_printf("invalid iteration\n"));
 			++i;
 		}
 		flags->vi = ft_atoi(argv[*n]);
 		flags->v = 1;
 	}
 	else
-		exit(printf("invalid arguments\n"));
+		exit(ft_printf("invalid arguments\n"));
 }
 
 void		ft_flag_n_sup(t_player *tmp, t_player **players, char **argv, int n)
@@ -113,12 +113,12 @@ void		ft_flag_n_sup(t_player *tmp, t_player **players, char **argv, int n)
 		while ((tmp)->next)
 		{
 			if (tmp->player_number == ft_atoi(argv[n]))
-				exit(printf("Error same number in players\n"));
+				exit(ft_printf("Error same number in players\n"));
 			tmp = (tmp)->next;
 			i++;
 		}
 		if (tmp->player_number == ft_atoi(argv[n]))
-			exit(printf("Error same number in players\n"));
+			exit(ft_printf("Error same number in players\n"));
 		(tmp)->next = ft_player_create(argv[n + 1], i);
 		(tmp)->next->player_number = ft_atoi(argv[n]);
 	}

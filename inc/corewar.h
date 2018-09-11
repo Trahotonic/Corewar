@@ -6,14 +6,13 @@
 /*   By: rkyslyy <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/31 13:44:26 by rkyslyy           #+#    #+#             */
-/*   Updated: 2018/08/31 13:44:27 by rkyslyy          ###   ########.fr       */
+/*   Updated: 2018/09/11 16:22:53 by rkyslyy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef COREWAR_COREWAR_H
 # define COREWAR_COREWAR_H
 
-# include <stdio.h>
 # include "../libft/libft.h"
 # include "visualization.h"
 

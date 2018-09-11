@@ -80,6 +80,9 @@ void	shmatok666(t_proc_pack *pp, t_viz_data *viz_data)
 int		kusok(t_proc_pack *pp, t_viz_data *viz_data)
 {
 	pp->cycle_to_die -= CYCLE_DELTA;
+	if (pp->flags->v && pp->i >= pp->flags->vi)
+		if (break_vis(pp, viz_data))
+			return (0);
 	iterate(pp, viz_data);
 	shmatok666(pp, viz_data);
 	if (!pp->processes)
