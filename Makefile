@@ -10,6 +10,8 @@ BUILDOBJS = $(addprefix $(BUILDDIR), $(SRCNAMES:.c=.o))
 LIBDIR = ./libft/
 LIBFT = ./libft/libft.a
 LIBINC = ./libft/
+CORHEAR = ./inc/corewar.h
+VISHEAD = ./inc/visualization.h
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
@@ -20,7 +22,7 @@ all: $(NAME)
 $(BUILDDIR)%.o:$(SRCDIR)%.c
 	$(CC) $(CFLAGS) -I$(LIBINC) -I$(INC) -o $@ -c $<
 
-$(NAME): $(LIBFT) $(BUILDOBJS)
+$(NAME): $(LIBFT) $(BUILDOBJS) $(CORHEAD) $(VISHEAD)
 	$(CC) $(CFLAGS) $(NC) -o $(NAME) $(BUILDOBJS) $(LIBFT)
 
 $(LIBFT):

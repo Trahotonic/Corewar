@@ -6,7 +6,7 @@
 /*   By: rkyslyy <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/31 13:44:26 by rkyslyy           #+#    #+#             */
-/*   Updated: 2018/09/11 16:22:53 by rkyslyy          ###   ########.fr       */
+/*   Updated: 2018/09/12 14:02:12 by rkyslyy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -191,7 +191,7 @@ void					init_processes(t_process **processes,
 									t_player *players);
 int						ft_iswhitespace(char const c);
 int						base(int c, int base);
-int						ab(const char *str, int str_base);
+int						ab(char *str, int base);
 void					read_shit(unsigned char *map, t_process *processor);
 int						saver(int tmp, int len, int plus);
 char					*ft_arrg_join(char *s1, char *s2);

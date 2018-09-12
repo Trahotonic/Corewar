@@ -6,7 +6,7 @@
 /*   By: msemenov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/30 15:04:22 by msemenov          #+#    #+#             */
-/*   Updated: 2018/08/30 15:04:26 by msemenov         ###   ########.fr       */
+/*   Updated: 2018/09/12 14:05:23 by rkyslyy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int		ft_iswhitespace(char const c)
 	return (0);
 }
 
-int		base(int c, int base)
+int		baser(int c, int base)
 {
 	char	*str;
 	char	*str2;
@@ -38,32 +38,32 @@ int		base(int c, int base)
 	return (-1);
 }
 
-int		ab(const char *str, int str_base)
+int		ab(char *str, int base)
 {
-	int	nb;
-	int	negatif;
-	int	i;
+	int	num;
+	int	minus;
+	int	n;
 
-	nb = 0;
-	i = 0;
-	negatif = 0;
-	while (ft_iswhitespace(str[i]))
-		i++;
-	if (str[i] == '+' || str[i] == '-')
+	num = 0;
+	n = 0;
+	minus = 0;
+	while (ft_iswhitespace(str[n]))
+		++n;
+	if (str[n] == '+' || str[n] == '-')
 	{
-		if (str[i] == '-')
-			negatif = 1;
-		i++;
+		if (str[n] == '-')
+			minus = 1;
+		++n;
 	}
-	while (base(str[i], str_base) != -1)
+	while (baser(str[n], base) != -1)
 	{
-		nb = nb * str_base;
-		nb = nb + base(str[i], str_base);
-		i++;
+		num = num * base;
+		num = num + baser(str[n], base);
+		++n;
 	}
-	if (negatif)
-		return (-nb);
-	return (nb);
+	if (minus)
+		return (-num);
+	return (num);
 }
 
 int		saver(int tmp, int base, int plus)
